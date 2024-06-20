@@ -12,7 +12,7 @@ Para consultar *infomações*, podemos utilizar comandos como `docker version` e
 ------------
 No docker, temos as famosas *imagens*, sendo as responsáveis por todo o funcionamento dessa ferramenta incrível. 
 
-####Docker File 🐋
+#### Docker File 🐋
 ------------
 Docker File são os arquivos responsáveis por toda a configuração do nosso ambiente, que servirá como base para que futuramente vire um container, para gerar nossos arquivos dockerfile, podemos usar `docker build -t getting-started`, para gerar um arquivo básico para nós;
 
@@ -25,7 +25,7 @@ Agora temos diversos comandos que podem ser combinados ou utilizados no lugar de
 
 > As imagens geradas por um dockerfile só podem ser upadas de forma unitária, para subirmos diversos containers precisamos utilizar do dockercompose, que vai fazer esse trabalho por nós, porém com as devidas configurações.
 
-####Containers 🚢
+#### Containers 🚢
 ------
 Containers são basicamente aplicações específicas que queremos subir na nossa máquina de forma eficiente e com otimização dos recursos disponíveis, a partir dos containers, configurados pelos arquivos do tipo *dockercompose.yml*, podemos definir serviços e configura-los conforme as nossas necessidades.  Alguns dos comandos básicos são: 
 
