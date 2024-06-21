@@ -5,7 +5,7 @@
 
 [Minha App](00-Docker/app)  
 
-[Oracle](00-Docker/db-oracle)  
+[Oracle](00-Docker/bd-oracle)  
 
-[Postgres](00-Docker/db-postgres)  
+[Postgres](00-Docker/bd-postgres)  
 
