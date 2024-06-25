@@ -1,6 +1,6 @@
 ## Links rápidos
 ----------
-## 01 - Docker
+## 01 - Docker 🐋
 
 [Comandos Docker](00-Docker/Docker.md)  
 
@@ -10,7 +10,7 @@
 
 [Postgres](00-Docker/bd-postgres)  
 
-## 02 - Java
+## 02 - Java ☕
 
 [Task 01](01-Java/Tasks/src)  
 
