@@ -12,6 +12,6 @@
 
 ## 02 - Java
 
-[Task 01](01-Java/Tasks)  
+[Task 01](01-Java/Tasks/src)  
 
 
