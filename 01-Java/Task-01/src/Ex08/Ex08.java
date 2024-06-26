@@ -65,8 +65,6 @@ public class Ex08 {
                     }
                     break;
             }
-
-
         }
 
         System.out.println("Sistema encerrado.");
