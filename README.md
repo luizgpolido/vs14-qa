@@ -1,4 +1,11 @@
+<div align="center">
+
+![Logo](https://vemser.dbccompany.com.br/vemser/captacao-front/static/media/logo-blue.dfa099c315b365b5480c.webp)
+
+
 ## Links rápidos
+</div>
+
 ----------
 ## 01 - Docker 🐋
 
@@ -12,6 +19,11 @@
 
 ## 02 - Java ☕
 
-[Task 01](01-Java/Task01/src)  
+[Task 01](01-Java/Task-01/src)
+
+[Task 02](01-Java/Task-02)
+
+[Task 03](01-Java/Task-03)  
+
 
 
