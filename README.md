@@ -12,9 +12,9 @@
 
 ## 02 - Java ☕
 
-[Task 01](01-Java/Task01/src)
-[Task 02](01-Java/Task02)  
-[Task 03](01-Java/Task03)  
+[Task 01](01-Java/Task-01/src)
+[Task 02](01-Java/Task-02)  
+[Task 03](01-Java/Task-03)  
 
 
 
