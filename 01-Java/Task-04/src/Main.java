@@ -13,14 +13,18 @@ public class Main {
         List<Customer> customersList = new ArrayList<>();
         List<Product> productList = new ArrayList<>();
 
+        String name;
+        String email;
+        int stock;
+
         while (true) {
             System.out.println("""
                     =======================
-                    | 1 - Create Account  |
-                    | 2 - Access Account  | 
-                    | 3 - Create Product  | 
-                    | 4 - Delete Product  | 
-                    | 5 - Exit Store      |
+                    | 1 - Criar conta     |
+                    | 2 - Acessar conta   | 
+                    | 3 - Criar Produto   | 
+                    | 4 - Deletar Produto | 
+                    | 5 - Sair da loja    |
                     =======================
                     """);
             int opt = scanner.nextInt();
@@ -28,66 +32,94 @@ public class Main {
 
             switch (opt) {
                 case 1:
-                    System.out.print("Insert the account name: ");
-                    String name = scanner.nextLine();
-                    System.out.print("Insert the account email: ");
-                    String email = scanner.nextLine();
+                    System.out.print("Insira o nome da conta: ");
+                    name = scanner.nextLine();
+                    System.out.print("Insira o nome do email: "); ///Validar se já existe esse email cadastrado
+                    email = scanner.nextLine();
                     // Lista de Clientes instanciada com uma lista de produtos dentro dela, consultar CustomerShoppingBag para entender
                     // Usando upcasting da CustomerShoppingBag na Lista do tipo Customer
                     customersList.add(new CustomerShoppingBag(name, email, new ArrayList<Product>()));
                     break;
                 case 2:
-                    System.out.println("Insert the account email: ");
+                    System.out.println("Insira a conta do email: ");
                     email = scanner.nextLine();
                     Customer menuCostumer = findCostumer(email, customersList);
 
                     if (menuCostumer == null) {
+                        System.out.println("Email não cadastrado ou digitado incorretamente");
                         break;
                     }
 
                     while (true) {
                         System.out.println("""
-                                =======================
-                                | 1 - List products   |
-                                | 2 - Add product     |
-                                | 3 - Remove product  |
-                                | 4 - Check the bag   | 
-                                | 5 - Exit Account    |
-                                =======================
+                                ==========================
+                                | 1 - Listar produtos    |
+                                | 2 - Adicionar produto  |
+                                | 3 - Remover produto    |
+                                | 4 - Finalizar carrinho | 
+                                | 5 - Sair da conta      |
+                                ==========================
                                 """);
-                            opt = scanner.nextInt();
-                            scanner.nextLine();
+                        opt = scanner.nextInt();
+                        scanner.nextLine();
 
-                            switch (opt){
-                                case 1:
-                                    for (Product product : productList){
-                                        System.out.println(product);
-                                    }
+                        switch (opt) {
+                            //lstar produtos
+                            case 1:
+                                for (Product product : productList) {
+                                    System.out.println(product);
+                                }
+                                break;
+                            //adicionar produto
+                            case 2:
+                                System.out.print("Insira o nome do produto: ");
+                                String productName = scanner.nextLine();
+                                Product product = findProduct(productName, productList);
+
+                                if (product == null) {
+                                    System.out.println("");
                                     break;
-                                case 2:
-                                    System.out.print("Insert the name of the product: ");
-                                    String productName = scanner.nextLine();
-                                    Product product = findProduct(productName, productList);
+                                }
 
-                                    if (product == null) {
-                                        break;
-                                    }
 
-                                    //TODO IMPLEMENTAR REGRA DE NEGÓCIO (ADICIONAR PRODUTO NA LISTA USANDO .SETAMOUNT E DEDUZINDO A QUANTIDADE DO ESTOQUE)
-                                    System.out.println("Insert the amount: ");
-                                    int amount = scanner.nextInt();
+                                //TODO IMPLEMENTAR REGRA DE NEGÓCIO (ADICIONAR PRODUTO NA LISTA USANDO .SETAMOUNT E DEDUZINDO A QUANTIDADE DO ESTOQUE)
+                                System.out.print("Insira o nome do produto: ");
+                                int amount = scanner.nextInt();
 
-                                    break;
-                                case 3:
+                                break;
+                            //remover produto
+                            case 3:
 
-                                    break;
-                            }
+                                break;
+                            //verificar carrinho
+                            case 4:
+                                break;
+
+                            case 5:
+                                System.out.println("Retornando...");
+                                return;
+
+                        }
                     }
 
+
+                case 3: //create product
+                    System.out.println("Digite o nome do produto: ");
+                    name = scanner.nextLine();
+                    //Validar se esse produto já está cadastrado no sistema
+                    System.out.println("Digite o preço do produto: ");
+                    double price = scanner.nextDouble();
+                    System.out.println("Digite a quantidade desse produto em estoque: ");
+                    stock = scanner.nextInt();
+                    productList.add(new Product(name, price, stock));
                     break;
-                case 3:
-                    System.out.println("Closing store...");
+                case 4: //delete product
+                    System.out.println("Digite o nome do produto: ");
+                    productList.removeIf(product -> product.getName().equals(scanner.nextLine()));
                     break;
+                case 5:
+                    System.out.println("Fechando loja...");
+                    return;
             }
         }
     }
@@ -103,7 +135,7 @@ public class Main {
         }
 
         if (!costumerExist) {
-            System.out.println("Account not found.");
+            System.out.println("Conta não encontrada.");
         }
 
         return null;
@@ -120,7 +152,7 @@ public class Main {
         }
 
         if (!productExist) {
-            System.out.println("Product not found.");
+            System.out.println("Produto não encontrado.");
         }
 
         return null;

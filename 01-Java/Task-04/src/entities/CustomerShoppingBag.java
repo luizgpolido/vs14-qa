@@ -17,8 +17,9 @@ public class CustomerShoppingBag extends Customer {
     }
 
     //TODO IMPLEMENTAR REGRA DE NEGOCIO CITADA NA MAIN
-    public void addProduct(Product product){
+    public void addProduct(Product product) {
         shoppingBagList.add(product);
     }
 
+    // remove product
 }
