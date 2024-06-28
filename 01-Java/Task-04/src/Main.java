@@ -7,6 +7,9 @@ import services.ShoppingBagServices;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+import java.util.regex.Pattern;
+import java.util.regex.Matcher;
+
 
 public class Main {
     public static void main(String[] args) {
@@ -39,12 +42,22 @@ public class Main {
                     name = scanner.nextLine();
                     System.out.print("Insira o nome do email: "); //Validar se já existe esse email cadastrado
                     email = scanner.nextLine();
+
+                    if (findCostumer(email, customersList) != null) {
+                        System.out.println("Email já existente!");
+                        break;
+                    }
+
                     customersList.add(new CustomerShoppingBag(name, email, new ArrayList<ProductEntry>()));
                     break;
                 case 2:
                     System.out.println("Insira a conta do email: ");
                     email = scanner.nextLine();
                     Customer activeCustomer = findCostumer(email, customersList);
+                    if (activeCustomer == null) {
+                        System.out.println("Conta não encontrada.");
+                        break;
+                    }
                     CustomerShoppingBag customerShoppingBag = (CustomerShoppingBag) activeCustomer;
 
 
@@ -147,10 +160,6 @@ public class Main {
                 costumerExist = true;
                 return customer;
             }
-        }
-
-        if (!costumerExist) {
-            System.out.println("Conta não encontrada.");
         }
 
         return null;
