@@ -14,6 +14,7 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         List<Customer> customersList = new ArrayList<>();
         List<Product> productList = new ArrayList<>();
+        ShoppingBagServices shoppingBagServices = new ShoppingBagServices();
 
         String name;
         String email;
@@ -36,10 +37,8 @@ public class Main {
                 case 1:
                     System.out.print("Insira o nome da conta: ");
                     name = scanner.nextLine();
-                    System.out.print("Insira o nome do email: "); ///Validar se já existe esse email cadastrado
+                    System.out.print("Insira o nome do email: "); //Validar se já existe esse email cadastrado
                     email = scanner.nextLine();
-                    // Lista de Clientes instanciada com uma lista de produtos dentro dela, consultar CustomerShoppingBag para entender
-                    // Usando upcasting da CustomerShoppingBag na Lista do tipo Customer
                     customersList.add(new CustomerShoppingBag(name, email, new ArrayList<ProductEntry>()));
                     break;
                 case 2:
@@ -56,13 +55,14 @@ public class Main {
 
                     while (true) {
                         System.out.println("""
-                                ==========================
-                                | 1 - Listar produtos    |
-                                | 2 - Adicionar produto  |
-                                | 3 - Remover produto    |
-                                | 4 - Finalizar carrinho | 
-                                | 5 - Sair da conta      |
-                                ==========================
+                                ======================================
+                                | 1 - Listar produtos                |
+                                | 2 - Adicionar produto no carrinho  |
+                                | 3 - Remover produto                |
+                                | 4 - Finalizar carrinho             |
+                                | 5 - Listar carrinho                |
+                                | 6 - Sair da conta                  |
+                                ======================================
                                 """);
                         opt = scanner.nextInt();
                         scanner.nextLine();
@@ -86,25 +86,31 @@ public class Main {
                                 }
 
                                 System.out.print("Insira a quantidade: ");
-                                Integer amount = (Integer) scanner.nextInt();
-
+                                int amount = scanner.nextInt();
+                                scanner.nextLine();
                                 ProductEntry productEntry = new ProductEntry(product, amount);
                                 shoppingBagCustomer.addProduct(productEntry);
 
                                 break;
                             //remover produto
                             case 3:
-
+                                System.out.println("Informe o nome do produto: ");
+                                shoppingBagCustomer.removeProduct(scanner.nextLine());
                                 break;
                             //verificar carrinho
                             case 4:
-                                ShoppingBagServices shoppingBagServices = new ShoppingBagServices();
+                                shoppingBagServices = new ShoppingBagServices();
                                 shoppingBagServices.generateCoupon(shoppingBagCustomer, menuCostumer);
                                 break;
 
                             case 5:
+                                shoppingBagServices = new ShoppingBagServices();
+                                shoppingBagServices.listBag(shoppingBagCustomer, menuCostumer);
+                                break;
+                            case 6:
+
                                 System.out.println("Retornando...");
-                                return;
+                                break;
 
                         }
                     }
@@ -115,9 +121,10 @@ public class Main {
                     name = scanner.nextLine();
                     //Validar se esse produto já está cadastrado no sistema
                     System.out.println("Digite o preço do produto: ");
-                    double price = scanner.nextDouble();
+                    double price = Double.parseDouble(scanner.nextLine());
                     System.out.println("Digite a quantidade desse produto em estoque: ");
                     stock = scanner.nextInt();
+                    scanner.nextLine();
                     productList.add(new Product(name, price, stock));
                     break;
                 case 4: //delete product
@@ -165,3 +172,5 @@ public class Main {
         return null;
     }
 }
+
+// checagens gerais de variaveis (add e rm prod)

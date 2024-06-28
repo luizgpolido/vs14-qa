@@ -4,6 +4,7 @@ import java.util.List;
 
 public class Product {
 
+
     private String name;
     private double price;
     private int stock;
@@ -39,8 +40,11 @@ public class Product {
         this.stock = stock;
     }
 
+    public void addStock(int add) {this.stock += add;}
+
     @Override
     public String toString() {
-        return STR."\nProduct: \{name}\nPrice: \{price}Stock: \{stock}";
+        return String.format("\nProduct: %s\nPrice: %.2f\nStock: %d", name, price, stock);
     }
+
 }

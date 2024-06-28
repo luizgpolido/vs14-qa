@@ -17,11 +17,22 @@ public class CustomerShoppingBag extends Customer {
         return shoppingBagList;
     }
 
-    //TODO IMPLEMENTAR REGRA DE NEGOCIO CITADA NA MAIN
-    public void addProduct(ProductEntry productWithAmount) {
-        shoppingBagList.add(productWithAmount);
+    public void addProduct(ProductEntry productEntry) {
+        shoppingBagList.add(productEntry);
+        Product produto = productEntry.getProduct();
+        produto.setStock(produto.getStock() - productEntry.getAmount());
     }
 
     // remove product
     //não pode pegar mais do q tem em estoque
+    public void removeProduct(String productName) {
+        for (ProductEntry productEntry : shoppingBagList) {
+            if (productEntry.getProduct().getName().equals(productName)) {
+                Product product = productEntry.getProduct();
+                int amount = productEntry.getAmount();
+                product.addStock(amount);
+            }
+        }
+        shoppingBagList.removeIf(productEntry -> productEntry.getProduct().getName().equals(productName));
+    }
 }

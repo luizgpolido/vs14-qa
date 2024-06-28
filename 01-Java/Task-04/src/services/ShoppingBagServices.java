@@ -34,4 +34,21 @@ public class ShoppingBagServices {
         System.out.println("Total: R$" + total);
         System.out.println("============================");
     }
+
+
+    public void listBag(CustomerShoppingBag customerShoppingBag, Customer customer) {
+        List<ProductEntry> shoppingBag = customerShoppingBag.getShoppingBagList();
+        System.out.println("========== Seu carrinho ==========");
+        System.out.println();
+        System.out.println("Produtos:");
+        for (int i = 0; i < shoppingBag.size(); i++) {
+            System.out.println("- " + shoppingBag.get(i).getProduct().getName() +
+                    " | Quantidade: " + shoppingBag.get(i).getProduct().getStock() + " | Preço unitário: R$" +
+                    shoppingBag.get(i).getProduct().getPrice());
+        }
+        double total = calculateShoppingBag(shoppingBag);
+        System.out.println("Total: R$" + total);
+        System.out.println();
+        System.out.println("============================");
+    }
 }
