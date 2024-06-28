@@ -1,15 +1,19 @@
 package entities;
 
+import java.util.List;
+
 public class Product {
 
     private String name;
     private double price;
     private int stock;
+    private List<Product> shoppingBagList;
 
-    public Product(String name, double price, int stock) {
+    public Product(String name, double price, int stock, List<Product> shoppingBagList) {
         this.name = name;
         this.price = price;
         this.stock = stock;
+        this.shoppingBagList = shoppingBagList;
     }
 
     public String getName() {

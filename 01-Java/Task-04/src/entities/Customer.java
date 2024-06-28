@@ -1,13 +1,17 @@
 package entities;
 
+import java.util.ArrayList;
+
 public class Customer {
 
     private String name;
     private String email;
+    private CustomerShoppingBag shoppingBag;
 
     public Customer(String name, String email) {
         this.name = name;
         this.email = email;
+        this.shoppingBag = new CustomerShoppingBag(name, email, new ArrayList<Product>());
     }
 
     public String getName() {
