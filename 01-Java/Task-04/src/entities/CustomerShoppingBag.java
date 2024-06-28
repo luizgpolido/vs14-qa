@@ -22,4 +22,5 @@ public class CustomerShoppingBag extends Customer {
     }
 
     // remove product
+    //não pode pegar mais do q tem em estoque
 }
