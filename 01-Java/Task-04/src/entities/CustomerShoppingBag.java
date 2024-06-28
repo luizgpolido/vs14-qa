@@ -5,20 +5,21 @@ import java.util.List;
 
 public class CustomerShoppingBag extends Customer {
 
-    private List<Product> shoppingBagList;
+    // {Product, amount(Integer)}
+    private List<List<Object>> shoppingBagList;
 
-    public CustomerShoppingBag(String name, String email, List<Product> shoppingBagList) {
+    public CustomerShoppingBag(String name, String email, List<List<Object>> shoppingBagList) {
         super(name, email);
         this.shoppingBagList = shoppingBagList;
     }
 
-    public List<Product> getShoppingBagList() {
+    public List<List<Object>> getShoppingBagList() {
         return shoppingBagList;
     }
 
     //TODO IMPLEMENTAR REGRA DE NEGOCIO CITADA NA MAIN
-    public void addProduct(Product product) {
-        shoppingBagList.add(product);
+    public void addProduct(List<Object> productWithAmount) {
+        shoppingBagList.add(productWithAmount);
     }
 
     // remove product

@@ -4,6 +4,7 @@ import entities.Product;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.Scanner;
 
 public class Main {
@@ -36,9 +37,8 @@ public class Main {
                     name = scanner.nextLine();
                     System.out.print("Insira o nome do email: "); ///Validar se já existe esse email cadastrado
                     email = scanner.nextLine();
-                    // Lista de Clientes instanciada com uma lista de produtos dentro dela, consultar CustomerShoppingBag para entender
-                    // Usando upcasting da CustomerShoppingBag na Lista do tipo Customer
-                    customersList.add(new CustomerShoppingBag(name, email, new ArrayList<Product>()));
+
+                    customersList.add(new Customer(name, email));
                     break;
                 case 2:
                     System.out.println("Insira a conta do email: ");
@@ -81,10 +81,16 @@ public class Main {
                                     break;
                                 }
 
+                                System.out.print("Insira a quantidade: ");
+                                Integer amount = scanner.nextInt();
 
                                 //TODO IMPLEMENTAR REGRA DE NEGÓCIO (ADICIONAR PRODUTO NA LISTA USANDO .SETAMOUNT E DEDUZINDO A QUANTIDADE DO ESTOQUE)
-                                System.out.print("Insira o nome do produto: ");
-                                int amount = scanner.nextInt();
+                                CustomerShoppingBag shoppingBagCustomer = (CustomerShoppingBag) menuCostumer;
+                                List<Object> productWithAmount = new ArrayList<Object>();
+                                productWithAmount.add(product);
+                                productWithAmount.add(amount);
+                                shoppingBagCustomer.addProduct(productWithAmount);
+
 
                                 break;
                             //remover produto
