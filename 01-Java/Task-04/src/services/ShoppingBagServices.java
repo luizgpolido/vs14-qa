@@ -13,7 +13,7 @@ public class ShoppingBagServices {
     public double calculateShoppingBag(List<ProductEntry> shoppingBag) {
        double   total = 0;
         for (int i = 0; i < shoppingBag.size(); i++) {
-            total += shoppingBag.get(i).getProduct().getPrice()*shoppingBag.get(i).getProduct().getStock();
+            total += shoppingBag.get(i).getProduct().getPrice()*shoppingBag.get(i).getAmount();
         }
         System.out.println("Total: " + total);
         return total;
@@ -27,7 +27,7 @@ public class ShoppingBagServices {
         System.out.println("Produtos:");
         for (int i = 0; i < shoppingBag.size(); i++) {
             System.out.println("- " + shoppingBag.get(i).getProduct().getName() +
-                    " | Quantidade: " + shoppingBag.get(i).getProduct().getStock() + " | Preço unitário: R$" +
+                    " | Quantidade: " + shoppingBag.get(i).getAmount() + " | Preço unitário: R$" +
                     shoppingBag.get(i).getProduct().getPrice());
         }
         double total = calculateShoppingBag(shoppingBag);
@@ -41,11 +41,14 @@ public class ShoppingBagServices {
         System.out.println("========== Seu carrinho ==========");
         System.out.println();
         System.out.println("Produtos:");
-        for (int i = 0; i < shoppingBag.size(); i++) {
-            System.out.println("- " + shoppingBag.get(i).getProduct().getName() +
-                    " | Quantidade: " + shoppingBag.get(i).getProduct().getStock() + " | Preço unitário: R$" +
-                    shoppingBag.get(i).getProduct().getPrice());
+
+        for (ProductEntry shoppingBagI : shoppingBag) {
+            System.out.println("- " + shoppingBagI.getProduct().getName() +
+                    " | Quantidade: " + shoppingBagI.getAmount() + " | Preço unitário: R$" +
+                    shoppingBagI.getProduct().getPrice());
         }
+
+
         double total = calculateShoppingBag(shoppingBag);
         System.out.println("Total: R$" + total);
         System.out.println();

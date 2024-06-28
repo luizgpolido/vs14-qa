@@ -44,23 +44,23 @@ public class Main {
                 case 2:
                     System.out.println("Insira a conta do email: ");
                     email = scanner.nextLine();
-                    Customer menuCostumer = findCostumer(email, customersList);
-                    CustomerShoppingBag shoppingBagCustomer = (CustomerShoppingBag) menuCostumer;
+                    Customer activeCustomer = findCostumer(email, customersList);
+                    CustomerShoppingBag customerShoppingBag = (CustomerShoppingBag) activeCustomer;
 
 
-                    if (menuCostumer == null) {
+                    if (activeCustomer == null) {
                         System.out.println("Email não cadastrado ou digitado incorretamente");
                         break;
                     }
-
-                    while (true) {
+                    boolean running = true;
+                    while (running) {
                         System.out.println("""
                                 ======================================
                                 | 1 - Listar produtos                |
                                 | 2 - Adicionar produto no carrinho  |
                                 | 3 - Remover produto                |
-                                | 4 - Finalizar carrinho             |
-                                | 5 - Listar carrinho                |
+                                | 4 - Gerar nota fiscal              |
+                                | 5 - Exibir carrinho                |
                                 | 6 - Sair da conta                  |
                                 ======================================
                                 """);
@@ -68,7 +68,7 @@ public class Main {
                         scanner.nextLine();
 
                         switch (opt) {
-                            //lstar produtos
+                            //listar produtos
                             case 1:
                                 for (Product product : productList) {
                                     System.out.println(product);
@@ -89,32 +89,33 @@ public class Main {
                                 int amount = scanner.nextInt();
                                 scanner.nextLine();
                                 ProductEntry productEntry = new ProductEntry(product, amount);
-                                shoppingBagCustomer.addProduct(productEntry);
+                                customerShoppingBag.addProduct(productEntry);
 
                                 break;
                             //remover produto
                             case 3:
                                 System.out.println("Informe o nome do produto: ");
-                                shoppingBagCustomer.removeProduct(scanner.nextLine());
+                                name = scanner.nextLine();
+                                System.out.println("Quantos deseja remover? ");
+                                int amountToRemove =  scanner.nextInt();
+                                customerShoppingBag.removeProduct(name, amountToRemove);
                                 break;
-                            //verificar carrinho
+                            //gerar nota fiscal
                             case 4:
-                                shoppingBagServices = new ShoppingBagServices();
-                                shoppingBagServices.generateCoupon(shoppingBagCustomer, menuCostumer);
+                                shoppingBagServices.generateCoupon(customerShoppingBag, activeCustomer);
                                 break;
-
+                            // mostra o carrinho
                             case 5:
-                                shoppingBagServices = new ShoppingBagServices();
-                                shoppingBagServices.listBag(shoppingBagCustomer, menuCostumer);
+                                shoppingBagServices.listBag(customerShoppingBag, activeCustomer);
                                 break;
                             case 6:
-
+                                running = false;
                                 System.out.println("Retornando...");
                                 break;
 
                         }
                     }
-
+                    break;
 
                 case 3: //create product
                     System.out.println("Digite o nome do produto: ");
@@ -173,4 +174,6 @@ public class Main {
     }
 }
 
-// checagens gerais de variaveis (add e rm prod)
+// TODO checagens gerais de variaveis (add e rm prod)
+// TODO checar se produto ja existe quando for criar um novo
+// TODO checar se customer ja existe quando for criar um novo
