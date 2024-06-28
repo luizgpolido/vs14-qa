@@ -1,31 +1,37 @@
 package services;
 
+import entities.Customer;
+import entities.CustomerShoppingBag;
+import entities.ProductEntry;
+
 import java.util.List;
 
 public class ShoppingBagServices {
 
     //TODO IMPLEMENTAR CLASSE, CRIAR REGRAS DE NEGÓCIO NO CALCULO DA SACOLA (MÉTODO COMPLEXO, POR ISSO SEPAREI EM OUTRA CLASSE!)
 
-    // calcular carrinho
-    public void calculateShoppingBag(List<Product> shoppingBagList) {
+    public double calculateShoppingBag(List<ProductEntry> shoppingBag) {
        double   total = 0;
-        for (Product product : shoppingBagList) {
-            total += product.getPrice()*product.getStock();
+        for (int i = 0; i < shoppingBag.size(); i++) {
+            total += shoppingBag.get(i).getProduct().getPrice()*shoppingBag.get(i).getProduct().getStock();
         }
         System.out.println("Total: " + total);
+        return total;
     }
 
-    public void generateCoupon(CustomerShoppingBag shoppingBag) {
+    public void generateCoupon(CustomerShoppingBag customerShoppingBag, Customer customer) {
+        List<ProductEntry> shoppingBag = customerShoppingBag.getShoppingBagList();
         System.out.println("========== Recibo ==========");
-        System.out.println("Cliente: " + shoppingBag.getName());
-        System.out.println("Email: " + shoppingBag.getEmail());
+        System.out.println("Cliente: " + customer.getName());
+        System.out.println("Email: " + customer.getEmail());
         System.out.println("Produtos:");
-        for (Product product : shoppingBag.getShoppingBagList()) {
-            System.out.println("- " + product.getName() + " | Quantidade: " + product.getQuantity() + " | Preço unitário: R$" + product.getPrice());
+        for (int i = 0; i < shoppingBag.size(); i++) {
+            System.out.println("- " + shoppingBag.get(i).getProduct().getName() +
+                    " | Quantidade: " + shoppingBag.get(i).getProduct().getStock() + " | Preço unitário: R$" +
+                    shoppingBag.get(i).getProduct().getPrice());
         }
-        double total = calcularTotal(shoppingBag.getShoppingBagList());
+        double total = calculateShoppingBag(shoppingBag);
         System.out.println("Total: R$" + total);
         System.out.println("============================");
     }
-
 }

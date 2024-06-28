@@ -1,10 +1,11 @@
 import entities.Customer;
 import entities.CustomerShoppingBag;
 import entities.Product;
+import entities.ProductEntry;
+import services.ShoppingBagServices;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 import java.util.Scanner;
 
 public class Main {
@@ -37,13 +38,16 @@ public class Main {
                     name = scanner.nextLine();
                     System.out.print("Insira o nome do email: "); ///Validar se já existe esse email cadastrado
                     email = scanner.nextLine();
-
-                    customersList.add(new Customer(name, email));
+                    // Lista de Clientes instanciada com uma lista de produtos dentro dela, consultar CustomerShoppingBag para entender
+                    // Usando upcasting da CustomerShoppingBag na Lista do tipo Customer
+                    customersList.add(new CustomerShoppingBag(name, email, new ArrayList<ProductEntry>()));
                     break;
                 case 2:
                     System.out.println("Insira a conta do email: ");
                     email = scanner.nextLine();
                     Customer menuCostumer = findCostumer(email, customersList);
+                    CustomerShoppingBag shoppingBagCustomer = (CustomerShoppingBag) menuCostumer;
+
 
                     if (menuCostumer == null) {
                         System.out.println("Email não cadastrado ou digitado incorretamente");
@@ -82,15 +86,10 @@ public class Main {
                                 }
 
                                 System.out.print("Insira a quantidade: ");
-                                Integer amount = scanner.nextInt();
+                                Integer amount = (Integer) scanner.nextInt();
 
-                                //TODO IMPLEMENTAR REGRA DE NEGÓCIO (ADICIONAR PRODUTO NA LISTA USANDO .SETAMOUNT E DEDUZINDO A QUANTIDADE DO ESTOQUE)
-                                CustomerShoppingBag shoppingBagCustomer = (CustomerShoppingBag) menuCostumer;
-                                List<Object> productWithAmount = new ArrayList<Object>();
-                                productWithAmount.add(product);
-                                productWithAmount.add(amount);
-                                shoppingBagCustomer.addProduct(productWithAmount);
-
+                                ProductEntry productEntry = new ProductEntry(product, amount);
+                                shoppingBagCustomer.addProduct(productEntry);
 
                                 break;
                             //remover produto
@@ -99,6 +98,8 @@ public class Main {
                                 break;
                             //verificar carrinho
                             case 4:
+                                ShoppingBagServices shoppingBagServices = new ShoppingBagServices();
+                                shoppingBagServices.generateCoupon(shoppingBagCustomer, menuCostumer);
                                 break;
 
                             case 5:

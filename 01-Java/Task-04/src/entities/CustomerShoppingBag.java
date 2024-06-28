@@ -1,24 +1,24 @@
 package entities;
 
-import java.util.ArrayList;
 import java.util.List;
+
 
 public class CustomerShoppingBag extends Customer {
 
     // {Product, amount(Integer)}
-    private List<List<Object>> shoppingBagList;
+    private List<ProductEntry> shoppingBagList;
 
-    public CustomerShoppingBag(String name, String email, List<List<Object>> shoppingBagList) {
+    public CustomerShoppingBag(String name, String email, List<ProductEntry> shoppingBagList) {
         super(name, email);
         this.shoppingBagList = shoppingBagList;
     }
 
-    public List<List<Object>> getShoppingBagList() {
+    public List<ProductEntry> getShoppingBagList() {
         return shoppingBagList;
     }
 
     //TODO IMPLEMENTAR REGRA DE NEGOCIO CITADA NA MAIN
-    public void addProduct(List<Object> productWithAmount) {
+    public void addProduct(ProductEntry productWithAmount) {
         shoppingBagList.add(productWithAmount);
     }
 

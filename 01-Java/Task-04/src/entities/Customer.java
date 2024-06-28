@@ -1,7 +1,6 @@
 package entities;
 
-import java.util.ArrayList;
-import java.util.List;
+
 
 public class Customer {
 
@@ -12,7 +11,6 @@ public class Customer {
     public Customer(String name, String email) {
         this.name = name;
         this.email = email;
-        this.shoppingBag = new CustomerShoppingBag(name, email, new ArrayList<List<Object>>());
     }
 
     public String getName() {
@@ -27,8 +25,8 @@ public class Customer {
         return email;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public CustomerShoppingBag getShoppingBag() {
+        return shoppingBag;
     }
 
 }
