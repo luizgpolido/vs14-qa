@@ -25,8 +25,9 @@ public class Battle {
 
 
 
-    public void battle() {
-
+    public void battle() throws InterruptedException {
+        MusicPlayer musicPlayer = new MusicPlayer();
+        musicPlayer.playerBattleMusic();
         MenuService menuService = new MenuService();
 
 
@@ -78,12 +79,22 @@ public class Battle {
             System.out.println(player1.getName() + " agora tem " + player1.getHitPoints() + " pontos de vida.\n");
 
         }
+        musicPlayer.stopMusic();
+
         System.out.println("-----------------------------------------------------------------------");
         if (player1.getHitPoints() <= 0) {
             System.out.println("*************** " + player2.getName() + " venceu o combate!"+ " ***************");
+            musicPlayer.playerGameOverMusic();
+            Thread.sleep (8000);
+            System.out.println("-----------------------------------------------------------------------");
         } else {
+
             System.out.println("*************** " + player1.getName() + " venceu o combate!" + " ***************");
+            musicPlayer.playerWinMusic();
+            Thread.sleep (8000);
+            System.out.println("-----------------------------------------------------------------------");
         }
-        System.out.println("-----------------------------------------------------------------------");
+        musicPlayer.stopMusic();
+
     }
 }

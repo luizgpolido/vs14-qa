@@ -2,11 +2,14 @@ import entities.Battle;
 import entities.Java;
 import entities.React;
 import services.MenuService;
+import entities.MusicPlayer;
 
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) throws InterruptedException {
+        MusicPlayer musicPlayer = new MusicPlayer();
+        musicPlayer.playerIntroMusic();
 
         Scanner scanner = new Scanner(System.in);
         MenuService menuService = new MenuService();
@@ -29,10 +32,13 @@ public class Main {
             switch (opt) {
                 case 1:
                     // new player and npc
+                    musicPlayer.stopMusic();
                     Java player1 = new Java(16, 2, "Javoso");
                     React player2 = new React(16, 2, "Reactero");
                     Battle battle = new Battle(player1, player2);
                     battle.battle();
+                    musicPlayer.playerIntroMusic()
+                    ;
                     break;
                 case 2:
                     System.out.println("");
