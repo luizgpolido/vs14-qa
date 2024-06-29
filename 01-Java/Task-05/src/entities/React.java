@@ -36,6 +36,7 @@ public class React extends Character {
             System.out.println("ERROU!");
         } else {
             super.setHitPoints(getHitPoints() - damage);
+            System.out.println(getName()+" sofreu " + damage + " dano");
         }
 
     }
@@ -55,16 +56,16 @@ public class React extends Character {
 
     @Override
     public int lightAttack(int strength) {
-        return 0;
+        return strength;
     }
 
     @Override
     public int heavyAttack(int strength) {
-        return 0;
+        return strength * 2;
     }
 
     @Override
     public int specialAttack(int strength) {
-        return 0;
+        return strength * 3;
     }
 }

@@ -1,3 +1,6 @@
+import entities.Battle;
+import entities.Java;
+import entities.React;
 import services.MenuService;
 
 import java.util.Scanner;
@@ -23,38 +26,17 @@ public class Main {
 
             switch (opt) {
                 case 1:
-                    System.out.println(menuService.getCharacterMenu());
-
-                    
-                    switch () { //ataques
-                        case 1:
-                            break;
-                        case 2:
-                            break;
-                        case 3:
-                            break;
-                    }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+                    // new player and npc
+                    Java player1 = new Java(16, 2, "Zé");
+                    React player2 = new React(16, 2, "Enzo");
+                    Battle battle = new Battle(player1, player2);
+                    battle.battle();
                     break;
                 case 2:
-
+                    System.out.println("");
                     break;
                 case 3:
-
+                    System.out.println("");
                     break;
                 case 4:
                     System.out.println("Salvando... Não desligue o computador...");

@@ -32,6 +32,7 @@ public class Java extends Character {
             System.out.println("VOID!");
         } else {
             super.setHitPoints(getHitPoints() - damage);
+            System.out.println(getName()+" sofreu " + damage + " dano");
         }
 
     }
@@ -70,7 +71,6 @@ public class Java extends Character {
         boolean success;
         Random random = new Random();
         int randomNum = random.nextInt(10) + 1;
-
 
         if ((randomNum <= 2)){
             return strength = (strength * 2) + forcaExtra;

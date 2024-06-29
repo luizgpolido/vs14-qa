@@ -1,5 +1,7 @@
 package services;
 
+import entities.Character;
+
 public class MenuService {
 
 
@@ -42,5 +44,42 @@ ________________________________________________________________________________
                             """;
         return menu;
     }
+
+    public String battleScreen(Character player1, Character player2) {
+        //                      vida do player 2
+//                          
+//                                                                                        player 2  %
+//                          
+//                               player 1   %                                              
+//                              
+//                                            \s
+//                        @                   \s
+//                       @@                   \s
+//                    @@@@                    \s
+//                 @@@@@@   @@@@              \s                                                                \s
+//              @@@@@@  @@@@@                 \s                                 (((,       /(((                \s
+//             @@@@@   @@@/                   \s                                (     (( ((     (               \s
+//             @@@    @@@@@                   \s                               .(     (( ((     (               \s
+//              @@@    @@@@@                  \s                                (((((((((((((((((               \s
+//                @@     @@@/                 \s                           ((.   ( (   (((  ,( (   ,((          \s
+//                  (,   @@                   \s                          (      .(   (((((   (       (         \s
+//    .@@@@@@             (@@@@@     @@@      \s                           *((  .( (*   /   /( (   ((.          \s
+//        &@@@@@@@@@@@@&             @@@      \s                                (((((((((((((((((               \s
+//        @@@@@          @@@@       @@@       \s                                (     *( (.     (               \s
+//           #@@@@@@@@@@@@#      @@           \s                                (     (( ((     (               \s
+//          @@@@@@  @@@@@@@@@                 \s                                 *(/         /(,                \s
+// ,@@@@@     (@@@@@@@@@@(           @        \s
+// @@@@@@                        @@@@@        \s
+//     *@@@@@@@@@@@@@@@@@@@@@@@@%      #@@    \s
+//        @@                    ,@@@@@%       \s
+//                                                                                    vida do player 2
+//                               ataque executado
+//
+
+
+
+        return String.format("  P1: "+player1.getHitPoints() + "P2: "+ player2.getHitPoints());
+    }
+
 
 }
