@@ -42,8 +42,10 @@ public class Java extends Character {
         int randomNum = random.nextInt(10) ; // Gera número de 0 a 10 (e soma +1 para ser de 1 a 10)
 
         if (randomNum <= 2) {
+            System.out.println(getName() + ": Desviou do ataque inimigo!");
             return true;
         } else {
+            System.out.println(getName() + ": Não conseguiu desviar!");
             return false;
         }
     }
@@ -61,6 +63,7 @@ public class Java extends Character {
 
         if ((randomNum <= 5)){
             return strength = (strength * 2) + forcaExtra;
+
         }
         return 0;
     }

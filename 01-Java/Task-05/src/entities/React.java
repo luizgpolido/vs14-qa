@@ -47,8 +47,10 @@ public class React extends Character {
         randomNum -= getLucky();
 
         if (randomNum <= 2) {
+            System.out.println(getName() + ": Desviou do ataque inimigo!");
             return true;
         } else {
+            System.out.println(getName() + ": Não conseguiu desviar!");
             return false;
         }
     }

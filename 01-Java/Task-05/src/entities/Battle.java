@@ -53,8 +53,9 @@ public class Battle {
                     break;
             }
 
+            System.out.println(player1.getName() + " causou " + damage + " de dano a " + player2.getName());
+            System.out.println(player2.getName() + " agora tem " + player2.getHitPoints() + " pontos de vida.\n");
 
-//            System.out.println(player2.getName()+" sofreu " + damage + " dano" + "\nVida: " + player2.getHitPoints() + "\n");
 
             // turno do npc
             Random random = new Random();
@@ -73,8 +74,16 @@ public class Battle {
                     player1.deduceHitPoints(damage);
                     break;
             }
+            System.out.println(player2.getName() + " causou " + damage + " de dano a " + player1.getName());
+            System.out.println(player1.getName() + " agora tem " + player1.getHitPoints() + " pontos de vida.\n");
 
-//            System.out.println(player1.getName()+" sofreu " + damage + " dano" + "\nVida: " + player2.getHitPoints() + "\n");
         }
+        System.out.println("-----------------------------------------------------------------------");
+        if (player1.getHitPoints() <= 0) {
+            System.out.println("*************** " + player2.getName() + " venceu o combate!"+ " ***************");
+        } else {
+            System.out.println("*************** " + player1.getName() + " venceu o combate!" + " ***************");
+        }
+        System.out.println("-----------------------------------------------------------------------");
     }
 }
