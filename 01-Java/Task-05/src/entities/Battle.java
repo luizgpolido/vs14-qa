@@ -29,21 +29,18 @@ public class Battle {
 
         MenuService menuService = new MenuService();
 
+
         while (player1.getHitPoints() > 0 && player2.getHitPoints() > 0) {
 
-            System.out.println("""
-                    Escolha seu ataque: 
-                    1 - Ataque
-                    2 - Ataque Pesado
-                    3 - Ataque Especial
-                    """);
+            menuService.battleScreen(player1, player2);
 
             Scanner scanner = new Scanner(System.in);
             int opt = scanner.nextInt();
             scanner.nextLine();
+            int damage = 0;
             switch (opt) { //ataques
                 case 1:
-                    int damage = player1.lightAttack(player1.getStrenght());
+                    damage = player1.lightAttack(player1.getStrenght());
                     player2.deduceHitPoints(damage);
                     break;
                 case 2:
@@ -56,12 +53,15 @@ public class Battle {
                     break;
             }
 
+
+//            System.out.println(player2.getName()+" sofreu " + damage + " dano" + "\nVida: " + player2.getHitPoints() + "\n");
+
             // turno do npc
             Random random = new Random();
             opt = random.nextInt(3)+1;
             switch (opt) { //ataques
                 case 1:
-                    int damage = player2.lightAttack(player2.getStrenght());
+                    damage = player2.lightAttack(player2.getStrenght());
                     player1.deduceHitPoints(damage);
                     break;
                 case 2:
@@ -74,8 +74,7 @@ public class Battle {
                     break;
             }
 
-            menuService.battleScreen(player1, player2);
-
+//            System.out.println(player1.getName()+" sofreu " + damage + " dano" + "\nVida: " + player2.getHitPoints() + "\n");
         }
     }
 }

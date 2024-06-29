@@ -29,10 +29,9 @@ public class Java extends Character {
     @Override
     public void deduceHitPoints(int damage) {
         if (dodge()){
-            System.out.println("VOID!");
+            System.out.println(getName() + ": VOID!");
         } else {
             super.setHitPoints(getHitPoints() - damage);
-            System.out.println(getName()+" sofreu " + damage + " dano");
         }
 
     }

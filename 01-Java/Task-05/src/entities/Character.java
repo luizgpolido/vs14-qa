@@ -6,11 +6,14 @@ public abstract class Character implements CharacterService {
 
     private int hitPoints;
     private int strength;
+    private String name;
 
     public Character(int hitPoints, int strength) {
         this.hitPoints = hitPoints;
         this.strength = strength;
     }
+
+    public abstract String getName();
 
     public int getHitPoints() {
         return hitPoints;

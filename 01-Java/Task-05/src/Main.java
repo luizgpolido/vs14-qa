@@ -11,24 +11,26 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         MenuService menuService = new MenuService();
 
-        System.out.println("Para uma melhor experiência, utilize o terminal em tela cheia.\n\nPressione qualquer tecla para continuar.");
+        System.out.println("Para uma melhor experiência, utilize o terminal em tela cheia.\n\nPressione enter para continuar.");
         String wait = scanner.nextLine();
+        menuService.clear();
 
         System.out.println(menuService.getLogoDBC());
-        Thread.sleep(1500);
-
+        Thread.sleep(2000);
+        menuService.clear();
 
         while (true) {
             System.out.println(menuService.getMainMenu());
 
             int opt = scanner.nextInt();
             scanner.nextLine();
+            menuService.clear();
 
             switch (opt) {
                 case 1:
                     // new player and npc
-                    Java player1 = new Java(16, 2, "Zé");
-                    React player2 = new React(16, 2, "Enzo");
+                    Java player1 = new Java(16, 2, "Javoso");
+                    React player2 = new React(16, 2, "Reactero");
                     Battle battle = new Battle(player1, player2);
                     battle.battle();
                     break;
