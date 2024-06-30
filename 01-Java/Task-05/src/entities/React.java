@@ -33,7 +33,7 @@ public class React extends Character {
     @Override
     public void deduceHitPoints(int damage) {
         if (dodge()){
-            System.out.println("ERROU!");
+            System.out.println(getName() + ": ERROU!");
         } else {
             super.setHitPoints(getHitPoints() - damage);
         }
@@ -47,24 +47,26 @@ public class React extends Character {
         randomNum -= getLucky();
 
         if (randomNum <= 2) {
+            System.out.println(getName() + ": Desviou do ataque inimigo!");
             return true;
         } else {
+            System.out.println(getName() + ": Não conseguiu desviar!");
             return false;
         }
     }
 
     @Override
     public int lightAttack(int strength) {
-        return 0;
+        return strength;
     }
 
     @Override
     public int heavyAttack(int strength) {
-        return 0;
+        return strength * 2;
     }
 
     @Override
     public int specialAttack(int strength) {
-        return 0;
+        return strength * 3;
     }
 }

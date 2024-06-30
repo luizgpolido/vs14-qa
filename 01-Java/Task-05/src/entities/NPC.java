@@ -22,7 +22,7 @@ public class NPC extends Character {
     @Override
     public void deduceHitPoints(int damage) {
         if (dodge()){
-            System.out.println("ERROU!");
+            System.out.println(getName() + ": ERROU!");
         } else {
             super.setHitPoints(getHitPoints() - damage);
         }
