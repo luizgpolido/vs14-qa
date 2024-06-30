@@ -25,8 +25,8 @@ public class Main {
                 case 1:
                     System.out.println(menuService.getCharacterMenu());
 
-                    
-                    switch () { //ataques
+
+                    switch (opt) { //ataques
                         case 1:
                             break;
                         case 2:
