@@ -61,6 +61,7 @@ java task03.Main
 - [@Mateus-de-Morais-Barros](https://github.com/Mateus-de-Morais-Barros)
 - [@luizgpolido](https://www.github.com/luizgpolido)
 - [@RicksonPassos](https://github.com/RicksonPassos)
+- [@gessicafontes](https://github.com/gessicafontes)
 
 ## Referência
 
