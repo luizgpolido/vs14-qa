@@ -31,34 +31,6 @@ public class Main {
 
             switch (opt) {
                 case 1:
-<<<<<<< HEAD
-                    System.out.println(menuService.getCharacterMenu());
-
-
-                    switch (opt) { //ataques
-                        case 1:
-                            break;
-                        case 2:
-                            break;
-                        case 3:
-                            break;
-                    }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-=======
                     // new player and npc
                     musicPlayer.stopMusic();
                     Java player1 = new Java(16, 2, "Javoso");
@@ -67,7 +39,6 @@ public class Main {
                     battle.battle();
                     musicPlayer.playerIntroMusic()
                     ;
->>>>>>> 661cb73f4f55326c9fb48e9b615b75d3182b24d9
                     break;
                 case 2:
                     System.out.println("");
@@ -81,12 +52,5 @@ public class Main {
                     return;
             }
         }
-
-
-
-
-
-
-
     }
 }
