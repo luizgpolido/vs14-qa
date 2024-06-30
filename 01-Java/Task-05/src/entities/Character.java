@@ -31,7 +31,7 @@ public abstract class Character implements CharacterService {
         this.strength = strength;
     }
 
-    public abstract void deduceHitPoints(int damage);
+    public abstract boolean deduceHitPoints(int damage);
 
     public abstract boolean dodge();
 }

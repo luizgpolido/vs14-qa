@@ -4,7 +4,7 @@ import java.util.Random;
 
 public class React extends Character {
 
-    String name = "Java";
+    String name = "React";
     int lucky = 1;
 
     public React(int hitPoints, int strength, String name) {
@@ -31,13 +31,13 @@ public class React extends Character {
     }
 
     @Override
-    public void deduceHitPoints(int damage) {
-        if (dodge()){
-            System.out.println(getName() + ": ERROU!");
-        } else {
+    public boolean deduceHitPoints(int damage) {
+        if (!dodge()){
             super.setHitPoints(getHitPoints() - damage);
+            return true;
+        } else {
+            return false;
         }
-
     }
 
     @Override
@@ -47,10 +47,10 @@ public class React extends Character {
         randomNum -= getLucky();
 
         if (randomNum <= 2) {
-            System.out.println(getName() + ": Desviou do ataque inimigo!");
+            //System.out.println(getName() + ": Desviou do ataque inimigo!");
             return true;
         } else {
-            System.out.println(getName() + ": Não conseguiu desviar!");
+            //System.out.println(getName() + ": Não conseguiu desviar!");
             return false;
         }
     }

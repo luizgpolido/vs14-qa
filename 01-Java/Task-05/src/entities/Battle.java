@@ -42,21 +42,17 @@ public class Battle {
             switch (opt) { //ataques
                 case 1:
                     damage = player1.lightAttack(player1.getStrenght());
-                    player2.deduceHitPoints(damage);
+                    battleCheckerP1(damage);
                     break;
                 case 2:
                     damage = player1.heavyAttack(player1.getStrenght());
-                    player2.deduceHitPoints(damage);
+                    battleCheckerP1(damage);
                     break;
                 case 3:
                     damage = player1.specialAttack(player1.getStrenght());
-                    player2.deduceHitPoints(damage);
+                    battleCheckerP1(damage);
                     break;
             }
-
-            System.out.println(player1.getName() + " causou " + damage + " de dano a " + player2.getName());
-            System.out.println(player2.getName() + " agora tem " + player2.getHitPoints() + " pontos de vida.\n");
-
 
             // turno do npc
             Random random = new Random();
@@ -64,19 +60,17 @@ public class Battle {
             switch (opt) { //ataques
                 case 1:
                     damage = player2.lightAttack(player2.getStrenght());
-                    player1.deduceHitPoints(damage);
+                    battleCheckerP2(damage);
                     break;
                 case 2:
                     damage = player2.heavyAttack(player2.getStrenght());
-                    player1.deduceHitPoints(damage);
+                    battleCheckerP2(damage);
                     break;
                 case 3:
                     damage = player2.specialAttack(player2.getStrenght());
-                    player1.deduceHitPoints(damage);
+                    battleCheckerP2(damage);
                     break;
             }
-            System.out.println(player2.getName() + " causou " + damage + " de dano a " + player1.getName());
-            System.out.println(player1.getName() + " agora tem " + player1.getHitPoints() + " pontos de vida.\n");
 
         }
         musicPlayer.stopMusic();
@@ -98,5 +92,26 @@ public class Battle {
 
 
 
+    }
+
+    public void battleCheckerP1(int damage){
+        System.out.println("JAVOSO DA DANO AQUI!");
+        if (player2.deduceHitPoints(damage)){
+            System.out.println(player1.getName() + " causou " + damage + " de dano a " + player2.getName());
+            System.out.println(player2.getName() + " agora tem " + player2.getHitPoints() + " pontos de vida.\n");
+        } else {
+            System.out.println(player1.getName() + " errou!," + player2.getName() + " ainda tem " + player2.getHitPoints() + " pontos de vida");
+        }
+    }
+
+    public void battleCheckerP2(int damage){
+        System.out.println("REACTERO DA DANO AQUI!");
+
+        if (player1.deduceHitPoints(damage)){
+            System.out.println(player2.getName() + " causou " + damage + " de dano a " + player1.getName());
+            System.out.println(player1.getName() + " agora tem " + player1.getHitPoints() + " pontos de vida.\n");
+        } else {
+            System.out.println(player2.getName() + " errou!," + player1.getName() + " ainda tem " + player1.getHitPoints() + " pontos de vida");
+        }
     }
 }

@@ -27,13 +27,13 @@ public class Java extends Character {
     }
 
     @Override
-    public void deduceHitPoints(int damage) {
-        if (dodge()){
-            System.out.println(getName() + ": VOID!");
-        } else {
+    public boolean deduceHitPoints(int damage) {
+        if (!dodge()){
             super.setHitPoints(getHitPoints() - damage);
+            return true;
+        } else {
+            return false;
         }
-
     }
 
     @Override
@@ -42,10 +42,10 @@ public class Java extends Character {
         int randomNum = random.nextInt(10) ; // Gera número de 0 a 10 (e soma +1 para ser de 1 a 10)
 
         if (randomNum <= 2) {
-            System.out.println(getName() + ": Desviou do ataque inimigo!");
+            //System.out.println(getName() + ": Desviou do ataque inimigo!");
             return true;
         } else {
-            System.out.println(getName() + ": Não conseguiu desviar!");
+            //System.out.println(getName() + ": Não conseguiu desviar!");
             return false;
         }
     }
