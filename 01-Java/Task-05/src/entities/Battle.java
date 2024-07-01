@@ -52,6 +52,13 @@ public class Battle {
                     damage = player1.specialAttack(player1.getStrenght());
                     battleCheckerP1(damage);
                     break;
+                case 5:
+                    musicPlayer.stopMusic();
+                    System.out.printf("%s fugiu com sucesso!", player1.getName());
+                    musicPlayer.playerEscapeMusic();
+                    Thread.sleep (1000);
+                    musicPlayer.stopMusic();
+                    return;
             }
 
             // turno do npc

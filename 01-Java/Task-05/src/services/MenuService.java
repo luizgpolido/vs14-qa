@@ -75,6 +75,7 @@ ________________________________________________________________________________
         System.out.println("          [1] Ataque                                                                                                    ");
         System.out.println("          [2] Ataque pesado                                                                                             ");
         System.out.println("          [3] Ataque especial                                                                                           ");
+        System.out.println("          [5] Fugir                                                                                                     ");
 //
 //                                                                                        player 2  %
 //                          
