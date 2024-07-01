@@ -19,6 +19,8 @@ Projeto de criação de um jogo, para a Task 05 do **Vem Ser - DBC**
 > Nesse jogo é possível o jogador escolher seu combatente, selecionar seus ataques e experiênciar os elementos de cada classe, como sorte, força e etc. 
 
 
+![Diagrama UML](src/resources/diagramauml.jpg)
+
 ## Jornada do Jogo
 
 - Inicalização do jogo
@@ -26,6 +28,8 @@ Projeto de criação de um jogo, para a Task 05 do **Vem Ser - DBC**
 - Inicio da luta
 - Escolha dos ataques e defesas
 - Finalização da luta e mensagem do resultado
+
+![Jornada do Usuário](src/resources/jornadausuario.jpg)
 
 ## Rodando Localmente 💻
 
