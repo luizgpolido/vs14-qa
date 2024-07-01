@@ -39,28 +39,32 @@ Projeto de criação de um jogo, para a Task 05 do **Vem Ser - DBC**
 Clone o projeto
 
 ```bash
-git clone https://github.com/RicksonPassos/vs14-back
+git clone https://github.com/luizgpolido/vs14-back
 ```
 
 Entre no diretório do projeto
 
 ```bash
-cd ./01-java/src/task03
+cd ./01-java/Task-05/src
 ```
 
 Compile as classes 
 
 
 ```bash
-javac -d out Main.java entities/*.java
+# compile as classes
+javac -d out Main.java entities/*.java services/*.java
+# copie os arquivos
+cp -r resources out/src/resources
 ```
 
+Entre no diretório
+```bash
+cd out
+```
 Execute o programa 
 ```bash
-# Entre no diretório
-cd out 
-# Execute o programa
-java task03.Main 
+java Main
 ```
 
 ## Autores
@@ -72,7 +76,7 @@ java task03.Main
 
 ## Referência
 
-- [img to ascii art](https://patorjk.com/software/taag/)
+- [text to ascii](https://patorjk.com/software/taag/)
 - [img to ascii art](https://manytools.org/hacker-tools/convert-images-to-ascii-art/go/)
 
 
