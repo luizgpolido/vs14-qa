@@ -30,8 +30,6 @@ Projeto de criação de um jogo, para a Task 05 do **Vem Ser - DBC**
 - Escolha dos ataques e defesas
 - Finalização da luta e mensagem do resultado
 
-![Jornada do Usuário](src/resources/jornadausuario.jpg)
-
 ## Rodando Localmente 💻
 
 Clone o projeto
@@ -70,7 +68,7 @@ java task03.Main
 
 ## Referência
 
-- [text to ascii art](https://patorjk.com/software/taag/)
+- [img to ascii art](https://patorjk.com/software/taag/)
 - [img to ascii art](https://manytools.org/hacker-tools/convert-images-to-ascii-art/go/)
 
 
