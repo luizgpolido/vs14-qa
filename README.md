@@ -23,7 +23,11 @@
 
 [Task 02](01-Java/Task-02)
 
-[Task 03](01-Java/Task-03)  
+[Task 03](01-Java/Task-03)
+
+[Task 04](01-Java/Task-04/)
+
+[Task 05](01-Java/Task-05/README.md)
 
 
 
