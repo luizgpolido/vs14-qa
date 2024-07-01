@@ -3,7 +3,7 @@
 ![Logo](https://vemser.dbccompany.com.br/vemser/captacao-front/static/media/logo-blue.dfa099c315b365b5480c.webp)
 
 
-# Front vs Back - The Game Terminal 🕹️
+# Front vs Back - The Terminal Game 🕹️
 
 
 Projeto de criação de um jogo, para a Task 05 do **Vem Ser - DBC**
