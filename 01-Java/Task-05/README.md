@@ -21,6 +21,7 @@ Projeto de criação de um jogo, para a Task 05 do **Vem Ser - DBC**
 
 ![Diagrama UML](src/resources/diagramauml.jpg)
 
+
 ## Jornada do Jogo
 
 - Inicalização do jogo
