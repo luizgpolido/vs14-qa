@@ -26,35 +26,7 @@ Projeto de criação de um jogo, para a Task 05 do **Vem Ser - DBC**
 - Inicio da luta
 - Escolha dos ataques e defesas
 - Finalização da luta e mensagem do resultado
-
-## Rodando Localmente 💻
-
-Clone o projeto
-
-```bash
-git clone https://github.com/RicksonPassos/vs14-back
-```
-
-Entre no diretório do projeto
-
-```bash
-cd ./01-java/src/task03
-```
-
-Compile as classes 
-
-
-```bash
-javac -d out Main.java entities/*.java
-```
-
-Execute o programa 
-```bash
-# Entre no diretório
-cd out 
-# Execute o programa
-java task03.Main 
-```
+ 
 
 ## Autores
 
@@ -65,7 +37,7 @@ java task03.Main
 
 ## Referência
 
-- [text to ascii art](https://patorjk.com/software/taag/)
+- [img to ascii art](https://patorjk.com/software/taag/)
 - [img to ascii art](https://manytools.org/hacker-tools/convert-images-to-ascii-art/go/)
 
 
