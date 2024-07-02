@@ -9,14 +9,16 @@ public class Battle {
 
     private  Character player1;
     private  Character player2;
+    private Score score;
 
     public Battle() {
 
     }
 
-    public Battle(Character player1, Character player2) {
+    public Battle(Character player1, Character player2, Score score) {
         this.player1 = player1;
         this.player2 = player2;
+        this.score = score;
     }
 
     public Character getPlayer() {
@@ -81,12 +83,14 @@ public class Battle {
             musicPlayer.playerGameOverMusic();
             Thread.sleep (8000);
             System.out.println("-----------------------------------------------------------------------");
+            score.addPlauer(player2.getName());
         } else {
 
             System.out.println("*************** " + player1.getName() + " venceu o combate!" + " ***************");
             musicPlayer.playerWinMusic();
             Thread.sleep (8000);
             System.out.println("-----------------------------------------------------------------------");
+            score.addPlauer(player1.getName());
         }
         musicPlayer.stopMusic();
 
