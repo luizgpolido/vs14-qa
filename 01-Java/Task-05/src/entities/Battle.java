@@ -102,7 +102,7 @@ public class Battle {
     }
 
     public void battleCheckerP1(int damage){
-        System.out.println("JAVOSO DA DANO AQUI!");
+        System.out.println("Turno de "+player1.getName());
         if (player2.deduceHitPoints(damage)){
             System.out.println(player1.getName() + " causou " + damage + " de dano a " + player2.getName());
             System.out.println(player2.getName() + " agora tem " + player2.getHitPoints() + " pontos de vida.\n");
@@ -112,7 +112,7 @@ public class Battle {
     }
 
     public void battleCheckerP2(int damage){
-        System.out.println("REACTERO DA DANO AQUI!");
+        System.out.println("Turno de "+player1.getName());
 
         if (player1.deduceHitPoints(damage)){
             System.out.println(player2.getName() + " causou " + damage + " de dano a " + player1.getName());

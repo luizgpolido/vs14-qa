@@ -1,9 +1,8 @@
-import entities.Battle;
-import entities.Java;
-import entities.React;
+import entities.*;
+import entities.Character;
 import services.MenuService;
-import entities.MusicPlayer;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
@@ -13,6 +12,10 @@ public class Main {
 
         Scanner scanner = new Scanner(System.in);
         MenuService menuService = new MenuService();
+        ArrayList<Character> characterList = new ArrayList<>();
+
+        characterList.add(new Java(10, 1, "Javoso"));
+        characterList.add(new React(10, 1, "Reactero"));
 
         System.out.println("Para uma melhor experiência, utilize o terminal em tela cheia.\n\nPressione enter para continuar.");
         String wait = scanner.nextLine();
@@ -31,14 +34,18 @@ public class Main {
 
             switch (opt) {
                 case 1:
-                    // new player and npc
+                    CharacterSelection characterSelection = new CharacterSelection(characterList);
                     musicPlayer.stopMusic();
-                    Java player1 = new Java(16, 2, "Javoso");
-                    React player2 = new React(16, 2, "Reactero");
+                    //retorna um nome da lista
+                    String character1 = characterSelection.selectCharacter(false);
+                    //pega um nome aleatório da lista
+                    String character2 = characterSelection.selectCharacter(true);
+                    //retorna um Character
+                    Character player1 = characterSelection.returnCharacter(character1);
+                    Character player2 = characterSelection.returnCharacter(character2);
                     Battle battle = new Battle(player1, player2);
                     battle.battle();
-                    musicPlayer.playerIntroMusic()
-                    ;
+                    musicPlayer.playerIntroMusic();
                     break;
                 case 2:
                     System.out.println("");
