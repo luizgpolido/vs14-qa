@@ -4,6 +4,7 @@ out/
 !**/src/test/**/out/
 ./src/entities/PlaySondOnStart.class
 .idea
+/.idea
 ### Eclipse ###
 .apt_generated
 .classpath
