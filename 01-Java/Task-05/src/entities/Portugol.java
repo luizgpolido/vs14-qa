@@ -66,7 +66,7 @@ public class Portugol extends Character {
         int randomNum = random.nextInt(10) + 1;
 
         if ((randomNum <= 1)){
-            System.out.println("Oops, pseudo código nem é linguagem! Te curei sem querer!!!");
+            System.out.println("\n\"Portugês: Oops, pseudo código nem é linguagem! Te curei sem querer\"\n\n");
             return -1;
         } else {
             return 3;

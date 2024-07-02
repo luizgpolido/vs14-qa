@@ -18,7 +18,7 @@ public class Main {
 
             characterList.add(new Java(12, 1, "Javoso"));
             characterList.add(new React(8, 2, "Reactero"));
-            characterList.add(new Portugol(9, 1, "Portugûes"));
+            characterList.add(new Portugol(9, 1, "Português"));
 
             System.out.println("Para uma melhor experiência, utilize o terminal em tela cheia.\n\n");
             Thread.sleep(2000);
