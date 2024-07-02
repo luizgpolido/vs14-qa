@@ -5,6 +5,8 @@ import java.util.Random;
 public class React extends Character {
 
     String name = "React";
+    private String playerHead = "(ಠ益ಠ)";
+
     int lucky = 1;
 
     public React(int hitPoints, int strength, String name) {
@@ -69,4 +71,6 @@ public class React extends Character {
     public int specialAttack(int strength) {
         return strength * 3;
     }
+
+    public String getPlayerHead() { return playerHead;}
 }

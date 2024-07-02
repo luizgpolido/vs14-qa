@@ -14,21 +14,27 @@ Projeto de criação de um jogo, para a Task 05 do **Vem Ser - DBC**
 - Iniciar jogo
 - Sistema de batalha com escolha de ataque
 - Sistema de esquivas
+- Criação de novos personagens - Etapa II
+- Tratamento de erros - Etapa II
+- Aprimoramento da UI - Etapa II
+- Criação do score - Etapa II
 
 >O jogo tem insipiração nos jogos clássicos de luta, como Mortal Kombat e Pokémon, misturando elementos distintos entre eles.
 > Nesse jogo é possível o jogador escolher seu combatente, selecionar seus ataques e experiênciar os elementos de cada classe, como sorte, força e etc. 
 
-![Diagrama UML](src/resources/diagramauml.jpg)
+![Diagrama UML](src/resources/diagramauml.jpeg)
 
 ## Jornada do Jogo
 
 - Inicalização do jogo
+- Opção de ver classificação
 - Escolha de personagem
 - Inicio da luta
 - Escolha dos ataques e defesas
 - Finalização da luta e mensagem do resultado
 
 ![Jornada Usuario](src/resources/jornadausuario.jpg)
+
 
 ## Links externos
 - [Figma (Construção do Diagrama e jornada do usuário)](https://www.figma.com/board/i6uQXNUFzZTE1JptWybVXd/Task-05---Front-Vs-Back?node-id=11-915&t=Q6HqUJTUV6ztv0Qt-0)
@@ -78,22 +84,5 @@ java Main
 
 - [text to ascii](https://patorjk.com/software/taag/)
 - [img to ascii art](https://manytools.org/hacker-tools/convert-images-to-ascii-art/go/)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+- [Como reproduzir som](https://stackoverflow.com/questions/32347274/how-to-play-record-sound-on-from-a-javax-sound-sampled-line)
 

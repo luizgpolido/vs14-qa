@@ -53,18 +53,20 @@ ________________________________________________________________________________
     }
 
     public void battleScreen(Character player1, Character player2) {
-        System.out.println("                                                                                                                        ");
-        System.out.println("                                                                                            \uD83D\uDE08                 ");
-        System.out.println("                                                                                            /T\\                      ");
-        System.out.println("                                                                                           / | \\                         ");
-        System.out.println("                    (⌐■_■)                                                                  / \\                           ");
-        System.out.println("                     /T\\                                                                   /   \\                          ");
-        System.out.println("                    / | \\▬ι═══ﺤ                                                           "+player2.getName()             );
-        System.out.println("                      |                                                                     "+printBar("❤", player2.getHitPoints()) );
-        System.out.println("                     / \\                                                                                                  ");
-        System.out.println("                    /   \\                                                                                                  ");
-        System.out.println("          "+player1.getName()                                                                                            );
-        System.out.println("          "+printBar("❤", player1.getHitPoints())                                                                     );
+        System.out.println("                                                                                                                              ");
+        System.out.println("                                                                    "+player2.getPlayerHead()                                               );
+        System.out.println("                                                                     /T\\                                                                   ");
+        System.out.println("                                                                    / | \\                                                                 ");
+        System.out.println("                                                                     / \\                                                                   ");
+        System.out.println("                                                                    /   \\                                                                 ");
+        System.out.println("                "+player1.getPlayerHead()+"                                                  "+player2.getName()          );
+        System.out.println("                 /T\\                                                "+printBar("❤", player2.getHitPoints())         );
+        System.out.println("                / | \\▬ι═══ﺤ                                                                                             ");
+        System.out.println("                  |                                                                                                       ");
+        System.out.println("                 / \\                                                                                                     ");
+        System.out.println("                /   \\                                                                                                    ");
+        System.out.println("          "+player1.getName()                                                                                                  );
+        System.out.println("          "+printBar("❤", player1.getHitPoints())                                                                             );
         System.out.println("________________________________________________________________________________________________________________________");
         System.out.println("          [1] Ataque                                                 [WIP] Loja                                           ");
         System.out.println("          [2] Ataque pesado                                          [5] Fugir                                          ");
@@ -72,6 +74,12 @@ ________________________________________________________________________________
         System.out.println("                                                                                                                        ");
 
     }
+
+
+
+
+
+
 
 
 
@@ -86,24 +94,15 @@ ________________________________________________________________________________
                 
                 
                 
-            (⌐■_■)                
-             /T\\                     \uD83D\uDE08
-            / | \\▬ι═══ﺤ             /T\\        
-              |                      / | \\       
-             / \\                     / \\        
-            /   \\                   /   \\      
-        +-----------+            +-------------+            +-------------+                        
-        | [1]Javoso |            | [2]Reactero |            |             |   
-        +-----------+            +-------------+            +-------------+                            
-                
-                
-                
-                
-                
-                
-                
-                
-                
+                   (⌐■_■)               \s
+                     /T\\                     (ಠ益ಠ)                     (ô_Ô) ?
+                    / | \\▬ι═══ﺤ                /T\\                       /T\\ \s
+                      |                       / | \\                     / | \\\s
+                     / \\                       / \\                       / \\ \s
+                    /   \\                     /   \\                     /   \\
+                +-----------+            +-------------+            +-------------+                       \s
+                | [1]Javoso |            | [2]Reactero |            | [3]Portugol |  \s
+                +-----------+            +-------------+            +-------------+                            
                 
                 
                 
