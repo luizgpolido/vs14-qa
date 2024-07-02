@@ -34,6 +34,27 @@ public class CharacterSelection {
         }
     }
 
+    // Overloaded method
+    public String selectCharacter(boolean randomCharacter, String notInclude) {
+
+        if (randomCharacter) {
+            ArrayList<Character> lesserCharacterList = new ArrayList<>();
+            for (Character character : characterList) {
+                if (!character.getName().equals(notInclude))
+                lesserCharacterList.add(character);
+            }
+            Random random = new Random();
+            String characterName = lesserCharacterList.get(random.nextInt(lesserCharacterList.size())).getName();
+            return characterName;
+        } else {
+            MenuService menuService = new MenuService();
+            menuService.characterSelectionScreen();
+            int opt = scanner.nextInt()-1;
+            String characterName = characterList.get(opt).getName();
+            return characterName;
+        }
+    }
+
     public Character returnCharacter(String characterName) {
         for (Character character : characterList) {
             if (character.getName().equals(characterName)) {

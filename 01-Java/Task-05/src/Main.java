@@ -39,7 +39,7 @@ public class Main {
                     //retorna um nome da lista
                     String character1 = characterSelection.selectCharacter(false);
                     //pega um nome aleatório da lista
-                    String character2 = characterSelection.selectCharacter(true);
+                    String character2 = characterSelection.selectCharacter(true, character1);
                     //retorna um Character
                     Character player1 = characterSelection.returnCharacter(character1);
                     Character player2 = characterSelection.returnCharacter(character2);
@@ -48,7 +48,9 @@ public class Main {
                     musicPlayer.playerIntroMusic();
                     break;
                 case 2:
-                    System.out.println("");
+                    System.out.println("Escolha sua stack preferida");
+                    menuService.characterSelectionScreen();
+                    Thread.sleep(4000);
                     break;
                 case 3:
                     System.out.println("________________________________________________________________________________________________________________________\n");
@@ -56,6 +58,8 @@ public class Main {
                     score.board();
                     System.out.println("\n________________________________________________________________________________________________________________________");
                     Thread.sleep(3000);
+                    break;
+
                 case 4:
                     System.out.println("Salvando... Não desligue o computador...");
                     Thread.sleep(3000);

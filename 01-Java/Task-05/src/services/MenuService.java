@@ -6,23 +6,7 @@ public class MenuService {
 
 
     public void clear() {
-        try
-        {
-            final String os = System.getProperty("os.name");
-
-            if (os.contains("Windows"))
-            {
-                Runtime.getRuntime().exec("cls");
-            }
-            else
-            {
-                Runtime.getRuntime().exec("clear");
-            }
-        }
-        catch (final Exception e)
-        {
-            //  Handle any exceptions.
-        }
+        System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
     }
 
 
@@ -68,9 +52,6 @@ ________________________________________________________________________________
         return menu;
     }
 
-   //mostrar nome dos players
-   // mostrar vida
-   // mostrar dano sofrido
     public void battleScreen(Character player1, Character player2) {
         System.out.println("                                                                                                                        ");
         System.out.println("                                                                                            \uD83D\uDE08                 ");
@@ -85,7 +66,7 @@ ________________________________________________________________________________
         System.out.println("          "+player1.getName()                                                                                            );
         System.out.println("          "+printBar("❤", player1.getHitPoints())                                                                     );
         System.out.println("________________________________________________________________________________________________________________________");
-        System.out.println("          [1] Ataque                                                 [4] Loja                                           ");
+        System.out.println("          [1] Ataque                                                 [WIP] Loja                                           ");
         System.out.println("          [2] Ataque pesado                                          [5] Fugir                                          ");
         System.out.println("          [3] Ataque especial                                                                                           ");
         System.out.println("                                                                                                                        ");
@@ -100,12 +81,20 @@ ________________________________________________________________________________
     }
 
     public void characterSelectionScreen() {
+
         String select = """
-                Selecione seu personagem:
                 
-        +-----------+    +-------------+
-        | [1]Javoso |    | [2]Reactero |    
-        +-----------+    +-------------+                
+                
+                
+            (⌐■_■)                
+             /T\\                     \uD83D\uDE08
+            / | \\▬ι═══ﺤ             /T\\        
+              |                      / | \\       
+             / \\                     / \\        
+            /   \\                   /   \\      
+        +-----------+            +-------------+            +-------------+                        
+        | [1]Javoso |            | [2]Reactero |            |             |   
+        +-----------+            +-------------+            +-------------+                            
                 
                 
                 

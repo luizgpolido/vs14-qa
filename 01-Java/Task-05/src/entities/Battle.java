@@ -101,8 +101,12 @@ public class Battle {
         }
         musicPlayer.stopMusic();
 
+        resetStats(player1);
+        resetStats(player2);
+    }
 
-
+    public void resetStats(Character player) {
+        player.setHitPoints(10);
     }
 
     public void battleCheckerP1(int damage){
@@ -116,7 +120,7 @@ public class Battle {
     }
 
     public void battleCheckerP2(int damage){
-        System.out.println("Turno de "+player1.getName());
+        System.out.println("Turno de "+player2.getName());
 
         if (player1.deduceHitPoints(damage)){
             System.out.println(player2.getName() + " causou " + damage + " de dano a " + player1.getName());
