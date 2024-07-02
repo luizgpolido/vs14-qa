@@ -11,6 +11,7 @@ public class Battle {
     private  Character player1;
     private  Character player2;
     private Score score;
+    private final MusicPlayer MUSICPLAYER = new MusicPlayer();
 
 
     public Battle(Character player1, Character player2, Score score) {
@@ -122,18 +123,21 @@ public class Battle {
         if (player2.deduceHitPoints(damage)){
             System.out.println(player1.getName() + " causou " + damage + " de dano a " + player2.getName());
             System.out.println(player2.getName() + " agora tem " + player2.getHitPoints() + " pontos de vida.\n");
+            MUSICPLAYER.playerAttackMusic();
         } else {
             System.out.println(player1.getName() + " errou!," + player2.getName() + " ainda tem " + player2.getHitPoints() + " pontos de vida");
+            MUSICPLAYER.playerDodgeMusic();
         }
     }
 
-    public void battleCheckerP2(int damage){
+    public void battleCheckerP2(int damage)  {
         System.out.println("Turno de "+player2.getName());
-
         if (player1.deduceHitPoints(damage)){
             System.out.println(player2.getName() + " causou " + damage + " de dano a " + player1.getName());
             System.out.println(player1.getName() + " agora tem " + player1.getHitPoints() + " pontos de vida.\n");
+            MUSICPLAYER.playerAttackMusic();
         } else {
+            MUSICPLAYER.playerDodgeMusic();
             System.out.println(player2.getName() + " errou!," + player1.getName() + " ainda tem " + player1.getHitPoints() + " pontos de vida");
         }
     }
