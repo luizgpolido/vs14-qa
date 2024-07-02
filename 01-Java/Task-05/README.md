@@ -33,7 +33,7 @@ Projeto de criação de um jogo, para a Task 05 do **Vem Ser - DBC**
 - Escolha dos ataques e defesas
 - Finalização da luta e mensagem do resultado
 
-![Jornada Usuario](src/resources/jornadausuario.jpg)
+![Jornada Usuario](src/resources/jornadausuario.png)
 
 
 ## Links externos
