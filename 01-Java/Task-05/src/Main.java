@@ -1,7 +1,6 @@
 import entities.*;
 import entities.Character;
 import services.MenuService;
-
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -24,6 +23,7 @@ public class Main {
         System.out.println(menuService.getLogoDBC());
         Thread.sleep(2000);
         menuService.clear();
+        Score score = new Score();
 
         while (true) {
             System.out.println(menuService.getMainMenu());
@@ -43,7 +43,7 @@ public class Main {
                     //retorna um Character
                     Character player1 = characterSelection.returnCharacter(character1);
                     Character player2 = characterSelection.returnCharacter(character2);
-                    Battle battle = new Battle(player1, player2);
+                    Battle battle = new Battle(player1, player2, score);
                     battle.battle();
                     musicPlayer.playerIntroMusic();
                     break;
@@ -51,8 +51,11 @@ public class Main {
                     System.out.println("");
                     break;
                 case 3:
-                    System.out.println("");
-                    break;
+                    System.out.println("________________________________________________________________________________________________________________________\n");
+                    System.out.println("                                                   VITÓRIAS                                                             ");
+                    score.board();
+                    System.out.println("\n________________________________________________________________________________________________________________________");
+                    Thread.sleep(3000);
                 case 4:
                     System.out.println("Salvando... Não desligue o computador...");
                     Thread.sleep(3000);
