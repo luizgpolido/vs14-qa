@@ -12,6 +12,8 @@ public class MusicPlayer {
     String filePathGameOver = "src/resources/gameover.wav";
     String filePathWin = "src/resources/musicavitoria.wav";
     String filePathEscape = "src/resources/musicaescapar.wav";
+    String filePathDodge = "src/resources/musicaesquiva.wav";
+    String filePathAttack = "src/resources/musicaataque.wav";
 
 
 
@@ -30,6 +32,8 @@ public class MusicPlayer {
         playMusic(filePathWin);
     }
     public void playerEscapeMusic(){ playMusic(filePathEscape);}
+    public void playerDodgeMusic(){ playMusic(filePathDodge);}
+    public void playerAttackMusic(){ playMusic(filePathAttack);}
 
     public void playMusic(String filePath){
         try{

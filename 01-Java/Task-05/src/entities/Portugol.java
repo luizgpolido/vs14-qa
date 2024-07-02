@@ -23,6 +23,9 @@ public class Portugol extends Character {
     public boolean deduceHitPoints(int damage) {
         if (!dodge()){
             super.setHitPoints(getHitPoints() - damage);
+            if(super.getHitPoints() < 0){
+                super.setHitPoints(0);
+            }
             return true;
         } else {
             return false;
