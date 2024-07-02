@@ -43,18 +43,15 @@ public class Java extends Character {
     @Override
     public boolean dodge() {
         Random random = new Random();
-        int randomNum = random.nextInt(10) ; // Gera número de 0 a 10 (e soma +1 para ser de 1 a 10)
+        int randomNum = random.nextInt(10) ;
 
         if (randomNum <= 2) {
-            //System.out.println(getName() + ": Desviou do ataque inimigo!");
             return true;
         } else {
-            //System.out.println(getName() + ": Não conseguiu desviar!");
             return false;
         }
     }
 
-    //Quando o combo mais forte for acertado ele
     @Override
     public int lightAttack(int strength) {
        return strength += forcaExtra;

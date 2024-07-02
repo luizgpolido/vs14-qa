@@ -1,7 +1,6 @@
 package entities;
 
 import services.MenuService;
-
 import java.util.InputMismatchException;
 import java.util.Random;
 import java.util.Scanner;
@@ -97,7 +96,7 @@ public class Battle {
         if (player1.getHitPoints() <= 0) {
             System.out.println("*************** " + player2.getName() + " venceu o combate!"+ " ***************");
             musicPlayer.playerGameOverMusic();
-            Thread.sleep (8000);
+            Thread.sleep (6000);
             System.out.println("-----------------------------------------------------------------------");
             score.addPlauer(player2.getName());
         } else {
