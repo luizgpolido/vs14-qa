@@ -11,6 +11,7 @@ public class MusicPlayer {
     String filePathBattle = "src/resources/musicabatalha.wav";
     String filePathGameOver = "src/resources/gameover.wav";
     String filePathWin = "src/resources/musicavitoria.wav";
+    String filePathEscape = "src/resources/musicaescapar.wav";
 
 
 
@@ -28,6 +29,7 @@ public class MusicPlayer {
     public void playerWinMusic(){
         playMusic(filePathWin);
     }
+    public void playerEscapeMusic(){ playMusic(filePathEscape);}
 
     public void playMusic(String filePath){
         try{

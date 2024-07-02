@@ -7,6 +7,7 @@ public abstract class Character implements CharacterService {
     private int hitPoints;
     private int strength;
     private String name;
+    private String playerHead;
 
     public Character(int hitPoints, int strength) {
         this.hitPoints = hitPoints;
@@ -34,4 +35,6 @@ public abstract class Character implements CharacterService {
     public abstract boolean deduceHitPoints(int damage);
 
     public abstract boolean dodge();
+
+    public String getPlayerHead() { return playerHead;}
 }

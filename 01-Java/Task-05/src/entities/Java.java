@@ -5,6 +5,7 @@ import java.util.Random;
 public class Java extends Character {
 
     String name = "Java";
+    private String playerHead = "(⌐■_■)";
     int forcaExtra = 1;
 
     public Java(int hitPoints, int strenght, String name) {
@@ -80,4 +81,6 @@ public class Java extends Character {
         return 0;
 
     }
+
+    public String getPlayerHead() { return playerHead;}
 }

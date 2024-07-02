@@ -2,11 +2,11 @@ package entities;
 
 import java.util.Random;
 
-public class NPC extends Character {
+public class Portugol extends Character {
 
     String name = "Portugol";
-
-    public NPC(int hitPoints, int strenght, String name) {
+    private String playerHead = "(ô_Ô) ?";
+    public Portugol(int hitPoints, int strenght, String name) {
         super(hitPoints, strenght);
         this.name = name;
     }
@@ -44,16 +44,34 @@ public class NPC extends Character {
 
     @Override
     public int lightAttack(int strength) {
-        return 0;
+        return strength;
     }
 
     @Override
     public int heavyAttack(int strength) {
+        Random random = new Random();
+        int randomNum = random.nextInt(10) + 1;
+
+        if ((randomNum <= 3)){
+            return strength = (strength * 2);
+
+        }
         return 0;
     }
 
     @Override
     public int specialAttack(int strength) {
-        return 0;
+        boolean success;
+        Random random = new Random();
+        int randomNum = random.nextInt(10) + 1;
+
+        if ((randomNum <= 1)){
+            System.out.println("Oops, pseudo código nem é linguagem! Te curei sem querer!!!");
+            return -1;
+        } else {
+            return 3;
+        }
     }
+
+    public String getPlayerHead() { return playerHead;}
 }

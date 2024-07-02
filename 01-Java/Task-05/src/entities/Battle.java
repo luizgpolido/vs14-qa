@@ -2,6 +2,7 @@ package entities;
 
 import services.MenuService;
 
+import java.util.InputMismatchException;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -11,9 +12,6 @@ public class Battle {
     private  Character player2;
     private Score score;
 
-    public Battle() {
-
-    }
 
     public Battle(Character player1, Character player2, Score score) {
         this.player1 = player1;
@@ -21,27 +19,37 @@ public class Battle {
         this.score = score;
     }
 
-    public Character getPlayer() {
+    public Character getPlayer1() {
         return player1;
     }
 
+    public Character getPlayer2() {
+        return player1;
+    }
 
 
     public void battle() throws InterruptedException {
         MusicPlayer musicPlayer = new MusicPlayer();
         musicPlayer.playerBattleMusic();
         MenuService menuService = new MenuService();
+        Scanner scanner = new Scanner(System.in);
 
 
         while (player1.getHitPoints() > 0 && player2.getHitPoints() > 0) {
 
             menuService.battleScreen(player1, player2);
+            int opt = 0;
+            try {
+                opt = scanner.nextInt();
+                scanner.nextLine();
+            } catch (InputMismatchException exception){
+                System.out.println("Entrada incorreta! Perdeu o turno, o inimgo não espera!\n");
+                scanner.nextLine();
+                Thread.sleep(2000);
+            }
 
-            Scanner scanner = new Scanner(System.in);
-            int opt = scanner.nextInt();
-            scanner.nextLine();
             int damage = 0;
-            switch (opt) { //ataques
+            switch (opt) {
                 case 1:
                     damage = player1.lightAttack(player1.getStrenght());
                     battleCheckerP1(damage);
@@ -54,6 +62,13 @@ public class Battle {
                     damage = player1.specialAttack(player1.getStrenght());
                     battleCheckerP1(damage);
                     break;
+                case 5:
+                    musicPlayer.stopMusic();
+                    System.out.printf("%s fugiu com sucesso!", player1.getName());
+                    musicPlayer.playerEscapeMusic();
+                    Thread.sleep (1000);
+                    musicPlayer.stopMusic();
+                    return;
             }
 
             // turno do npc
@@ -94,12 +109,16 @@ public class Battle {
         }
         musicPlayer.stopMusic();
 
+        resetStats(player1);
+        resetStats(player2);
+    }
 
-
+    public void resetStats(Character player) {
+        player.setHitPoints(10);
     }
 
     public void battleCheckerP1(int damage){
-        System.out.println("JAVOSO DA DANO AQUI!");
+        System.out.println("Turno de "+player1.getName());
         if (player2.deduceHitPoints(damage)){
             System.out.println(player1.getName() + " causou " + damage + " de dano a " + player2.getName());
             System.out.println(player2.getName() + " agora tem " + player2.getHitPoints() + " pontos de vida.\n");
@@ -109,7 +128,7 @@ public class Battle {
     }
 
     public void battleCheckerP2(int damage){
-        System.out.println("REACTERO DA DANO AQUI!");
+        System.out.println("Turno de "+player2.getName());
 
         if (player1.deduceHitPoints(damage)){
             System.out.println(player2.getName() + " causou " + damage + " de dano a " + player1.getName());
