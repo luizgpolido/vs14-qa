@@ -11,6 +11,7 @@ public class Battle {
     private  Character player2;
     private Score score;
     private final MusicPlayer MUSICPLAYER = new MusicPlayer();
+    private MenuService menuService = new MenuService();
 
 
     public Battle(Character player1, Character player2, Score score) {
@@ -31,7 +32,6 @@ public class Battle {
     public void battle() throws InterruptedException {
         MusicPlayer musicPlayer = new MusicPlayer();
         musicPlayer.playerBattleMusic();
-        MenuService menuService = new MenuService();
         Scanner scanner = new Scanner(System.in);
 
 
@@ -62,7 +62,7 @@ public class Battle {
                     damage = player1.specialAttack(player1.getStrenght());
                     battleCheckerP1(damage);
                     break;
-                case 5:
+                case 4:
                     musicPlayer.stopMusic();
                     System.out.printf("%s fugiu com sucesso!", player1.getName());
                     musicPlayer.playerEscapeMusic();
@@ -71,10 +71,9 @@ public class Battle {
                     return;
             }
 
-            // turno do npc
             Random random = new Random();
             opt = random.nextInt(3)+1;
-            switch (opt) { //ataques
+            switch (opt) {
                 case 1:
                     damage = player2.lightAttack(player2.getStrenght());
                     battleCheckerP2(damage);
@@ -117,27 +116,35 @@ public class Battle {
         player.setHitPoints(10);
     }
 
-    public void battleCheckerP1(int damage){
+    public void battleCheckerP1(int damage) throws InterruptedException {
         System.out.println("Turno de "+player1.getName());
         if (player2.deduceHitPoints(damage)){
             System.out.println(player1.getName() + " causou " + damage + " de dano a " + player2.getName());
             System.out.println(player2.getName() + " agora tem " + player2.getHitPoints() + " pontos de vida.\n");
             MUSICPLAYER.playerAttackMusic();
+            menuService.impactFrameHit();
+            Thread.sleep(1500);
         } else {
             System.out.println(player1.getName() + " errou!," + player2.getName() + " ainda tem " + player2.getHitPoints() + " pontos de vida");
             MUSICPLAYER.playerDodgeMusic();
+            menuService.impactFrameDodge();
+            Thread.sleep(1500);
         }
     }
 
-    public void battleCheckerP2(int damage)  {
+    public void battleCheckerP2(int damage) throws InterruptedException {
         System.out.println("Turno de "+player2.getName());
         if (player1.deduceHitPoints(damage)){
             System.out.println(player2.getName() + " causou " + damage + " de dano a " + player1.getName());
             System.out.println(player1.getName() + " agora tem " + player1.getHitPoints() + " pontos de vida.\n");
             MUSICPLAYER.playerAttackMusic();
+            menuService.impactFrameHit();
+            Thread.sleep(1500);
         } else {
             MUSICPLAYER.playerDodgeMusic();
             System.out.println(player2.getName() + " errou!," + player1.getName() + " ainda tem " + player1.getHitPoints() + " pontos de vida");
+            menuService.impactFrameDodge();
+            Thread.sleep(1500);
         }
     }
 }
