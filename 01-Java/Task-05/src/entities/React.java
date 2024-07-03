@@ -6,6 +6,7 @@ public class React extends Character {
 
     String name = "React";
     private String playerHead = "(ಠ益ಠ)";
+    private String deadHead = "(XOX)";
 
     int lucky = 1;
 
@@ -35,7 +36,11 @@ public class React extends Character {
     @Override
     public boolean deduceHitPoints(int damage) {
         if (!dodge()){
-            super.setHitPoints(getHitPoints() - damage);
+            if (damage > getHitPoints()) {
+                super.setHitPoints(0);
+            } else {
+                super.setHitPoints(getHitPoints() - damage);
+            }
             return true;
         } else {
             return false;
@@ -73,4 +78,5 @@ public class React extends Character {
     }
 
     public String getPlayerHead() { return playerHead;}
+    public String getDeadHead() {return deadHead;}
 }

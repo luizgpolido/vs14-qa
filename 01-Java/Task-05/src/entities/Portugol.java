@@ -6,6 +6,7 @@ public class Portugol extends Character {
 
     String name = "Portugol";
     private String playerHead = "(ô_Ô) ?";
+    private String deadHead = "(X_X) ?";
     public Portugol(int hitPoints, int strenght, String name) {
         super(hitPoints, strenght);
         this.name = name;
@@ -22,7 +23,11 @@ public class Portugol extends Character {
     @Override
     public boolean deduceHitPoints(int damage) {
         if (!dodge()){
-            super.setHitPoints(getHitPoints() - damage);
+            if (damage > getHitPoints()) {
+                super.setHitPoints(0);
+            } else {
+                super.setHitPoints(getHitPoints() - damage);
+            }
             return true;
         } else {
             return false;
@@ -74,4 +79,6 @@ public class Portugol extends Character {
     }
 
     public String getPlayerHead() { return playerHead;}
+
+    public String getDeadHead() {return deadHead;}
 }

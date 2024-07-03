@@ -72,6 +72,8 @@ public class Main {
                             score.board();
                             System.out.println("\n________________________________________________________________________________________________________________________");
                             Thread.sleep(3000);
+                            // Deseja alterar o nome?
+                            //Voltar
                             break;
 
                         case 4:

@@ -47,7 +47,7 @@ public class MenuService {
                                                         
                     
 ________________________________________________________________________________________________________________________
-                    Jogar[1]          Personagens[2]          Classificação[3]          Sair[4]
+                    LUTE![1]          Personagens[2]          Classificação[3]          Sair[4]
                             """;
         return menu;
     }
@@ -68,19 +68,81 @@ ________________________________________________________________________________
         System.out.println("          "+player1.getName()                                                                                                  );
         System.out.println("          "+printBar("❤", player1.getHitPoints())                                                                             );
         System.out.println("________________________________________________________________________________________________________________________");
-        System.out.println("          [1] Ataque                                                 [WIP] Loja                                           ");
+        System.out.println("          [1] Ataque                                                 [4] Loja                                           ");
         System.out.println("          [2] Ataque pesado                                          [5] Fugir                                          ");
         System.out.println("          [3] Ataque especial                                                                                           ");
         System.out.println("                                                                                                                        ");
 
     }
 
+    public void finalScreemCharacter2(Character player1, Character player2) {
+        System.out.println("                                                                                                                              ");
+        System.out.println("                                                                    "+player2.getPlayerHead()                                               );
+        System.out.println("                                                                     /T\\                                                                   ");
+        System.out.println("                                                                    / | \\                                                                 ");
+        System.out.println("                                                                     / \\                                                                   ");
+        System.out.println("                                                                    /   \\                                                                 ");
+        System.out.println("                "+player1.getDeadHead()+"                                                    "+player2.getName()          );
+        System.out.println("                 /T\\                                                "+printBar("❤", player2.getHitPoints())         );
+        System.out.println("                / | \\▬ι═══ﺤ                                                                                             ");
+        System.out.println("                  |                                                                                                       ");
+        System.out.println("                 / \\                                                                                                     ");
+        System.out.println("                /   \\                                                                                                    ");
+        System.out.println("          "+player1.getName()                                                                                                  );
+        System.out.println("          "+printBar("❤", player1.getHitPoints())                                                                             );
+        System.out.println("________________________________________________________________________________________________________________________");
+        System.out.println("          [1] Ataque                                                 [4] Loja                                           ");
+        System.out.println("          [2] Ataque pesado                                          [5] Fugir                                          ");
+        System.out.println("          [3] Ataque especial                                                                                           ");
+        System.out.println("                                                                                                                        ");
 
+    }
 
+    public void finalScreemCharacter1(Character player1, Character player2) {
+        System.out.println("                                                                                                                              ");
+        System.out.println("                                                                    "+player2.getDeadHead()                                               );
+        System.out.println("                                                                     /T\\                                                                   ");
+        System.out.println("                                                                    / | \\                                                                 ");
+        System.out.println("                                                                     / \\                                                                   ");
+        System.out.println("                                                                    /   \\                                                                 ");
+        System.out.println("                "+player1.getPlayerHead()+"                                                  "+player2.getName()          );
+        System.out.println("                 /T\\                                                "+printBar("❤", player2.getHitPoints())         );
+        System.out.println("                / | \\▬ι═══ﺤ                                                                                             ");
+        System.out.println("                  |                                                                                                       ");
+        System.out.println("                 / \\                                                                                                     ");
+        System.out.println("                /   \\                                                                                                    ");
+        System.out.println("          "+player1.getName()                                                                                                  );
+        System.out.println("          "+printBar("❤", player1.getHitPoints())                                                                             );
+        System.out.println("________________________________________________________________________________________________________________________");
+        System.out.println("          [1] Ataque                                                 [4] Loja                                           ");
+        System.out.println("          [2] Ataque pesado                                          [5] Fugir                                          ");
+        System.out.println("          [3] Ataque especial                                                                                           ");
+        System.out.println("                                                                                                                        ");
 
+    }
 
+    public void potionsScreen(Character player1, Character player2) {
+        System.out.println("                                                                                                                              ");
+        System.out.println("                                                                    "+player2.getPlayerHead()                                               );
+        System.out.println("                                                                     /T\\                                                                   ");
+        System.out.println("                                                                    / | \\                                                                 ");
+        System.out.println("                                                                     / \\                                                                   ");
+        System.out.println("                                                                    /   \\                                                                 ");
+        System.out.println("                "+player1.getPlayerHead()+"                                                  "+player2.getName()          );
+        System.out.println("                 /T\\                                                "+printBar("❤", player2.getHitPoints())         );
+        System.out.println("                / | \\▬ι═══ﺤ                                                                                             ");
+        System.out.println("                  |                                                                                                       ");
+        System.out.println("                 / \\                                                                                                     ");
+        System.out.println("                /   \\                                                                                                    ");
+        System.out.println("          "+player1.getName()                                                                                                  );
+        System.out.println("          "+printBar("❤", player1.getHitPoints())                                                                             );
+        System.out.println("________________________________________________________________________________________________________________________");
+        System.out.println("          [1] Coffee                                                [4] Voltar                                           ");
+        System.out.println("          [2] RedBull                                                                                    ");
+        System.out.println("          [3] Monster                                                                                          ");
+        System.out.println("                                                                                                                        ");
 
-
+    }
 
 
 

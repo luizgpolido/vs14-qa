@@ -34,7 +34,7 @@ public class Battle {
         musicPlayer.playerBattleMusic();
         MenuService menuService = new MenuService();
         Scanner scanner = new Scanner(System.in);
-
+        boolean shop = false;
 
         while (player1.getHitPoints() > 0 && player2.getHitPoints() > 0) {
 
@@ -63,6 +63,25 @@ public class Battle {
                     damage = player1.specialAttack(player1.getStrenght());
                     battleCheckerP1(damage);
                     break;
+                case 4:
+                    menuService.potionsScreen(player1, player2);
+                    opt = scanner.nextInt();
+                    shop = true;
+                    if (opt < 1 || opt > 4) {
+                        System.out.println("Escolha inválida!");
+                        break;
+                    }
+                    switch (opt){
+                        case 1:
+                            //Coffee
+                        case 2:
+                            //RedBull
+                        case 3:
+                            //Monster
+                        case 4:
+                            break;
+                    }
+                    break;
                 case 5:
                     musicPlayer.stopMusic();
                     System.out.printf("%s fugiu com sucesso!", player1.getName());
@@ -73,35 +92,42 @@ public class Battle {
             }
 
             // turno do npc
-            Random random = new Random();
-            opt = random.nextInt(3)+1;
-            switch (opt) { //ataques
-                case 1:
-                    damage = player2.lightAttack(player2.getStrenght());
-                    battleCheckerP2(damage);
-                    break;
-                case 2:
-                    damage = player2.heavyAttack(player2.getStrenght());
-                    battleCheckerP2(damage);
-                    break;
-                case 3:
-                    damage = player2.specialAttack(player2.getStrenght());
-                    battleCheckerP2(damage);
-                    break;
-            }
+            if (shop) {
+                shop = false;
+            } else {
+                Thread.sleep (1500);
+                Random random = new Random();
+                opt = random.nextInt(3)+1;
+                switch (opt) { //ataques
+                    case 1:
+                        damage = player2.lightAttack(player2.getStrenght());
+                        battleCheckerP2(damage);
+                        break;
+                    case 2:
+                        damage = player2.heavyAttack(player2.getStrenght());
+                        battleCheckerP2(damage);
+                        break;
+                    case 3:
+                        damage = player2.specialAttack(player2.getStrenght());
+                        battleCheckerP2(damage);
+                        break;
+                }
+                Thread.sleep (1500);
+           }
 
         }
         musicPlayer.stopMusic();
 
         System.out.println("-----------------------------------------------------------------------");
         if (player1.getHitPoints() <= 0) {
+            menuService.finalScreemCharacter2(player1, player2);
             System.out.println("*************** " + player2.getName() + " venceu o combate!"+ " ***************");
             musicPlayer.playerGameOverMusic();
             Thread.sleep (8000);
             System.out.println("-----------------------------------------------------------------------");
             score.addPlauer(player2.getName());
         } else {
-
+            menuService.finalScreemCharacter1(player1, player2);
             System.out.println("*************** " + player1.getName() + " venceu o combate!" + " ***************");
             musicPlayer.playerWinMusic();
             Thread.sleep (8000);

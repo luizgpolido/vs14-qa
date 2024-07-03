@@ -8,6 +8,7 @@ public abstract class Character implements CharacterService {
     private int strength;
     private String name;
     private String playerHead;
+    private String deadHead;
 
     public Character(int hitPoints, int strength) {
         this.hitPoints = hitPoints;
@@ -37,4 +38,5 @@ public abstract class Character implements CharacterService {
     public abstract boolean dodge();
 
     public String getPlayerHead() { return playerHead;}
+    public String getDeadHead() {return deadHead;}
 }

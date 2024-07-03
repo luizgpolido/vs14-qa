@@ -6,6 +6,7 @@ public class Java extends Character {
 
     String name = "Java";
     private String playerHead = "(⌐■_■)";
+    private String deadHead = "(⌐X_X)";
     int forcaExtra = 1;
 
     public Java(int hitPoints, int strenght, String name) {
@@ -30,7 +31,11 @@ public class Java extends Character {
     @Override
     public boolean deduceHitPoints(int damage) {
         if (!dodge()){
-            super.setHitPoints(getHitPoints() - damage);
+            if (damage > getHitPoints()) {
+                super.setHitPoints(0);
+            } else {
+                super.setHitPoints(getHitPoints() - damage);
+            }
             return true;
         } else {
             return false;
@@ -44,6 +49,7 @@ public class Java extends Character {
 
         if (randomNum <= 2) {
             //System.out.println(getName() + ": Desviou do ataque inimigo!");
+            // Caso tenha bebido a poção, aumenta a chance de desviar por 3 seg
             return true;
         } else {
             //System.out.println(getName() + ": Não conseguiu desviar!");
@@ -56,6 +62,7 @@ public class Java extends Character {
     public int lightAttack(int strength) {
        return strength += forcaExtra;
     }
+    //poção de coffee aumenta a força
 
     @Override
     public int heavyAttack(int strength) {
@@ -83,4 +90,5 @@ public class Java extends Character {
     }
 
     public String getPlayerHead() { return playerHead;}
+    public String getDeadHead() {return deadHead;}
 }
