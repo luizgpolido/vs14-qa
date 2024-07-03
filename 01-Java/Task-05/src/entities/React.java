@@ -36,6 +36,9 @@ public class React extends Character {
     public boolean deduceHitPoints(int damage) {
         if (!dodge()){
             super.setHitPoints(getHitPoints() - damage);
+            if(super.getHitPoints() < 0){
+                super.setHitPoints(0);
+            }
             return true;
         } else {
             return false;
@@ -49,10 +52,8 @@ public class React extends Character {
         randomNum -= getLucky();
 
         if (randomNum <= 2) {
-            //System.out.println(getName() + ": Desviou do ataque inimigo!");
             return true;
         } else {
-            //System.out.println(getName() + ": Não conseguiu desviar!");
             return false;
         }
     }

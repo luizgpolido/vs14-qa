@@ -80,8 +80,4 @@ public class CharacterSelection {
         return null;
     }
 
-
-
-
-
 }
