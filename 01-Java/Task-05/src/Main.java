@@ -10,7 +10,6 @@ public class Main {
 
         try {
             MusicPlayer musicPlayer = new MusicPlayer();
-            musicPlayer.playerIntroMusic();
 
             Scanner scanner = new Scanner(System.in);
             MenuService menuService = new MenuService();
@@ -18,7 +17,7 @@ public class Main {
 
             characterList.add(new Java(12, 1, "Javoso"));
             characterList.add(new React(8, 2, "Reactero"));
-            characterList.add(new Portugol(9, 1, "Português"));
+            characterList.add(new Portugol(9, 1, "Portugolino"));
 
             System.out.println("Para uma melhor experiência, utilize o terminal em tela cheia.\n\n");
             Thread.sleep(2000);
@@ -28,6 +27,7 @@ public class Main {
             Thread.sleep(2000);
             menuService.clear();
             Score score = new Score();
+            musicPlayer.playerIntroMusic();
 
             while (true) {
                 int opt = 0;
