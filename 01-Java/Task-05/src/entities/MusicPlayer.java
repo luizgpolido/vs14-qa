@@ -3,50 +3,44 @@ package entities;
 import javax.sound.sampled.*;
 import java.io.File;
 import java.io.IOException;
-import java.io.UnsupportedEncodingException;
 
 public class MusicPlayer {
-
-    String filePathIntro = "src/resources/musicaintro.wav";
-    String filePathBattle = "src/resources/musicabatalha.wav";
-    String filePathGameOver = "src/resources/gameover.wav";
-    String filePathWin = "src/resources/musicavitoria.wav";
-    String filePathEscape = "src/resources/musicaescapar.wav";
-    String filePathDodge = "src/resources/musicaesquiva.wav";
-    String filePathAttack = "src/resources/musicaataque.wav";
-
-
 
     private Clip clip;
 
     public void playerIntroMusic(){
-        playMusic(filePathIntro);
-    }
+        String filePathIntro = "src/resources/musicaintro.wav";
+        playMusic(filePathIntro);}
     public void playerBattleMusic(){
-        playMusic(filePathBattle);
-    }
+        String filePathBattle = "src/resources/musicabatalha.wav";
+        playMusic(filePathBattle);}
     public void playerGameOverMusic(){
-        playMusic(filePathGameOver);
-    }
+        String filePathGameOver = "src/resources/gameover.wav";
+        playMusic(filePathGameOver);}
     public void playerWinMusic(){
-        playMusic(filePathWin);
-    }
-    public void playerEscapeMusic(){ playMusic(filePathEscape);}
-    public void playerDodgeMusic(){ playMusic(filePathDodge);}
-    public void playerAttackMusic(){ playMusic(filePathAttack);}
+        String filePathWin = "src/resources/musicavitoria.wav";
+        playMusic(filePathWin);}
+    public void playerEscapeMusic(){
+        String filePathEscape = "src/resources/musicaescapar.wav";
+        playMusic(filePathEscape);}
+    public void playerDodgeMusic(){
+        String filePathDodge = "src/resources/musicaesquiva.wav";
+        playMusic(filePathDodge);}
+    public void playerAttackMusic(){
+        String filePathAttack = "src/resources/musicaataque.wav";
+        playMusic(filePathAttack);}
 
     public void playMusic(String filePath){
         try{
             File audioFile = new File(filePath);
             AudioInputStream audioStream = AudioSystem.getAudioInputStream(audioFile);
-
             clip = AudioSystem.getClip();
             clip.open(audioStream);
-
             clip.start();
 
         }catch (IOException | LineUnavailableException e){
             e.printStackTrace();
+
         } catch (UnsupportedAudioFileException e) {
             throw new RuntimeException(e);
         }

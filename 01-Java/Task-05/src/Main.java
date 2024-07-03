@@ -47,14 +47,11 @@ public class Main {
                         case 1:
                             CharacterSelection characterSelection = new CharacterSelection(characterList);
                             musicPlayer.stopMusic();
-                            //retorna um nome da lista
                             String character1 = characterSelection.selectCharacter(false);
                             if (character1.equals("Erro")){
                                 break;
                             }
-                            //pega um nome aleatório da lista
                             String character2 = characterSelection.selectCharacter(true, character1);
-                            //retorna um Character
                             Character player1 = characterSelection.returnCharacter(character1);
                             Character player2 = characterSelection.returnCharacter(character2);
                             Battle battle = new Battle(player1, player2, score);
