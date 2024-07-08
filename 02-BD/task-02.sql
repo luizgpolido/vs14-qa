@@ -75,10 +75,10 @@ INSERT INTO PAIS (id_pais, nome)
 VALUES (SEQ_PAIS.NEXTVAL, 'Estados Unidos');
 
 INSERT INTO ESTADO (id_estado, nome, id_pais)
-VALUES (SEQ_ESTADO.NEXTVAL, 'São Paulo', (SELECT id_pais FROM PAIS WHERE nome = 'Brasil'));
+VALUES (SEQ_ESTADO.NEXTVAL, 'São Teste', (SELECT id_pais FROM PAIS WHERE nome = 'Brasil'));
 
 INSERT INTO ESTADO (id_estado, nome, id_pais)
-VALUES (SEQ_ESTADO.NEXTVAL, 'Rio de Janeiro', (SELECT id_pais FROM PAIS WHERE nome = 'Brasil'));
+VALUES (SEQ_ESTADO.NEXTVAL, 'Rio de QA', (SELECT id_pais FROM PAIS WHERE nome = 'Brasil'));
 
 INSERT INTO ESTADO (id_estado, nome, id_pais)
 VALUES (SEQ_ESTADO.NEXTVAL, 'California', (SELECT id_pais FROM PAIS WHERE nome = 'Estados Unidos'));
@@ -87,16 +87,16 @@ INSERT INTO ESTADO (id_estado, nome, id_pais)
 VALUES (SEQ_ESTADO.NEXTVAL, 'New Testes', (SELECT id_pais FROM PAIS WHERE nome = 'Estados Unidos'));
 
 INSERT INTO CIDADE (id_cidade, nome, id_estado)
-VALUES (SEQ_CIDADE.NEXTVAL, 'São Paulo', (SELECT id_estado FROM ESTADO WHERE nome = 'São Paulo'));
+VALUES (SEQ_CIDADE.NEXTVAL, 'São Teste', (SELECT id_estado FROM ESTADO WHERE nome = 'São Teste'));
 
 INSERT INTO CIDADE (id_cidade, nome, id_estado)
-VALUES (SEQ_CIDADE.NEXTVAL, 'Campinas', (SELECT id_estado FROM ESTADO WHERE nome = 'São Paulo'));
+VALUES (SEQ_CIDADE.NEXTVAL, 'Campinas', (SELECT id_estado FROM ESTADO WHERE nome = 'São Teste'));
 
 INSERT INTO CIDADE (id_cidade, nome, id_estado)
-VALUES (SEQ_CIDADE.NEXTVAL, 'Rio de Janeiro', (SELECT id_estado FROM ESTADO WHERE nome = 'Rio de Janeiro'));
+VALUES (SEQ_CIDADE.NEXTVAL, 'Rio de QA', (SELECT id_estado FROM ESTADO WHERE nome = 'Rio de QA'));
 
 INSERT INTO CIDADE (id_cidade, nome, id_estado)
-VALUES (SEQ_CIDADE.NEXTVAL, 'Niterói', (SELECT id_estado FROM ESTADO WHERE nome = 'Rio de Janeiro'));
+VALUES (SEQ_CIDADE.NEXTVAL, 'Niterói', (SELECT id_estado FROM ESTADO WHERE nome = 'Rio de QA'));
 
 INSERT INTO CIDADE (id_cidade, nome, id_estado)
 VALUES (SEQ_CIDADE.NEXTVAL, 'Los Testes', (SELECT id_estado FROM ESTADO WHERE nome = 'California'));
@@ -111,28 +111,28 @@ INSERT INTO CIDADE (id_cidade, nome, id_estado)
 VALUES (SEQ_CIDADE.NEXTVAL, 'Salamanca', (SELECT id_estado FROM ESTADO WHERE nome = 'New Testes'));
 
 INSERT INTO BAIRRO (id_bairro, id_cidade, id_estado, nome)
-VALUES (SEQ_BAIRRO.NEXTVAL, (SELECT id_cidade FROM CIDADE WHERE nome = 'São Paulo'), (SELECT id_estado FROM ESTADO WHERE nome = 'São Paulo'), 'Centro');
+VALUES (SEQ_BAIRRO.NEXTVAL, (SELECT id_cidade FROM CIDADE WHERE nome = 'São Teste'), (SELECT id_estado FROM ESTADO WHERE nome = 'São Teste'), 'Centro');
 
 INSERT INTO BAIRRO (id_bairro, id_cidade, id_estado, nome)
-VALUES (SEQ_BAIRRO.NEXTVAL, (SELECT id_cidade FROM CIDADE WHERE nome = 'São Paulo'), (SELECT id_estado FROM ESTADO WHERE nome = 'São Paulo'), 'Vila Mariana');
+VALUES (SEQ_BAIRRO.NEXTVAL, (SELECT id_cidade FROM CIDADE WHERE nome = 'São Teste'), (SELECT id_estado FROM ESTADO WHERE nome = 'São Teste'), 'Vila Mariana');
 
 INSERT INTO BAIRRO (id_bairro, id_cidade, id_estado, nome)
-VALUES (SEQ_BAIRRO.NEXTVAL, (SELECT id_cidade FROM CIDADE WHERE nome = 'Campinas'), (SELECT id_estado FROM ESTADO WHERE nome = 'São Paulo'), 'Cambuí');
+VALUES (SEQ_BAIRRO.NEXTVAL, (SELECT id_cidade FROM CIDADE WHERE nome = 'Campinas'), (SELECT id_estado FROM ESTADO WHERE nome = 'São Teste'), 'Cambuí');
 
 INSERT INTO BAIRRO (id_bairro, id_cidade, id_estado, nome)
-VALUES (SEQ_BAIRRO.NEXTVAL, (SELECT id_cidade FROM CIDADE WHERE nome = 'Campinas'), (SELECT id_estado FROM ESTADO WHERE nome = 'São Paulo'), 'Barão Geraldo');
+VALUES (SEQ_BAIRRO.NEXTVAL, (SELECT id_cidade FROM CIDADE WHERE nome = 'Campinas'), (SELECT id_estado FROM ESTADO WHERE nome = 'São Teste'), 'Barão Geraldo');
 
 INSERT INTO BAIRRO (id_bairro, id_cidade, id_estado, nome)
-VALUES (SEQ_BAIRRO.NEXTVAL, (SELECT id_cidade FROM CIDADE WHERE nome = 'Rio de Janeiro'), (SELECT id_estado FROM ESTADO WHERE nome = 'Rio de Janeiro'), 'Copacabana');
+VALUES (SEQ_BAIRRO.NEXTVAL, (SELECT id_cidade FROM CIDADE WHERE nome = 'Rio de QA'), (SELECT id_estado FROM ESTADO WHERE nome = 'Rio de QA'), 'Copacabana');
 
 INSERT INTO BAIRRO (id_bairro, id_cidade, id_estado, nome)
-VALUES (SEQ_BAIRRO.NEXTVAL, (SELECT id_cidade FROM CIDADE WHERE nome = 'Rio de Janeiro'), (SELECT id_estado FROM ESTADO WHERE nome = 'Rio de Janeiro'), 'Ipanema');
+VALUES (SEQ_BAIRRO.NEXTVAL, (SELECT id_cidade FROM CIDADE WHERE nome = 'Rio de QA'), (SELECT id_estado FROM ESTADO WHERE nome = 'Rio de QA'), 'Ipanema');
 
 INSERT INTO BAIRRO (id_bairro, id_cidade, id_estado, nome)
-VALUES (SEQ_BAIRRO.NEXTVAL, (SELECT id_cidade FROM CIDADE WHERE nome = 'Niterói'), (SELECT id_estado FROM ESTADO WHERE nome = 'Rio de Janeiro'), 'Icaraí');
+VALUES (SEQ_BAIRRO.NEXTVAL, (SELECT id_cidade FROM CIDADE WHERE nome = 'Niterói'), (SELECT id_estado FROM ESTADO WHERE nome = 'Rio de QA'), 'Icaraí');
 
 INSERT INTO BAIRRO (id_bairro, id_cidade, id_estado, nome)
-VALUES (SEQ_BAIRRO.NEXTVAL, (SELECT id_cidade FROM CIDADE WHERE nome = 'Niterói'), (SELECT id_estado FROM ESTADO WHERE nome = 'Rio de Janeiro'), 'Centro');
+VALUES (SEQ_BAIRRO.NEXTVAL, (SELECT id_cidade FROM CIDADE WHERE nome = 'Niterói'), (SELECT id_estado FROM ESTADO WHERE nome = 'Rio de QA'), 'Centro');
 
 INSERT INTO BAIRRO (id_bairro, id_cidade, id_estado, nome)
 VALUES (SEQ_BAIRRO.NEXTVAL, (SELECT id_cidade FROM CIDADE WHERE nome = 'Los Testes'), (SELECT id_estado FROM ESTADO WHERE nome = 'California'), 'Testelandia');
@@ -160,16 +160,16 @@ VALUES (SEQ_BAIRRO.NEXTVAL, (SELECT id_cidade FROM CIDADE WHERE nome = 'Salamanc
 
 
 INSERT INTO ENDERECO (id_endereco, id_bairro, id_cidade, logradouro, numero, complemento, cep)
-VALUES (SEQ_ENDERECO.NEXTVAL, (SELECT id_bairro FROM BAIRRO WHERE nome = 'Centro' AND id_cidade = (SELECT id_cidade FROM CIDADE WHERE nome = 'São Paulo')), (SELECT id_cidade FROM CIDADE WHERE nome = 'São Paulo'), 'Avenida Arcanjo Paulista', 233, 'Apto 101', '01310-100');
+VALUES (SEQ_ENDERECO.NEXTVAL, (SELECT id_bairro FROM BAIRRO WHERE nome = 'Centro' AND id_cidade = (SELECT id_cidade FROM CIDADE WHERE nome = 'São Teste')), (SELECT id_cidade FROM CIDADE WHERE nome = 'São Teste'), 'Avenida Arcanjo Paulista', 233, 'Apto 101', '01310-100');
 
 INSERT INTO ENDERECO (id_endereco, id_bairro, id_cidade, logradouro, numero, complemento, cep)
-VALUES (SEQ_ENDERECO.NEXTVAL, (SELECT id_bairro FROM BAIRRO WHERE nome = 'Centro' AND id_cidade = (SELECT id_cidade FROM CIDADE WHERE nome = 'São Paulo')), (SELECT id_cidade FROM CIDADE WHERE nome = 'São Paulo'), 'Rua Augusta', 533, 'Apto 202', '01310-200');
+VALUES (SEQ_ENDERECO.NEXTVAL, (SELECT id_bairro FROM BAIRRO WHERE nome = 'Centro' AND id_cidade = (SELECT id_cidade FROM CIDADE WHERE nome = 'São Teste')), (SELECT id_cidade FROM CIDADE WHERE nome = 'São Teste'), 'Rua Augusta', 533, 'Apto 202', '01310-200');
 
 INSERT INTO ENDERECO (id_endereco, id_bairro, id_cidade, logradouro, numero, complemento, cep)
-VALUES (SEQ_ENDERECO.NEXTVAL, (SELECT id_bairro FROM BAIRRO WHERE nome = 'Vila Mariana' AND id_cidade = (SELECT id_cidade FROM CIDADE WHERE nome = 'São Paulo')), (SELECT id_cidade FROM CIDADE WHERE nome = 'São Paulo'), 'Rua Domingos de Morais', 2342, 'Apto 303', '04110-300');
+VALUES (SEQ_ENDERECO.NEXTVAL, (SELECT id_bairro FROM BAIRRO WHERE nome = 'Vila Mariana' AND id_cidade = (SELECT id_cidade FROM CIDADE WHERE nome = 'São Teste')), (SELECT id_cidade FROM CIDADE WHERE nome = 'São Teste'), 'Rua Domingos de Morais', 2342, 'Apto 303', '04110-300');
 
 INSERT INTO ENDERECO (id_endereco, id_bairro, id_cidade, logradouro, numero, complemento, cep)
-VALUES (SEQ_ENDERECO.NEXTVAL, (SELECT id_bairro FROM BAIRRO WHERE nome = 'Vila Mariana' AND id_cidade = (SELECT id_cidade FROM CIDADE WHERE nome = 'São Paulo')), (SELECT id_cidade FROM CIDADE WHERE nome = 'São Paulo'), 'Rua Vergueiro', 22, 'Apto 404', '04110-400');
+VALUES (SEQ_ENDERECO.NEXTVAL, (SELECT id_bairro FROM BAIRRO WHERE nome = 'Vila Mariana' AND id_cidade = (SELECT id_cidade FROM CIDADE WHERE nome = 'São Teste')), (SELECT id_cidade FROM CIDADE WHERE nome = 'São Teste'), 'Rua Vergueiro', 22, 'Apto 404', '04110-400');
 
 INSERT INTO ENDERECO (id_endereco, id_bairro, id_cidade, logradouro, numero, complemento, cep)
 VALUES (SEQ_ENDERECO.NEXTVAL, (SELECT id_bairro FROM BAIRRO WHERE nome = 'Cambuí' AND id_cidade = (SELECT id_cidade FROM CIDADE WHERE nome = 'Campinas')), (SELECT id_cidade FROM CIDADE WHERE nome = 'Campinas'), 'Rua Coronel Quirino', 33, 'Apto 601', '13025-000');
@@ -184,16 +184,16 @@ INSERT INTO ENDERECO (id_endereco, id_bairro, id_cidade, logradouro, numero, com
 VALUES (SEQ_ENDERECO.NEXTVAL, (SELECT id_bairro FROM BAIRRO WHERE nome = 'Barão Geraldo' AND id_cidade = (SELECT id_cidade FROM CIDADE WHERE nome = 'Campinas')), (SELECT id_cidade FROM CIDADE WHERE nome = 'Campinas'), 'Rua Rui Barbosa', 22, 'Casa 2', '13084-020');
 
 INSERT INTO ENDERECO (id_endereco, id_bairro, id_cidade, logradouro, numero, complemento, cep)
-VALUES (SEQ_ENDERECO.NEXTVAL, (SELECT id_bairro FROM BAIRRO WHERE nome = 'Copacabana' AND id_cidade = (SELECT id_cidade FROM CIDADE WHERE nome = 'Rio de Janeiro')), (SELECT id_cidade FROM CIDADE WHERE nome = 'Rio de Janeiro'), 'Avenida Polo Norte', 123, 'Casa B', '22021-001');
+VALUES (SEQ_ENDERECO.NEXTVAL, (SELECT id_bairro FROM BAIRRO WHERE nome = 'Copacabana' AND id_cidade = (SELECT id_cidade FROM CIDADE WHERE nome = 'Rio de QA')), (SELECT id_cidade FROM CIDADE WHERE nome = 'Rio de QA'), 'Avenida Polo Norte', 123, 'Casa B', '22021-001');
 
 INSERT INTO ENDERECO (id_endereco, id_bairro, id_cidade, logradouro, numero, complemento, cep)
-VALUES (SEQ_ENDERECO.NEXTVAL, (SELECT id_bairro FROM BAIRRO WHERE nome = 'Copacabana' AND id_cidade = (SELECT id_cidade FROM CIDADE WHERE nome = 'Rio de Janeiro')), (SELECT id_cidade FROM CIDADE WHERE nome = 'Rio de Janeiro'), 'Rua Barata', 456, 'Casa', '22051-001');
+VALUES (SEQ_ENDERECO.NEXTVAL, (SELECT id_bairro FROM BAIRRO WHERE nome = 'Copacabana' AND id_cidade = (SELECT id_cidade FROM CIDADE WHERE nome = 'Rio de QA')), (SELECT id_cidade FROM CIDADE WHERE nome = 'Rio de QA'), 'Rua Barata', 456, 'Casa', '22051-001');
 
 INSERT INTO ENDERECO (id_endereco, id_bairro, id_cidade, logradouro, numero, complemento, cep)
-VALUES (SEQ_ENDERECO.NEXTVAL, (SELECT id_bairro FROM BAIRRO WHERE nome = 'Ipanema' AND id_cidade = (SELECT id_cidade FROM CIDADE WHERE nome = 'Rio de Janeiro')), (SELECT id_cidade FROM CIDADE WHERE nome = 'Rio de Janeiro'), 'Rua Visconde de Pirajá', 51, 'Apto 1203', '22410-001');
+VALUES (SEQ_ENDERECO.NEXTVAL, (SELECT id_bairro FROM BAIRRO WHERE nome = 'Ipanema' AND id_cidade = (SELECT id_cidade FROM CIDADE WHERE nome = 'Rio de QA')), (SELECT id_cidade FROM CIDADE WHERE nome = 'Rio de QA'), 'Rua Visconde de Pirajá', 51, 'Apto 1203', '22410-001');
 
 INSERT INTO ENDERECO (id_endereco, id_bairro, id_cidade, logradouro, numero, complemento, cep)
-VALUES (SEQ_ENDERECO.NEXTVAL, (SELECT id_bairro FROM BAIRRO WHERE nome = 'Ipanema' AND id_cidade = (SELECT id_cidade FROM CIDADE WHERE nome = 'Rio de Janeiro')), (SELECT id_cidade FROM CIDADE WHERE nome = 'Rio de Janeiro'), 'Rua Farme de Amoedo', 32, 'Apto 1304', '22420-001');
+VALUES (SEQ_ENDERECO.NEXTVAL, (SELECT id_bairro FROM BAIRRO WHERE nome = 'Ipanema' AND id_cidade = (SELECT id_cidade FROM CIDADE WHERE nome = 'Rio de QA')), (SELECT id_cidade FROM CIDADE WHERE nome = 'Rio de QA'), 'Rua Farme de Amoedo', 32, 'Apto 1304', '22420-001');
 
 INSERT INTO ENDERECO (id_endereco, id_bairro, id_cidade, logradouro, numero, complemento, cep)
 VALUES (SEQ_ENDERECO.NEXTVAL, (SELECT id_bairro FROM BAIRRO WHERE nome = 'Icaraí' AND id_cidade = (SELECT id_cidade FROM CIDADE WHERE nome = 'Niterói')), (SELECT id_cidade FROM CIDADE WHERE nome = 'Niterói'), 'Rua Moreira César', 3254, 'Casa', '24230-001');
@@ -282,7 +282,7 @@ ORDER BY cep DESC;
 SELECT COUNT(*) 
 FROM ENDERECO;
 
-SELECT ID_CIDADE ,COUNT(*) 
+SELECT ID_CIDADE , COUNT(*) AS quantidade_cidades 
 FROM ENDERECO
 GROUP BY ID_CIDADE;
 
