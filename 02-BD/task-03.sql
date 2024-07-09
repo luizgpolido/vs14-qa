@@ -161,7 +161,7 @@ VALUES (SEQ_BAIRRO.NEXTVAL, (SELECT id_cidade FROM CIDADE WHERE nome = 'Montero'
 
 -- Inserindo endereços
 INSERT INTO ENDERECO (id_endereco, id_bairro, id_cidade, logradouro, numero, complemento, cep)
-VALUES (SEQ_ENDERECO.NEXTVAL, (SELECT id_bairro FROM BAIRRO WHERE nome = 'Palermo' AND id_cidade = (SELECT id_cidade FROM CIDADE WHERE nome = 'Buenos Aires')), (SELECT id_cidade FROM CIDADE WHERE nome = 'Buenos Aires'), 'Avenida Santa Fe', 233, 'Apto 101', '1414-0');
+VALUES (SEQ_ENDERECO.NEXTVAL, (SELECT id_bairro FROM BAIRRO WHERE nome = 'Palermo' AND id_cidade = (SELECT id_cidade FROM CIDADE WHERE nome = 'Buenos Aires')), (SELECT id_cidade FROM CIDADE WHERE nome = 'Buenos Aires'), 'Avenida Santa Fe', 233, 'Apto 101', '1414');
 
 INSERT INTO ENDERECO (id_endereco, id_bairro, id_cidade, logradouro, numero, complemento, cep)
 VALUES (SEQ_ENDERECO.NEXTVAL, (SELECT id_bairro FROM BAIRRO WHERE nome = 'Palermo' AND id_cidade = (SELECT id_cidade FROM CIDADE WHERE nome = 'Buenos Aires')), (SELECT id_cidade FROM CIDADE WHERE nome = 'Buenos Aires'), 'Calle Thames', 533, 'Apto 202', '1414');
@@ -170,7 +170,7 @@ INSERT INTO ENDERECO (id_endereco, id_bairro, id_cidade, logradouro, numero, com
 VALUES (SEQ_ENDERECO.NEXTVAL, (SELECT id_bairro FROM BAIRRO WHERE nome = 'Recoleta' AND id_cidade = (SELECT id_cidade FROM CIDADE WHERE nome = 'Buenos Aires')), (SELECT id_cidade FROM CIDADE WHERE nome = 'Buenos Aires'), 'Avenida Alvear', 2342, 'Apto 303', '1425');
 
 INSERT INTO ENDERECO (id_endereco, id_bairro, id_cidade, logradouro, numero, complemento, cep)
-VALUES (SEQ_ENDERECO.NEXTVAL, (SELECT id_bairro FROM BAIRRO WHERE nome = 'Recoleta' AND id_cidade = (SELECT id_cidade FROM CIDADE WHERE nome = 'Buenos Aires')), (SELECT id_cidade FROM CIDADE WHERE nome = 'Buenos Aires'), 'Calle Posadas', 22, 'Apto 404', '1425-0');
+VALUES (SEQ_ENDERECO.NEXTVAL, (SELECT id_bairro FROM BAIRRO WHERE nome = 'Recoleta' AND id_cidade = (SELECT id_cidade FROM CIDADE WHERE nome = 'Buenos Aires')), (SELECT id_cidade FROM CIDADE WHERE nome = 'Buenos Aires'), 'Calle Posadas', 22, 'Apto 404', '1425');
 
 INSERT INTO ENDERECO (id_endereco, id_bairro, id_cidade, logradouro, numero, complemento, cep)
 VALUES (SEQ_ENDERECO.NEXTVAL, (SELECT id_bairro FROM BAIRRO WHERE nome = 'Tolosa' AND id_cidade = (SELECT id_cidade FROM CIDADE WHERE nome = 'La Plata')), (SELECT id_cidade FROM CIDADE WHERE nome = 'La Plata'), 'Calle 528', 112, 'Casa 1', '1900');
@@ -185,7 +185,7 @@ INSERT INTO ENDERECO (id_endereco, id_bairro, id_cidade, logradouro, numero, com
 VALUES (SEQ_ENDERECO.NEXTVAL, (SELECT id_bairro FROM BAIRRO WHERE nome = 'City Bell' AND id_cidade = (SELECT id_cidade FROM CIDADE WHERE nome = 'La Plata')), (SELECT id_cidade FROM CIDADE WHERE nome = 'La Plata'), 'Calle 473', 451, 'Casa 4', '1896');
 
 INSERT INTO ENDERECO (id_endereco, id_bairro, id_cidade, logradouro, numero, complemento, cep)
-VALUES (SEQ_ENDERECO.NEXTVAL, (SELECT id_bairro FROM BAIRRO WHERE nome = 'Nueva Córdoba' AND id_cidade = (SELECT id_cidade FROM CIDADE WHERE nome = 'Córdoba')), (SELECT id_cidade FROM CIDADE WHERE nome = 'Córdoba'), 'Avenida Hipólito Yrigoyen', 23, 'Depto 5', '5000-0');
+VALUES (SEQ_ENDERECO.NEXTVAL, (SELECT id_bairro FROM BAIRRO WHERE nome = 'Nueva Córdoba' AND id_cidade = (SELECT id_cidade FROM CIDADE WHERE nome = 'Córdoba')), (SELECT id_cidade FROM CIDADE WHERE nome = 'Córdoba'), 'Avenida Hipólito Yrigoyen', 23, 'Depto 5', '5000');
 
 INSERT INTO ENDERECO (id_endereco, id_bairro, id_cidade, logradouro, numero, complemento, cep)
 VALUES (SEQ_ENDERECO.NEXTVAL, (SELECT id_bairro FROM BAIRRO WHERE nome = 'Nueva Córdoba' AND id_cidade = (SELECT id_cidade FROM CIDADE WHERE nome = 'Córdoba')), (SELECT id_cidade FROM CIDADE WHERE nome = 'Córdoba'), 'Calle Paraná', 105, 'Depto 6', '5000');
@@ -203,7 +203,7 @@ INSERT INTO ENDERECO (id_endereco, id_bairro, id_cidade, logradouro, numero, com
 VALUES (SEQ_ENDERECO.NEXTVAL, (SELECT id_bairro FROM BAIRRO WHERE nome = 'Centro' AND id_cidade = (SELECT id_cidade FROM CIDADE WHERE nome = 'Villa Carlos Paz')), (SELECT id_cidade FROM CIDADE WHERE nome = 'Villa Carlos Paz'), 'Calle Libertad', 305, 'Casa 10', '5152');
 
 INSERT INTO ENDERECO (id_endereco, id_bairro, id_cidade, logradouro, numero, complemento, cep)
-VALUES (SEQ_ENDERECO.NEXTVAL, (SELECT id_bairro FROM BAIRRO WHERE nome = 'Las Rosas' AND id_cidade = (SELECT id_cidade FROM CIDADE WHERE nome = 'Villa Carlos Paz')), (SELECT id_cidade FROM CIDADE WHERE nome = 'Villa Carlos Paz'), 'Calle Las Heras', 456, 'Casa 11', '5152-0');
+VALUES (SEQ_ENDERECO.NEXTVAL, (SELECT id_bairro FROM BAIRRO WHERE nome = 'Las Rosas' AND id_cidade = (SELECT id_cidade FROM CIDADE WHERE nome = 'Villa Carlos Paz')), (SELECT id_cidade FROM CIDADE WHERE nome = 'Villa Carlos Paz'), 'Calle Las Heras', 456, 'Casa 11', '5152');
 
 INSERT INTO ENDERECO (id_endereco, id_bairro, id_cidade, logradouro, numero, complemento, cep)
 VALUES (SEQ_ENDERECO.NEXTVAL, (SELECT id_bairro FROM BAIRRO WHERE nome = 'Las Rosas' AND id_cidade = (SELECT id_cidade FROM CIDADE WHERE nome = 'Villa Carlos Paz')), (SELECT id_cidade FROM CIDADE WHERE nome = 'Villa Carlos Paz'), 'Calle Mendoza', 789, 'Casa 12', '5152');
@@ -221,13 +221,13 @@ INSERT INTO ENDERECO (id_endereco, id_bairro, id_cidade, logradouro, numero, com
 VALUES (SEQ_ENDERECO.NEXTVAL, (SELECT id_bairro FROM BAIRRO WHERE nome = 'San Jorge' AND id_cidade = (SELECT id_cidade FROM CIDADE WHERE nome = 'La Paz')), (SELECT id_cidade FROM CIDADE WHERE nome = 'La Paz'), 'Calle 8 de Calacoto', 1800, 'Apto 501', '5678');
 
 INSERT INTO ENDERECO (id_endereco, id_bairro, id_cidade, logradouro, numero, complemento, cep)
-VALUES (SEQ_ENDERECO.NEXTVAL, (SELECT id_bairro FROM BAIRRO WHERE nome = 'Ciudad Satélite' AND id_cidade = (SELECT id_cidade FROM CIDADE WHERE nome = 'El Alto')), (SELECT id_cidade FROM CIDADE WHERE nome = 'El Alto'), 'Calle 12 de Octubre', 1020, 'Casa 13', '1122-0');
+VALUES (SEQ_ENDERECO.NEXTVAL, (SELECT id_bairro FROM BAIRRO WHERE nome = 'Ciudad Satélite' AND id_cidade = (SELECT id_cidade FROM CIDADE WHERE nome = 'El Alto')), (SELECT id_cidade FROM CIDADE WHERE nome = 'El Alto'), 'Calle 12 de Octubre', 1020, 'Casa 13', '1122');
 
 INSERT INTO ENDERECO (id_endereco, id_bairro, id_cidade, logradouro, numero, complemento, cep)
 VALUES (SEQ_ENDERECO.NEXTVAL, (SELECT id_bairro FROM BAIRRO WHERE nome = 'Ciudad Satélite' AND id_cidade = (SELECT id_cidade FROM CIDADE WHERE nome = 'El Alto')), (SELECT id_cidade FROM CIDADE WHERE nome = 'El Alto'), 'Avenida Juan Pablo II', 2020, 'Casa 14', '1122');
 
 INSERT INTO ENDERECO (id_endereco, id_bairro, id_cidade, logradouro, numero, complemento, cep)
-VALUES (SEQ_ENDERECO.NEXTVAL, (SELECT id_bairro FROM BAIRRO WHERE nome = 'Villa Adela' AND id_cidade = (SELECT id_cidade FROM CIDADE WHERE nome = 'El Alto')), (SELECT id_cidade FROM CIDADE WHERE nome = 'El Alto'), 'Calle 14', 132, 'Casa 15', '2211-0');
+VALUES (SEQ_ENDERECO.NEXTVAL, (SELECT id_bairro FROM BAIRRO WHERE nome = 'Villa Adela' AND id_cidade = (SELECT id_cidade FROM CIDADE WHERE nome = 'El Alto')), (SELECT id_cidade FROM CIDADE WHERE nome = 'El Alto'), 'Calle 14', 132, 'Casa 15', '2211');
 
 INSERT INTO ENDERECO (id_endereco, id_bairro, id_cidade, logradouro, numero, complemento, cep)
 VALUES (SEQ_ENDERECO.NEXTVAL, (SELECT id_bairro FROM BAIRRO WHERE nome = 'Villa Adela' AND id_cidade = (SELECT id_cidade FROM CIDADE WHERE nome = 'El Alto')), (SELECT id_cidade FROM CIDADE WHERE nome = 'El Alto'), 'Avenida 16 de Julio', 456, 'Casa 16', '2211');
