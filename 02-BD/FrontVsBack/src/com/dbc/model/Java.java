@@ -1,23 +1,22 @@
-package entities;
+package com.dbc.model;
 
 import java.util.Random;
 
-public class React extends Character {
+public class Java extends Character {
 
-    String name = "React";
-    private String playerHead = "(ಠ益ಠ)";
+    String name = "Java";
+    private String playerHead = "(⌐■_■)";
+    int forcaExtra = 1;
 
-    int lucky = 1;
-
-    public React(int hitPoints, int strength, String name) {
-        super(hitPoints, strength);
+    public Java(int hitPoints, int strenght, String name) {
+        super(hitPoints, strenght);
         this.name = name;
     }
 
-    public React(int hitPoints, int strength, String name, int lucky) {
-        super(hitPoints, strength);
+    public Java(int hitPoints, int strenght, String name, int forcaExtra) {
+        super(hitPoints, strenght);
         this.name = name;
-        this.lucky = lucky;
+        this.forcaExtra = forcaExtra;
     }
 
     public String getName() {
@@ -26,10 +25,6 @@ public class React extends Character {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public int getLucky() {
-        return lucky;
     }
 
     @Override
@@ -48,8 +43,7 @@ public class React extends Character {
     @Override
     public boolean dodge() {
         Random random = new Random();
-        int randomNum = random.nextInt(10) ; // Gera número de 0 a 10 (e soma +1 para ser de 1 a 10)
-        randomNum -= getLucky();
+        int randomNum = random.nextInt(10) ;
 
         if (randomNum <= 2) {
             return true;
@@ -60,17 +54,32 @@ public class React extends Character {
 
     @Override
     public int lightAttack(int strength) {
-        return strength;
+       return strength += forcaExtra;
     }
 
     @Override
     public int heavyAttack(int strength) {
-        return strength * 2;
+        Random random = new Random();
+        int randomNum = random.nextInt(10) + 1;
+
+        if ((randomNum <= 5)){
+            return strength = (strength * 2) + forcaExtra;
+
+        }
+        return 0;
     }
 
     @Override
     public int specialAttack(int strength) {
-        return strength * 3;
+        boolean success;
+        Random random = new Random();
+        int randomNum = random.nextInt(10) + 1;
+
+        if ((randomNum <= 2)){
+            return strength = (strength * 2) + forcaExtra;
+        }
+        return 0;
+
     }
 
     public String getPlayerHead() { return playerHead;}

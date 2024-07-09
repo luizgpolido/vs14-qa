@@ -1,6 +1,8 @@
-import entities.*;
-import entities.Character;
-import services.MenuService;
+package com.dbc.view;
+
+import com.dbc.model.*;
+import com.dbc.model.Character;
+import com.dbc.service.MenuService;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -28,7 +30,7 @@ public class Main {
             menuService.clear();
             Score score = new Score();
             musicPlayer.playerIntroMusic();
-2
+
         
             while (true) {
                 int opt = 0;

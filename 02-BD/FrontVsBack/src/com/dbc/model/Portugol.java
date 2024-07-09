@@ -1,4 +1,4 @@
-package entities;
+package com.dbc.model;
 
 import java.util.Random;
 

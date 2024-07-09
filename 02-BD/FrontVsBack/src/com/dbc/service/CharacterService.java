@@ -1,4 +1,4 @@
-package services;
+package com.dbc.service;
 
 public interface CharacterService {
 

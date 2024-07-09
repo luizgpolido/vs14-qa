@@ -1,6 +1,6 @@
-package entities;
+package com.dbc.model;
 
-import services.CharacterService;
+import com.dbc.service.CharacterService;
 
 public abstract class Character implements CharacterService {
 

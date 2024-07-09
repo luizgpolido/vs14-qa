@@ -1,6 +1,6 @@
-package services;
+package com.dbc.service;
 
-import entities.Character;
+import com.dbc.model.Character;
 
 public class MenuService {
 

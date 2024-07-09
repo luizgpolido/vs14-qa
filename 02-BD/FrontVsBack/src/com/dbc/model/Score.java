@@ -1,4 +1,4 @@
-package entities;
+package com.dbc.model;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -16,7 +16,8 @@ public class Score {
     }
 
     public void board(){
-        
+        // gerar dados de score
+        // SELECT
         HashMap<String, Integer> countPlayers = new HashMap<>();
         
         for(String name : players){

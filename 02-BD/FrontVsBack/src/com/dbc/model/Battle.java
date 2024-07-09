@@ -1,6 +1,6 @@
-package entities;
+package com.dbc.model;
 
-import services.MenuService;
+import com.dbc.service.MenuService;
 import java.util.InputMismatchException;
 import java.util.Random;
 import java.util.Scanner;

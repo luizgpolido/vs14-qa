@@ -59,9 +59,9 @@ Compile as classes
 
 ```bash
 # compile as classes
-javac -d out Main.java entities/*.java services/*.java
+javac -d out com.dbc.view.Main.java com.dbc.model/*.java com.dbc.service/*.java
 # copie os arquivos
-cp -r resources out/src/resources
+cp -r com.dbc.resources out/src/com.dbc.resources
 ```
 
 Entre no diretório
@@ -70,7 +70,7 @@ cd out
 ```
 Execute o programa 
 ```bash
-java Main
+java com.dbc.view.Main
 ```
 
 ## Autores
