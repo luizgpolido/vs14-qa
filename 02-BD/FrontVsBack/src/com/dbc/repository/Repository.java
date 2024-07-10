@@ -6,14 +6,14 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.List;
 
-public interface Repository<Integer, CharacterFight> {
+public interface Repository<Integer, Object> {
     Integer getProximoId(Connection connection) throws SQLException;
 
-    CharacterFight adicionar(CharacterFight object) throws BancoDeDadosException;
+    java.lang.Object adicionar(Object object) throws BancoDeDadosException;
 
     boolean remover(Integer id) throws BancoDeDadosException;
 
-    boolean editar(Integer id, CharacterFight objeto) throws BancoDeDadosException;
+    boolean editar(Integer id, java.lang.Object objeto) throws BancoDeDadosException;
 
-    List<CharacterFight> listar() throws BancoDeDadosException;
+    List<java.lang.Object> listar() throws BancoDeDadosException;
 }

@@ -7,6 +7,8 @@ import java.util.Scanner;
 
 public class Battle {
 
+    private Integer idBattle;
+    private Integer winnerId;
     private CharacterFight player1;
     private CharacterFight player2;
     private Score score;
@@ -18,6 +20,22 @@ public class Battle {
         this.player1 = player1;
         this.player2 = player2;
         this.score = score;
+    }
+
+    public Integer getWinnerId() {
+        return winnerId;
+    }
+
+    public void setWinnerId(Integer winnerId) {
+        this.winnerId = winnerId;
+    }
+
+    public Integer getIdBattle() {
+        return idBattle;
+    }
+
+    public void setIdBattle(Integer idBattle) {
+        this.idBattle = idBattle;
     }
 
     public CharacterFight getPlayer1() {
