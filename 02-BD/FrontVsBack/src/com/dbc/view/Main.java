@@ -1,5 +1,6 @@
 package com.dbc.view;
 
+import com.dbc.exceptions.BancoDeDadosException;
 import com.dbc.model.*;
 import com.dbc.model.CharacterFight;
 import com.dbc.service.MenuService;
@@ -67,10 +68,12 @@ public class Main {
                             Thread.sleep(4000);
                             break;
                         case 3:
-                            System.out.println("________________________________________________________________________________________________________________________\n");
-                            System.out.println("                                                   VITÓRIAS                                                             ");
-                            score.board();
-                            System.out.println("\n________________________________________________________________________________________________________________________");
+
+                            try {
+                                score.displayScore();
+                            } catch (BancoDeDadosException e) {
+                                throw new RuntimeException(e);
+                            }
                             Thread.sleep(3000);
                             break;
 
