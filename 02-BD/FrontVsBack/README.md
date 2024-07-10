@@ -79,7 +79,7 @@ login: system
 password: oracle
 ```
 
-E execute o script criar.sql
+E execute o script ![criar.sql](bd/criar.sql)
 
 Após isso, crie outra conexão com os dados:
 ```
@@ -87,7 +87,7 @@ login: FRONT_VS_BACK
 password: oracle
 ```
 
-E execute o script em dados.sql
+E execute o script em ![dados.sql](bd/dados.sql)
 
 ## Autores
 
