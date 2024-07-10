@@ -41,7 +41,6 @@ public class BattleRepository implements Repository<Integer, Battle> {
             stmt.setInt(3, battle.getLoserId());
 
             int res = stmt.executeUpdate();
-            System.out.println("adicionarBattle.res=" + res);
             return battle;
         } catch (SQLException e) {
             throw new BancoDeDadosException(e.getCause());
@@ -69,7 +68,7 @@ public class BattleRepository implements Repository<Integer, Battle> {
             stmt.setInt(1, id);
 
             int res = stmt.executeUpdate();
-            System.out.println("removerBatalhaPorId.res=" + res);
+
 
             return res > 0;
         } catch (SQLException e) {
@@ -102,7 +101,7 @@ public class BattleRepository implements Repository<Integer, Battle> {
             stmt.setInt(2, id);
 
             int res = stmt.executeUpdate();
-            System.out.println("editarBatalha.res=" + res);
+
 
             return res > 0;
         } catch (SQLException e) {
