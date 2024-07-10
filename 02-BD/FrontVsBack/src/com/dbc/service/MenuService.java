@@ -2,7 +2,7 @@ package com.dbc.service;
 
 import com.dbc.model.CharacterFight;
 
-public class MenuService {
+public class    MenuService {
 
     public static final String ANSI_RESET = "\u001B[0m";
     public static final String ANSI_BLUE = "\u001B[34m";

@@ -48,6 +48,10 @@ public class Portugol extends CharacterFight {
         }
     }
 
+    public int getId() {
+        return id;
+    }
+
     @Override
     public int lightAttack(int strength) {
         return strength;

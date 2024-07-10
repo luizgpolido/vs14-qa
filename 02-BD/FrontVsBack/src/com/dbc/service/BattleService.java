@@ -37,11 +37,11 @@ public class BattleService {
         }
     }
 
-    public void list() {
-        try {
-            battleRepository.listar().forEach(System.out::println);
-        } catch (BancoDeDadosException e) {
-            e.printStackTrace();
-        }
-    }
+//    public void list() {
+//        try {
+//            battleRepository.listar().forEach(System.out::println);
+//        } catch (BancoDeDadosException e) {
+//            e.printStackTrace();
+//        }
+//    }
 }

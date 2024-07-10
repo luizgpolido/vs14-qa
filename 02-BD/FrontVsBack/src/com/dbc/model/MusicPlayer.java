@@ -9,25 +9,25 @@ public class MusicPlayer {
     private Clip clip;
 
     public void playerIntroMusic(){
-        String filePathIntro = "src/com.dbc.resources/musicaintro.wav";
+        String filePathIntro = "src/com/dbc/resources/musicaintro.wav";
         playMusic(filePathIntro);}
     public void playerBattleMusic(){
-        String filePathBattle = "src/com.dbc.resources/musicabatalha.wav";
+        String filePathBattle = "src/com/dbc/resources/musicaBatalha.wav";
         playMusic(filePathBattle);}
     public void playerGameOverMusic(){
-        String filePathGameOver = "src/com.dbc.resources/gameover.wav";
+        String filePathGameOver = "src/com/dbc/resources/gameover.wav";
         playMusic(filePathGameOver);}
     public void playerWinMusic(){
-        String filePathWin = "src/com.dbc.resources/musicavitoria.wav";
+        String filePathWin = "src/com/dbc/resources/musicavitoria.wav";
         playMusic(filePathWin);}
     public void playerEscapeMusic(){
-        String filePathEscape = "src/com.dbc.resources/musicaescapar.wav";
+        String filePathEscape = "src/com/dbc/resources/musicaescapar.wav";
         playMusic(filePathEscape);}
     public void playerDodgeMusic(){
-        String filePathDodge = "src/com.dbc.resources/musicaesquiva.wav";
+        String filePathDodge = "src/com/dbc/resources/musicaesquiva.wav";
         playMusic(filePathDodge);}
     public void playerAttackMusic(){
-        String filePathAttack = "src/com.dbc.resources/musicaataque.wav";
+        String filePathAttack = "src/com/dbc/resources/musicaataque.wav";
         playMusic(filePathAttack);}
 
     public void playMusic(String filePath){

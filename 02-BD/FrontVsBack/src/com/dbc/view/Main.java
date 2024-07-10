@@ -3,7 +3,10 @@ package com.dbc.view;
 import com.dbc.exceptions.BancoDeDadosException;
 import com.dbc.model.*;
 import com.dbc.model.CharacterFight;
+import com.dbc.repository.PlayerRepository;
 import com.dbc.service.MenuService;
+import com.dbc.service.PlayerService;
+
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -32,6 +35,7 @@ public class Main {
             Score score = new Score();
             musicPlayer.playerIntroMusic();
 
+
         
             while (true) {
                 int opt = 0;
@@ -49,16 +53,25 @@ public class Main {
                 }
                     switch (opt) {
                         case 1:
+                            //add player to player table
+                            System.out.println("qual é o nome do player? ");
+                            String playerName = scanner.nextLine();
+
                             CharacterSelection characterSelection = new CharacterSelection(characterList);
                             musicPlayer.stopMusic();
                             String character1 = characterSelection.selectCharacter(false);
                             if (character1.equals("Erro")){
                                 break;
                             }
+
+
+                            PlayerService playerService = new PlayerService(new PlayerRepository());
+                            playerService.insert(new Player(playerName));
+
                             String character2 = characterSelection.selectCharacter(true, character1);
                             CharacterFight player1 = characterSelection.returnCharacter(character1);
                             CharacterFight player2 = characterSelection.returnCharacter(character2);
-                            Battle battle = new Battle(player1, player2, score);
+                            Battle battle = new Battle(player1, player2);
                             battle.battle();
                             musicPlayer.playerIntroMusic();
                             break;

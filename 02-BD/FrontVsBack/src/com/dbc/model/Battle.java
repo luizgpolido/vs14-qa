@@ -1,5 +1,7 @@
 package com.dbc.model;
 
+import com.dbc.repository.BattleRepository;
+import com.dbc.service.BattleService;
 import com.dbc.service.MenuService;
 
 import java.time.LocalDate;
@@ -21,19 +23,14 @@ public class Battle {
     private MenuService menuService = new MenuService();
 
 
-    public Battle(CharacterFight player1, CharacterFight player2, Score score) {
+    public Battle(CharacterFight player1, CharacterFight player2) {
         this.player1 = player1;
         this.player2 = player2;
-        this.score = score;
-        this.battleDate = LocalDate.now();
     }
 
-    public LocalDate getBattleDate() {
-        return battleDate;
-    }
-
-    public void setBattleDate(LocalDate battleDate) {
-        this.battleDate = battleDate;
+    public Battle(Integer winnerId, Integer loserId) {
+        this.winnerId = winnerId;
+        this.loserId = loserId;
     }
 
     public Battle() {
@@ -142,18 +139,21 @@ public class Battle {
             musicPlayer.playerGameOverMusic();
             Thread.sleep (6000);
             System.out.println("-----------------------------------------------------------------------");
-            score.addPlauer(player2.getName());
+//            score.addPlauer(player2.getName());
         } else {
 
             System.out.println("*************** " + player1.getName() + " venceu o combate!" + " ***************");
             musicPlayer.playerWinMusic();
             Thread.sleep (8000);
             System.out.println("-----------------------------------------------------------------------");
-            score.addPlauer(player1.getName());
+//            score.addPlauer(player1.getName());
         }
-         winnerId = (player1.getHitPoints() <= 0) ? player2.getId() : player1.getId();
-         loserId = (player1.getHitPoints() <= 0) ? player1.getId() : player2.getId();
+         winnerId = player1.getHitPoints() <= 0 ? player2.getId() : player1.getId();
+         loserId = player1.getHitPoints() <= 0 ? player1.getId() : player2.getId();
 
+         Battle battle = new Battle(winnerId, loserId);
+        BattleService battleService = new BattleService(new BattleRepository());
+         battleService.insert(battle);
         musicPlayer.stopMusic();
 
         resetStats(player1);

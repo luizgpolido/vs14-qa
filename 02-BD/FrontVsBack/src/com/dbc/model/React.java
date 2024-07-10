@@ -6,14 +6,14 @@ public class React extends CharacterFight {
 
     String name = "React";
     private String playerHead = "(ಠ益ಠ)";
-    int id;
+    int id = 1002;
 
     int lucky = 1;
 
     public React(int hitPoints, int strength, String name) {
         super(hitPoints, strength);
         this.name = name;
-        this.id = 1002;
+
     }
 
     public React(int hitPoints, int strength, String name, int lucky) {
@@ -59,6 +59,11 @@ public class React extends CharacterFight {
         } else {
             return false;
         }
+    }
+
+    @Override
+    public int getId() {
+        return id;
     }
 
     @Override

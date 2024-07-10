@@ -36,7 +36,7 @@ public class PlayerRepository implements Repository<Integer, Player> {
             player.setIdPlayer(proximoId);
 
             String sql = "INSERT INTO PLAYER\n" +
-                    "(ID_PLAYER, NAME_PLAYER)\n" +
+                    "(ID_PLAYER, NAME)\n" +
                     "VALUES(?, ?)\n";
 
             PreparedStatement stmt = con.prepareStatement(sql);
@@ -97,7 +97,7 @@ public class PlayerRepository implements Repository<Integer, Player> {
 
             StringBuilder sql = new StringBuilder();
             sql.append("UPDATE PLAYER SET ");
-            sql.append(" name_player = ? ");
+            sql.append(" name = ? ");
             sql.append(" WHERE id_player = ? ");
 
             PreparedStatement stmt = con.prepareStatement(sql.toString());
@@ -106,7 +106,7 @@ public class PlayerRepository implements Repository<Integer, Player> {
             stmt.setInt(2, id);
 
             int res = stmt.executeUpdate();
-            System.out.println("editarBatalha.res=" + res);
+//            System.out.println("editarBatalha.res=" + res);
 
             return res > 0;
         } catch (SQLException e) {
@@ -122,37 +122,37 @@ public class PlayerRepository implements Repository<Integer, Player> {
         }
     }
 
-    @Override
-    public List<Player> listar() throws BancoDeDadosException {
-        List<Player> players = new ArrayList<>();
-        Connection con = null;
-        try {
-            con = ConexaoBancoDeDados.getConnection();
-            Statement stmt = con.createStatement();
-
-            String sql = "SELECT * FROM PLAYER";
-
-            // Executa-se a consulta
-            ResultSet res = stmt.executeQuery(sql);
-
-            while (res.next()) {
-                Player player = new Player();
-                player.setIdPlayer(res.getInt("id_player"));
-                player.setName(res.getString("name_player"));
-                players.add(player);
-            }
-        } catch (SQLException e) {
-            throw new BancoDeDadosException(e.getCause());
-        } finally {
-            try {
-                if (con != null) {
-                    con.close();
-                }
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
-        }
-        return players;
-    }
+//    @Override
+//    public List<Player> listar() throws BancoDeDadosException {
+//        List<Player> players = new ArrayList<>();
+//        Connection con = null;
+//        try {
+//            con = ConexaoBancoDeDados.getConnection();
+//            Statement stmt = con.createStatement();
+//
+//            String sql = "SELECT * FROM PLAYER";
+//
+//            // Executa-se a consulta
+//            ResultSet res = stmt.executeQuery(sql);
+//
+//            while (res.next()) {
+//                Player player = new Player();
+//                player.setIdPlayer(res.getInt("id_player"));
+//                player.setName(res.getString("name_player"));
+//                players.add(player);
+//            }
+//        } catch (SQLException e) {
+//            throw new BancoDeDadosException(e.getCause());
+//        } finally {
+//            try {
+//                if (con != null) {
+//                    con.close();
+//                }
+//            } catch (SQLException e) {
+//                e.printStackTrace();
+//            }
+//        }
+//        return players;
+//    }
 }
 

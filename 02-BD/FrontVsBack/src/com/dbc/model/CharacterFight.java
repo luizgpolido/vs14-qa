@@ -8,13 +8,11 @@ public abstract class CharacterFight implements CharacterFightService {
     private int strength;
     private String name;
     private String playerHead;
-    private int id;
 
 
-    public CharacterFight(int hitPoints, int strength, int id) {
+    public CharacterFight(int hitPoints, int strength) {
         this.hitPoints = hitPoints;
         this.strength = strength;
-        this.id = id;
     }
 
     public CharacterFight() {
@@ -46,5 +44,5 @@ public abstract class CharacterFight implements CharacterFightService {
 
     public String getPlayerHead() { return playerHead;}
 
-    public int getId(){return id;};
+    public abstract int getId();
 }
