@@ -1,6 +1,6 @@
 package com.dbc.service;
 
-import com.dbc.model.Character;
+import com.dbc.model.CharacterFight;
 
 public class MenuService {
 
@@ -52,7 +52,7 @@ ________________________________________________________________________________
         return menu;
     }
 
-    public void battleScreen(Character player1, Character player2) {
+    public void battleScreen(CharacterFight player1, CharacterFight player2) {
         System.out.println("                                                                                                                              ");
         System.out.println("                                                                    "+player2.getPlayerHead()                                               );
         System.out.println("                                                                     /T\\                                                                   ");

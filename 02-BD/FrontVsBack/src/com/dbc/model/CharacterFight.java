@@ -1,15 +1,15 @@
 package com.dbc.model;
 
-import com.dbc.service.CharacterService;
+import com.dbc.service.CharacterFightService;
 
-public abstract class Character implements CharacterService {
+public abstract class CharacterFight implements CharacterFightService {
 
     private int hitPoints;
     private int strength;
     private String name;
     private String playerHead;
 
-    public Character(int hitPoints, int strength) {
+    public CharacterFight(int hitPoints, int strength) {
         this.hitPoints = hitPoints;
         this.strength = strength;
     }

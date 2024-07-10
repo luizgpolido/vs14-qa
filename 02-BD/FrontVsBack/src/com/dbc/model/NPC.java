@@ -2,7 +2,7 @@ package com.dbc.model;
 
 import java.util.Random;
 
-public class NPC extends Character {
+public class NPC extends CharacterFight {
 
     String name = "Portugol";
 

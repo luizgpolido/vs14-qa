@@ -1,8 +1,11 @@
 package com.dbc.service;
 
-public interface CharacterService {
+import com.dbc.repository.CharacterRepository;
 
-    public int lightAttack(int strength);
-    public int heavyAttack(int strength);
-    public int specialAttack(int strength);
+public class CharacterService {
+    private CharacterRepository characterRepository;
+
+    public CharacterService(CharacterRepository characterRepository) {
+        this.characterRepository = characterRepository;
+    }
 }

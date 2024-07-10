@@ -1,7 +1,7 @@
 package com.dbc.view;
 
 import com.dbc.model.*;
-import com.dbc.model.Character;
+import com.dbc.model.CharacterFight;
 import com.dbc.service.MenuService;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
@@ -15,7 +15,7 @@ public class Main {
 
             Scanner scanner = new Scanner(System.in);
             MenuService menuService = new MenuService();
-            ArrayList<Character> characterList = new ArrayList<>();
+            ArrayList<CharacterFight> characterList = new ArrayList<>();
 
             characterList.add(new Java(12, 1, "Javoso"));
             characterList.add(new React(8, 2, "Reactero"));
@@ -55,8 +55,8 @@ public class Main {
                                 break;
                             }
                             String character2 = characterSelection.selectCharacter(true, character1);
-                            Character player1 = characterSelection.returnCharacter(character1);
-                            Character player2 = characterSelection.returnCharacter(character2);
+                            CharacterFight player1 = characterSelection.returnCharacter(character1);
+                            CharacterFight player2 = characterSelection.returnCharacter(character2);
                             Battle battle = new Battle(player1, player2, score);
                             battle.battle();
                             musicPlayer.playerIntroMusic();

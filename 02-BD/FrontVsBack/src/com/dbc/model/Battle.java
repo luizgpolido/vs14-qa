@@ -7,24 +7,24 @@ import java.util.Scanner;
 
 public class Battle {
 
-    private  Character player1;
-    private  Character player2;
+    private CharacterFight player1;
+    private CharacterFight player2;
     private Score score;
     private final MusicPlayer MUSICPLAYER = new MusicPlayer();
     private MenuService menuService = new MenuService();
 
 
-    public Battle(Character player1, Character player2, Score score) {
+    public Battle(CharacterFight player1, CharacterFight player2, Score score) {
         this.player1 = player1;
         this.player2 = player2;
         this.score = score;
     }
 
-    public Character getPlayer1() {
+    public CharacterFight getPlayer1() {
         return player1;
     }
 
-    public Character getPlayer2() {
+    public CharacterFight getPlayer2() {
         return player1;
     }
 
@@ -112,7 +112,7 @@ public class Battle {
         resetStats(player2);
     }
 
-    public void resetStats(Character player) {
+    public void resetStats(CharacterFight player) {
         player.setHitPoints(10);
     }
 

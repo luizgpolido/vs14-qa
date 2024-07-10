@@ -2,7 +2,7 @@ package com.dbc.model;
 
 import java.util.Random;
 
-public class React extends Character {
+public class React extends CharacterFight {
 
     String name = "React";
     private String playerHead = "(ಠ益ಠ)";

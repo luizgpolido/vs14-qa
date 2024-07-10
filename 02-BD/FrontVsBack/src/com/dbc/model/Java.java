@@ -2,7 +2,7 @@ package com.dbc.model;
 
 import java.util.Random;
 
-public class Java extends Character {
+public class Java extends CharacterFight {
 
     String name = "Java";
     private String playerHead = "(⌐■_■)";
