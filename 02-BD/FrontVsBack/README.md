@@ -22,7 +22,7 @@ Projeto de criação de um jogo, para a Task 05 do **Vem Ser - DBC**
 >O jogo tem insipiração nos jogos clássicos de luta, como Mortal Kombat e Pokémon, misturando elementos distintos entre eles.
 > Nesse jogo é possível o jogador escolher seu combatente, selecionar seus ataques e experiênciar os elementos de cada classe, como sorte, força e etc. 
 
-![Diagrama UML](src/com/dbc/resources/diagramauml.jpg)
+[Diagrama UML](src/com/dbc/resources/diagramauml.jpg)
 
 ## Jornada do Jogo
 
@@ -33,7 +33,7 @@ Projeto de criação de um jogo, para a Task 05 do **Vem Ser - DBC**
 - Escolha dos ataques e defesas
 - Finalização da luta e mensagem do resultado
 
-![Jornada Usuario](src/com/dbc/resources/jornadausuario.png)
+[Jornada Usuario](src/com/dbc/resources/jornadausuario.png)
 
 
 ## Links externos
