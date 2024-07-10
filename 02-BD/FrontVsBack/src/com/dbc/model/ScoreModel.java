@@ -4,7 +4,6 @@ import java.time.LocalDate;
 
 public class ScoreModel {
     private Integer victories;
-    private LocalDate date;
     private String winner_name;
 
 
@@ -14,14 +13,6 @@ public class ScoreModel {
 
     public void setVictories(Integer victories) {
         this.victories = victories;
-    }
-
-    public LocalDate getDate() {
-        return date;
-    }
-
-    public void setDate(LocalDate date) {
-        this.date = date;
     }
 
     public String getWinner_name() {
@@ -37,7 +28,6 @@ public class ScoreModel {
     public String toString() {
         return "ScoreModel{" +
                 "victories=" + victories +
-                ", date=" + date +
                 ", winner_name='" + winner_name + '\'' +
                 '}';
     }

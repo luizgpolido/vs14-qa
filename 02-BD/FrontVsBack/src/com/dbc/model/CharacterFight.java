@@ -17,7 +17,9 @@ public abstract class CharacterFight implements CharacterFightService {
     public CharacterFight() {
     }
 
-    public String getName();
+    public String getName() {
+        return this.name;
+    }
 
     public int getHitPoints() {
         return hitPoints;
