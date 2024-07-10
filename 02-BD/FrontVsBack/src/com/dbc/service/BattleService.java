@@ -4,8 +4,6 @@ import com.dbc.exceptions.BancoDeDadosException;
 import com.dbc.model.Battle;
 import com.dbc.repository.BattleRepository;
 
-import java.util.List;
-
 public class BattleService {
     private BattleRepository battleRepository;
 
@@ -37,11 +35,4 @@ public class BattleService {
         }
     }
 
-//    public void list() {
-//        try {
-//            battleRepository.listar().forEach(System.out::println);
-//        } catch (BancoDeDadosException e) {
-//            e.printStackTrace();
-//        }
-//    }
 }

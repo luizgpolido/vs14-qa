@@ -23,6 +23,11 @@ public class Portugol extends CharacterFight {
     }
 
     @Override
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    @Override
     public boolean deduceHitPoints(int damage) {
         if (!dodge()){
             super.setHitPoints(getHitPoints() - damage);

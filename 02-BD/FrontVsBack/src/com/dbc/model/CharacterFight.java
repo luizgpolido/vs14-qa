@@ -4,6 +4,7 @@ import com.dbc.service.CharacterFightService;
 
 public abstract class CharacterFight implements CharacterFightService {
 
+    private int id;
     private int hitPoints;
     private int strength;
     private String name;
@@ -45,4 +46,8 @@ public abstract class CharacterFight implements CharacterFightService {
     public String getPlayerHead() { return playerHead;}
 
     public abstract int getId();
+
+    public void setId(int id) {
+        this.id = id;
+    }
 }

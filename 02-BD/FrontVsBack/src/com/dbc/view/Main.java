@@ -4,8 +4,10 @@ import com.dbc.exceptions.BancoDeDadosException;
 import com.dbc.model.*;
 import com.dbc.model.CharacterFight;
 import com.dbc.repository.PlayerRepository;
+import com.dbc.repository.ScoreRepository;
 import com.dbc.service.MenuService;
 import com.dbc.service.PlayerService;
+import com.dbc.service.ScoreService;
 
 import java.util.ArrayList;
 import java.util.InputMismatchException;
@@ -32,9 +34,10 @@ public class Main {
             System.out.println(menuService.getLogoDBC());
             Thread.sleep(2000);
             menuService.clear();
-            Score score = new Score();
+            ScoreService scoreService = new ScoreService(new ScoreRepository());
             musicPlayer.playerIntroMusic();
 
+            PlayerService playerService = new PlayerService(new PlayerRepository());
 
         
             while (true) {
@@ -54,25 +57,42 @@ public class Main {
                     switch (opt) {
                         case 1:
                             //add player to player table
-                            System.out.println("qual é o nome do player? ");
+                            System.out.println("Qual é o nome do player? ");
                             String playerName = scanner.nextLine();
 
+
+
+
+
+
                             CharacterSelection characterSelection = new CharacterSelection(characterList);
-                            musicPlayer.stopMusic();
                             String character1 = characterSelection.selectCharacter(false);
                             if (character1.equals("Erro")){
                                 break;
                             }
-
-
-                            PlayerService playerService = new PlayerService(new PlayerRepository());
-                            playerService.insert(new Player(playerName));
-
                             String character2 = characterSelection.selectCharacter(true, character1);
                             CharacterFight player1 = characterSelection.returnCharacter(character1);
                             CharacterFight player2 = characterSelection.returnCharacter(character2);
-                            Battle battle = new Battle(player1, player2);
-                            battle.battle();
+
+
+
+
+
+
+                            Integer id_player = playerService.getPlayerId(playerName);
+                            if (id_player == 9999) {
+                                playerService.insert(new Player(playerName));
+                                id_player = playerService.getPlayerId(playerName);
+                            }
+
+                            player1.setId(id_player);
+
+                            // se existir player = id -> player.setId()
+                            // se n -> criar no BD
+
+                            musicPlayer.stopMusic();
+                            new Battle(player1, player2).battle();
+
                             musicPlayer.playerIntroMusic();
                             break;
                         case 2:
@@ -82,11 +102,7 @@ public class Main {
                             break;
                         case 3:
 
-                            try {
-                                score.displayScore();
-                            } catch (BancoDeDadosException e) {
-                                throw new RuntimeException(e);
-                            }
+                            scoreService.listar();
                             Thread.sleep(3000);
                             break;
 
@@ -100,8 +116,10 @@ public class Main {
 
             } catch (InterruptedException exception){
             System.out.println(exception.getMessage());
+        } catch (BancoDeDadosException e) {
+            throw new RuntimeException(e);
         }
-        }
+    }
 
 
     }
