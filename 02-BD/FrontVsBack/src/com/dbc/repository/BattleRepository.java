@@ -9,7 +9,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-public class BattleRepository implements Repository<Integer, Battle>{
+public class BattleRepository implements Repository<Integer, Battle> {
     @Override
     public Integer getProximoId(Connection connection) throws SQLException {
         String sql = "SELECT BATTLE_SEQUENCE.nextval mysequence from DUAL";
@@ -73,7 +73,6 @@ public class BattleRepository implements Repository<Integer, Battle>{
 
             stmt.setInt(1, id);
 
-            // Executa-se a consulta
             int res = stmt.executeUpdate();
             System.out.println("removerBatalhaPorId.res=" + res);
 
@@ -159,6 +158,6 @@ public class BattleRepository implements Repository<Integer, Battle>{
         }
         return battles;
     }
-    }
-
 }
+
+

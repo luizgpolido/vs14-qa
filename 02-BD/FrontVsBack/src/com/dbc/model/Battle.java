@@ -24,6 +24,7 @@ public class Battle {
         this.player1 = player1;
         this.player2 = player2;
         this.score = score;
+        this.battleDate = LocalDate.now();
     }
 
     public LocalDate getBattleDate() {
