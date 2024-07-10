@@ -47,7 +47,7 @@ public class MenuService {
                                                         
                     
 ________________________________________________________________________________________________________________________
-                    LUTE![1]          Personagens[2]          Classificação[3]          Sair[4]
+                    LUTE![1]          Personagens[2]          Classificação[3]          Loja[4]          Sair[5]
                             """;
         return menu;
     }
@@ -68,7 +68,7 @@ ________________________________________________________________________________
         System.out.println("          "+player1.getName()                                                                                                  );
         System.out.println("          "+printBar("❤", player1.getHitPoints())                                                                             );
         System.out.println("________________________________________________________________________________________________________________________");
-        System.out.println("          [1] Ataque                                                 [4] Loja                                           ");
+        System.out.println("          [1] Ataque                                                 [4] Itens                                           ");
         System.out.println("          [2] Ataque pesado                                          [5] Fugir                                          ");
         System.out.println("          [3] Ataque especial                                                                                           ");
         System.out.println("                                                                                                                        ");
@@ -91,7 +91,7 @@ ________________________________________________________________________________
         System.out.println("          "+player1.getName()                                                                                                  );
         System.out.println("          "+printBar("❤", player1.getHitPoints())                                                                             );
         System.out.println("________________________________________________________________________________________________________________________");
-        System.out.println("          [1] Ataque                                                 [4] Loja                                           ");
+        System.out.println("          [1] Ataque                                                 [4] Itens                                           ");
         System.out.println("          [2] Ataque pesado                                          [5] Fugir                                          ");
         System.out.println("          [3] Ataque especial                                                                                           ");
         System.out.println("                                                                                                                        ");
@@ -114,7 +114,7 @@ ________________________________________________________________________________
         System.out.println("          "+player1.getName()                                                                                                  );
         System.out.println("          "+printBar("❤", player1.getHitPoints())                                                                             );
         System.out.println("________________________________________________________________________________________________________________________");
-        System.out.println("          [1] Ataque                                                 [4] Loja                                           ");
+        System.out.println("          [1] Ataque                                                 [4] Itens                                           ");
         System.out.println("          [2] Ataque pesado                                          [5] Fugir                                          ");
         System.out.println("          [3] Ataque especial                                                                                           ");
         System.out.println("                                                                                                                        ");
@@ -137,9 +137,9 @@ ________________________________________________________________________________
         System.out.println("          "+player1.getName()                                                                                                  );
         System.out.println("          "+printBar("❤", player1.getHitPoints())                                                                             );
         System.out.println("________________________________________________________________________________________________________________________");
-        System.out.println("          [1] Coffee                                                [4] Voltar                                           ");
-        System.out.println("          [2] RedBull                                                                                    ");
-        System.out.println("          [3] Monster                                                                                          ");
+        System.out.printf("           [1] Coffee(%d)                                             [4] Voltar                                         ", 0);
+        System.out.printf("           [2] RedBull(%d)                                                                                               ", 0);
+        System.out.printf("           [3] Monster(%d)                                                                                               ", 0);
         System.out.println("                                                                                                                        ");
 
     }
