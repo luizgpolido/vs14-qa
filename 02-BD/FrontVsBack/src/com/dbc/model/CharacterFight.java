@@ -8,16 +8,21 @@ public abstract class CharacterFight implements CharacterFightService {
     private int strength;
     private String name;
     private String playerHead;
+    private int id;
 
-    public CharacterFight(int hitPoints, int strength) {
+
+    public CharacterFight(int hitPoints, int strength, int id) {
         this.hitPoints = hitPoints;
         this.strength = strength;
+        this.id = id;
     }
 
     public CharacterFight() {
     }
 
-    public String getName();
+    public String getName() {
+        return this.name;
+    }
 
     public int getHitPoints() {
         return hitPoints;
@@ -40,4 +45,6 @@ public abstract class CharacterFight implements CharacterFightService {
     public abstract boolean dodge();
 
     public String getPlayerHead() { return playerHead;}
+
+    public int getId(){return id;};
 }

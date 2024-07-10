@@ -6,9 +6,12 @@ public class Portugol extends CharacterFight {
 
     String name = "Portugol";
     private String playerHead = "(ô_Ô) ?";
+    int id;
+
     public Portugol(int hitPoints, int strenght, String name) {
         super(hitPoints, strenght);
         this.name = name;
+        this.id = 1003;
     }
 
     public String getName() {

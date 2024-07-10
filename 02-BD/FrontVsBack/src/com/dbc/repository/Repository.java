@@ -15,5 +15,5 @@ public interface Repository<Integer, Object> {
 
     boolean editar(Integer id, Object object) throws BancoDeDadosException;
 
-    List<java.lang.Object> listar() throws BancoDeDadosException;
+//    List<java.lang.Object> listar() throws BancoDeDadosException;
 }

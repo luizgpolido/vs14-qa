@@ -6,18 +6,21 @@ public class React extends CharacterFight {
 
     String name = "React";
     private String playerHead = "(ಠ益ಠ)";
+    int id;
 
     int lucky = 1;
 
     public React(int hitPoints, int strength, String name) {
         super(hitPoints, strength);
         this.name = name;
+        this.id = 1002;
     }
 
     public React(int hitPoints, int strength, String name, int lucky) {
         super(hitPoints, strength);
         this.name = name;
         this.lucky = lucky;
+        this.id = 1002;
     }
 
     public String getName() {

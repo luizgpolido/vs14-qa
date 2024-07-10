@@ -7,16 +7,20 @@ public class Java extends CharacterFight {
     String name = "Java";
     private String playerHead = "(⌐■_■)";
     int forcaExtra = 1;
+    int id;
+
 
     public Java(int hitPoints, int strenght, String name) {
         super(hitPoints, strenght);
         this.name = name;
+        this.id = 1001;
     }
 
     public Java(int hitPoints, int strenght, String name, int forcaExtra) {
         super(hitPoints, strenght);
         this.name = name;
         this.forcaExtra = forcaExtra;
+        this.id = 1001;
     }
 
     public String getName() {

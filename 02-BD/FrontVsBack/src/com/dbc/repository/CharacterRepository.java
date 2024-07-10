@@ -15,14 +15,14 @@ public class CharacterRepository implements Repository<Integer, CharacterFight> 
     public Integer getProximoId(Connection connection) throws SQLException {
         String sql = "SELECT CHARACTER_SEQUENCE.nextval mysequence from DUAL";
 
-        Statement stmt = connection.createStatement();
-        ResultSet res = stmt.executeQuery(sql);
+        try( Statement stmt = connection.createStatement();
+             ResultSet res = stmt.executeQuery(sql)) {
 
-        if (res.next()) {
-            return res.getInt("mysequence");
-
+            if (res.next()) {
+                return res.getInt("mysequence");
+            }
+            return null;
         }
-        return null;
     }
 
     @Override

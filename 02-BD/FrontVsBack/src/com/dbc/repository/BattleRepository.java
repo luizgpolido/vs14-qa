@@ -2,10 +2,8 @@ package com.dbc.repository;
 
 import com.dbc.exceptions.BancoDeDadosException;
 import com.dbc.model.Battle;
-import com.dbc.model.Player;
 
 import java.sql.*;
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,7 +23,7 @@ public class BattleRepository implements Repository<Integer, Battle> {
     }
 
     @Override
-    public Object adicionar(Battle battle) throws BancoDeDadosException {
+    public Battle adicionar(Battle battle) throws BancoDeDadosException {
         Connection con = null;
         try {
             con = ConexaoBancoDeDados.getConnection();
@@ -34,16 +32,14 @@ public class BattleRepository implements Repository<Integer, Battle> {
             battle.setIdBattle(proximoId);
 
             String sql = "INSERT INTO BATTLE\n" +
-                    "(ID_BATTLE, CHARACTER1_ID, CHARACTER2_ID,  WINNER_ID, BATTLE_DATETIME)\n" +
-                    "VALUES(?, ?, ?, ?, ?)\n";
+                    "(ID_BATTLE, ID_WINNER, ID_LOSER)\n" +
+                    "VALUES(?, ?, ?)\n";
 
             PreparedStatement stmt = con.prepareStatement(sql);
 
             stmt.setInt(1, battle.getIdBattle());
-            stmt.setInt(2, battle.getIdPlayer1()); // TODO FAZER RELACIONAMENTO NAS CLASSES
-            stmt.setInt(3, battle.getIdPlayer2());
-            stmt.setInt(4, battle.getWinnerId());
-            stmt.setDate(5, Date.valueOf(LocalDate.now()));
+            stmt.setInt(2, battle.getWinnerId());
+            stmt.setInt(3, battle.getLoserId());
 
             int res = stmt.executeUpdate();
             System.out.println("adicionarBattle.res=" + res);
@@ -123,41 +119,41 @@ public class BattleRepository implements Repository<Integer, Battle> {
         }
     }
 
-    @Override
-    public List<Battle> listar() throws BancoDeDadosException {
-        List<Battle> battles = new ArrayList<>();
-        Connection con = null;
-        try {
-            con = ConexaoBancoDeDados.getConnection();
-            Statement stmt = con.createStatement();
-
-            String sql = "SELECT * FROM BATTLE";
-
-            // Executa-se a consulta
-            ResultSet res = stmt.executeQuery(sql);
-
-            while (res.next()) {
-                Battle battle = new Battle();
-                battle.setIdBattle(res.getInt("id_battle"));
-                battle.setIdPlayer1(res.getInt("character1_id"));
-                battle.setIdPlayer2(res.getInt("character2_id"));
-                battle.setWinnerId(res.getInt("winner_id"));
-                battle.setBattleDate(res.getDate("battle_datetime").toLocalDate());
-                battles.add(battle);
-            }
-        } catch (SQLException e) {
-            throw new BancoDeDadosException(e.getCause());
-        } finally {
-            try {
-                if (con != null) {
-                    con.close();
-                }
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
-        }
-        return battles;
-    }
+//    @Override
+//    public List<Battle> listar() throws BancoDeDadosException {
+//        List<Battle> battles = new ArrayList<>();
+//        Connection con = null;
+//        try {
+//            con = ConexaoBancoDeDados.getConnection();
+//            Statement stmt = con.createStatement();
+//
+//            String sql = "SELECT * FROM BATTLE";
+//
+//            // Executa-se a consulta
+//            ResultSet res = stmt.executeQuery(sql);
+//
+//            while (res.next()) {
+//                Battle battle = new Battle();
+//                battle.setIdBattle(res.getInt("id_battle"));
+//                battle.setIdPlayer1(res.getInt("character1_id"));
+//                battle.setIdPlayer2(res.getInt("character2_id"));
+//                battle.setWinnerId(res.getInt("winner_id"));
+//                battle.setBattleDate(res.getDate("battle_datetime").toLocalDate());
+//                battles.add(battle);
+//            }
+//        } catch (SQLException e) {
+//            throw new BancoDeDadosException(e.getCause());
+//        } finally {
+//            try {
+//                if (con != null) {
+//                    con.close();
+//                }
+//            } catch (SQLException e) {
+//                e.printStackTrace();
+//            }
+//        }
+//        return battles;
+//    }
 }
 
 

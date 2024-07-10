@@ -12,6 +12,7 @@ public class Battle {
 
     private Integer idBattle;
     private Integer winnerId;
+    private Integer loserId;
     private LocalDate battleDate;
     private CharacterFight player1;
     private CharacterFight player2;
@@ -41,6 +42,9 @@ public class Battle {
     public Integer getWinnerId() {
         return winnerId;
     }
+    public Integer getLoserId() {
+        return loserId;
+    }
 
     public void setWinnerId(Integer winnerId) {
         this.winnerId = winnerId;
@@ -48,6 +52,13 @@ public class Battle {
 
     public Integer getIdBattle() {
         return idBattle;
+    }
+
+    public Integer getIdPlayer1() {
+        return player1.getId();
+    }
+    public Integer getIdPlayer2() {
+        return player2.getId();
     }
 
     public void setIdBattle(Integer idBattle) {
@@ -140,6 +151,9 @@ public class Battle {
             System.out.println("-----------------------------------------------------------------------");
             score.addPlauer(player1.getName());
         }
+         winnerId = (player1.getHitPoints() <= 0) ? player2.getId() : player1.getId();
+         loserId = (player1.getHitPoints() <= 0) ? player1.getId() : player2.getId();
+
         musicPlayer.stopMusic();
 
         resetStats(player1);
