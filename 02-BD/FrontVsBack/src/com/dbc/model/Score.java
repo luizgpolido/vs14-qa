@@ -33,15 +33,18 @@ public class Score {
             String sql = """
                     ALTER SESSION SET CURRENT_SCHEMA=FRONT_VS_BACK;
                     
-                    SELECT COUNT(b.id_winner) AS victories, p.player_name AS winner_name, b.battle_datetime AS date
-                      FROM BATTLE b
-                      LEFT JOIN PLAYER p ON (b.id_winner = p.id_player)
-                      ORDER BY victories DESC
-                    UNION
-                    SELECT COUNT(b.id_winner) AS victories, gc.name_character AS winner_name, b.battle_datetime AS date
-                      FROM BATTLE b
-                      LEFT JOIN GAME_CHARACTER gc ON (b.id_winner = gc.id_game_character)
-                      ORDER BY victories DESC
+                    SELECT * FROM (
+                         SELECT COUNT(gc.NAME) winner, gc.NAME AS victories FROM BATTLE b\s
+                         JOIN GAME_CHARACTER gc ON (gc.ID_GAME_CHARACTER = b.ID_WINNER)
+                         GROUP BY gc.NAME\s
+                         
+                         UNION
+                         
+                         SELECT COUNT(p.NAME), p.NAME AS victories FROM BATTLE b\s
+                         JOIN PLAYER p ON (p.id_player = b.ID_WINNER)
+                         GROUP BY p.NAME
+                         )
+                         ORDER BY victories DESC;
                     """;
 
             // Executa-se a consulta
@@ -51,14 +54,13 @@ public class Score {
                 ScoreModel winner = new ScoreModel();
                 winner.setVictories(res.getInt("victories"));
                 winner.setWinner_name(res.getString("winner_name"));
-                winner.setDate(res.getDate("date").toLocalDate());
                 winners.add(winner);
             }
 
             System.out.println("________________________________________________________________________________________________________________________\n");
             System.out.println("                                                   VITÓRIAS                                                             ");
             for (ScoreModel winner : winners) {
-            System.out.println("                   |"+winner.getWinner_name()+" | "+winner.getVictories()+" | "+winner.getDate()+" | ");
+            System.out.println("                                   | "+winner.getWinner_name()+" | "+winner.getVictories()+" | ");
             }
             System.out.println("\n________________________________________________________________________________________________________________________");
 
