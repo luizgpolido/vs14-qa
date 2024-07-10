@@ -1,6 +1,9 @@
 package com.dbc.model;
 
 import com.dbc.service.MenuService;
+
+import java.time.LocalDate;
+import java.util.Date;
 import java.util.InputMismatchException;
 import java.util.Random;
 import java.util.Scanner;
@@ -9,6 +12,7 @@ public class Battle {
 
     private Integer idBattle;
     private Integer winnerId;
+    private LocalDate battleDate;
     private CharacterFight player1;
     private CharacterFight player2;
     private Score score;
@@ -20,6 +24,17 @@ public class Battle {
         this.player1 = player1;
         this.player2 = player2;
         this.score = score;
+    }
+
+    public LocalDate getBattleDate() {
+        return battleDate;
+    }
+
+    public void setBattleDate(LocalDate battleDate) {
+        this.battleDate = battleDate;
+    }
+
+    public Battle() {
     }
 
     public Integer getWinnerId() {

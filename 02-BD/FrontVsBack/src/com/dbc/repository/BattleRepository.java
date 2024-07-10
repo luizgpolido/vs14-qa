@@ -6,12 +6,13 @@ import com.dbc.model.Player;
 
 import java.sql.*;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
-public class BattleRepository implements Repository{
+public class BattleRepository implements Repository<Integer, Battle>{
     @Override
     public Integer getProximoId(Connection connection) throws SQLException {
-        String sql = "SELECT seq_battle.nextval mysequence from DUAL";
+        String sql = "SELECT BATTLE_SEQUENCE.nextval mysequence from DUAL";
 
         Statement stmt = connection.createStatement();
         ResultSet res = stmt.executeQuery(sql);
@@ -23,9 +24,8 @@ public class BattleRepository implements Repository{
         return null;
     }
 
-
     @Override
-    public Object adicionar(Object battle) throws BancoDeDadosException {
+    public Object adicionar(Battle battle) throws BancoDeDadosException {
         Connection con = null;
         try {
             con = ConexaoBancoDeDados.getConnection();
@@ -40,13 +40,13 @@ public class BattleRepository implements Repository{
             PreparedStatement stmt = con.prepareStatement(sql);
 
             stmt.setInt(1, battle.getIdBattle());
-            stmt.setInt(2, player.getIdPlayer());
-            stmt.setInt(3, player.getIdPlayer()); // Player 2
+            stmt.setInt(2, battle.getIdPlayer1()); // TODO FAZER RELACIONAMENTO NAS CLASSES
+            stmt.setInt(3, battle.getIdPlayer2());
             stmt.setInt(4, battle.getWinnerId());
             stmt.setDate(5, Date.valueOf(LocalDate.now()));
 
             int res = stmt.executeUpdate();
-            System.out.println("adicionarPessoa.res=" + res);
+            System.out.println("adicionarBattle.res=" + res);
             return battle;
         } catch (SQLException e) {
             throw new BancoDeDadosException(e.getCause());
@@ -62,17 +62,103 @@ public class BattleRepository implements Repository{
     }
 
     @Override
-    public boolean remover(Object id) throws BancoDeDadosException {
-        return false;
+    public boolean remover(Integer id) throws BancoDeDadosException {
+        Connection con = null;
+        try {
+            con = ConexaoBancoDeDados.getConnection();
+
+            String sql = "DELETE FROM BATTLE WHERE id_battle = ?";
+
+            PreparedStatement stmt = con.prepareStatement(sql);
+
+            stmt.setInt(1, id);
+
+            // Executa-se a consulta
+            int res = stmt.executeUpdate();
+            System.out.println("removerBatalhaPorId.res=" + res);
+
+            return res > 0;
+        } catch (SQLException e) {
+            throw new BancoDeDadosException(e.getCause());
+        } finally {
+            try {
+                if (con != null) {
+                    con.close();
+                }
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     @Override
-    public boolean editar(Object id, Object objeto) throws BancoDeDadosException {
-        return false;
+    public boolean editar(Integer id, Battle battle) throws BancoDeDadosException {
+        Connection con = null;
+        try {
+            con = ConexaoBancoDeDados.getConnection();
+
+            StringBuilder sql = new StringBuilder();
+            sql.append("UPDATE BATTLE SET ");
+            sql.append(" winner_id = ? ");
+            sql.append(" WHERE id_battle = ? ");
+
+            PreparedStatement stmt = con.prepareStatement(sql.toString());
+
+            stmt.setInt(1, battle.getWinnerId());
+            stmt.setInt(2, id);
+
+            int res = stmt.executeUpdate();
+            System.out.println("editarBatalha.res=" + res);
+
+            return res > 0;
+        } catch (SQLException e) {
+            throw new BancoDeDadosException(e.getCause());
+        } finally {
+            try {
+                if (con != null) {
+                    con.close();
+                }
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     @Override
-    public List listar() throws BancoDeDadosException {
-        return List.of();
+    public List<Battle> listar() throws BancoDeDadosException {
+        List<Battle> battles = new ArrayList<>();
+        Connection con = null;
+        try {
+            con = ConexaoBancoDeDados.getConnection();
+            Statement stmt = con.createStatement();
+
+            String sql = "SELECT * FROM PESSOA";
+
+            // Executa-se a consulta
+            ResultSet res = stmt.executeQuery(sql);
+
+            while (res.next()) {
+                Battle battle = new Battle();
+                battle.setIdBattle(res.getInt("id_battle"));
+                battle.setIdPlayer1(res.getInt("character1_id"));
+                battle.setIdPlayer2(res.getInt("character2_id"));
+                battle.setWinnerId(res.getInt("winner_id"));
+                battle.setBattleDate(res.getDate("battle_datetime").toLocalDate());
+                battles.add(battle);
+            }
+        } catch (SQLException e) {
+            throw new BancoDeDadosException(e.getCause());
+        } finally {
+            try {
+                if (con != null) {
+                    con.close();
+                }
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+        return battles;
     }
+    }
+
 }
