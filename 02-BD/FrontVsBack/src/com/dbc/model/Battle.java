@@ -3,9 +3,6 @@ package com.dbc.model;
 import com.dbc.repository.BattleRepository;
 import com.dbc.service.BattleService;
 import com.dbc.service.MenuService;
-
-import java.time.LocalDate;
-import java.util.Date;
 import java.util.InputMismatchException;
 import java.util.Random;
 import java.util.Scanner;
@@ -15,10 +12,8 @@ public class Battle {
     private Integer idBattle;
     private Integer winnerId;
     private Integer loserId;
-    private LocalDate battleDate;
     private CharacterFight player1;
     private CharacterFight player2;
-    private Score score;
     private final MusicPlayer MUSICPLAYER = new MusicPlayer();
     private MenuService menuService = new MenuService();
 
@@ -76,7 +71,7 @@ public class Battle {
         musicPlayer.playerBattleMusic();
         Scanner scanner = new Scanner(System.in);
 
-
+        System.out.println(player1.getId()+"======================================================");
         while (player1.getHitPoints() > 0 && player2.getHitPoints() > 0) {
 
             menuService.battleScreen(player1, player2);
@@ -151,9 +146,9 @@ public class Battle {
          winnerId = player1.getHitPoints() <= 0 ? player2.getId() : player1.getId();
          loserId = player1.getHitPoints() <= 0 ? player1.getId() : player2.getId();
 
-         Battle battle = new Battle(winnerId, loserId);
-        BattleService battleService = new BattleService(new BattleRepository());
-         battleService.insert(battle);
+         //pegar id player
+
+        new BattleService(new BattleRepository()).insert(new Battle(winnerId, loserId));
         musicPlayer.stopMusic();
 
         resetStats(player1);

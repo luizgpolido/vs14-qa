@@ -34,6 +34,11 @@ public class Java extends CharacterFight {
     }
 
     @Override
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    @Override
     public boolean deduceHitPoints(int damage) {
         if (!dodge()){
             super.setHitPoints(getHitPoints() - damage);
@@ -45,6 +50,8 @@ public class Java extends CharacterFight {
             return false;
         }
     }
+
+
 
     @Override
     public boolean dodge() {

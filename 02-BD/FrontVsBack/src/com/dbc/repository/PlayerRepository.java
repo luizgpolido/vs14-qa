@@ -1,15 +1,44 @@
 package com.dbc.repository;
 
 import com.dbc.exceptions.BancoDeDadosException;
-import com.dbc.model.Battle;
 import com.dbc.model.Player;
 
 import java.sql.*;
-import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.List;
 
 public class PlayerRepository implements Repository<Integer, Player> {
+
+
+    public Integer findPlayerId(String player_name) throws BancoDeDadosException {
+        Connection con = null;
+        try {
+            String sql = "SELECT id_player FROM PLAYER WHERE name = ?";
+
+            con = ConexaoBancoDeDados.getConnection();
+            PreparedStatement stmt = con.prepareStatement(sql);
+            stmt.setString(1, player_name);
+
+            ResultSet res = stmt.executeQuery();
+
+            if (res.next()) {
+                return res.getInt("id_player");
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            throw new BancoDeDadosException(e.getCause());
+        } finally {
+            try {
+                if (con != null) {
+                    con.close();
+                }
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+
+        return 9999;
+    }
 
 
     @Override
@@ -106,7 +135,7 @@ public class PlayerRepository implements Repository<Integer, Player> {
             stmt.setInt(2, id);
 
             int res = stmt.executeUpdate();
-//            System.out.println("editarBatalha.res=" + res);
+
 
             return res > 0;
         } catch (SQLException e) {
@@ -122,37 +151,10 @@ public class PlayerRepository implements Repository<Integer, Player> {
         }
     }
 
-//    @Override
-//    public List<Player> listar() throws BancoDeDadosException {
-//        List<Player> players = new ArrayList<>();
-//        Connection con = null;
-//        try {
-//            con = ConexaoBancoDeDados.getConnection();
-//            Statement stmt = con.createStatement();
-//
-//            String sql = "SELECT * FROM PLAYER";
-//
-//            // Executa-se a consulta
-//            ResultSet res = stmt.executeQuery(sql);
-//
-//            while (res.next()) {
-//                Player player = new Player();
-//                player.setIdPlayer(res.getInt("id_player"));
-//                player.setName(res.getString("name_player"));
-//                players.add(player);
-//            }
-//        } catch (SQLException e) {
-//            throw new BancoDeDadosException(e.getCause());
-//        } finally {
-//            try {
-//                if (con != null) {
-//                    con.close();
-//                }
-//            } catch (SQLException e) {
-//                e.printStackTrace();
-//            }
-//        }
-//        return players;
-//    }
+    @Override
+    public List<Player> listar() throws BancoDeDadosException {
+        return List.of();
+    }
 }
+
 

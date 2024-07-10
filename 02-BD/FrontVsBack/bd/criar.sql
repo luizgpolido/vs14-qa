@@ -42,7 +42,6 @@ NOCACHE NOCYCLE;
 
 CREATE TABLE FRONT_VS_BACK.BATTLE (
     id_battle NUMBER NOT NULL,
-    battle_date      TIMESTAMP NOT NULL,
     id_winner NUMBER NOT NULL,
     id_loser NUMBER  NOT NULL,
                      PRIMARY KEY(id_battle)
