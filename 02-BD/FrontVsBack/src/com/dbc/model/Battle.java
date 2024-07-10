@@ -71,7 +71,6 @@ public class Battle {
         musicPlayer.playerBattleMusic();
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println(player1.getId()+"======================================================");
         while (player1.getHitPoints() > 0 && player2.getHitPoints() > 0) {
 
             menuService.battleScreen(player1, player2);

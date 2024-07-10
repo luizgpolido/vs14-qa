@@ -74,7 +74,6 @@ public class PlayerRepository implements Repository<Integer, Player> {
             stmt.setString(2, player.getName());
 
             int res = stmt.executeUpdate();
-            System.out.println("adicionarBattle.res=" + res);
             return player;
         } catch (SQLException e) {
             throw new BancoDeDadosException(e.getCause());
