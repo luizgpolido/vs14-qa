@@ -130,7 +130,7 @@ public class PlayerRepository implements Repository<Integer, Player> {
             con = ConexaoBancoDeDados.getConnection();
             Statement stmt = con.createStatement();
 
-            String sql = "SELECT * FROM PESSOA";
+            String sql = "SELECT * FROM PLAYER";
 
             // Executa-se a consulta
             ResultSet res = stmt.executeQuery(sql);

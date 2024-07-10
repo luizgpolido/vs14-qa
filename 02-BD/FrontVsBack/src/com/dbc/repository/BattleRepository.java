@@ -131,7 +131,7 @@ public class BattleRepository implements Repository<Integer, Battle> {
             con = ConexaoBancoDeDados.getConnection();
             Statement stmt = con.createStatement();
 
-            String sql = "SELECT * FROM PESSOA";
+            String sql = "SELECT * FROM BATTLE";
 
             // Executa-se a consulta
             ResultSet res = stmt.executeQuery(sql);

@@ -129,7 +129,7 @@ public class CharacterRepository implements Repository<Integer, CharacterFight> 
             con = ConexaoBancoDeDados.getConnection();
             Statement stmt = con.createStatement();
 
-            String sql = "SELECT * FROM PESSOA";
+            String sql = "SELECT * FROM GAME_CHARACTER";
 
             ResultSet res = stmt.executeQuery(sql);
 
@@ -167,7 +167,7 @@ public class CharacterRepository implements Repository<Integer, CharacterFight> 
                 };
                 characterFights.setIdGameCharacter(res.getInt("id_game_character"));
                 characterFights.setGameCharacter(res.getInt("name_character"));
-                battles.add(battle);
+                characterFights.add(characterFight);
             }
         } catch (SQLException e) {
             throw new BancoDeDadosException(e.getCause());
