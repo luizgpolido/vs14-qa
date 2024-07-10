@@ -73,6 +73,22 @@ Execute o programa
 java com.dbc.view.Main
 ```
 
+Para configurar o banco de dados, crie uma nova conexão no DBeaver com o login:
+```
+login: system
+password: oracle
+```
+
+E execute o script criar.sql
+
+Após isso, crie outra conexão com os dados:
+```
+login: FRONT_VS_BACK
+password: oracle
+```
+
+E execute o script em dados.sql
+
 ## Autores
 
 - [@Mateus-de-Morais-Barros](https://github.com/Mateus-de-Morais-Barros)
