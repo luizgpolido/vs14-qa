@@ -1,20 +1,26 @@
-package entities;
+package com.dbc.model;
 
-import services.CharacterService;
+import com.dbc.service.CharacterFightService;
 
-public abstract class Character implements CharacterService {
+public abstract class CharacterFight implements CharacterFightService {
 
     private int hitPoints;
     private int strength;
     private String name;
     private String playerHead;
 
-    public Character(int hitPoints, int strength) {
+
+    public CharacterFight(int hitPoints, int strength) {
         this.hitPoints = hitPoints;
         this.strength = strength;
     }
 
-    public abstract String getName();
+    public CharacterFight() {
+    }
+
+    public String getName() {
+        return this.name;
+    }
 
     public int getHitPoints() {
         return hitPoints;
@@ -37,4 +43,6 @@ public abstract class Character implements CharacterService {
     public abstract boolean dodge();
 
     public String getPlayerHead() { return playerHead;}
+
+    public abstract int getId();
 }

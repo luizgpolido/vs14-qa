@@ -1,23 +1,26 @@
-package entities;
+package com.dbc.model;
 
 import java.util.Random;
 
-public class React extends Character {
+public class React extends CharacterFight {
 
     String name = "React";
     private String playerHead = "(ಠ益ಠ)";
+    int id = 1002;
 
     int lucky = 1;
 
     public React(int hitPoints, int strength, String name) {
         super(hitPoints, strength);
         this.name = name;
+
     }
 
     public React(int hitPoints, int strength, String name, int lucky) {
         super(hitPoints, strength);
         this.name = name;
         this.lucky = lucky;
+        this.id = 1002;
     }
 
     public String getName() {
@@ -56,6 +59,11 @@ public class React extends Character {
         } else {
             return false;
         }
+    }
+
+    @Override
+    public int getId() {
+        return id;
     }
 
     @Override

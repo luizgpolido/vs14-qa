@@ -1,30 +1,72 @@
-package entities;
+package com.dbc.model;
 
-import services.MenuService;
+import com.dbc.repository.BattleRepository;
+import com.dbc.service.BattleService;
+import com.dbc.service.MenuService;
+
+import java.time.LocalDate;
+import java.util.Date;
 import java.util.InputMismatchException;
 import java.util.Random;
 import java.util.Scanner;
 
 public class Battle {
 
-    private  Character player1;
-    private  Character player2;
+    private Integer idBattle;
+    private Integer winnerId;
+    private Integer loserId;
+    private LocalDate battleDate;
+    private CharacterFight player1;
+    private CharacterFight player2;
     private Score score;
     private final MusicPlayer MUSICPLAYER = new MusicPlayer();
     private MenuService menuService = new MenuService();
 
 
-    public Battle(Character player1, Character player2, Score score) {
+    public Battle(CharacterFight player1, CharacterFight player2) {
         this.player1 = player1;
         this.player2 = player2;
-        this.score = score;
     }
 
-    public Character getPlayer1() {
+    public Battle(Integer winnerId, Integer loserId) {
+        this.winnerId = winnerId;
+        this.loserId = loserId;
+    }
+
+    public Battle() {
+    }
+
+    public Integer getWinnerId() {
+        return winnerId;
+    }
+    public Integer getLoserId() {
+        return loserId;
+    }
+
+    public void setWinnerId(Integer winnerId) {
+        this.winnerId = winnerId;
+    }
+
+    public Integer getIdBattle() {
+        return idBattle;
+    }
+
+    public Integer getIdPlayer1() {
+        return player1.getId();
+    }
+    public Integer getIdPlayer2() {
+        return player2.getId();
+    }
+
+    public void setIdBattle(Integer idBattle) {
+        this.idBattle = idBattle;
+    }
+
+    public CharacterFight getPlayer1() {
         return player1;
     }
 
-    public Character getPlayer2() {
+    public CharacterFight getPlayer2() {
         return player1;
     }
 
@@ -97,22 +139,28 @@ public class Battle {
             musicPlayer.playerGameOverMusic();
             Thread.sleep (6000);
             System.out.println("-----------------------------------------------------------------------");
-            score.addPlauer(player2.getName());
+//            score.addPlauer(player2.getName());
         } else {
 
             System.out.println("*************** " + player1.getName() + " venceu o combate!" + " ***************");
             musicPlayer.playerWinMusic();
             Thread.sleep (8000);
             System.out.println("-----------------------------------------------------------------------");
-            score.addPlauer(player1.getName());
+//            score.addPlauer(player1.getName());
         }
+         winnerId = player1.getHitPoints() <= 0 ? player2.getId() : player1.getId();
+         loserId = player1.getHitPoints() <= 0 ? player1.getId() : player2.getId();
+
+         Battle battle = new Battle(winnerId, loserId);
+        BattleService battleService = new BattleService(new BattleRepository());
+         battleService.insert(battle);
         musicPlayer.stopMusic();
 
         resetStats(player1);
         resetStats(player2);
     }
 
-    public void resetStats(Character player) {
+    public void resetStats(CharacterFight player) {
         player.setHitPoints(10);
     }
 
