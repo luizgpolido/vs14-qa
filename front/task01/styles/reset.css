@@ -1,0 +1,40 @@
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    font-family: "Inter", "Open Sans", sans-serif;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+button {
+    background-color: transparent;
+    cursor: pointer;
+}
+
+a {
+    display: inline-block;
+    text-decoration: none;
+}
+
+ul,
+ol,
+li {
+    list-style: none;
+}
+
+.conteiner {
+    width: 100%;
+    max-width: calc(111.7rem + 3rem);
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
