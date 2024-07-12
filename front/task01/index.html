@@ -1,11 +1,94 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="icon" type="image/x-icon" href="../assets/favicon.png">
+    <meta name="description" content="Explore o Porão do HD onde Javoso, Reactero e Portugolino travam uma batalha digital épica pela supremacia">
+    <title>Front VS Back</title>
 </head>
 <body>
     
+    <header>
+        <a href="/"><img src="assets/logo.png" alt="Logo Front vs Back" width="300"></a>
+        <nav>
+            <a href="/">Home</a>
+            <a href="pages/javoso.html">Javoso</a>
+            <a href="pages/reactero.html">Reactero</a>
+            <a href="pages/portugol.html">Portugolino</a>
+            <a href="pages/makingoff.html">Making Off</a>
+        </nav>
+    </header>
+
+    <main>
+        <section id="historia">
+            <h2>História</h2>
+            <p>Em um canto esquecido de Cibercity, conhecido apenas como o Porão do HD, os <strong>stacks de programação lutam</strong> por supremacia. <br>
+             Este lugar sombrio é habitado por dados obsoletos e programas desatualizados, onde três linguagens icônicas se destacam: <br>
+             Javoso, o veterano de <strong>Java</strong>; Reactero, o moderno e <strong>ágil framework JavaScript</strong>; e Portugolino, o versátil compilador poliglota. <br>
+             Suas batalhas constantes ameaçam destruir o frágil equilíbrio do Porão, onde o vencedor é um mistério para todos!</p>
+        </section>
+
+        <section id="personagens">
+            <h2>Personagens</h2>
+            <table>
+                <tr>
+                    <td>Javoso</td>
+                    <td><a href="./pages/javoso.html"><img src="assets/javoso.png" alt="Imagem do Personagem 1" width="100"></a></td>
+                </tr>
+                <tr>
+                    <td>Reactero</td>
+                    <td><a href="pages/reactero.html"><img src="assets/reactero.png" alt="Imagem do Personagem 2" width="100"></a></td>
+                </tr>
+                <tr>
+                    <td>Portugol</td>
+                    <td><a href="pages/portugol.html"><img src="assets/portugolino.png" alt="Imagem do Personagem 3" width="100"></a></td>
+                </tr>
+            </table>
+        </section>
+
+        <section id="form-beta">
+            <h2>Inscrição para o Teste Beta!</h2>
+            <p>Receba a versão beta do <strong>jogo</strong>, basta apenas inserir as informações abaixo!</p>
+            <form>
+                <label for="name">Nome Completo:</label><br>
+                <input type="text" id="name" name="name" placeholder="Seu nome" required><br><br>
+                
+                <label for="email">Email:</label><br>
+                <input type="email" id="email" name="email" placeholder="xxxxx@xxxx.xxx" required><br><br>
+                
+                <label for="age">Idade:</label><br>
+                <input type="number" id="age" name="age" required min="18" placeholder="Sua idade"><br><br>
+                
+                <label for="pc_yes">Tem computador para uso pessoal?</label><br>
+                <input type="radio" name="pc" id="pc_yes" checked> Sim 
+                <input type="radio" name="pc" id="pc_no"> Não <br><br>
+                
+                <label for="experience">Experiência com Jogos (em anos):</label><br>
+                <input type="number" id="experience" name="experience" min="0" placeholder="0"><br><br>
+                
+                <label for="comments">Comentários:</label><br>
+                <textarea id="comments" name="comments" rows="4" cols="50" placeholder="Conte-nos o que acha de participar do beta do jogo"></textarea><br><br>
+                
+                <input type="submit" value="Inscrever-se">
+            </form>
+        </section>
+
+        <section id="making-off"> 
+            <h2>Making Off</h2>
+            <h3>Descubra os Bastidores do Nosso <strong>Jogo</strong>!</h3>
+            <p>Explore o processo criativo por trás do <strong>jogo</strong> que coloca Javoso, Reactero e Portugolino em uma batalha digital épica! <br>
+              Não perca essa oportunidade única de ver como o mundo do desenvolvimento de <strong>jogos e programação</strong> se fundem em uma experiência emocionante!</p>
+
+            <a href="pages/makingoff.html"><button>Veja mais!</button></a>
+        </section>
+    </main>
+
+
+    <footer>
+        <p>Copyright © 2024</p>
+    </footer>
+
+
 </body>
 </html>
