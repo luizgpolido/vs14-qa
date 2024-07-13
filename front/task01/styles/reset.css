@@ -1,5 +1,7 @@
-:root {
+:root { 
+    --deep-black: #131313;
     --primary-black: #18191B;
+    --primary-black-md: #2B2D30;
     --primary-gray: #BBBDAF;
     --secondary-yellow: #C29E4A;
     --secondary-green: #5CA662;
@@ -13,6 +15,10 @@
     box-sizing: border-box;
     -webkit-font-smoothing: antialiased;
     font-family: "Inter", "Open Sans", sans-serif;
+}
+
+body {
+    background-color: var(--deep-black);
 }
 
 html {
@@ -45,12 +51,13 @@ li {
     max-width: calc(111.7rem + 3rem);
     margin: 0 auto;
     padding: 0 1.5rem;
+    background-color: var(--primary-black);
 }
 
 header {
     background-color: var(--primary-black);
     height: 15.2rem;
-    
+    border-bottom: .1rem solid var(--primary-black-md);
 }
 
 header > div {
