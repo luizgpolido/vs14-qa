@@ -1,0 +1,99 @@
+.hero > div {
+    position: relative;
+    max-width: calc(165.3rem + 3rem);
+    height: 92.8rem;
+    margin: 0 auto;
+}
+
+.hero > div > .conteiner {
+    height: 92.8rem;
+}
+
+.hero > div > div:nth-child(1) {
+    margin-top: 7rem;
+    position: absolute;
+    width: 80%;
+    display: flex;
+    align-items: center;
+}
+
+.javoso { 
+    z-index: 7;
+}
+
+.logo-hero { 
+    width: 87.6rem;
+    height: 45.9rem;
+    margin-left: -40rem;
+    z-index: 5;
+}
+
+section {
+    height: 92.8rem;
+    width: 100%;
+    text-align: center;
+}
+
+.historia {
+    background-color: var(--primary-black-md);
+}
+
+h2 {
+    font-size: 6.2rem;
+    font-weight: 500;
+}
+
+p {
+    text-align: justify;
+    font-size: 2.4rem;
+    width: 65%;
+    margin: 0 auto;
+    line-height: 2.9rem;
+    color: var(--primary-gray);
+}
+
+p > strong {
+    font-weight: 500;
+}
+
+.historia > h2 {
+    color: var(--secondary-green);
+    padding-top: 5.45rem;
+    padding-bottom: 4.9rem;
+}
+
+.historia > div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    gap: 12.6rem;
+    padding-top: 4.9rem;
+}
+
+.personagens > h2 {
+    padding-top: 5.7rem;
+    padding-bottom: 11.2rem;
+    color: var(--secondary-yellow);
+}
+
+.personagens > div > a > div{
+    width: 23.3rem;
+    height: 33.7rem;
+    margin: 2rem;
+}
+
+.personagens > div > a:nth-child(1) > div {
+    background: url(/assets/javoso.png) no-repeat bottom center scroll;
+    background-size: cover;
+}
+
+.personagens > div > a:nth-child(2) > div {
+    background: url(/assets/reactero.png) no-repeat bottom center scroll;
+    background-size: cover;
+}
+
+.personagens > div > a:nth-child(3) > div {
+    background: url(/assets/portugolino.png) no-repeat bottom center scroll;
+    background-size: cover;
+}

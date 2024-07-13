@@ -1,7 +1,7 @@
 :root { 
     --deep-black: #131313;
     --primary-black: #18191B;
-    --primary-black-md: #2B2D30;
+    --primary-black-md: #1E1F22;
     --primary-gray: #BBBDAF;
     --secondary-yellow: #C29E4A;
     --secondary-green: #5CA662;
@@ -48,9 +48,9 @@ li {
 
 .conteiner {
     width: 100%;
-    max-width: calc(111.7rem + 3rem);
+    max-width: calc(128.0rem + 3rem);
     margin: 0 auto;
-    padding: 0 1.5rem;
+    
     background-color: var(--primary-black);
 }
 
