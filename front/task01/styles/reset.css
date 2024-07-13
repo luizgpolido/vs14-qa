@@ -1,3 +1,11 @@
+:root {
+    --primary-black: #18191B;
+    --primary-gray: #BBBDAF;
+    --secondary-yellow: #C29E4A;
+    --secondary-green: #5CA662;
+    --secondary-red: #C63927;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -38,3 +46,118 @@ li {
     margin: 0 auto;
     padding: 0 1.5rem;
 }
+
+header {
+    background-color: var(--primary-black);
+    height: 15.2rem;
+    
+}
+
+header > div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+header > div > a > img {
+    width: 13.4rem;
+    height: 8.1rem;
+    margin-top: 3.55rem;
+    margin-left: 10.9rem;
+}
+
+header > div > nav > ul {
+    position: relative;
+    width: 50vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-right: 11.9rem;
+}
+
+header > li  {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 2.0rem;
+    transition: opacity .3s ease;
+}
+
+header > div > nav >  ul > li > a:hover {
+    opacity: .8;
+}
+
+header > div > nav > ul > li  {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 2.0rem;
+    transition: opacity .3s ease;
+}
+
+header > div > nav > ul > li > a:hover {
+    opacity: .8;
+}
+
+header > div > nav >  ul > li:nth-child(1) > a {
+    color: var(--secondary-green);
+}
+
+header > div > nav > ul > li:nth-child(1) > a:visited {
+    color: var(--secondary-green);
+}
+
+header > div > nav > ul > li:nth-child(2) > a {
+    color: var(--secondary-yellow);
+}
+
+header > div > nav > ul > li:nth-child(2) > a:visited {
+    color: var(--secondary-yellow);
+}
+
+header > div > nav > ul > li:nth-child(3)  {
+    color: var(--primary-gray);
+    cursor: pointer;
+}
+
+/* header > div > nav > ul > li:nth-child(3) > span {
+    transition: opacity .3s ease;
+}
+
+header > div > nav > ul > li:nth-child(3) > span:hover {
+    opacity: .8;
+} */
+
+header > div > nav > ul > li:nth-child(3) > ul {
+    background-color: var(--primary-black);
+    color: var(--primary-gray);
+    text-align: center;
+    display: none;
+    position: absolute;
+}
+
+header > div > nav > ul > li > ul > a {
+    display: block;
+}
+
+header > div > nav > ul > li:nth-child(3):hover > ul {
+    display: block;
+}
+
+header > div > nav > ul > li:nth-child(3) > ul > li {
+    padding: 1rem 2.5rem;
+    color: var(--primary-gray);
+    transition: all .2s ease;
+}
+
+header > div > nav > ul > li:nth-child(3) > ul > li > a:visited {
+    color: var(--primary-gray);
+
+}
+
+header > div > nav > ul > li:nth-child(3) > ul > li:hover {
+    background-color: var(--primary-gray);
+    opacity: .8;
+}
+
+header > div > nav > ul > li:nth-child(3) > ul > li:hover > a {
+    color: var(--primary-black);
+}
+
+
