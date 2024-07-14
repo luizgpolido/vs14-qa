@@ -1,5 +1,4 @@
 .hero > div {
-    position: relative;
     max-width: calc(165.3rem + 3rem);
     height: 92.8rem;
     margin: 0 auto;
@@ -43,7 +42,7 @@ h2 {
     font-weight: 500;
 }
 
-p {
+p, form   {
     text-align: justify;
     font-size: 2.4rem;
     width: 65%;
@@ -54,6 +53,18 @@ p {
 
 p > strong {
     font-weight: 500;
+}
+
+.historia, .personagens {
+    height: 76.8rem;
+}
+
+.making-off {
+    height: 77.1rem;
+}
+
+.form-beta {
+    height: 81.0rem;
 }
 
 .historia > h2 {
@@ -96,4 +107,130 @@ p > strong {
 .personagens > div > a:nth-child(3) > div {
     background: url(/assets/portugolino.png) no-repeat bottom center scroll;
     background-size: cover;
+}
+
+.making-off {
+    background-color: var(--primary-black-md);
+}
+
+.making-off > h2 {
+    padding-top: 5.1rem;
+    color: var(--secondary-blue);
+}
+
+.making-off > div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 6.4rem;
+    margin-bottom: 4.3rem;
+}
+
+.making-off > a {
+    margin-top: 10rem;
+}
+
+.making-off > div:last-child {
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    padding-right: 22rem;
+}
+
+.making-off > div > a > button {
+    background-color: #D9D9D9;
+    padding: 1.5rem 4.4rem;
+    border-radius: 2.0rem;
+    font-size: 2.4rem;
+    transition: opacity .3s ease;
+}
+
+.making-off > div > a > button:hover {
+    opacity: .8;
+}
+
+.form-beta > h2 {
+    color: var(--secondary-red);
+    margin-top: 5.1rem;
+}
+
+.form-beta > p {
+    text-align: center;
+    margin-bottom: 4.4rem;
+}
+
+.form-beta > form > input, .form-beta > form > div > div > input {
+    margin-top: 1rem;
+    width: 100%;
+    padding: 1.2rem;
+    border-radius: 1rem;
+    font-size: 2rem;
+}
+
+.form-beta > form > div {
+    width: 100%;
+    display: flex;
+    align-content: center;
+    justify-content: space-between;
+    gap: 3.3rem;
+}
+
+.form-beta > form > div > div {
+    width: 100%;
+}
+
+.form-beta > form > div > div > input {
+    display: inline-block;
+}
+
+.form-beta > form > div > div > div {
+    margin-top: 1rem;
+}
+
+.form-beta > form > div > div > div > input{
+    border: 0px;
+    width: 25px;
+    height: 30px;
+    vertical-align: middle;
+    margin-left: 2rem;
+} 
+
+.form-beta > form > textarea {
+    padding: 1rem;
+    font-size: 2rem;
+    margin-top: 2rem;
+    border-radius: .5rem;
+    width: 100%;
+}
+
+.form-beta > form > div:last-child {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.form-beta > form > div > input[type=submit] {
+    font-size: 4rem;
+    background-color: var(--secondary-green);
+    border-radius: 1.5rem;
+    padding: .4rem 6rem;
+    transition: opacity .3s ease;
+}
+
+.form-beta > form > div > input[type=submit]:hover {
+    cursor: pointer;
+    opacity: .8;
+}
+
+footer > .conteiner {
+    background-color: var(--primary-gray);
+    height: 3.6rem;
+    display: flex;
+    align-items: center;
+}
+
+footer > .conteiner > p {
+    color: black;
+    font-size: 1.5rem;
+    text-align: center;
 }

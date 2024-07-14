@@ -76,45 +76,65 @@
                     </a>
                 </div>
             </section>
+            <section class="making-off">
+                <h2>Making Off</h2>
+                <div>
+                    <img src="assets/dev1.png" alt="Desenvolvedor">
+                    <img src="assets/dev2.png" alt="Desenvolvedor">
+                    <img src="assets/dev3.png" alt="Desenvolvedor">
+                    <img src="assets/dev4.png" alt="Desenvolvedor">
+                </div>
+                <p>Explore o processo criativo por trás do <strong>jogo</strong> que coloca Javoso, Reactero e Portugolino em uma batalha digital épica! <br><br>
+                  Não perca essa oportunidade única de ver como o mundo do desenvolvimento de <strong>jogos e programação</strong> se fundem em uma experiência emocionante!</p>
+                <div><a href="pages/makingoff.html"><button>Clique aqui!</button></a></div>
+            </section>
             <section class="form-beta">
-                <h2>Inscrição para o Teste Beta!</h2>
-                <p>Receba a versão beta do <strong>jogo</strong>, basta apenas inserir as informações abaixo!</p>
+                <h2>Seja um Beta Tester</h2>
+                <p>Receba a versão beta do <strong>jogo</strong>, basta apenas<br> inserir as informações abaixo!</p>
                 <form>
                     <label for="name">Nome Completo:</label><br>
                     <input type="text" id="name" name="name" placeholder="Seu nome" required><br><br>
             
-                    <label for="email">Email:</label><br>
-                    <input type="email" id="email" name="email" placeholder="xxxxx@xxxx.xxx" required><br><br>
+                    <div>
+                        <div>
+                            <label for="email">Email:</label> <br>  
+                            <input type="email" id="email" name="email" placeholder="xxxxx@xxxx.xxx" required>
+                        </div>
+
+                        <div>
+                            <label for="age">Idade:</label> <br>
+                            <input type="number" id="age" name="age" required min="18" placeholder="Sua idade"><br><br>
+                        </div>
+                    </div>
             
-                    <label for="age">Idade:</label><br>
-                    <input type="number" id="age" name="age" required min="18" placeholder="Sua idade"><br><br>
-            
-                    <label for="pc_yes">Tem computador para uso pessoal?</label><br>
-                    <input type="radio" name="pc" id="pc_yes" checked> Sim
-                    <input type="radio" name="pc" id="pc_no"> Não <br><br>
-            
-                    <label for="experience">Experiência com Jogos (em anos):</label><br>
-                    <input type="number" id="experience" name="experience" min="0" placeholder="0"><br><br>
+                    <div>
+                        <div>
+                            <label for="experience">Experiência com Jogos (em anos):</label><br>
+                            <input type="number" id="experience" name="experience" min="0" placeholder="0"><br><br>
+                        </div>
+                        <div>
+                            <label for="pc_yes">Tem computador para uso pessoal?</label><br>
+                            <div>
+                                <input type="radio" name="pc" id="pc_yes" checked> Sim
+                                <input type="radio" name="pc" id="pc_no"> Não <br><br>
+                            </div>
+                        </div>
+                    </div>
             
                     <label for="comments">Comentários:</label><br>
                     <textarea id="comments" name="comments" rows="4" cols="50" placeholder="Conte-nos o que acha de participar do beta do jogo"></textarea><br><br>
             
-                    <input type="submit" value="Inscrever-se">
+                    <div><input type="submit" value="Enviar"></div>
                 </form>
-            </section>
-            <section class="making-off">
-                <h2>Making Off</h2>
-                <h3>Descubra os Bastidores do Nosso <strong>Jogo</strong>!</h3>
-                <p>Explore o processo criativo por trás do <strong>jogo</strong> que coloca Javoso, Reactero e Portugolino em uma batalha digital épica! <br>
-                  Não perca essa oportunidade única de ver como o mundo do desenvolvimento de <strong>jogos e programação</strong> se fundem em uma experiência emocionante!</p>
-                <a href="pages/makingoff.html"><button>Veja mais!</button></a>
             </section>
         </div>
     </main>
 
 
     <footer>
-        <p>Copyright © 2024</p>
+        <div class="conteiner">
+            <p>Copyright © 2024</p>
+        </div>
     </footer>
 
 
