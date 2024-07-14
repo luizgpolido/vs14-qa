@@ -8,72 +8,87 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/x-icon" href="../assets/favicon.png">
     <title>Javoso</title>
+    <link rel="stylesheet" href="../styles/reset.css">
+    <link rel="stylesheet" href="../styles/characterPage.css">
+
 </head>
 <body>
-    <header>
-        <a href="../index.html"><img width="300" src="../assets/logo.png" alt="Logo Front VS Back"></a>
-        <a href="/">Home</a>
-        <a href="../pages/javoso.html">Javoso</a>
-        <a href="../pages/reactero.html">Reactero</a>
-        <a href="../pages/portugol.html">Portugolino</a>
-        <a href="../pages/makingoff.html">Making Off</a>
-    </header>
     
-        <br>
-        <br>
-        
-        <img src="../assets/javoso.png" alt="Imagem do Javoso">
-        
-        <br>
-        
-        <h1>Javoso</h1>
+    <header>
+        <div>
+            <a href="/"><img src="../assets/logo.svg" alt="Logo Front vs Back" width="300"></a>
+            <nav>
+                <ul>
+                    <li><a href="/">[Inicio]</a></li>
+                    <li><a href="pages/javoso.html">[Sobre]</a></li>
+                    <li><span>[Personagens]</span>
+                        <ul>
+                            <li><a href="/pages/javoso.html">Javoso</a></li>
+                            <li><a href="/pages/reactero.html">Reactero</a></li>
+                            <li><a href="/pages/portugol.html">Portugol</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
-    <section>    
-        <h2>História do Personagem</h2>
-        <p>Javoso já foi um jovem cheio de sonhos e esperança. Existe até um boato de que ele costumava dormir e não tomava café, mas tudo mudou quando ele entrou no Vem Ser. As noites codando e refatorando em Java mudaram algo em Javoso, dando-lhe força sobre-humana e uma grande sede de sangue. Agora Javoso anseia pela batalha!</p>
-    </section>
+    <main>
+
+        <section class="section-intro">
+            
+            <img src="../assets/javoso.png" alt="Imagem do Javoso">
+            <div>
+                <h1>Javoso</h1>
+                <p>Javoso já foi um jovem cheio de sonhos e esperança. Existe até um boato de que ele costumava dormir e não tomava café, mas tudo mudou quando ele entrou no Vem Ser.</p>
+                <p>As noites codando e refatorando em Java mudaram algo em Javoso, dando-lhe força sobre-humana e uma grande sede de sangue.</p>
+                <p>Agora Javoso anseia pela batalha!</p>
+            </div>
+        </section>
         
-    <section>
-        <h2>Curiosidades</h2>
-        <ul>
-            <li>Javoso tem 12 de vida por ser uma linguagem robusta.</li>
-            <li>Foi o primeiro personagem a ser criado e inspirou todos os outros.</li>
-            <li>Por coincidência ou destino ele é o menos bugado de todos.</li>
-        </ul>
-    </section>
+        <section class="section-curiosity">
+            <h2>Curiosidades</h2>
+            <ul>
+                <li>Javoso tem 12 de vida por ser uma linguagem robusta.</li>
+                <li>Foi o primeiro personagem a ser criado e inspirou todos os outros.</li>
+                <li>Por coincidência ou destino ele é o menos bugado de todos.</li>
+            </ul>
+        </section>
+        
+        <section class="section-attacks">
+            <h2>Ataques</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <td>Ataques</td>
+                        <td>Dano</td>
+                        <td>Chance de acerto</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Ataque Básico</td>
+                        <td>3</td>
+                        <td>80%</td>
+                    </tr>
+                    <tr>
+                        <td>Ataque Pesado</td>
+                        <td>6</td>
+                        <td>40%</td>
+                    </tr>
+                    <tr>
+                        <td>Ataque Especial</td>
+                        <td>8</td>
+                        <td>20%</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
 
-
-    <section>
-        <h2>Ataques</h2>
-        <table border="1">
-            <thead>
-                <tr>
-                    <td></td>
-                    <td>Dano</td>
-                    <td>Chance de acerto</td>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Ataque Básico</td>
-                    <td>3</td>
-                    <td>80%</td>
-                </tr>
-                <tr>
-                    <td>Ataque Pesado</td>
-                    <td>6</td>
-                    <td>40%</td>
-                </tr>
-                <tr>
-                    <td>Ataque Especial</td>
-                    <td>8</td>
-                    <td>20%</td>
-                </tr>
-            </tbody>
-        </table>
-    </section>
+        
+    </main>
     <footer>
         <p>Copyright © 2024</p>
     </footer>
-</body>
-</html>
+    </body>
+    </html>

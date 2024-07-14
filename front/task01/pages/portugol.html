@@ -8,32 +8,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/x-icon" href="../assets/favicon.png">
     <title>Portugolino</title>
+    <link rel="stylesheet" href="../styles/reset.css">
+    <link rel="stylesheet" href="../styles/characterPage.css">
 </head>
 <body>
     <header>
-        <a href="../index.html"><img width="300" src="../assets/logo.png" alt="Logo Front VS Back"></a>
-        <a href="/">Home</a>
-        <a href="../pages/javoso.html">Javoso</a>
-        <a href="../pages/reactero.html">Reactero</a>
-        <a href="../pages/portugol.html">Portugolino</a>
-        <a href="../pages/makingoff.html">Making Off</a>
+        <div>
+            <a href="/"><img src="../assets/logo.svg" alt="Logo Front vs Back" width="300"></a>
+            <nav>
+                <ul>
+                    <li><a href="/">[Inicio]</a></li>
+                    <li><a href="pages/javoso.html">[Sobre]</a></li>
+                    <li><span>[Personagens]</span>
+                        <ul>
+                            <li><a href="/pages/javoso.html">Javoso</a></li>
+                            <li><a href="/pages/reactero.html">Reactero</a></li>
+                            <li><a href="/pages/portugol.html">Portugol</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
     </header>
     
-        <br>
-        <br>
-        
+    <section class="section-intro">    
         <img src="../assets/portugolino.png" alt="Imagem do portugolino">
-        
-        <br>
-        
-        <h1>Portugolino</h1>
+        <div>
 
-    <section>    
-        <h2>História do Personagem</h2>
-        <p>Portugolino é um mistério. Ninguém sabe de onde ele veio, como entrou no jogo e quais seus objetivos. Sabemos apenas que busca vingança.</p>
+            <h1>Portugolino</h1>
+            
+            <p>Portugolino é um mistério. Ninguém sabe de onde ele veio, como entrou no jogo e quais seus objetivos. Sabemos apenas que busca vingança.</p>
+        </div>
     </section>
         
-    <section>
+    <section class="section-curiosity">
         <h2>Curiosidades</h2>
         <ul>
             <li>Portugolino tem 9 de vida e é o mais fraco(ou era pra ser).</li>
@@ -43,12 +51,12 @@
     </section>
 
 
-    <section>
+    <section class="section-attacks">
         <h2>Ataques</h2>
-        <table border="1">
+        <table>
             <thead>
                 <tr>
-                    <td></td>
+                    <td>Ataques</td>
                     <td>Dano</td>
                     <td>Chance de acerto</td>
                 </tr>

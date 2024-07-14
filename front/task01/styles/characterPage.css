@@ -1,0 +1,120 @@
+:root { 
+    --deep-black: #131313;
+    --primary-black: #18191B;
+    --primary-black-md: #1E1F22;
+    --primary-gray: #BBBDAF;
+    --secondary-yellow: #C29E4A;
+    --secondary-green: #5CA662;
+    --secondary-red: #C63927;
+    --secondary-blue: #219185;
+    --font-family: @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap');
+}
+
+* {
+    /* border: 1px solid red; */
+}
+
+
+section {
+    height: 100vh;
+    width: 100%;
+    text-align: center;
+    font-size: 2.4rem;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: var(--primary-gray);
+}
+
+main {
+    width: 80%;
+}
+
+section {
+    padding-top: 6rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 3rem;
+}
+
+/* INTRO SECTION */
+.section-intro {
+    flex-direction: row;
+    background-color: var(--primary-black-md);
+    padding-inline: 10%;
+    justify-content: space-between;
+}
+
+.section-intro h1 {
+    font-size: 6rem;
+    color: var(--secondary-green);
+}
+
+.section-intro div {
+    width: 60%;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.section-intro img {
+    width: 30%;
+}
+
+
+/* CURIOSITY SECTION */
+.section-curiosity {
+    background-color: var(--primary-black);
+}
+
+.section-curiosity h2 {
+    font-size: 6rem;
+    color: var(--secondary-yellow);
+    margin-block: 3rem;
+}
+
+.section-curiosity ul {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: inherit;
+    text-align: left;
+}
+
+.section-curiosity li::marker {
+    content: '❤ ';
+}
+
+/* ATTACK SECTION */
+.section-attacks {
+    background-color: var(--primary-black-md);
+}
+
+.section-attacks h2 {
+    font-size: 6rem;
+    color: var(--secondary-blue);
+    margin-block: 3rem;
+}
+
+.section-attacks table{
+    /* background-color: var(--deep-black); */
+    padding: 1rem;
+}
+
+.section-attacks table * {
+    background-color: var(--primary-black);
+    border: 1px solid var(--deep-black);
+    padding: 10px;
+}
+
+
+
+
+
+
+
