@@ -1,30 +1,23 @@
-.hero > div {
-    max-width: calc(165.3rem + 3rem);
-    height: 92.8rem;
-    margin: 0 auto;
-}
 
-.hero > div > .conteiner {
-    height: 92.8rem;
-}
 
-.hero > div > div:nth-child(1) {
-    margin-top: 7rem;
+.conteiner-hero {
+    max-width: 160rem;
+    height: 92.8rem;
     position: absolute;
-    width: 80%;
+    top: 15.2rem;
+    left: 0;
+    right: 0;
+    background: url(/assets/img-hero.png) no-repeat left bottom scroll;
+    background-size: contain;
     display: flex;
     align-items: center;
+    justify-content: center;
 }
 
-.javoso { 
-    z-index: 7;
-}
-
-.logo-hero { 
-    width: 87.6rem;
-    height: 45.9rem;
-    margin-left: -40rem;
-    z-index: 5;
+.bg-hero-color {
+    height: 92.8rem;
+    top: 15.2rem;
+ 
 }
 
 section {
