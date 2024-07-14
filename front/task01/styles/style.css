@@ -216,6 +216,7 @@ p > strong {
     margin-top: 2rem;
     border-radius: .5rem;
     width: 100%;
+    resize: none;
 }
 
 .form-beta > form > div:last-child {
@@ -235,6 +236,16 @@ p > strong {
 .form-beta > form > div > input[type=submit]:hover {
     cursor: pointer;
     opacity: .8;
+}
+
+input[type=number]::-webkit-inner-spin-button { 
+    -webkit-appearance: none;
+    
+}
+input[type=number] { 
+   -moz-appearance: textfield;
+   appearance: textfield;
+
 }
 
 footer > .conteiner {
