@@ -86,6 +86,12 @@ section {
     text-align: left;
 }
 
+.section-curiosity li:hover {
+    color: var(--secondary-red);
+    scale: 1.02;
+    transition: 0.3s;
+}
+
 .section-curiosity li::marker {
     content: '❤ ';
 }
@@ -101,17 +107,15 @@ section {
     margin-block: 3rem;
 }
 
-.section-attacks table{
-    /* background-color: var(--deep-black); */
-    padding: 1rem;
-}
-
 .section-attacks table * {
     background-color: var(--primary-black);
     border: 1px solid var(--deep-black);
     padding: 10px;
 }
 
+.section-attacks table *:hover {
+    background-color: var(--primary-black-md);
+}
 
 
 
