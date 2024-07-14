@@ -59,14 +59,6 @@ p > strong {
     height: 76.8rem;
 }
 
-.making-off {
-    height: 77.1rem;
-}
-
-.form-beta {
-    height: 81.0rem;
-}
-
 .historia > h2 {
     color: var(--secondary-green);
     padding-top: 5.45rem;
@@ -89,24 +81,42 @@ p > strong {
 }
 
 .personagens > div > a > div{
-    width: 23.3rem;
-    height: 33.7rem;
+    width: 30rem;
+    height: 40rem;
     margin: 2rem;
+    border-radius: 2rem;
+    border: .4rem solid black;
+    box-shadow: 2px 2px 4px 3px rgba(0, 0, 0, 0.258);
+    transition: all .2s ease-in;
+}
+
+.personagens > div > a > div:hover {
+    box-shadow: 0px 0px 90px #000000;
+    z-index: 2;
+    transform: scale(1.1);
 }
 
 .personagens > div > a:nth-child(1) > div {
-    background: url(/assets/javoso.png) no-repeat bottom center scroll;
+    background: url(/assets/javoso.png) no-repeat center center;
     background-size: cover;
 }
 
 .personagens > div > a:nth-child(2) > div {
-    background: url(/assets/reactero.png) no-repeat bottom center scroll;
+    background: url(/assets/reactero.png) no-repeat center center;
     background-size: cover;
 }
 
 .personagens > div > a:nth-child(3) > div {
-    background: url(/assets/portugolino.png) no-repeat bottom center scroll;
+    background: url(/assets/portugolino.png) no-repeat center center;
     background-size: cover;
+}
+
+.personagens > div > a > div:hover {
+    --glow-blur: 1.5;
+}
+
+.making-off {
+    height: 77.1rem;
 }
 
 .making-off {
@@ -148,6 +158,11 @@ p > strong {
 .making-off > div > a > button:hover {
     opacity: .8;
 }
+
+.form-beta {
+    height: 81.0rem;
+}
+
 
 .form-beta > h2 {
     color: var(--secondary-red);
