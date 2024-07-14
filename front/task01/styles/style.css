@@ -219,6 +219,10 @@ p > strong {
     resize: none;
 }
 
+.form-beta > form > textarea::placeholder {
+    font-size: 1.8rem;
+}
+
 .form-beta > form > div:last-child {
     width: 100%;
     display: flex;
