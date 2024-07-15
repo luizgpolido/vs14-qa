@@ -5,62 +5,92 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Making Off</title>
     <link rel="icon" type="image/x-icon" href="../assets/favicon.png">
+    <link rel="stylesheet" href="../styles/reset.css">
+    <link rel="stylesheet" href="../styles/makingoff.css">
 
 </head>
 <body>
     <header>
-        <a href="/"><img src="../assets/logo.png" alt="Logo Front vs Back" width="300"></a>
-        <nav>
-            <a href="/">Home</a>
-            <a href="../pages/javoso.html">Javoso</a>
-            <a href="../pages/reactero.html">Reactero</a>
-            <a href="../pages/portugol.html">Portugolino</a>
-            <a href="../pages/makingoff.html">Making Off</a>
-        </nav>
+        <div>
+            <a href="/"><img src="../assets/logo.svg" alt="Logo Front vs Back" width="300"></a>
+            <nav>
+                <ul>
+                    <li><a href="/">[Inicio]</a></li>
+                    <li><a href="pages/javoso.html">[Sobre]</a></li>
+                    <li><span>[Personagens]</span>
+                        <ul>
+                            <li><a href="../pages/javoso.html">Javoso</a></li>
+                            <li><a href="../pages/reactero.html">Reactero</a></li>
+                            <li><a href="../pages/portugol.html">Portugol</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
     </header>
     
     <main>
-        <section id="title">
+        <section class ="conteiner section-header">
             <h1>O Começo de Tudo</h1>
-        </section>
-        <section id ="content">
-            <p>Tudo começou com a idéia de criarmos um jogo no estilo de <strong>Mortal Kombat</strong>
-                , mas que acabou virando um jogo de batalhas em turnos no estilo Pokémon.
-                Durantes horas, elaboramos ideia e mais ideias para fazer o jogo perfeito...
-                Até que: surge o Front vs Back, uma grande piada de uma batalha onde as stacks
-                travam lutas no porão do seu HD enquanto você dorme.
+            <div>
+            <p>Em um canto esquecido de Cibercity, conhecido apenas como o Porão do HD, os stacks de programação lutam por 
+                Este lugar sombrio é habitado por dados obsoletos e programas desatualizados, onde três linguagens icônicas se 
+                Javoso, o veterano de Java; Reactero, o moderno e ágil framework JavaScript; e Portugolino, o versátil compilador 
+                Suas batalhas constantes ameaçam destruir o frágil equilíbrio do Porão, onde o vencedor é um mistério para todos!
             </p>
-
-            <h2>Nossas Insipirações</h2>
-            <p>Tivemos uma inspiração clara em <strong>jogos arcades antigos</strong>
-                , sendo nossa maior inspiração o Pokémon (que ironicamente não é um jogo arcade).
-                Com isso, surgiu nossos incríveis personagens com vários <s>bugs</s>, quer dizer, <strong>features.</strong>
-                Que você pode ver melhor no nosso <a href="../index.html">site inicial. </a>
-                Nossas músicas foram retiradas
-                do jogo Pokemon Ruby Red. E você pode conferir a música principal aqui:    
-            
-            </p>
-
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/LzmlpAjMpHs?si=LG5mhULdqwsYPLIq" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-
-            <h2>Features Incompletas</h2>
-            <p>
-                O Front vs Back teve várias ideias que não foram implementadas por falta de tempo, mas que 
-                serão inseridar com certeza nas próximas DLC's pagas. Como a loja de poções, a opção de lutar com
-                mais de um lutador por jogo, como um modo de duplas e a criação de novos personagens, como o Assemblero,
-                o Vovô (Cobol) e outras linguagens.
-            </p>
-
-            <h2>Os criadores</h2>
-            <p>Os criadores da maior rinha de stacks foram: </p>
-            <ul>
-                <li>Géssica Fontes</li>
-                <li>Luiz Gustavo Polido</li>
-                <li>Mateus Morais</li>
-                <li>Rickson Passos Campoe</li>
-            </ul>
-
+            </div>
         </section>    
+    
+            <section class="conteiner section-info">
+                <h2>Nossas Insipirações</h2>
+                <p>Tivemos uma inspiração clara em <strong>jogos arcades antigos</strong>, sendo nossa maior inspiração o Pokémon (que ironicamente não é um jogo arcade).
+                    Com isso, surgiu nossos incríveis personagens com vários <s>bugs</s>, quer dizer, <strong>features.</strong>
+                    Que você pode ver melhor no nosso <a href="../index.html">site inicial. </a>
+                    Nossas músicas foram retiradas
+                    do jogo Pokemon Ruby Red. E você pode conferir a música principal aqui:
+                
+                </p>
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/LzmlpAjMpHs?si=LG5mhULdqwsYPLIq" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </section>
+            
+            <section class="conteiner section-features">
+                <div>
+                <h2>Features Incompletas</h2>
+                <p>
+                    O Front vs Back teve várias ideias que não foram implementadas por falta de tempo, mas que
+                    serão inseridar com certeza nas próximas DLC's pagas. Como a loja de poções, a opção de lutar com
+                    mais de um lutador por jogo, como um modo de duplas e a criação de novos personagens, como o Assemblero,
+                    o Vovô (Cobol) e outras linguagens.
+                </p>
+                </div>
+            </section>
+
+            <section class="conteiner section-devs">
+                
+                <h2>Os Criadores</h2>
+                <div class="devs">
+
+                <table>
+                    <tr>
+                        <td>géssica fontes</td>
+                        <td class="github">github</td>
+                    </tr>
+                    <tr>
+                        <td>luiz gustavo polido</td>
+                        <td class="github">github</td>
+                    </tr>
+                    <tr>
+                        <td>mateus morais</td>
+                        <td class="github">github</td>
+                    </tr>
+                    <tr>
+                        <td>rickson passos campoe</td>
+                        <td class="github">github</td>
+                    </tr>
+                </table>
+                </div>
+            </section>
+  
     </main>
 
     <footer>
