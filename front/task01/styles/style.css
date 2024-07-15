@@ -6,7 +6,7 @@
     top: 15.2rem;
     left: 0;
     right: 0;
-    background: url(/assets/img-hero.png) no-repeat left bottom scroll;
+    background: url(../assets/img-hero.png) no-repeat left bottom scroll;
     background-size: contain;
     display: flex;
     align-items: center;
@@ -89,17 +89,17 @@ p > strong {
 }
 
 .personagens > div > a:nth-child(1) > div {
-    background: url(/assets/javoso.png) no-repeat center center;
+    background: url(../assets/javoso.png) no-repeat center center;
     background-size: cover;
 }
 
 .personagens > div > a:nth-child(2) > div {
-    background: url(/assets/reactero.png) no-repeat center center;
+    background: url(../assets/reactero.png) no-repeat center center;
     background-size: cover;
 }
 
 .personagens > div > a:nth-child(3) > div {
-    background: url(/assets/portugolino.png) no-repeat center center;
+    background: url(../assets/portugolino.png) no-repeat center center;
     background-size: cover;
 }
 
