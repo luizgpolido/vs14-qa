@@ -1,9 +1,8 @@
-
-
 .conteiner-hero {
     max-width: 160rem;
     height: 92.8rem;
     position: absolute;
+    z-index: 1;
     top: 15.2rem;
     left: 0;
     right: 0;
