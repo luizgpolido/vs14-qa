@@ -1,15 +1,3 @@
-:root { 
-    --deep-black: #131313;
-    --primary-black: #18191B;
-    --primary-black-md: #1E1F22;
-    --primary-gray: #BBBDAF;
-    --secondary-yellow: #C29E4A;
-    --secondary-green: #5CA662;
-    --secondary-red: #C63927;
-    --secondary-blue: #219185;
-    --font-family: @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap');
-}
-
 main h1{
     color: var(--secondary-green);
     font-family: "JetBrains Mono", monospace;
@@ -68,6 +56,9 @@ main p{
 .section-devs{
     padding-top: 40px;
     background-color: var(--primary-black-md);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .section-devs h2 {
@@ -79,137 +70,29 @@ main p{
 }
 
 .devs{
-    text-align: justify;
+    display: flex;
     font-size: 2.4rem;
     font-family: "JetBrains Mono", monospace;
-
-}
-
-.devs td{
-    color: var(--primary-gray)
-    
-}
-
-header {
-    background-color: var(--primary-black);
-    height: 15.2rem;
-    border-bottom: .1rem solid var(--primary-black-md);
+    color: var(--primary-gray);
+    padding: 10%;
+    justify-content: space-around;
     width: 100%;
 }
 
-header > div {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-header > div > a > img {
-    width: 13.4rem;
-    height: 8.1rem;
-    margin-top: 3.55rem;
-    margin-left: 10.9rem;
-}
-
-header > div > nav > ul {
-    position: relative;
-    width: 50vw;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-right: 11.9rem;
-}
-
-header > li  {
-    font-family: "JetBrains Mono", monospace;
-    font-size: 2.0rem;
-    transition: opacity .3s ease;
-}
-
-header > div > nav >  ul > li > a:hover {
-    opacity: .8;
-}
-
-header > div > nav > ul > li  {
-    font-family: "JetBrains Mono", monospace;
-    font-size: 2.0rem;
-    transition: opacity .3s ease;
-}
-
-header > div > nav > ul > li > a:hover {
-    opacity: .8;
-}
-
-header > div > nav >  ul > li:nth-child(1) > a {
-    color: var(--secondary-green);
-}
-
-header > div > nav > ul > li:nth-child(1) > a:visited {
-    color: var(--secondary-green);
-}
-
-header > div > nav > ul > li:nth-child(2) > a {
-    color: var(--secondary-yellow);
-}
-
-header > div > nav > ul > li:nth-child(2) > a:visited {
-    color: var(--secondary-yellow);
-}
-
-header > div > nav > ul > li:nth-child(3)  {
-    color: var(--primary-gray);
-    cursor: pointer;
-}
-
-header > div > nav > ul > li:nth-child(3) > ul {
-    background-color: var(--primary-black);
-    color: var(--primary-gray);
-    text-align: center;
-    display: none;
-    position: absolute;
-}
-
-header > div > nav > ul > li > ul > a {
-    display: block;
-}
-
-header > div > nav > ul > li:nth-child(3):hover > ul {
-    display: block;
-}
-
-header > div > nav > ul > li:nth-child(3) > ul > li {
-    padding: 1rem 2.5rem;
-    color: var(--primary-gray);
-    transition: all .2s ease;
-}
-
-header > div > nav > ul > li:nth-child(3) > ul > li > a:visited {
-    color: var(--primary-gray);
-
-}
-
-header > div > nav > ul > li:nth-child(3) > ul > li:hover {
-    background-color: var(--primary-gray);
-    opacity: .8;
-}
-
-header > div > nav > ul > li:nth-child(3) > ul > li:hover > a {
-    color: var(--primary-black);
-}
-
-
-
-footer {
-    background-color: var(--primary-gray);
-    height: 3.6rem;
-    width: 100%;
+.devs div {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    gap: 4rem;
 }
 
-footer p {
-    color: black;
-    font-size: 1.5rem;
-    text-align: center;
+.devs p {
+    padding: 0;
+}
+
+.github {
+    color: var(--secondary-blue);
+}
+
+.github:hover {
+    text-decoration: underline;
 }

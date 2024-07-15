@@ -1,4 +1,4 @@
-:root { 
+:root {
     --deep-black: #131313;
     --primary-black: #18191B;
     --primary-black-md: #1E1F22;
@@ -7,8 +7,9 @@
     --secondary-green: #5CA662;
     --secondary-red: #C63927;
     --secondary-blue: #219185;
-    --font-family: @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap');
 }
+@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap");
+
 
 * {
     margin: 0;
@@ -16,7 +17,7 @@
     border: 0;
     box-sizing: border-box;
     -webkit-font-smoothing: antialiased;
-    font-family: var(--font-family),"Inter", "Open Sans", sans-serif;
+    font-family: "JetBrains Mono","Inter", "Open Sans", sans-serif;
 }
 
 body {
