@@ -81,7 +81,7 @@ p > strong {
 }
 
 .personagens > div > a > div:hover {
-    box-shadow: 0px 0px 90px #000000;
+    box-shadow: 0px 0px 40px #000000;
     z-index: 2;
     transform: scale(1.1);
 }
@@ -99,10 +99,6 @@ p > strong {
 .personagens > div > a:nth-child(3) > div {
     background: url(../assets/portugolino.png) no-repeat center center;
     background-size: cover;
-}
-
-.personagens > div > a > div:hover {
-    --glow-blur: .6;
 }
 
 .personagens > div > a > div {
