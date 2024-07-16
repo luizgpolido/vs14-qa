@@ -152,7 +152,7 @@ p > strong {
 }
 
 .form-beta {
-    height: 81.0rem;
+    height: 85rem;
 }
 
 
@@ -164,6 +164,7 @@ p > strong {
 .form-beta > p {
     text-align: center;
     margin-bottom: 4.4rem;
+    max-width: 50rem;
 }
 
 .form-beta > form > input, .form-beta > form > div > div > input {
@@ -287,6 +288,10 @@ footer > .conteiner > p {
     .making-off {
         height: 80rem;
     }
+
+    .form-beta {
+        height: 90rem;
+    }
 }
 
 @media(max-width: 1040px) {
@@ -310,6 +315,8 @@ footer > .conteiner > p {
         padding: 0;
         justify-content: center;
     }
+
+
 }
 
 @media(max-width: 698px) {
@@ -331,9 +338,20 @@ footer > .conteiner > p {
         height: 110rem;
     }
 
+    .form-beta {
+        height: 110em;
+    }
+
+    .form-beta > form > div  {
+        font-size: 2rem;
+        display: block;
+        width: 100%;
+        margin: 0;
+    }
+
 }
 
-@media(max-width: 533px) {
+@media(max-width: 572px) {
 
     .conteiner-hero {
         background: url(../assets/hero-sm.png) no-repeat center center;
@@ -382,7 +400,6 @@ footer > .conteiner > p {
         height: 100rem;
     }
 
-
     .making-off > div:nth-child(2) {
         max-width: 300px;
     }
@@ -390,6 +407,17 @@ footer > .conteiner > p {
     .making-off > div:nth-child(2) > img {
         width: 15rem;
         height: 15rem;
+    }
+
+    .form-beta {
+        height: 105rem;
+    }
+
+}
+
+@media(max-width: 504px) {
+    .form-beta {
+        height: 120rem;
     }
 }
 
