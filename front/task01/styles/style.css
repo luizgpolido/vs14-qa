@@ -256,3 +256,108 @@ footer > .conteiner > p {
     font-size: 1.5rem;
     text-align: center;
 }
+
+
+@media(max-width: 1308px) {
+
+
+    .conteiner-hero {
+        background-color: red;
+        background: url(../assets/img-hero.png) no-repeat center center;
+        background-size: contain;
+        height: 38.2rem;
+        position: static;
+        background-color: var(--primary-black);
+    }
+
+    .bg-hero-color {
+        display: none;
+    }
+
+    .historia {
+        height: 86rem;
+    }
+
+    .historia > div {
+        margin: 0 10vw;
+        margin-top: 0;
+    }
+
+    .personagens {
+        height: 80rem;
+    }
+}
+
+@media(max-width: 1040px) {
+    .personagens {
+        height: 120rem;
+    }
+}
+
+@media(max-width: 698px) {
+
+    .historia {
+        height: 98rem;
+    }
+
+    .historia > div {
+        margin: 0 10vw;
+        margin-top: 0;
+    }
+
+    .personagens {
+        height: 160rem;
+    }
+}
+
+@media(max-width: 533px) {
+
+    .conteiner-hero {
+        background: url(../assets/hero-sm.png) no-repeat center center;
+        background-size: contain;
+        background-color: var(--primary-black);
+        height: 36.2rem;
+        border: 1px solid black;
+    }
+
+    .bg-hero-color {
+        display: none;
+    }
+
+    h2 {
+        font-size: 4.8rem;
+    }
+
+    p {
+        font-size: 1.8rem;
+    }
+
+    .historia {
+        height: 98rem;
+    }
+
+    .historia > div {
+        margin: 0 10vw;
+        margin-top: 0;
+    }
+
+    .personagens {
+        height: 130rem;
+    }
+
+    .historia  {
+        flex-direction: column;
+    }
+
+    .personagens > div > a > div{
+        width: 25rem;
+        height: 35rem;
+        margin: 2rem;
+    }
+}
+
+@media(max-width: 370px) {
+    .historia {
+        height: 110rem;
+    }
+}

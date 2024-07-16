@@ -6,6 +6,8 @@
     <link rel="icon" type="image/x-icon" href="assets/favicon.png">
     <meta name="description" content="Explore o Porão do HD onde Javoso, Reactero e Portugolino travam uma batalha digital épica pela supremacia">
     
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    
     <link rel="stylesheet" href="styles/reset.css">
     <link rel="stylesheet" href="styles/style.css">
     <title>Front VS Back</title>
@@ -14,10 +16,10 @@
     
     <header>
         <div>
-            <a href="#"><img src="assets/logo.svg" alt="Logo Front vs Back" width="300"></a>
+            <a href="/index.html"><img src="assets/logo.svg" alt="Logo Front vs Back" width="300"></a>
             <nav>
                 <ul>
-                    <li><a href="#">[Inicio]</a></li>
+                    <li><a href="/index.html">[Inicio]</a></li>
                     <li><a href="pages/makingoff.html">[Sobre]</a></li>
                     <li><span>[Personagens]</span>
                         <ul>
@@ -27,6 +29,40 @@
                         </ul>
                     </li>
                 </ul>
+                
+            </nav>
+
+            <nav class="navbar navbar-dark nav-mobile">
+                <div class="container-fluid">
+                  <button class="navbar-toggler btn-mobile" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbarDark" aria-controls="offcanvasNavbarDark">
+                    <span class="navbar-toggler-icon"></span>
+                  </button>
+                  <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasNavbarDark" aria-labelledby="offcanvasNavbarDarkLabel">
+                    <div class="offcanvas-header">
+                      <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                    </div>
+                    <div class="offcanvas-body">
+                      <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                        <li class="nav-item">
+                          <a class="nav-link active" aria-current="page" href="#">Inicio</a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" href="#">Sobre</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Personagens
+                          </a>
+                          <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="pages/javoso.html">Javoso</a></li>
+                            <li><a class="dropdown-item" href="pages/reactero.html">Reactero</a></li>
+                            <li><a class="dropdown-item" href="pages/portugol.html">Portugol</a></li>
+                          </ul>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
             </nav>
         </div>
     </header>
@@ -45,9 +81,7 @@
                  Javoso, o veterano de <strong>Java</strong>; Reactero, o moderno e <strong>ágil framework JavaScript</strong>; e Portugolino, o versátil compilador poliglota. <br><br>
                  Suas batalhas constantes ameaçam destruir o frágil equilíbrio do Porão, onde o vencedor é um mistério para todos!</p>
                  <div>
-                    <img src="assets/react-icon.jpg" alt="Logo do React">
-                    <img src="assets/portugol-icon.jpg" alt="Logo do Portugol">
-                    <img src="assets/java-icon.jpg" alt="Logo do Java">
+                    <img src="assets/logos.png" alt="Logo do React, Java e Portugol">
                  </div>
             </section>
             <section class="personagens">
@@ -125,5 +159,6 @@
         </div>
     </footer>
 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script> integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 </body>
 </html>

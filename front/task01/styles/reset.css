@@ -74,7 +74,7 @@ header > div > a > img {
     width: 13.4rem;
     height: 8.1rem;
     margin-top: 3.55rem;
-    margin-left: 10.9rem;
+    margin-left: 10vw;
 }
 
 header > div > nav > ul {
@@ -138,9 +138,10 @@ header > div > nav > ul > li:nth-child(3) > span:hover {
 header > div > nav > ul > li:nth-child(3) > ul {
     background-color: var(--primary-black);
     color: var(--primary-gray);
-    text-align: center;
     display: none;
-    position: absolute; z-index: 7;
+    position: absolute;
+    z-index: 7;
+    padding: 0;
 }
 
 header > div > nav > ul > li > ul > a {
@@ -149,6 +150,7 @@ header > div > nav > ul > li > ul > a {
 
 header > div > nav > ul > li:nth-child(3):hover > ul {
     display: block;
+
 }
 
 header > div > nav > ul > li:nth-child(3) > ul > li {
@@ -171,8 +173,6 @@ header > div > nav > ul > li:nth-child(3) > ul > li:hover > a {
     color: var(--primary-black);
 }
 
-
-
 footer {
     background-color: var(--primary-gray);
     height: 3.6rem;
@@ -187,4 +187,35 @@ footer p {
     color: black;
     font-size: 1.5rem;
     text-align: center;
+}
+
+.nav-mobile {
+    display: none;
+}
+
+.btn-mobile {
+    margin-right: 4rem;
+}
+
+.btn-mobile > span {
+    width: 5rem;
+    height: 5rem;
+}
+
+.offcanvas, .dropdown-menu, .dropdown-menu > li > a {
+    background-color: var(--primary-black-md);
+    color: var(--primary-gray);
+    width: 80%;
+    font-size: 2rem;
+}
+
+@media(max-width: 767px) {
+
+    header > div > nav > ul {
+        display: none;
+    }
+
+    .nav-mobile {
+        display: flex;
+    }
 }
