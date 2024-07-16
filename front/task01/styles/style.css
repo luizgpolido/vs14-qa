@@ -259,10 +259,7 @@ footer > .conteiner > p {
 
 
 @media(max-width: 1308px) {
-
-
     .conteiner-hero {
-        background-color: red;
         background: url(../assets/img-hero.png) no-repeat center center;
         background-size: contain;
         height: 38.2rem;
@@ -286,11 +283,32 @@ footer > .conteiner > p {
     .personagens {
         height: 80rem;
     }
+
+    .making-off {
+        height: 80rem;
+    }
 }
 
 @media(max-width: 1040px) {
     .personagens {
         height: 120rem;
+    }
+
+    .making-off > div:nth-child(2) {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        max-width: 400px;
+        margin: 0 auto;
+        padding: 5rem 0;
+    }
+
+    .making-off {
+        height: 105rem;
+    }
+
+    .making-off > div:nth-child(4) {
+        padding: 0;
+        justify-content: center;
     }
 }
 
@@ -308,6 +326,11 @@ footer > .conteiner > p {
     .personagens {
         height: 160rem;
     }
+
+    .making-off {
+        height: 110rem;
+    }
+
 }
 
 @media(max-width: 533px) {
@@ -342,7 +365,7 @@ footer > .conteiner > p {
     }
 
     .personagens {
-        height: 130rem;
+        height: 145rem;
     }
 
     .historia  {
@@ -354,10 +377,29 @@ footer > .conteiner > p {
         height: 35rem;
         margin: 2rem;
     }
+
+    .making-off {
+        height: 100rem;
+    }
+
+
+    .making-off > div:nth-child(2) {
+        max-width: 300px;
+    }
+
+    .making-off > div:nth-child(2) > img {
+        width: 15rem;
+        height: 15rem;
+    }
 }
 
-@media(max-width: 370px) {
+@media(max-width: 392px) {
     .historia {
         height: 110rem;
     }
+
+    .making-off {
+        height: 110rem;
+    }
+
 }
