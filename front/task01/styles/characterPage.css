@@ -75,10 +75,6 @@ section {
     transition: 0.3s;
 }
 
-.section-curiosity li::marker {
-    content: '❤ ';
-}
-
 /* ATTACK SECTION */
 .section-attacks {
     background-color: var(--primary-black-md);
@@ -92,7 +88,7 @@ section {
 
 .section-attacks table * {
     background-color: var(--primary-black);
-    border: 1px solid var(--deep-black);
+    border: 1rem solid var(--primary-black-md);
     padding: 10px;
 }
 
@@ -101,7 +97,146 @@ section {
 }
 
 
+@media(max-width:768px) {
+    section {
+        height: min-content;
+        padding-bottom: 6rem;
+        width: 100%;
+        text-align: center;
+        font-size: 2.4rem;
+    }
+
+    /* INTRO SECTION */
+    .section-intro {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .section-intro div {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 2rem;
+    }
+
+    .section-intro h1 {
+        font-size: 4rem;
+    }
+
+    .section-intro img {
+        width: 30rem;
+    }
+
+    .section-intro p {
+        font-size: 2rem;
+        text-align: center;
+    }
+
+    /* CURIOSITY SECTION */
+    
+
+    .section-curiosity h2 {
+        font-size: 4rem;
+    }
+
+    .section-curiosity ul {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 5rem;
+    }
+
+    .section-curiosity li {
+        font-size: 2rem;
+        text-align: center;
+        margin-inline: 2rem;
+    }
+
+    /* ATTACK SECTION */
+    .section-attacks {
+        padding-bottom: 6rem;
+        height: auto;
+    }
+
+    .section-attacks h2 {
+        font-size: 4rem;
+        color: var(--secondary-blue);
+        margin-block: 3rem;
+    }
+    
+    .section-attacks table * {
+        background-color: var(--primary-black);
+        border: 0.5rem solid var(--primary-black-md);
+        font-size: 1.5rem;
+    }
+
+    
+}
 
 
 
+@media(max-width:320px) {
 
+    /* INTRO SECTION */
+    .section-intro {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .section-intro div {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 2rem;
+    }
+
+    .section-intro h1 {
+        font-size: 3rem;
+    }
+
+    .section-intro img {
+        width: 20rem;
+    }
+
+    .section-intro p {
+        font-size: 1.5rem;
+        text-align: center;
+    }
+
+    /* CURIOSITY SECTION */
+    
+
+    .section-curiosity h2 {
+        font-size: 3rem;
+    }
+
+    .section-curiosity li {
+        font-size: 2rem;
+        text-align: center;
+        margin-inline: 2rem;
+    }
+
+    /* ATTACK SECTION */
+    .section-attacks {
+        padding-bottom: 6rem;
+        height: auto;
+    }
+
+    .section-attacks h2 {
+        font-size: 3rem;
+        color: var(--secondary-blue);
+        margin-block: 3rem;
+    }
+    
+    .section-attacks table * {
+        background-color: var(--primary-black);
+        border: none;
+        padding: 0;
+        font-size: 1.5rem;
+    }
+
+
+
+}
