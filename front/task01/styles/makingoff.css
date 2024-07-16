@@ -1,3 +1,14 @@
+body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: var(--primary-gray);
+}
+
+main {
+    width: 80%;
+}
+
 main h1{
     color: var(--secondary-green);
     font-family: "JetBrains Mono", monospace;
@@ -27,7 +38,7 @@ main p{
 .section-info h2 {
     color: var(--secondary-yellow);
     font-family: "JetBrains Mono", monospace;
-    font-size: 4.5rem;
+    font-size: 3rem;
     text-align: center;
     padding-top: 40px;
 }
@@ -36,8 +47,8 @@ main p{
     display: block;
     margin-left: auto;
     margin-right: auto;
-    width: 600px;
-    height: 300px;
+    width: 100%;
+    /* height: 300px; */
     padding-bottom: 40px;
 }
 
@@ -48,7 +59,7 @@ main p{
 .section-features h2 {
     color: var(--secondary-red);
     font-family: "JetBrains Mono", monospace;
-    font-size: 4.5rem;
+    font-size: 3rem;
     text-align: center;
     padding-top: 40px;
 }
@@ -64,7 +75,7 @@ main p{
 .section-devs h2 {
     color: var(--secondary-blue);
     font-family: "JetBrains Mono", monospace;
-    font-size: 4.5rem;
+    font-size: 3rem;
     text-align: center;
     padding-top: 40px;
 }
@@ -95,4 +106,96 @@ main p{
 
 .github:hover {
     text-decoration: underline;
+}
+
+
+
+
+@media(max-width: 1921px) {
+    
+    main h1{
+        font-size: 9.6rem;
+    }
+
+    .section-info h2 {
+        font-size: 6.2rem;
+    }
+
+    .section-features h2 {
+        font-size: 6.2rem;
+    }
+
+    .section-devs h2 {
+        font-size: 6.2rem;
+    }
+
+    main p{
+        font-size: 2.5rem;
+        padding: 40px 90px;    
+    }
+
+     .section-info iframe{
+        height: 600px;
+    } 
+
+    @media(max-width: 768px) {
+    
+        main h1{
+            font-size: 6rem;
+        }
+    
+        main p{
+            font-size: 2.4rem;
+            padding: 10%;
+        }
+
+        .section-info h2 {
+            font-size: 4rem;
+        }
+    
+        .section-features h2 {
+            font-size: 4rem;
+        }
+    
+        .section-devs h2 {
+            font-size: 4rem;
+        }
+        
+    }
+
+    @media(max-width: 321px) {
+    
+        main h1{
+            font-size: 4rem;
+        }
+    
+        main p{
+            font-size: 1.8rem;
+            padding: 10%;
+        }
+
+        .section-info h2 {
+            font-size: 3rem;
+        }
+    
+        .section-features h2 {
+            font-size: 3rem;
+        }
+    
+        .section-devs h2 {
+            font-size: 3rem;
+        }
+        
+        .section-info iframe{
+            height: 250px;
+        } 
+        
+        .section-devs a {
+            font-size: 2rem;
+            gap: 10px;
+            align-items: center;
+        }
+    }
+    
+    
 }
