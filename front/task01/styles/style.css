@@ -76,8 +76,6 @@ p > strong {
     width: 30rem;
     height: 40rem;
     margin: 2rem;
-    border-radius: 2rem;
-    border: .4rem solid black;
     box-shadow: 2px 2px 4px 3px rgba(0, 0, 0, 0.258);
     transition: all .2s ease-in;
 }
@@ -104,7 +102,126 @@ p > strong {
 }
 
 .personagens > div > a > div:hover {
-    --glow-blur: 1.5;
+    --glow-blur: .6;
+}
+
+.personagens > div > a > div {
+    position: relative;
+    overflow: hidden;
+}
+
+.personagens > div > a:first-of-type > div > span:first-of-type {
+    background: linear-gradient(to right, transparent, var(--secondary-red));
+}
+.personagens > div > a:first-of-type > div > span:nth-child(2) {
+    background: linear-gradient(to right, transparent, var(--secondary-red));
+}
+.personagens > div > a:first-of-type > div > span:nth-child(3) {
+    background: linear-gradient(to right, transparent, var(--secondary-red));
+}
+.personagens > div > a:first-of-type > div > span:last-of-type {
+    background: linear-gradient(to right, transparent, var(--secondary-red));
+}
+
+.personagens > div > a:nth-child(2) > div > span:first-of-type {
+    background: linear-gradient(to right, transparent, var(--secondary-blue));
+}
+.personagens > div > a:nth-child(2) > div > span:nth-child(2) {
+    background: linear-gradient(to right, transparent, var(--secondary-blue));
+}
+.personagens > div > a:nth-child(2) > div > span:nth-child(3) {
+    background: linear-gradient(to right, transparent, var(--secondary-blue));
+}
+.personagens > div > a:nth-child(2) > div > span:last-of-type {
+    background: linear-gradient(to right, transparent, var(--secondary-blue));
+}
+
+.personagens > div > a:nth-child(3) > div > span:first-of-type {
+    background: linear-gradient(to right, transparent, var(--secondary-yellow));
+}
+.personagens > div > a:nth-child(3) > div > span:nth-child(2) {
+    background: linear-gradient(to right, transparent, var(--secondary-yellow));
+}
+.personagens > div > a:nth-child(3) > div > span:nth-child(3) {
+    background: linear-gradient(to right, transparent, var(--secondary-yellow));
+}
+.personagens > div > a:nth-child(3) > div > span:last-of-type {
+    background: linear-gradient(to right, transparent, var(--secondary-yellow));
+}
+
+.personagens > div > a > div > span:first-of-type {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: .3rem;
+    animation: animar1 2s linear infinite;
+}
+
+@keyframes animar1 {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+.personagens > div > a > div > span:nth-child(2){
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: .3rem;
+    height: 100%;
+    animation: animar2 2s linear infinite;
+    animation-delay: 1s;
+}
+
+@keyframes animar2 {
+    0% {
+        transform: translateY(-100%);
+    }
+    100% {
+        transform: translateY(100%);
+    }
+}
+
+.personagens > div > a > div > span:nth-child(3){
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: .3rem;
+    animation: animar3 2s linear infinite;
+}
+
+@keyframes animar3 {
+    0% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+.personagens > div > a > div > span:last-of-type{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: .3rem;
+    height: 100%;
+    animation: animar4 2s linear infinite;
+    animation-delay: 1s;
+}
+
+
+@keyframes animar4 {
+    0% {
+        transform: translateY(100%);
+    }
+    100% {
+        transform: translateY(-100%);
+    }
 }
 
 .making-off {
