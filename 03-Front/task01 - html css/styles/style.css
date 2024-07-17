@@ -1,0 +1,546 @@
+.conteiner-hero {
+    max-width: 160rem;
+    height: 92.8rem;
+    position: absolute;
+    z-index: 1;
+    top: 15.2rem;
+    left: 0;
+    right: 0;
+    background: url(../assets/img-hero.png) no-repeat left bottom scroll;
+    background-size: contain;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.bg-hero-color {
+    height: 92.8rem;
+    top: 15.2rem;
+ 
+}
+
+section {
+    height: 92.8rem;
+    width: 100%;
+    text-align: center;
+}
+
+.historia {
+    background-color: var(--primary-black-md);
+}
+
+h2 {
+    font-size: 6.2rem;
+    font-weight: 500;
+}
+
+p, form   {
+    text-align: justify;
+    font-size: 2.4rem;
+    width: 65%;
+    margin: 0 auto;
+    line-height: 2.9rem;
+    color: var(--primary-gray);
+}
+
+p > strong {
+    font-weight: 500;
+}
+
+.historia, .personagens {
+    height: 76.8rem;
+}
+
+.historia > h2 {
+    color: var(--secondary-green);
+    padding-top: 5.45rem;
+    padding-bottom: 4.9rem;
+}
+
+.historia > div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    gap: 12.6rem;
+    padding-top: 4.9rem;
+}
+
+.personagens > h2 {
+    padding-top: 5.7rem;
+    padding-bottom: 11.2rem;
+    color: var(--secondary-yellow);
+}
+
+.personagens > div > a > div{
+    width: 30rem;
+    height: 40rem;
+    margin: 2rem;
+    box-shadow: 2px 2px 4px 3px rgba(0, 0, 0, 0.258);
+    transition: all .2s ease-in;
+}
+
+.personagens > div > a > div:hover {
+    box-shadow: 0px 0px 40px #000000;
+    z-index: 2;
+    transform: scale(1.1);
+}
+
+.personagens > div > a:nth-child(1) > div {
+    background: url(../assets/javoso.png) no-repeat center center;
+    background-size: cover;
+}
+
+.personagens > div > a:nth-child(2) > div {
+    background: url(../assets/reactero.png) no-repeat center center;
+    background-size: cover;
+}
+
+.personagens > div > a:nth-child(3) > div {
+    background: url(../assets/portugolino.png) no-repeat center center;
+    background-size: cover;
+}
+
+.personagens > div > a > div {
+    position: relative;
+    overflow: hidden;
+}
+
+.personagens > div > a:first-of-type > div > span:first-of-type {
+    background: linear-gradient(to right, transparent, var(--secondary-red));
+}
+.personagens > div > a:first-of-type > div > span:nth-child(2) {
+    background: linear-gradient(to right, transparent, var(--secondary-red));
+}
+.personagens > div > a:first-of-type > div > span:nth-child(3) {
+    background: linear-gradient(to right, transparent, var(--secondary-red));
+}
+.personagens > div > a:first-of-type > div > span:last-of-type {
+    background: linear-gradient(to right, transparent, var(--secondary-red));
+}
+
+.personagens > div > a:nth-child(2) > div > span:first-of-type {
+    background: linear-gradient(to right, transparent, var(--secondary-blue));
+}
+.personagens > div > a:nth-child(2) > div > span:nth-child(2) {
+    background: linear-gradient(to right, transparent, var(--secondary-blue));
+}
+.personagens > div > a:nth-child(2) > div > span:nth-child(3) {
+    background: linear-gradient(to right, transparent, var(--secondary-blue));
+}
+.personagens > div > a:nth-child(2) > div > span:last-of-type {
+    background: linear-gradient(to right, transparent, var(--secondary-blue));
+}
+
+.personagens > div > a:nth-child(3) > div > span:first-of-type {
+    background: linear-gradient(to right, transparent, var(--secondary-yellow));
+}
+.personagens > div > a:nth-child(3) > div > span:nth-child(2) {
+    background: linear-gradient(to right, transparent, var(--secondary-yellow));
+}
+.personagens > div > a:nth-child(3) > div > span:nth-child(3) {
+    background: linear-gradient(to right, transparent, var(--secondary-yellow));
+}
+.personagens > div > a:nth-child(3) > div > span:last-of-type {
+    background: linear-gradient(to right, transparent, var(--secondary-yellow));
+}
+
+.personagens > div > a > div > span:first-of-type {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: .3rem;
+    animation: animar1 2s linear infinite;
+}
+
+@keyframes animar1 {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+.personagens > div > a > div > span:nth-child(2){
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: .3rem;
+    height: 100%;
+    animation: animar2 2s linear infinite;
+    animation-delay: 1s;
+}
+
+@keyframes animar2 {
+    0% {
+        transform: translateY(-100%);
+    }
+    100% {
+        transform: translateY(100%);
+    }
+}
+
+.personagens > div > a > div > span:nth-child(3){
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: .3rem;
+    animation: animar3 2s linear infinite;
+}
+
+@keyframes animar3 {
+    0% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+.personagens > div > a > div > span:last-of-type{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: .3rem;
+    height: 100%;
+    animation: animar4 2s linear infinite;
+    animation-delay: 1s;
+}
+
+
+@keyframes animar4 {
+    0% {
+        transform: translateY(100%);
+    }
+    100% {
+        transform: translateY(-100%);
+    }
+}
+
+.making-off {
+    height: 77.1rem;
+}
+
+.making-off {
+    background-color: var(--primary-black-md);
+}
+
+.making-off > h2 {
+    padding-top: 5.1rem;
+    color: var(--secondary-blue);
+}
+
+.making-off > div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 6.4rem;
+    margin-bottom: 4.3rem;
+}
+
+.making-off > a {
+    margin-top: 10rem;
+}
+
+.making-off > div:last-child {
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    padding-right: 22rem;
+}
+
+.making-off > div > a > button {
+    background-color: #D9D9D9;
+    padding: 1.5rem 4.4rem;
+    border-radius: 2.0rem;
+    font-size: 2.4rem;
+    transition: opacity .3s ease;
+}
+
+.making-off > div > a > button:hover {
+    opacity: .8;
+}
+
+.form-beta {
+    height: 85rem;
+}
+
+
+.form-beta > h2 {
+    color: var(--secondary-red);
+    margin-top: 5.1rem;
+}
+
+.form-beta > p {
+    text-align: center;
+    margin-bottom: 4.4rem;
+    max-width: 50rem;
+}
+
+.form-beta > form > input, .form-beta > form > div > div > input {
+    margin-top: 1rem;
+    width: 100%;
+    padding: 1.2rem;
+    border-radius: 1rem;
+    font-size: 2rem;
+}
+
+.form-beta > form > div {
+    width: 100%;
+    display: flex;
+    align-content: center;
+    justify-content: space-between;
+    gap: 3.3rem;
+}
+
+.form-beta > form > div > div {
+    width: 100%;
+}
+
+.form-beta > form > div > div > input {
+    display: inline-block;
+}
+
+.form-beta > form > div > div > div {
+    margin-top: 1rem;
+}
+
+.form-beta > form > div > div > div > input{
+    border: 0px;
+    width: 25px;
+    height: 30px;
+    vertical-align: middle;
+    margin-left: 2rem;
+} 
+
+.form-beta > form > textarea {
+    padding: 1rem;
+    font-size: 2rem;
+    margin-top: 2rem;
+    border-radius: .5rem;
+    width: 100%;
+    resize: none;
+}
+
+.form-beta > form > textarea::placeholder {
+    font-size: 1.8rem;
+}
+
+.form-beta > form > div:last-child {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.form-beta > form > div > input[type=submit] {
+    font-size: 4rem;
+    background-color: var(--secondary-green);
+    border-radius: 1.5rem;
+    padding: .4rem 6rem;
+    transition: opacity .3s ease;
+}
+
+.form-beta > form > div > input[type=submit]:hover {
+    cursor: pointer;
+    opacity: .8;
+}
+
+input[type=number]::-webkit-inner-spin-button { 
+    -webkit-appearance: none;
+    
+}
+input[type=number] { 
+   -moz-appearance: textfield;
+   appearance: textfield;
+
+}
+
+footer > .conteiner {
+    background-color: var(--primary-gray);
+    height: 3.6rem;
+    display: flex;
+    align-items: center;
+}
+
+footer > .conteiner > p {
+    color: black;
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+
+@media(max-width: 1308px) {
+    .conteiner-hero {
+        background: url(../assets/img-hero.png) no-repeat center center;
+        background-size: contain;
+        height: 38.2rem;
+        position: static;
+        background-color: var(--primary-black);
+    }
+
+    .bg-hero-color {
+        display: none;
+    }
+
+    .historia {
+        height: 86rem;
+    }
+
+    .historia > div {
+        margin: 0 10vw;
+        margin-top: 0;
+    }
+
+    .personagens {
+        height: 80rem;
+    }
+
+    .making-off {
+        height: 80rem;
+    }
+
+    .form-beta {
+        height: 90rem;
+    }
+}
+
+@media(max-width: 1040px) {
+    .personagens {
+        height: 120rem;
+    }
+
+    .making-off > div:nth-child(2) {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        max-width: 400px;
+        margin: 0 auto;
+        padding: 5rem 0;
+    }
+
+    .making-off {
+        height: 105rem;
+    }
+
+    .making-off > div:nth-child(4) {
+        padding: 0;
+        justify-content: center;
+    }
+
+
+}
+
+@media(max-width: 698px) {
+
+    .historia {
+        height: 98rem;
+    }
+
+    .historia > div {
+        margin: 0 10vw;
+        margin-top: 0;
+    }
+
+    .personagens {
+        height: 160rem;
+    }
+
+    .making-off {
+        height: 110rem;
+    }
+
+    .form-beta {
+        height: 110em;
+    }
+
+    .form-beta > form > div  {
+        font-size: 2rem;
+        display: block;
+        width: 100%;
+        margin: 0;
+    }
+
+}
+
+@media(max-width: 572px) {
+
+    .conteiner-hero {
+        background: url(../assets/hero-sm.png) no-repeat center center;
+        background-size: contain;
+        background-color: var(--primary-black);
+        height: 36.2rem;
+        border: 1px solid black;
+    }
+
+    .bg-hero-color {
+        display: none;
+    }
+
+    h2 {
+        font-size: 4.8rem;
+    }
+
+    p {
+        font-size: 1.8rem;
+    }
+
+    .historia {
+        height: 98rem;
+    }
+
+    .historia > div {
+        margin: 0 10vw;
+        margin-top: 0;
+    }
+
+    .personagens {
+        height: 145rem;
+    }
+
+    .historia  {
+        flex-direction: column;
+    }
+
+    .personagens > div > a > div{
+        width: 25rem;
+        height: 35rem;
+        margin: 2rem;
+    }
+
+    .making-off {
+        height: 100rem;
+    }
+
+    .making-off > div:nth-child(2) {
+        max-width: 300px;
+    }
+
+    .making-off > div:nth-child(2) > img {
+        width: 15rem;
+        height: 15rem;
+    }
+
+    .form-beta {
+        height: 105rem;
+    }
+
+}
+
+@media(max-width: 504px) {
+    .form-beta {
+        height: 120rem;
+    }
+}
+
+@media(max-width: 392px) {
+    .historia {
+        height: 110rem;
+    }
+
+    .making-off {
+        height: 110rem;
+    }
+
+}
