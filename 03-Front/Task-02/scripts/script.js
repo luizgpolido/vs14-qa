@@ -84,6 +84,7 @@ function limpar(){
 }
 
 //Ex 06
+//Referência de uso do eval retirado dos sites programadoresdepre.com.br e mdnwebdocs
 
 const operacoes = ['+' , '-' , '*', '/'];
 
@@ -109,6 +110,7 @@ function apagar(){
 
 function calcular_v2(){
     var resultado = document.getElementById('result-calc').innerHTML;
+    //resultado retorna true se não for vazio
     if(resultado){
         document.getElementById('result-calc').innerHTML = eval(resultado);
     }
