@@ -1,0 +1,184 @@
+section {
+    max-width: 80%;
+    margin: auto;
+    padding-top: 20px;
+    
+}
+
+h1 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(0, 225, 255);
+    height: 100px;
+}
+
+footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(0, 225, 255);
+    height: 100px;
+    font-size: 1.5rem;
+}
+
+img{
+    max-width: 400px;
+    max-height: 300px;
+}
+
+.destacado {
+    color:#CA907E;
+    font-weight: bold;
+}
+
+.form-control {
+    max-width: 20%;
+}
+
+.calculadora {
+    border-style: groove;
+    border-color: rgb(0, 225, 255);
+    border-radius: 5px;
+    position: relative;
+    width: 38%;
+    height: 400px;
+    background-color: rgb(0, 225, 255);
+}
+
+.info-calculadora > h2 {
+    color: black;
+}
+
+.info-calculadora {
+    padding: 1%;
+    display: block;
+    flex-wrap: wrap;
+    text-align: center;
+    justify-content: center;
+}
+
+.botoes-calculadora {
+    padding: 1%;
+    display: grid;
+    position: relative;
+    gap: 1.5%;
+    width: 100%;
+    grid-template-columns: auto auto auto auto;
+    height: 60%;
+}
+
+.botoes-calculadora > button {
+    background-color: rgb(4, 105, 238);
+    border: solid;
+    border-color: rgb(4, 105, 238);
+    border-radius: 5px;
+    color: white;
+    font-size: 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.botoes-calculadora > button:hover{
+    background-color: rgb(0, 217, 255);
+    transition: 0.3s;
+
+}
+
+.info-calculadora > textarea {
+    border: none;
+}
+
+.btn-igual {
+    position: relative;
+    width: 300%;
+}
+
+.ex-03 > p {
+    font-size: 1.4rem;
+}
+
+.ex-03 > #numTrocar {
+    border-color: rgb(224, 215, 215);
+    border-style: groove;
+    border-radius: 4px;
+    border-width: 2px;
+    max-width: 40%;
+    font-size: 2rem;
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.foto {
+    border-color: rgb(224, 215, 215);
+    border-style: solid;
+    border-radius: 5px;
+    border-width: 2px;
+    position: relative;
+    display: block;
+    text-align: center;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 60%;
+    height: 30%;
+    
+}
+
+.btn-fotos {
+    padding: 2%;
+    padding-top: 4%;
+}
+
+.img {
+    padding-bottom: 4%;
+}
+
+.calcSimples {
+    border-color: rgb(224, 215, 215);
+    border-style: solid;
+    border-radius: 5px;
+    border-width: 2px;
+    max-width: 60%;
+    padding: 2%;
+}
+
+.calcSimples > h2 {
+    background-color: aliceblue;
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.calcInfos {
+    max-width: 80%;
+    margin: auto;
+}
+
+#resultado {
+    border-color: rgb(224, 215, 215);
+    border-style: solid;
+    border-radius: 2px;
+    border-width: 1px;
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.calcInfos > p {
+    margin-bottom: 8px;
+    margin-top: 10px;
+}
+
+.calculadora {
+    margin-bottom: 40px;
+}
+
+#paragrafoMudaCor {
+    font-size: 1.3rem;
+    font-weight: bold;
+}
