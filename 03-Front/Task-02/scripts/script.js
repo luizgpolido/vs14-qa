@@ -107,8 +107,7 @@ function apagar(){
     document.getElementById('result-calc').innerHTML = numTemp.slice(0, -1);
 }
 
-function calcular_v2()
-{
+function calcular_v2(){
     var resultado = document.getElementById('result-calc').innerHTML;
     if(resultado){
         document.getElementById('result-calc').innerHTML = eval(resultado);
