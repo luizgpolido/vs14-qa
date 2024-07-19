@@ -1,0 +1,88 @@
+:root {
+    --deep-black: #131313;
+    --primary-black: #18191B;
+    --primary-black-md: #1E1F22;
+    --primary-gray: #BBBDAF;
+    --secondary-yellow: #C29E4A;
+    --secondary-green: #5CA662;
+    --secondary-red: #C63927;
+    --secondary-blue: #219185;
+}
+
+/* * {
+    border: 1px solid red;
+} */
+
+.gameScreen {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    gap: 4vw;
+    padding: 4vw;
+}
+
+.mainDisplay {
+    padding: 2rem;
+    width: 90%;
+    display: flex;
+    justify-content: center;
+    background-color: var(--primary-black);
+}
+
+.displayGroup {
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+}
+
+.buttonGroup {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background-color: var(--primary-black);
+    width: 48%;
+}
+
+.gameButton {
+    margin: auto;
+    width: 15rem;
+    height: 5rem;
+    background-color: none;
+    border: 1px solid var(--primary-gray);
+    font-size: medium;
+}
+
+.gameLog {
+    width: 48%;
+}
+
+
+
+.atk_btn1 {
+    color: var(--secondary-blue);
+}
+
+
+.atk_btn2 {
+    color: var(--secondary-green);
+}
+
+
+.atk_btn3 {
+    color: var(--secondary-yellow);
+}
+
+
+.atk_btn4 {
+    color: var(--secondary-red);
+}
+
+@media (max-width:768px) {
+    .displayGroup {
+        flex-direction: column;
+        width: 100%;
+        gap: 4%;
+    }
+}
