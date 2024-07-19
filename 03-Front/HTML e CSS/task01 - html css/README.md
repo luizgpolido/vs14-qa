@@ -52,6 +52,8 @@ Ui moderna com elementos do próprio jogo, estética de terminal aplicada de for
 - Implementação da LP do game Front vs Back
 - Construção criativa de elementos e características para a parte visual do jogo;
 - O refinamento e revisão dos códigos, apontamento de inconsistências e manutenção dos mesmos.
+[Link para o Trello](https://trello.com/b/vN1j5aLY/front-vs-back-website)
+
 
 ## Devs
 
