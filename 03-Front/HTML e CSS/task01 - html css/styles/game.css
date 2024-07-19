@@ -13,6 +13,10 @@
     border: 1px solid red;
 } */
 
+/* section {
+    height: 90vh;
+} */
+
 .gameScreen {
     display: flex;
     flex-direction: column;
@@ -20,7 +24,6 @@
     align-items: center;
     width: 100%;
     height: 100%;
-    gap: 4vw;
     padding: 4vw;
 }
 
@@ -36,13 +39,15 @@
     display: flex;
     justify-content: space-between;
     width: 90%;
+    gap: 4vw;
+    background-color: var(--primary-black);
 }
 
 .buttonGroup {
     display: grid;
     grid-template-columns: 1fr 1fr;
     background-color: var(--primary-black);
-    width: 48%;
+    width: 100%;
 }
 
 .gameButton {
@@ -52,10 +57,16 @@
     background-color: none;
     border: 1px solid var(--primary-gray);
     font-size: medium;
+    transition: 0.3s;
+}
+
+.gameButton:hover {
+    background-color: var(--primary-gray);
+    color: var(--deep-black);
 }
 
 .gameLog {
-    width: 48%;
+    width: 100%;
 }
 
 
@@ -82,7 +93,18 @@
 @media (max-width:768px) {
     .displayGroup {
         flex-direction: column;
+        gap: 2rem;
+        padding-block: 2rem;
+    }
+
+    .buttonGroup {
+        display: flex;
+        flex-direction: column;
+        padding: 2rem;
+    }
+
+    .gameButton {
+        height: auto;
         width: 100%;
-        gap: 4%;
     }
 }
