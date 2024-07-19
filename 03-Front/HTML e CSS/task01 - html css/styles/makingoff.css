@@ -9,19 +9,19 @@ main {
     width: 80%;
 }
 
-main h1{
+h1{
     color: var(--secondary-green);
     font-family: "JetBrains Mono", monospace;
-    font-size: 6rem;
+    font-size: 1rem;
     text-align: center;
-    padding-top: 17.7rem;
+    padding-top: 5.45rem;
 }
 
 main p{
     color: var(--primary-gray);
     font-family: "JetBrains Mono", monospace;
     font-size: 2.4rem;
-    padding: 40px 90px;
+    padding-bottom: 20px;
     text-align: justify;
     max-width: 98.8rem;
     margin: 0 auto;
@@ -33,6 +33,7 @@ main p{
     
 }
 
+
 .section-info{
     background-color: var(--primary-black);
 }
@@ -40,9 +41,9 @@ main p{
 .section-info h2 {
     color: var(--secondary-yellow);
     font-family: "JetBrains Mono", monospace;
-    font-size: 3rem;
+    font-size: 6.2rem;
     text-align: center;
-    padding-top: 5.7rem;
+    padding-top: 5.45rem;
 }
 
 .section-info iframe{
@@ -50,7 +51,6 @@ main p{
     margin-left: auto;
     margin-right: auto;
     width: 100%;
-    /* height: 300px; */
     padding-bottom: 40px;
 }
 
@@ -63,23 +63,24 @@ main p{
     font-family: "JetBrains Mono", monospace;
     font-size: 3rem;
     text-align: center;
-    padding-top: 8.5rem;
+    padding-top: 5.45rem;
 }
 
 .section-devs{
-    padding-top: 40px;
+    padding-top: 10px;
     background-color: var(--primary-black-md);
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
+
 .section-devs h2 {
     color: var(--secondary-blue);
     font-family: "JetBrains Mono", monospace;
     font-size: 3rem;
     text-align: center;
-    padding-top: 8.5rem;
+    padding-top: 5.45rem;
 }
 
 .devs{
@@ -100,7 +101,12 @@ main p{
 
 .devs p {
     padding: 0;
+    margin: 0;
+    text-align: justify;
+
 }
+
+
 
 .github {
     color: var(--secondary-blue);
@@ -116,7 +122,7 @@ main p{
 @media(max-width: 1921px) {
     
     main h1{
-        font-size: 9.6rem;
+        font-size: 6.2rem;
     }
 
     .section-info h2 {
@@ -143,7 +149,7 @@ main p{
     @media(max-width: 768px) {
     
         main h1{
-            font-size: 6rem;
+            font-size: 4.2rem;
         }
     
         main p{
