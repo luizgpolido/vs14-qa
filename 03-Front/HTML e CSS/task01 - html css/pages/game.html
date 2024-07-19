@@ -75,9 +75,17 @@
 
         <div id="gameScreen" class="gameScreen">
             <div class="mainDisplay" id="mainDisplay">
-                <img id="mainDisplayImg" src="../assets/logo-hero.png" alt="logo placeholder do jogo">
+                <img class="logo_dbc" src="../assets/logo_dbc.webp" alt="logo placeholder do jogo">
             </div>
-            <div class="displayGroup">
+            <div class="displayGroup " id="gameMenu">
+              <div class="buttonGroup">
+                <button class="gameButton game_btn2" id="play">[Jogar]</button>
+                <button class="gameButton game_btn4"id="quit">[Sair]</button>
+              </div>
+
+            </div>
+
+            <div class="displayGroup hidden" id="gameBattle">
                 <div class="buttonGroup">
                   <button class="gameButton game_btn1">[Ataque 1]</button>
                   <button class="gameButton game_btn2">[Ataque 2]</button>

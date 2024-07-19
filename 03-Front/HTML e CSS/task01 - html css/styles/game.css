@@ -9,13 +9,9 @@
     --secondary-blue: #219185;
 }
 
-/* * {
-    border: 1px solid red;
-} */
-
-/* section {
-    height: 90vh;
-} */
+.gameDiv {
+    object-fit: contain;
+}
 
 .gameScreen {
     display: flex;
@@ -25,22 +21,29 @@
     width: 100%;
     height: 90vh;
     max-height: 90vh;
-    /* padding: 4vw; */
 }
 
 .mainDisplay {
-    padding: 2rem;
+    padding: 2rem; /* talvez tenha que remover */
     width: 90%;
     display: flex;
     justify-content: center;
+    align-items: center;
     background-color: var(--primary-black);
     border: 1px solid var(--primary-gray);
+    height: 60vh;
+}
+
+.mainDisplay img {
+    object-fit: contain;
+    height: 100%;
 }
 
 .displayGroup {
     display: flex;
     justify-content: space-between;
     width: 90%;
+    height: 20vh;
     gap: 4vw;
     background-color: var(--primary-black);
     border-left: 1px solid var(--primary-gray);
@@ -100,6 +103,7 @@
         flex-direction: column;
         gap: 2rem;
         padding-block: 2rem;
+        border-bottom: 1px solid var(--primary-gray);
     }
 
     .buttonGroup {
@@ -112,4 +116,61 @@
         height: auto;
         width: 100%;
     }
+
+    .mainDisplay {
+        height: 70vw;
+    }
+
+    .gameLog {
+        border-left: 1px solid var(--primary-gray);
+        border-right: 1px solid var(--primary-gray);
+        border-bottom: 1px solid var(--primary-gray);
+    }
+
+    .gameScreen {
+        justify-content: flex-start;
+        padding-top: 2rem;
+        height: fit-content;
+    }
 }
+
+
+.logo_dbc {
+    width: 30%;
+    animation: growRotate 2s normal;
+    background-image: url("assets/logo_dbc.webp");    
+    
+}
+
+@keyframes growRotate {
+    0% {
+      transform: scale(0) rotate(0deg);
+      opacity: 0;
+    }
+    80% {
+      transform: scale(1) rotate(720deg);
+      opacity: 1;
+    }
+    100% {
+      transform: rotate(720deg);
+      opacity: 1;
+    }
+  }
+
+  /* Game Utility Classes */
+
+  .gameDiv {
+    width: 100%;
+    height: 100%;
+  }
+
+  .center-column {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .hidden {
+    display: none;
+  }
