@@ -42,8 +42,16 @@ O site conta com páginas descritivas dos personagens, a história de como foi o
 
 ## Inspiração pra estética ( futura ) do site:
 Ui moderna com elementos do próprio jogo, estética de terminal aplicada de forma user-friendly e com as melhores práticas.
+[Link para o Figma](https://www.figma.com/design/6Jd0BYNlpJ6s8aiBM0krBy/Web-Site-Design?node-id=0-1&t=rxWm5VrKAYeGerfH-1)
 
-## Roadmap (WIP)
+## Roadmap 
+### Etapa 1
+- Foi realizado uma reunião para definição de tarefas e objetivos para alcançar o resultado esperado;
+- Todos os integrantes participaram de forma ativa na definição de elementos estéticos e visuais da LP do game;
+- As etapas foram essencialmente definidas em: construção criativa, criação da LP e refinamento dos elementos das páginas;
+- Implementação da LP do game Front vs Back
+- Construção criativa de elementos e características para a parte visual do jogo;
+- O refinamento e revisão dos códigos, apontamento de inconsistências e manutenção dos mesmos.
 
 ## Devs
 
@@ -58,4 +66,6 @@ Ui moderna com elementos do próprio jogo, estética de terminal aplicada de for
 ## Referência
 
 - [vs14-formacao-front-qa-sf](https://github.com/vemser/vs14-formacao-front-qa-sf.git)
+- [Ferramenta de desenho](https://www.pixilart.com/draw)
+- [Prototipagem do design](https://www.figma.com)
 
