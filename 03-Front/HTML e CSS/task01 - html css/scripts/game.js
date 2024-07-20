@@ -63,7 +63,7 @@ setTimeout(()=> {
 function play() {
     gameMenu.classList.add("hidden")
     gameSelectCharacter.classList.remove("hidden");
-    renderToDisplay(characterSelectionScreen, ["gameDiv", "center-column", "flex", "space-around"])
+    renderToDisplay(characterSelectionScreen, ["gameDiv", "center-column", "flex", "space-around","characterImg"])
     
     console.log("QUE COMECE A BATALHA!")
 }
