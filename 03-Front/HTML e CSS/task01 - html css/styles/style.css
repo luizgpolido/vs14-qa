@@ -63,85 +63,110 @@ p > strong {
 }
 
 .personagens > h2 {
-    padding-top: 5.7rem;
+    padding-top: 4rem;
     padding-bottom: 11.2rem;
     color: var(--secondary-yellow);
 }
 
-.personagens > div > a > div{
-    width: 30rem;
-    height: 40rem;
-    margin: 2rem;
-    box-shadow: 2px 2px 4px 3px rgba(0, 0, 0, 0.258);
-    transition: all .2s ease-in;
-}
-
-.personagens > div > a > div:hover {
-    box-shadow: 0px 0px 40px #000000;
-    z-index: 2;
-    transform: scale(1.1);
-}
-
-.personagens > div > a:nth-child(1) > div {
-    background: url(../assets/characters/javoso.png) no-repeat center center;
-    background-size: cover;
-}
-
-.personagens > div > a:nth-child(2) > div {
-    background: url(../assets/characters/reactero.png) no-repeat center center;
-    background-size: cover;
-}
-
-.personagens > div > a:nth-child(3) > div {
-    background: url(../assets/characters/portugolino.png) no-repeat center center;
-    background-size: cover;
-}
-
 .personagens > div > a > div {
+    width: 100%;
+    display: flex;
+    height: 100%;
+    perspective: 1000px;
     position: relative;
+    background-color: transparent;
+    margin: 0 auto;
+    transition: transform 1s;
+}
+
+.lines {
+    height: 42.6rem;
+    width: 100%;
+    max-width: 30rem;
+    position: absolute;
+    background-color: transparent;
     overflow: hidden;
 }
 
-.personagens > div > a:first-of-type > div > span:first-of-type {
+.personagens > div > a > div:hover > div{
+    transform: rotateY(-180deg);
+    box-shadow: 0 0 90px black;
+}
+
+.personagens > div > a > div:hover  {
+    transform: scale(1.1); 
+}
+
+.personagens > div > a > div, .back-card {
+    transform: rotateY(-180deg);
+}
+
+.personagens > div > a > div > div {
+    position: relative;
+    transition: transform 1s;
+    transform-style: preserve-3d;
+    height: 42.6rem;
+    width: 30rem;
+    margin: 2rem;
+}
+
+.front-card > img, .back-card > img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    background-color: var(--primary-black-md);
+    box-shadow: 0 2rem 2rem rgba(0, 0, 0, 0.249);
+}
+
+.front-card, .back-card {
+    width: 100%;
+    height: 42rem;
+    position: absolute;
+    backface-visibility: hidden;
+    z-index: -1;
+}
+
+.personagens > div > a:first-of-type > div > div > div:first-of-type > span:first-of-type {
     background: linear-gradient(to right, transparent, var(--secondary-red));
 }
-.personagens > div > a:first-of-type > div > span:nth-child(2) {
+.personagens > div > a:first-of-type > div > div > div:first-of-type > span:nth-of-type(2) {
     background: linear-gradient(to right, transparent, var(--secondary-red));
 }
-.personagens > div > a:first-of-type > div > span:nth-child(3) {
+.personagens > div > a:first-of-type > div > div > div:first-of-type > span:nth-of-type(3) {
     background: linear-gradient(to right, transparent, var(--secondary-red));
 }
-.personagens > div > a:first-of-type > div > span:last-of-type {
+.personagens > div > a:first-of-type > div > div > div:first-of-type > span:last-of-type {
     background: linear-gradient(to right, transparent, var(--secondary-red));
 }
 
-.personagens > div > a:nth-child(2) > div > span:first-of-type {
+
+.personagens > div > a:nth-of-type(2) > div > div > div:first-of-type > span:first-of-type {
     background: linear-gradient(to right, transparent, var(--secondary-blue));
 }
-.personagens > div > a:nth-child(2) > div > span:nth-child(2) {
+.personagens > div > a:nth-of-type(2) > div > div > div:first-of-type > span:nth-of-type(2) {
     background: linear-gradient(to right, transparent, var(--secondary-blue));
 }
-.personagens > div > a:nth-child(2) > div > span:nth-child(3) {
+.personagens > div > a:nth-of-type(2) > div > div > div:first-of-type > span:nth-of-type(3) {
     background: linear-gradient(to right, transparent, var(--secondary-blue));
 }
-.personagens > div > a:nth-child(2) > div > span:last-of-type {
+.personagens > div > a:nth-of-type(2) > div > div > div:first-of-type > span:last-of-type {
     background: linear-gradient(to right, transparent, var(--secondary-blue));
 }
 
-.personagens > div > a:nth-child(3) > div > span:first-of-type {
+.personagens > div > a:nth-of-type(3) > div > div > div:first-of-type > span:first-of-type {
     background: linear-gradient(to right, transparent, var(--secondary-yellow));
 }
-.personagens > div > a:nth-child(3) > div > span:nth-child(2) {
+.personagens > div > a:nth-of-type(3) > div > div > div:first-of-type > span:nth-of-type(2) {
     background: linear-gradient(to right, transparent, var(--secondary-yellow));
 }
-.personagens > div > a:nth-child(3) > div > span:nth-child(3) {
+.personagens > div > a:nth-of-type(3) > div > div > div:first-of-type > span:nth-of-type(3) {
     background: linear-gradient(to right, transparent, var(--secondary-yellow));
 }
-.personagens > div > a:nth-child(3) > div > span:last-of-type {
+.personagens > div > a:nth-of-type(3) > div > div > div:first-of-type > span:last-of-type {
     background: linear-gradient(to right, transparent, var(--secondary-yellow));
 }
 
-.personagens > div > a > div > span:first-of-type {
+.personagens > div > a > div > div > div:first-of-type > span:first-of-type {
     position: absolute;
     top: 0;
     left: 0;
@@ -159,7 +184,7 @@ p > strong {
     }
 }
 
-.personagens > div > a > div > span:nth-child(2){
+.personagens > div > a > div > div > div:first-of-type > span:nth-of-type(2) {
     position: absolute;
     top: 0;
     right: 0;
@@ -167,6 +192,7 @@ p > strong {
     height: 100%;
     animation: animar2 2s linear infinite;
     animation-delay: 1s;
+    background-color: blue;
 }
 
 @keyframes animar2 {
@@ -178,7 +204,7 @@ p > strong {
     }
 }
 
-.personagens > div > a > div > span:nth-child(3){
+.personagens > div > a > div > div > div:first-of-type > span:nth-of-type(3){
     position: absolute;
     bottom: 0;
     right: 0;
@@ -196,7 +222,7 @@ p > strong {
     }
 }
 
-.personagens > div > a > div > span:last-of-type{
+.personagens > div > a > div > div > div:first-of-type > span:last-of-type{
     position: absolute;
     bottom: 0;
     left: 0;
@@ -214,7 +240,7 @@ p > strong {
     100% {
         transform: translateY(-100%);
     }
-}
+} */
 
 .making-off {
     height: 77.1rem;
@@ -433,7 +459,7 @@ footer > .conteiner > p {
     }
 
     .personagens {
-        height: 160rem;
+        height: 165rem;
     }
 
     .making-off {
@@ -477,7 +503,7 @@ footer > .conteiner > p {
     }
 
     .personagens {
-        height: 145rem;
+        height: 170rem;
     }
 
     .historia  {
