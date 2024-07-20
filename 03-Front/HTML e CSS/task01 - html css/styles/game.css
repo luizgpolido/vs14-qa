@@ -171,6 +171,16 @@
     align-items: center;
   }
 
+  .flex {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .space-around {
+    justify-content: space-around;
+  }
+
+
   .hidden {
     display: none;
   }

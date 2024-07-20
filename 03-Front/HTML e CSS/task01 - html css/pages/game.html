@@ -77,12 +77,20 @@
             <div class="mainDisplay" id="mainDisplay">
                 <img class="logo_dbc" src="../assets/logo_dbc.webp" alt="logo placeholder do jogo">
             </div>
+
             <div class="displayGroup " id="gameMenu">
-              <div class="buttonGroup">
+              <div class="buttonGroup hidden" id="gameMenuOpt">
                 <button class="gameButton game_btn2" id="play">[Jogar]</button>
                 <button class="gameButton game_btn4"id="quit">[Sair]</button>
               </div>
+            </div>
 
+            <div class="displayGroup hidden" id="gameSelectCharacter">
+              <div class="buttonGroup flex">
+                <button class="gameButton game_btn1 selectCharacter" value="Javoso">[Javoso]</button>
+                <button class="gameButton game_btn2 selectCharacter" value="Reactero">[Reactero]</button>
+                <button class="gameButton game_btn3 selectCharacter" value="Portugolino">[Portugolino]</button>
+              </div>
             </div>
 
             <div class="displayGroup hidden" id="gameBattle">

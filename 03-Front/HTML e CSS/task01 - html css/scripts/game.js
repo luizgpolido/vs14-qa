@@ -1,7 +1,12 @@
 const gameMenu = document.getElementById("gameMenu")
-const gamebattle = document.getElementById("gameBattle")
+const gameBattle = document.getElementById("gameBattle")
+const gameSelectCharacter = document.getElementById("gameSelectCharacter")
 
 const gameLogo = '<img id="mainDisplayImg" src="../assets/logo-hero.png" alt="logo placeholder do jogo">'
+const characterSelectionScreen = '<img src="../assets/webGameCharacter/javoso.png" alt="imagem do javoso"><img src="../assets/webGameCharacter/reactero.png" alt="imagem do reactero"><img src="../assets/webGameCharacter/portugol.png" alt="imagem do portugol">'
+
+
+let character = null;
 
 //functions
 function renderToDisplay(html, classes) { //recebe uma string de html e coloca na tela(pode passar um array de classes tbm)
@@ -19,20 +24,38 @@ function renderToDisplay(html, classes) { //recebe uma string de html e coloca n
 
 
 //eventListeners
+document.getElementById("play").addEventListener('click', () => play())
+
+document.querySelectorAll('.selectCharacter').forEach(button => { //character is defined when btn is pressed
+    button.addEventListener('click', function() {
+      character = this.value;
+
+      console.log("Character selected: " + character);
+      gameSelectCharacter.classList.add("hidden");
+      gameBattle.classList.remove("hidden");
+    });
+  });
 
 
 
+// page starts with animation
+//render game menu
+setTimeout(()=> {
+    renderToDisplay(gameLogo, ["gameDiv","center-column"])
+    document.getElementById("gameMenuOpt").classList.remove("hidden")
+}, 3000);
 
 
 
-//render game logo
-setTimeout(()=> renderToDisplay(gameLogo, ["gameDiv","center-column"]), 3000);
-
-//main menu: when click "[Jogar]" change to hidden and show gameBattle
-
-
-setTimeout(()=> renderToDisplay(gameMenu),3000)
-
+//main game loop
+function play() {
+    gameMenu.classList.add("hidden")
+    gameSelectCharacter.classList.remove("hidden");
+    renderToDisplay(characterSelectionScreen, ["gameDiv", "center-column", "flex", "space-around"])
+    
+    
+    console.log("QUE COMECE A BATALHA!")
+}
 
 
 //click sair redirect to index 
