@@ -121,18 +121,18 @@ header > div > nav > ul > li:nth-child(2) > a:visited {
     color: var(--secondary-yellow);
 }
 
+header > div > nav > ul > li:last-of-type > a {
+    color: var(--secondary-red);
+}
+
+header > div > nav > ul > li:last-of-type > a:visited {
+    color: var(--secondary-red);
+}
+
 header > div > nav > ul > li:nth-child(3)  {
     color: var(--primary-gray);
     cursor: pointer;
 }
-
-/* header > div > nav > ul > li:nth-child(3) > span {
-    transition: opacity .3s ease;
-}
-
-header > div > nav > ul > li:nth-child(3) > span:hover {
-    opacity: .8;
-} */
 
 header > div > nav > ul > li:nth-child(3) > ul {
     background-color: var(--primary-black);
@@ -174,7 +174,7 @@ header > div > nav > ul > li:nth-child(3) > ul > li:hover > a {
 
 footer {
     background-color: var(--primary-gray);
-    height: 3.6rem;
+    height: 3.8rem;
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -184,8 +184,9 @@ footer {
 
 footer p {
     color: black;
-    font-size: 1.5rem;
-    text-align: center;
+    font-size: 2rem;
+    margin: 0;
+    width: 100%;
 }
 
 .nav-mobile {

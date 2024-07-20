@@ -24,6 +24,10 @@ section {
     padding-top: 3rem;
 }
 
+footer p {
+    text-align: center;
+}
+
 /* INTRO SECTION */
 .section-intro {
     flex-direction: row;

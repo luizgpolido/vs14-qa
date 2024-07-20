@@ -368,7 +368,7 @@ footer > .conteiner > p {
 }
 
 
-@media(max-width: 1308px) {
+@media(max-width: 1375px) {
 
     .bg-hero-color {
         display: none;
@@ -396,7 +396,7 @@ footer > .conteiner > p {
     }
 }
 
-@media(max-width: 1040px) {
+@media(max-width: 1281px) {
     .personagens {
         height: 120rem;
     }
@@ -421,7 +421,7 @@ footer > .conteiner > p {
 
 }
 
-@media(max-width: 698px) {
+@media(max-width: 854px) {
 
     .historia {
         height: 98rem;
@@ -441,7 +441,7 @@ footer > .conteiner > p {
     }
 
     .form-beta {
-        height: 110em;
+        height: 115em;
     }
 
     .form-beta > form > div  {
@@ -453,7 +453,7 @@ footer > .conteiner > p {
 
 }
 
-@media(max-width: 572px) {
+@media(max-width: 628px) {
 
     .bg-hero-color {
         display: none;
@@ -504,12 +504,20 @@ footer > .conteiner > p {
     }
 
     .form-beta {
-        height: 105rem;
+        height: 115rem;
     }
 
 }
 
 @media(max-width: 504px) {
+    .historia {
+        height: 110rem;
+    }
+
+    .making-off {
+        height: 113rem;
+    }
+
     .form-beta {
         height: 120rem;
     }
