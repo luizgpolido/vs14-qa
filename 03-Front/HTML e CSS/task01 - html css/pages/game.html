@@ -95,12 +95,12 @@
 
             <div class="displayGroup hidden" id="gameBattle">
                 <div class="buttonGroup">
-                  <button class="gameButton game_btn1">[Ataque 1]</button>
-                  <button class="gameButton game_btn2">[Ataque 2]</button>
-                  <button class="gameButton game_btn3">[Ataque 3]</button>
-                  <button class="gameButton game_btn4">[Fugir]</button>
+                  <button class="gameButton game_btn1" onclick="basicAttack()" id="buttonAttackOne">[Ataque]</button>
+                  <button class="gameButton game_btn2" onclick="heavyAttack()" id="buttonAttackTwo">[Ataque Pesado]</button>
+                  <button class="gameButton game_btn3" onclick="specialAttack()" id="buttonAttackThree">[Ataque Especial]</button>
+                  <button class="gameButton game_btn4" onclick="backToMenu()">[Fugir]</button>
                 </div>
-                <iframe class="gameLog" src="./iframes/gameLog.html" frameborder=""></iframe>
+                <iframe class="gameLog" src="./iframes/gameLog.html" frameborder="" id="iframeLog"></iframe>
             </div>
             
         </div>
