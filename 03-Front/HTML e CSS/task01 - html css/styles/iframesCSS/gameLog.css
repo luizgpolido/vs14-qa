@@ -10,7 +10,7 @@
 }
 
 .log-row {
-    width: 90%;
+    width: 100%;
     border: 1px solid var(--primary-gray);
     color: var(--primary-gray);
     font-size: small;
@@ -26,8 +26,9 @@
     margin: 0;
 }
 
-@media (max-width:768px) {
+@media (max-width:330px) {
     .log-row {
+        width: 100%;
         flex-direction: column;
     }
 }
