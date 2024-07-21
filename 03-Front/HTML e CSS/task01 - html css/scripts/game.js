@@ -1,12 +1,34 @@
 const gameMenu = document.getElementById("gameMenu")
 const gameBattle = document.getElementById("gameBattle")
 const gameSelectCharacter = document.getElementById("gameSelectCharacter")
+const gameClassification = document.getElementById("gameClassification")
 
 const gameLogo = '<img id="mainDisplayImg" src="../assets/logo-hero.png" alt="logo placeholder do jogo">'
 const characterSelectionScreen = '<img src="../assets/webGameCharacter/javoso.png" alt="imagem do javoso"><img src="../assets/webGameCharacter/reactero.png" alt="imagem do reactero"><img src="../assets/webGameCharacter/portugol.png" alt="imagem do portugol">'
+const classificationScreen = '<div></div>'
 
-const user = {
-    selectedStack: ""
+let classificationScores = [
+    {id: 1, name: "Géssica", victories: 1000},
+]
+
+if (!localStorage.classificationScores){
+    localStorage.classificationScores = JSON.stringify(classificationScores)
+} else {
+    classificationScores = JSON.parse(localStorage.classificationScores)
+}
+
+let user = {
+    name: "",
+    selectedStack: "",
+    bag: [],
+    ram: 0,
+    victories: 0
+}
+
+if (!localStorage.user){
+    localStorage.user = JSON.stringify(user)
+} else {
+    user = JSON.parse(localStorage.user)
 }
 
 const stacks = [
@@ -34,6 +56,7 @@ function renderToDisplay(html, classes) { //recebe uma string de html e coloca n
 
 //eventListeners
 document.getElementById("play").addEventListener('click', () => play())
+document.getElementById("classification").addEventListener('click', () => classification())
 
 document.querySelectorAll('.selectCharacter').forEach(button => { //character is defined when btn is pressed
     button.addEventListener('click', async function() {
@@ -66,6 +89,49 @@ function play() {
     renderToDisplay(characterSelectionScreen, ["gameDiv", "center-column", "flex", "space-around","characterImg"])
     
     console.log("QUE COMECE A BATALHA!")
+}
+
+function classification() {
+    gameMenu.classList.add("hidden")
+    gameClassification.classList.remove("hidden");
+    attClassification()
+}
+
+function attClassification() {
+    const classificationDiv = document.createElement("div")
+    classificationDiv.id = "classificationDiv"
+    classificationDiv.class = "classificationDiv"
+    const display = document.getElementById("mainDisplay")
+    display.innerHTML = '';
+
+    const divTitle = document.createElement("div")
+    const pTitle = document.createElement("p")
+    pTitle.innerText = "Jogador"
+    divTitle.appendChild(pTitle)
+
+    const pTitleTwo = document.createElement("p")
+    pTitleTwo.innerText = "Vitórias"
+    divTitle.appendChild(pTitleTwo)
+
+    classificationDiv.appendChild(divTitle)
+
+    localStorage.classificationScores = JSON.stringify(classificationScores) 
+    localStorage.user = JSON.stringify(user) 
+
+    for (let person of JSON.parse(localStorage.classificationScores)) {
+        const div = document.createElement("div")
+        const p = document.createElement("p")
+        p.innerText = person.name
+        div.appendChild(p)
+
+        const pTwo = document.createElement("p")
+        pTwo.innerText = person.victories
+        div.appendChild(pTwo)
+
+        classificationDiv.appendChild(div)
+    }
+
+    display.appendChild(classificationDiv)
 }
 
 
@@ -239,6 +305,23 @@ function checkFinal() {
 
         if (fighting[1].hp <= 0 ) {
             createMessage(`Você venceu!`)
+            user.victories += 1
+
+            const userIndex = classificationScores.findIndex(n => n.name === user.name)
+
+            if(userIndex !== -1 && user.name !== "") {
+                classificationScores[userIndex].victories = user.victories 
+                localStorage.classificationScores = JSON.stringify(classificationScores) 
+                localStorage.user = JSON.stringify(user)
+            } else {
+                if (user.name !== "") {
+                    classificationScores.push({
+                        id: classificationScores.length + 1,
+                        name: user.name,
+                        victories: user.victories
+                    })
+                }
+            }
         } else {
             createMessage(`Você perdeu!`)
         }
@@ -249,10 +332,43 @@ function checkFinal() {
     return false
 }
 
+function alterName() {
+    const newName = document.getElementById("nameUser")
+    console.log(newName.value.length)
+
+    if(newName.value.length < 1){
+        newName.classList.add("input-error")
+        return
+    }
+
+    const userIndex = classificationScores.findIndex(n => n.name === newName.value)
+
+    if (userIndex !== -1) {
+        newName.classList.add("input-error")
+        return
+    }
+
+    if(user.name.length > 0) {
+        user.victories = 0
+    }
+
+    user.name = newName.value
+
+    classificationScores.push({
+        id: classificationScores.length + 1,
+        name: user.name,
+        victories: user.victories
+    })
+
+    newName.classList.remove("input-error")
+    attClassification()
+}
+
 function backToMenu() {
     renderToDisplay(gameLogo, ["gameDiv","center-column"])
     document.getElementById("gameMenuOpt").classList.remove("hidden")
     gameBattle.classList.add("hidden");
+    gameClassification.classList.add("hidden");
     gameMenu.classList.remove("hidden")
 
     fighting = []

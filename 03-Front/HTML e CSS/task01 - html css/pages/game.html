@@ -81,7 +81,18 @@
             <div class="displayGroup " id="gameMenu">
               <div class="buttonGroup hidden" id="gameMenuOpt">
                 <button class="gameButton game_btn2" id="play">[Jogar]</button>
+                <button class="gameButton game_btn3" id="classification">[Classificação]</button>
                 <button class="gameButton game_btn4"id="quit">[Sair]</button>
+              </div>
+            </div>
+
+            <div class="displayGroup hidden" id="gameClassification">
+              <div class="buttonGroup flex">
+                <div class="nameUserDiv">
+                  <input type="text" name="nameUser" id="nameUser" placeholder="Insira um nome">
+                  <button class="game_btn2" onclick="alterName()">Aplicar</button>
+                </div>
+                <button class="gameButton game_btn4" onclick="backToMenu()">[Voltar]</button>
               </div>
             </div>
 
