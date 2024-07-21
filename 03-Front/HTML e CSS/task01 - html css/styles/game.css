@@ -159,6 +159,19 @@
     color: var(--deep-black);
 }
 
+.mensagemEndereco > p { 
+    font-size: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--secondary-yellow);
+    max-width: 80%;
+    margin: auto;
+    margin-top: 30px;
+
+}
+
+
 @media (max-width:768px) {
     .displayGroup {
         flex-direction: column;
@@ -207,6 +220,10 @@
     #classificationDiv > div {
         margin: 0;
         padding: 0;
+    }
+
+    .mensagemEndereco > p { 
+        font-size: 2rem; 
     }
 }
 
@@ -264,3 +281,5 @@
   .characterImg {
     width: 30%;
   }
+
+

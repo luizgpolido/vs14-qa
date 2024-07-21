@@ -390,3 +390,92 @@ function stopButton() {
         buttonThree.disabled = false
     }, 1500);
 }
+
+
+// API CEP
+
+let cep = [
+    "65068475",
+    "68903389",
+    "82810602",
+    "69312329",
+    "69901070",
+    "97030540",
+    "69090825",
+    "78050877",
+    "09271560"
+];
+
+function randomCEP(cep) {
+    let indiceAleatorio = Math.floor(Math.random() * cep.length);
+    return cep[indiceAleatorio];
+}
+
+let url = `https://viacep.com.br/ws/${randomCEP(cep)}/json/`;
+
+window.onload = function(){
+    if(document.getElementById('gameBattle')){
+        fetch(url).then(function(response){
+            response.json().then(function(data){
+                console.log(data.logradouro);
+                showAdress(data);
+            if(data.logradouro === undefined){
+                console.log(url);
+            }
+            });
+        });
+
+    };
+
+};
+
+function showAdress(dados){
+    let resultado = document.querySelector('#endereco');
+    // resultado.innerHTML = `<p>Cuidado! Javoso foi visto a última vez em ${dados.logradouro}</p>`
+    randomMessage(resultado, dados);
+}
+
+function randomMessage(resultado, dados){
+    const characters = ["Javoso", "Reactero", "Portugolino"];
+
+    const randomChar = Math.floor(Math.random() * 2) + 1;
+    const randomPhrase = Math.floor(Math.random() * 10) + 1;
+
+    switch(randomPhrase){
+            case 1:
+                resultado.innerHTML = `<p>Cuidado! ${characters[randomChar]} foi visto a última vez em ${dados.logradouro}</p>`;
+                break;
+            case 2:
+                resultado.innerHTML =`<p>${characters[randomChar]} foi visto em ${dados.logradouro} dando autógrafos</p>`;
+                break;
+            case 3:
+                resultado.innerHTML =`<p>${characters[randomChar]} virou o novo garoto propaganda do Burger Stacks em ${dados.logradouro}</p>`;
+                break;
+            case 4:
+                resultado.innerHTML = `<p>${characters[randomChar]} foi visto em ${dados.logradouro} comprando armas proibidas para a rinha</p>`;
+                break;
+            case 5:
+                resultado.innerHTML = `<p>${characters[randomChar]} e donos de casa de aposta foram vistos em ${dados.logradouro} combinando resultados</p>`;
+                break;
+            case 6:
+               resultado.innerHTML = `<p>${characters[randomChar]} negou uma foto com um fã em ${dados.logradouro}</p>`;
+                break;
+            case 7:
+                resultado.innerHTML =`<p>${characters[randomChar]} e a Prefeitura de ${dados.localidade} fecharam uma parceria para a criação de centros de luta</p>`;
+                break;
+            case 8:
+                resultado.innerHTML = `<p>A Prefeitura de ${dados.localidade} decidiu banir ${characters[randomChar]} da cidade</p>`;
+                break;
+            case 9:
+                resultado.innerHTML = `<p>${characters[randomChar]} revelou o endereço da rinha das stacks: ${dados.logradouro}, ${dados.localidade}</p>`;
+                break;
+            case 10:
+                resultado.innerHTML = `<p>${characters[randomChar]} aprova a barraquinha de cachorro-quente em ${dados.logradouro}</p>`;
+                break;
+    }
+
+}
+
+document.getElementById('play').addEventListener('click', function() {
+    document.getElementById('endereco').style.display = 'none';
+});
