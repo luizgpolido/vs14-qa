@@ -282,4 +282,12 @@
     width: 30%;
   }
 
+  .characterCombatStats *  {
+    font-size: 2rem;
+    font-family: "JetBrains Mono", monospace;
+    color: var(--primary-gray);
+  }
 
+  .characterCombatStats img {
+    border-bottom: 1px solid var(--primary-gray);
+  }
