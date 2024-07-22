@@ -72,6 +72,9 @@
     </header>
     
     <main>
+      <audio src="../assets/musicaintro.wav" id="intro-music"></audio>
+      <audio src="../assets/musicabatalha.wav" id="battle-music"></audio>
+
       <div class="mensagemEndereco" id="endereco"><p></p></div>
 
         <div id="gameScreen" class="gameScreen">
@@ -82,7 +85,7 @@
 
             <div class="displayGroup " id="gameMenu">
               <div class="buttonGroup hidden" id="gameMenuOpt">
-                <button class="gameButton game_btn2" id="play">[Jogar]</button>
+                <button class="gameButton game_btn2" id="play" onclick="startIntroMusic()">[Jogar]</button>
                 <button class="gameButton game_btn3" id="classification">[Classificação]</button>
                 <a  class="gameButton border-none" href="../index.html"><button class="gameButton game_btn4" id="quit">[Sair]</button></a>
               </div>
@@ -100,9 +103,9 @@
 
             <div class="displayGroup hidden" id="gameSelectCharacter">
               <div class="buttonGroup flex">
-                <button class="gameButton game_btn1 selectCharacter" value="Javoso">[Javoso]</button>
-                <button class="gameButton game_btn2 selectCharacter" value="Reactero">[Reactero]</button>
-                <button class="gameButton game_btn3 selectCharacter" value="Portugolino">[Portugolino]</button>
+                <button class="gameButton game_btn1 selectCharacter" value="Javoso" onclick="startBattleMusic()">[Javoso]</button>
+                <button class="gameButton game_btn2 selectCharacter" value="Reactero" onclick="startBattleMusic()">[Reactero]</button>
+                <button class="gameButton game_btn3 selectCharacter" value="Portugolino" onclick="startBattleMusic()">[Portugolino]</button>
               </div>
             </div>
 

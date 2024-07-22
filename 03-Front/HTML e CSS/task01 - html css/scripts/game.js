@@ -433,7 +433,6 @@ window.onload = function(){
 
 function showAdress(dados){
     let resultado = document.querySelector('#endereco');
-    // resultado.innerHTML = `<p>Cuidado! Javoso foi visto a última vez em ${dados.logradouro}</p>`
     randomMessage(resultado, dados);
 }
 
@@ -481,3 +480,25 @@ function randomMessage(resultado, dados){
 document.getElementById('play').addEventListener('click', function() {
     document.getElementById('endereco').style.display = 'none';
 });
+
+// Musicas no jogo
+
+document.addEventListener('DOMContentLoaded', () => {
+    const playMusic = document.getElementById('play');
+    const audioPlayer = document.getElementById('intro-music');
+
+    playMusic.addEventListener('click', () => {
+        audioPlayer.play();
+    });
+});
+
+
+
+// document.addEventListener('DOMContentLoaded', () => {
+//     const playMusic = document.getElementById('play');
+//     const audioPlayer = document.getElementById('battle-music');
+
+//     playMusic.addEventListener('click', () => {
+//         audioPlayer.play();
+//     });
+// });
