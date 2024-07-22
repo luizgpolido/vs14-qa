@@ -174,17 +174,17 @@ function mob(){
 
     switch(attackChance){
         case 1:
-            if (fighting[0].hp <= 0) break
+            if (fighting[0].hp <= 0 || fighting[1].hp <= 0) break
             hit(1, (2 + fighting[1].strengthModifier))
             break
         case 2:
-            if (fighting[0].hp <= 0) break
+            if (fighting[0].hp <= 0 || fighting[1].hp <= 0) break
             if (random(10) <= 4){
                 hit(1, (4 + fighting[1].strengthModifier))
             } else (hit(1, 1))
             break
         case 3:
-            if (fighting[0].hp <= 0) break
+            if (fighting[0].hp <= 0 || fighting[1].hp <= 0) break
             if (random(10) <= 2){
                 hit(1, (6 + fighting[1].strengthModifier))
             } else (hit(1, 1))
