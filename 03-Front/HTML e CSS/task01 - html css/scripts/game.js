@@ -225,6 +225,7 @@ function hit(id, attack) {
         return;
     };
 
+
     if(dodge(id)){
         createMessage(`${id === 0?fighting[1].name:fighting[0].name} desviou[🍃] de ${fighting[id].name}`)
         return;
@@ -233,6 +234,13 @@ function hit(id, attack) {
     createMessage(`${fighting[id].name} ataca[🔪] ${id === 0?fighting[1].name:fighting[0].name}`, attack, id)
 
     damage(id, attack)
+
+    if(checkFinal()){
+        setTimeout(() => {
+        backToMenu();
+        }, 1500);
+        return;
+    };
 }
 
 
@@ -256,10 +264,10 @@ function dodge(id) {
 function damage(id, attack) {
     if (id === 0) {
         fighting[1].hp -= attack;
-        document.getElementById("playerHp").innerText = fighting[1].hp
+        document.getElementById("npcHp").innerText = fighting[1].hp
     } else {
         fighting[0].hp -= attack;
-        document.getElementById("npcHp").innerText = fighting[0].hp
+        document.getElementById("playerHp").innerText = fighting[0].hp
     }
 }
 
