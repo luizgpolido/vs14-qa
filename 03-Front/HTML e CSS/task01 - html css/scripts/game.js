@@ -162,6 +162,8 @@ function battle() {
     npcImg.src = `../assets/webGameCharacter/${fighting[1].name}.png`
     document.getElementById("playerHp").innerText = fighting[0].hp
     document.getElementById("npcHp").innerText = fighting[1].hp
+    document.getElementById("playerName").innerText = fighting[0].name
+    document.getElementById("npcName").innerText = fighting[1].name
 
 }
 
