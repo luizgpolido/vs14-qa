@@ -221,7 +221,7 @@ function hit(id, attack) {
     if(checkFinal()){
         setTimeout(() => {
         backToMenu();
-        }, 1500);
+        }, 4000);
         return;
     };
 
@@ -263,10 +263,10 @@ function dodge(id) {
 function damage(id, attack) {
     if (id === 0) {
         fighting[1].hp -= attack;
-        document.getElementById("playerHp").innerText = fighting[1].hp
+        document.getElementById("npcHp").innerText = fighting[1].hp
     } else {
         fighting[0].hp -= attack;
-        document.getElementById("npcHp").innerText = fighting[0].hp
+        document.getElementById("playerHp").innerText = fighting[0].hp
     }
 }
 
@@ -312,8 +312,10 @@ function checkFinal() {
     if (fighting[0].hp <= 0 || fighting[1].hp <= 0) {
         stopButton()
 
-        if (fighting[0].hp <= 0 ) {
-
+        if (fighting[1].hp <= 0 ) {
+            fighting[1].hp = 0;
+            document.getElementById("npcHp").innerText = fighting[1].hp
+            
                 if (currentAudio) {
                     currentAudio.pause();
                     currentAudio.currentTime = 0; 
@@ -342,6 +344,8 @@ function checkFinal() {
                 }
             }
         } else {
+            fighting[0].hp = 0;
+            document.getElementById("playerHp").innerText = fighting[0].hp
             if (currentAudio) {
                 currentAudio.pause();
                 currentAudio.currentTime = 0; 
