@@ -221,17 +221,24 @@ function hit(id, attack) {
     if(checkFinal()){
         setTimeout(() => {
         backToMenu();
-        }, 1500);
+        }, 4000);
         return;
     };
 
 
     if(dodge(id)){
-        createMessage(`${id === 0?fighting[1].name:fighting[0].name} desviou[🍃] de ${fighting[id].name}`)
+        setTimeout(() => {
+            createMessage(`${id === 0?fighting[1].name:fighting[0].name} desviou[🍃] de ${fighting[id].name}`);
+
+        }, 500);
         return;
     }
 
-    createMessage(`${fighting[id].name} ataca[🔪] ${id === 0?fighting[1].name:fighting[0].name}`, attack, id)
+    setTimeout(() => {
+        createMessage(`${fighting[id].name} ataca[🔪] ${id === 0?fighting[1].name:fighting[0].name}`, attack, id);
+
+    }, 1000);
+
 
     damage(id, attack)
 
@@ -314,6 +321,18 @@ function checkFinal() {
         stopButton()
 
         if (fighting[1].hp <= 0 ) {
+            fighting[1].hp = 0;
+            document.getElementById("npcHp").innerText = fighting[1].hp
+            
+                if (currentAudio) {
+                    currentAudio.pause();
+                    currentAudio.currentTime = 0; 
+                }
+            
+                currentAudio = document.getElementById('winMusic');
+                currentAudio.play();
+            
+            
             createMessage(`Você venceu!`)
             user.victories += 1
 
@@ -333,6 +352,15 @@ function checkFinal() {
                 }
             }
         } else {
+            fighting[0].hp = 0;
+            document.getElementById("playerHp").innerText = fighting[0].hp
+            if (currentAudio) {
+                currentAudio.pause();
+                currentAudio.currentTime = 0; 
+            }
+        
+            currentAudio = document.getElementById('loseMusic');
+            currentAudio.play();
             createMessage(`Você perdeu!`)
         }
 
@@ -491,22 +519,33 @@ document.getElementById('play').addEventListener('click', function() {
 
 // Musicas no jogo
 
-document.addEventListener('DOMContentLoaded', () => {
-    const playMusic = document.getElementById('play');
-    const audioPlayer = document.getElementById('intro-music');
+let currentAudio = null;
 
-    playMusic.addEventListener('click', () => {
-        audioPlayer.play();
-    });
+function startIntroMusic() {
+   
+    if (currentAudio) {
+        currentAudio.pause();
+        currentAudio.currentTime = 0; 
+    }
+
+    currentAudio = document.getElementById('introMusic');
+    currentAudio.play();
+}
+
+function startBattleMusic() {
+    if (currentAudio) {
+        currentAudio.pause();
+        currentAudio.currentTime = 0; 
+    }
+
+    currentAudio = document.getElementById('battleMusic');
+    currentAudio.play();
+}
+
+const buttonEscape = document.getElementById('buttonEscape');
+
+buttonEscape.addEventListener('click', () =>{
+    if(currentAudio){
+        currentAudio.pause();
+    }
 });
-
-
-
-// document.addEventListener('DOMContentLoaded', () => {
-//     const playMusic = document.getElementById('play');
-//     const audioPlayer = document.getElementById('battle-music');
-
-//     playMusic.addEventListener('click', () => {
-//         audioPlayer.play();
-//     });
-// });
