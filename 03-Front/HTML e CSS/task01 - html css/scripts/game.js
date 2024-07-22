@@ -4,7 +4,7 @@ const gameSelectCharacter = document.getElementById("gameSelectCharacter")
 const gameClassification = document.getElementById("gameClassification")
 
 const gameLogo = '<img id="mainDisplayImg" src="../assets/logo-hero.png" alt="logo placeholder do jogo">'
-const characterSelectionScreen = '<img src="../assets/webGameCharacter/javoso.png" alt="imagem do javoso"><img src="../assets/webGameCharacter/reactero.png" alt="imagem do reactero"><img src="../assets/webGameCharacter/portugolino.png" alt="imagem do portugolino">'
+const characterSelectionScreen = '<div><img src="../assets/webGameCharacter/javoso.png" alt="imagem do javoso"></div><div><img src="../assets/webGameCharacter/reactero.png" alt="imagem do reactero"></div><div><img src="../assets/webGameCharacter/portugolino.png" alt="imagem do portugolino"></div>'
 const classificationScreen = '<div></div>'
 const battleScreen = ' <div class="center-column"><img id="playerImg"><p id="playerName"></p><div><span>Vida: </span><span id="playerHp"></span></div></div><div class="center-column"><img id="npcImg"><p id="npcName"></p><div><span>Vida: </span><span id="npcHp"></span></div></div>'
 
@@ -87,7 +87,7 @@ setTimeout(()=> {
 function play() {
     gameMenu.classList.add("hidden")
     gameSelectCharacter.classList.remove("hidden");
-    renderToDisplay(characterSelectionScreen, ["gameDiv", "center-column", "flex", "space-around","characterImg"])
+    renderToDisplay(characterSelectionScreen, ["gameDiv", "flex", "space-around"])
 }
 
 function classification() {
@@ -160,8 +160,10 @@ function battle() {
     const npcImg =  document.getElementById("npcImg")
     playerImg.src = `../assets/webGameCharacter/${fighting[0].name}.png`
     npcImg.src = `../assets/webGameCharacter/${fighting[1].name}.png`
-    document.getElementById("playerHp").innerText = fighting[1].hp
-    document.getElementById("npcHp").innerText = fighting[0].hp
+    document.getElementById("playerHp").innerText = fighting[0].hp
+    document.getElementById("npcHp").innerText = fighting[1].hp
+    document.getElementById("playerName").innerText = fighting[0].name
+    document.getElementById("npcName").innerText = fighting[1].name
 
 }
 
@@ -224,11 +226,18 @@ function hit(id, attack) {
     };
 
     if(dodge(id)){
-        createMessage(`${id === 0?fighting[1].name:fighting[0].name} desviou[🍃] de ${fighting[id].name}`)
+        setTimeout(() => {
+            createMessage(`${id === 0?fighting[1].name:fighting[0].name} desviou[🍃] de ${fighting[id].name}`);
+
+        }, 500);
         return;
     }
 
-    createMessage(`${fighting[id].name} ataca[🔪] ${id === 0?fighting[1].name:fighting[0].name}`, attack, id)
+    setTimeout(() => {
+        createMessage(`${fighting[id].name} ataca[🔪] ${id === 0?fighting[1].name:fighting[0].name}`, attack, id);
+
+    }, 1000);
+
 
     damage(id, attack)
 }
@@ -303,7 +312,17 @@ function checkFinal() {
     if (fighting[0].hp <= 0 || fighting[1].hp <= 0) {
         stopButton()
 
-        if (fighting[1].hp <= 0 ) {
+        if (fighting[0].hp <= 0 ) {
+
+                if (currentAudio) {
+                    currentAudio.pause();
+                    currentAudio.currentTime = 0; 
+                }
+            
+                currentAudio = document.getElementById('winMusic');
+                currentAudio.play();
+            
+            
             createMessage(`Você venceu!`)
             user.victories += 1
 
@@ -323,6 +342,13 @@ function checkFinal() {
                 }
             }
         } else {
+            if (currentAudio) {
+                currentAudio.pause();
+                currentAudio.currentTime = 0; 
+            }
+        
+            currentAudio = document.getElementById('loseMusic');
+            currentAudio.play();
             createMessage(`Você perdeu!`)
         }
 
@@ -481,22 +507,33 @@ document.getElementById('play').addEventListener('click', function() {
 
 // Musicas no jogo
 
-document.addEventListener('DOMContentLoaded', () => {
-    const playMusic = document.getElementById('play');
-    const audioPlayer = document.getElementById('intro-music');
+let currentAudio = null;
 
-    playMusic.addEventListener('click', () => {
-        audioPlayer.play();
-    });
+function startIntroMusic() {
+   
+    if (currentAudio) {
+        currentAudio.pause();
+        currentAudio.currentTime = 0; 
+    }
+
+    currentAudio = document.getElementById('introMusic');
+    currentAudio.play();
+}
+
+function startBattleMusic() {
+    if (currentAudio) {
+        currentAudio.pause();
+        currentAudio.currentTime = 0; 
+    }
+
+    currentAudio = document.getElementById('battleMusic');
+    currentAudio.play();
+}
+
+const buttonEscape = document.getElementById('buttonEscape');
+
+buttonEscape.addEventListener('click', () =>{
+    if(currentAudio){
+        currentAudio.pause();
+    }
 });
-
-
-
-// document.addEventListener('DOMContentLoaded', () => {
-//     const playMusic = document.getElementById('play');
-//     const audioPlayer = document.getElementById('battle-music');
-
-//     playMusic.addEventListener('click', () => {
-//         audioPlayer.play();
-//     });
-// });

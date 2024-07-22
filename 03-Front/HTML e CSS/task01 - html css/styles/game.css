@@ -75,6 +75,7 @@
 
 .gameLog {
     width: 100%;
+    border-left: 1px solid var(--primary-gray);
 }
 
 
@@ -195,12 +196,6 @@
         height: 70vw;
     }
 
-    .gameLog {
-        border-left: 1px solid var(--primary-gray);
-        border-right: 1px solid var(--primary-gray);
-        border-bottom: 1px solid var(--primary-gray);
-    }
-
     .gameScreen {
         justify-content: flex-start;
         padding-top: 2rem;
@@ -225,6 +220,14 @@
     .mensagemEndereco > p { 
         font-size: 2rem; 
     }
+
+    .gameLog {
+        border: none;
+    }
+    
+    .displayGroup {
+        height: fit-content;
+      }
 }
 
 
@@ -251,6 +254,7 @@
   }
 
   /* Game Utility Classes */
+  
 
   .gameDiv {
     width: 100%;
@@ -278,9 +282,6 @@
     display: none;
   }
 
-  .characterImg {
-    width: 30%;
-  }
 
   .characterCombatStats *  {
     font-size: 2rem;
@@ -290,4 +291,8 @@
 
   .characterCombatStats img {
     border-bottom: 1px solid var(--primary-gray);
+  }
+
+  .border-none {
+    border: none;
   }
