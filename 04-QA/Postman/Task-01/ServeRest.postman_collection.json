@@ -1,0 +1,1450 @@
+{
+	"info": {
+		"_postman_id": "55cdda1d-779b-4d1f-a2e2-326fe27eafd8",
+		"name": "ServeRest",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "30105848"
+	},
+	"item": [
+		{
+			"name": "Login",
+			"item": [
+				{
+					"name": "Testes",
+					"item": [
+						{
+							"name": "Login com credenciais válidas",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"email\": \"fulano@qa.com\",\r\n  \"password\": \"teste\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/login",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"login"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Login com senha inválida",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"email\": \"fulano@qa.com\",\r\n  \"password\": \"salsicha\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/login",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"login"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Login com email nulo",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"email\": \"\",\r\n  \"password\": \"teste\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/login",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"login"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Login com senha nulo",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"email\": \"fulano@qa.com\",\r\n  \"password\": \"\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/login",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"login"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Usuarios",
+			"item": [
+				{
+					"name": "Testes",
+					"item": [
+						{
+							"name": "Cadastrar Usuário com dados válidos",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"nome\": \"Ricardo da Silva\",\r\n  \"email\": \"ricardo@dbccompany.com.br\",\r\n  \"password\": \"1\",\r\n  \"administrador\": \"false\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/usuarios",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"usuarios"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Cadastrar Usuário com senha nula",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"nome\": \"Ricardo da Silva\",\r\n  \"email\": \"ricardo@dbccompany.com.br\",\r\n  \"password\": \"\",\r\n  \"administrador\": \"false\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/usuarios",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"usuarios"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Cadastrar Usuário com nome nulo",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"nome\": \"\",\r\n  \"email\": \"ricardo@dbccompany.com.br\",\r\n  \"password\": \"1234567\",\r\n  \"administrador\": \"false\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/usuarios",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"usuarios"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Cadastrar Usuário com campo extra",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"nome\": \"Ricardo\",\r\n  \"email\": \"ricardo@dbccompany.com.br\",\r\n  \"password\": \"1234567\",\r\n  \"administrador\": \"false\",\r\n  \"time\": \"Flamengo\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/usuarios",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"usuarios"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Editar Usuário Válido",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"pm.environment.set(\"_id\" , \"t3cUxT8fOSaQFKP7\")"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"exec": [],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"nome\": \"Ricardo Pereira\",\r\n  \"email\": \"ricardo@dbccompany.com.br\",\r\n  \"password\": \"1234567\",\r\n  \"administrador\": \"true\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/usuarios/{{_id}}",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"usuarios",
+										"{{_id}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Editar Usuário com campos extras",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"pm.environment.set(\"_id\" , \"t3cUxT8fOSaQFKP7\")"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"nome\": \"Ricardo Pereira\",\r\n  \"email\": \"ricardo@dbccompany.com.br\",\r\n  \"password\": \"1234567\",\r\n  \"administrador\": \"true\",\r\n  \"time\": \"Flamengo\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/usuarios/{{_id}}",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"usuarios",
+										"{{_id}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Editar Usuário que não existe",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"pm.environment.set(\"_id\" , \"t4cUtT8fOSaQFKP7\")"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"nome\": \"Luiz Pereira\",\r\n  \"email\": \"testeee@dbccompany.com.br\",\r\n  \"password\": \"1234567\",\r\n  \"administrador\": \"true\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/usuarios/{{_id}}",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"usuarios",
+										"{{_id}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Deletar Usuário válido",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"pm.environment.set(\"_id\" , \"t3cUxT8fOSaQFKP7\")"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/usuarios/{{_id}}",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"usuarios",
+										"{{_id}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Deletar Usuário não existente",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"pm.environment.set(\"_id\" , \"t4cCxT8fOSaQFKP7\")"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/usuarios/{{_id}}",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"usuarios",
+										"{{_id}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Deletar Usuário com id nulo",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"pm.environment.set(\"_id\" , \"\")"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/usuarios/{{_id}}",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"usuarios",
+										"{{_id}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Listar Usuários",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/usuarios",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"usuarios"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Listar Usuários por ID",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"pm.environment.set(\"_id\" , \"0uxuPY0cbmQhpEz1\")"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"exec": [],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/usuarios/{{_id}}",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"usuarios",
+										"{{_id}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Listar Usuários com ID inválido",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"pm.environment.set(\"_id\" , \"3uxuPY0cbmQhpEz1\")"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/usuarios/{{_id}}",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"usuarios",
+										"{{_id}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Listar Usuários com ID nulo",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"pm.environment.set(\"_id\" , \"\")"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/usuarios/{{_id}}",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"usuarios",
+										"{{_id}}"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Requisições Padrões",
+					"item": [
+						{
+							"name": "Listar Usuários",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/usuarios",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"usuarios"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Usuário por ID",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"pm.environment.set(\"_id\" , \"0uxuPY0cbmQhpEz1\")"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/usuarios/{{_id}}",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"usuarios",
+										"{{_id}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Usuário por Nome",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"pm.environment.set(\"nome\", \"Fulano da Silva\");"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"console.log(pm.environment.get(\"nome\"));"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/usuarios?nome={{nome}}",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"usuarios"
+									],
+									"query": [
+										{
+											"key": "nome",
+											"value": "{{nome}}"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Cadastrar Usuário",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"nome\": \"Ricardo da Silva\",\r\n  \"email\": \"ricardo@dbccompany.com.br\",\r\n  \"password\": \"1\",\r\n  \"administrador\": \"false\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/usuarios",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"usuarios"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Atualizar Usuário",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"pm.environment.set(\"_id\" , \"0uxuPY0cbmQhpEz1\")"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"nome\": \"Victor Prudente\",\r\n    \"email\": \"victor@dbccompany.com.br\",\r\n    \"password\": \"senhaboa\",\r\n    \"administrador\": \"false\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/usuarios/{{_id}}",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"usuarios",
+										"{{_id}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Deletar Usuário",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"pm.environment.set(\"_id\" , \"0uxuPY0cbmQhpEz1\")"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"nome\": \"Luiz Gustavo Polido\",\r\n  \"email\": \"luiz.polido@dbccompany.com.br\",\r\n  \"password\": \"senhadaora\",\r\n  \"administrador\": \"true\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/usuarios/{{_id}}",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"usuarios",
+										"{{_id}}"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Produtos",
+			"item": [
+				{
+					"name": "Testes",
+					"item": [
+						{
+							"name": "Cadastrar Produto válido",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"nome\": \"HyperX Mars Teclado Mecanico\",\r\n  \"preco\": 670,\r\n  \"descricao\": \"Teclado\",\r\n  \"quantidade\": 381\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/produtos",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"produtos"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Cadastrar Produto com nome já existente",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"nome\": \"HyperX Mars Teclado Mecanico\",\r\n  \"preco\": 670,\r\n  \"descricao\": \"Teclado\",\r\n  \"quantidade\": 381\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/produtos",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"produtos"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Cadastrar Produto com preço nulo",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImZ1bGFub0BxYS5jb20iLCJwYXNzd29yZCI6InRlc3RlIiwiaWF0IjoxNzIzMDM1MDM0LCJleHAiOjE3MjMwMzU2MzR9.EtxT-9nF71NCtD88W4SU_qVTTir6YCuJ7eOGRRkiwbc",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"nome\": \"HyperX Mars Teclado Mecanico\",\r\n  \"preco\": ,\r\n  \"descricao\": \"Teclado\",\r\n  \"quantidade\": 381\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/produtos",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"produtos"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Cadastrar Produto com preço c/ caracter",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"nome\": \"HyperX Mars Teclado Mecanico\",\r\n  \"preco\": \"teste\",\r\n  \"descricao\": \"Teclado\",\r\n  \"quantidade\": 381\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/produtos",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"produtos"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Editar Produto válido",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"pm.environment.set(\"_id\", \"2KSJNvpOALrY1rO1\");"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"nome\": \"Teclado Mecanico HyperX\",\r\n  \"preco\": \"123\",\r\n  \"descricao\": \"Teclado\",\r\n  \"quantidade\": 381\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/produtos/{{_id}}",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"produtos",
+										"{{_id}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Editar Produto com nome já existente",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"pm.environment.set(\"_id\", \"2KSJNvpOALrY1rO1\");"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"exec": [],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"nome\": \"Logitech MX Vertical\",\r\n  \"preco\": \"123\",\r\n  \"descricao\": \"Teclado\",\r\n  \"quantidade\": 381\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/produtos/{{_id}}",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"produtos",
+										"{{_id}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Editar Produto com campo extra",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"pm.environment.set(\"_id\", \"2KSJNvpOALrY1rO1\");"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"nome\": \"Teclado HyperX\",\r\n  \"preco\": \"123\",\r\n  \"descricao\": \"Teclado\",\r\n  \"quantidade\": 381,\r\n  \"time\": \"Santos\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/produtos/{{_id}}",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"produtos",
+										"{{_id}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Listar Produtos",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/produtos",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"produtos"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Listar Produtos por ID",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"pm.environment.set(\"_id\", \"BeeJh5lz3k6kSIzA\")"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"exec": [],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/produtos/{{_id}}",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"produtos",
+										"{{_id}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Listar Produtos por ID nulo",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"pm.environment.set(\"_id\", \"\")"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/produtos/{{_id}}",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"produtos",
+										"{{_id}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Listar Produtos por ID não existente",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"pm.environment.set(\"_id\", \"1234\")"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/produtos/{{_id}}",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"produtos",
+										"{{_id}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Deletar Produto",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"pm.environment.set(\"_id\", \"2KSJNvpOALrY1rO1\")"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"exec": [],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/produtos/{{_id}}",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"produtos",
+										"{{_id}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Deletar Produto com ID nulo",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"pm.environment.set(\"_id\", \"\")"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/produtos/{{_id}}",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"produtos",
+										"{{_id}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Deletar Produto com ID não existente",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"pm.environment.set(\"_id\", \"1234\")"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/produtos/{{_id}}",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"produtos",
+										"{{_id}}"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"auth": {
+						"type": "bearer",
+						"bearer": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImZ1bGFub0BxYS5jb20iLCJwYXNzd29yZCI6InRlc3RlIiwiaWF0IjoxNzIzMDM3MTM2LCJleHAiOjE3MjMwMzc3MzZ9.EjJk-8iucde4l4Lzfy4-wq8cejrRW81o5Q_zOdaDqpA",
+								"type": "string"
+							}
+						]
+					},
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"packages": {},
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"packages": {},
+								"exec": [
+									""
+								]
+							}
+						}
+					]
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImZ1bGFub0BxYS5jb20iLCJwYXNzd29yZCI6InRlc3RlIiwiaWF0IjoxNzIzMDM3NDU2LCJleHAiOjE3MjMwMzgwNTZ9.19nQuWt-1hgS3Z1RwWWE2Q41z_e5gA8MGw3kqNiAtAc",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		}
+	]
+}
