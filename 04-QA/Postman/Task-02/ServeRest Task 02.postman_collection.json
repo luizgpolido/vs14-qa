@@ -1,0 +1,2540 @@
+{
+	"info": {
+		"_postman_id": "ad93c1c5-7c59-4bf8-b3eb-8e4fc2db755a",
+		"name": "ServeRest Task 02",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "30105848"
+	},
+	"item": [
+		{
+			"name": "Login",
+			"item": [
+				{
+					"name": "Testes",
+					"item": [
+						{
+							"name": "Login com credenciais válidas",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"const jsonData = pm.response.json();\r",
+											"\r",
+											"pm.test(\"Status code é 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Mensagem de login correta\", function() {\r",
+											"    pm.expect(jsonData.message).is.eql(\"Login realizado com sucesso\")\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Bearer Token não é nulo\", function() {\r",
+											"    pm.expect(jsonData.authorization).is.not.be.null;\r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"email\": \"{{email}}\",\r\n  \"password\": \"{{password}}\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/login",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"login"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Login com senha inválida",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"const jsonData = pm.response.json();\r",
+											"\r",
+											"pm.test(\"Status code é 401 (Unauthorized)\", function () {\r",
+											"    pm.response.to.have.status(401);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Mensagem de login recusado correta\", function() {\r",
+											"    pm.expect(jsonData.message).is.eql(\"Email e/ou senha inválidos\");\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Bearer Token não existe\", function() {\r",
+											"    pm.expect(jsonData).to.not.have.property(\"authorization\");\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"pm.environment.set(\"password\" , \"1234\");"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"email\": \"{{email}}\",\r\n  \"password\": \"{{password}}\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/login",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"login"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Login com email nulo",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"const jsonData = pm.response.json();\r",
+											"\r",
+											"pm.test(\"Status code é 400 (Bad Request)\", function () {\r",
+											"    pm.response.to.have.status(400);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Mensagem de campo vazio correta\", function() {\r",
+											"    pm.expect(jsonData.email).is.eql(\"email não pode ficar em branco\");\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Bearer Token não existe\", function() {\r",
+											"    pm.expect(jsonData).to.not.have.property(\"authorization\");\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"pm.environment.set(\"email\" , \"\");"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"email\": \"{{email}}\",\r\n  \"password\": \"{{password}}\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/login",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"login"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Login com senha nulo",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"const jsonData = pm.response.json();\r",
+											"\r",
+											"pm.test(\"Status code é 400 (Bad Request)\", function () {\r",
+											"    pm.response.to.have.status(400);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Mensagem de campo vazio correta\", function() {\r",
+											"    pm.expect(jsonData.password).is.eql(\"password não pode ficar em branco\");\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Bearer Token não existe\", function() {\r",
+											"    pm.expect(jsonData).to.not.have.property(\"authorization\");\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"pm.environment.set(\"password\" , \"\");"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"email\": \"{{email}}\",\r\n  \"password\": \"{{password}}\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/login",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"login"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"packages": {},
+								"exec": [
+									"const cadastrarUsuario = {\r",
+									"    url : pm.environment.get(\"base_url\") + \"/usuarios\",\r",
+									"    method: \"POST\",\r",
+									"    header: {\r",
+									"        \"content-type\": \"application/json\",\r",
+									"        \"accept\": \"application/json\"\r",
+									"    },\r",
+									"    body: {\r",
+									"        mode: \"raw\",\r",
+									"        raw: JSON.stringify(pm.environment.get(\"novoUsuario\"))\r",
+									"    }\r",
+									"};\r",
+									"\r",
+									"pm.sendRequest(cadastrarUsuario, function(err,res) {\r",
+									"    pm.expect(err).is.null;\r",
+									"    pm.environment.set(\"_id\", res.json()._id);\r",
+									"});"
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"packages": {},
+								"exec": [
+									""
+								]
+							}
+						}
+					]
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							"pm.environment.set(\"nome\" , pm.variables.replaceIn('{{$randomFullName}}'));\r",
+							"\r",
+							"pm.environment.set(\"email\" , pm.variables.replaceIn('{{$randomEmail}}'));\r",
+							"\r",
+							"pm.environment.set(\"password\" , pm.variables.replaceIn('{{$randomPassword}}'));\r",
+							"\r",
+							"pm.environment.set(\"administrador\" , pm.variables.replaceIn('{{$randomBoolean}}'));\r",
+							"\r",
+							"const usuario = {\r",
+							"    \"nome\" : pm.environment.get(\"nome\"),\r",
+							"    \"email\" : pm.environment.get(\"email\"),\r",
+							"    \"password\" : pm.environment.get(\"password\"),\r",
+							"    \"administrador\" : pm.environment.get(\"administrador\")\r",
+							"}\r",
+							"\r",
+							"pm.environment.set(\"novoUsuario\" , usuario);\r",
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							"pm.sendRequest({\r",
+							"    url: pm.environment.get(\"base_url\") + \"/usuarios/\" + pm.environment.get(\"_id\"),\r",
+							"    method: \"DELETE\"\r",
+							"});\r",
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Usuarios",
+			"item": [
+				{
+					"name": "Testes",
+					"item": [
+						{
+							"name": "POST",
+							"item": [
+								{
+									"name": "Cadastrar Usuário com dados válidos",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"const jsonData = pm.response.json();\r",
+													"\r",
+													"pm.test(\"Status code é 201 (Created)\", function () {\r",
+													"    pm.response.to.have.status(201);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Mensagem de login correta\", function() {\r",
+													"    pm.expect(jsonData.message).is.eql(\"Cadastro realizado com sucesso\")\r",
+													"});\r",
+													"\r",
+													"\r",
+													"pm.test(\"ID do usuário não é nulo\", function() {\r",
+													"    pm.expect(jsonData._id).is.not.be.null;\r",
+													"});"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										},
+										{
+											"listen": "prerequest",
+											"script": {
+												"exec": [
+													""
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"nome\": \"{{nome}}\",\r\n  \"email\": \"{{email}}\",\r\n  \"password\": \"{{password}}\",\r\n  \"administrador\": \"{{administrador}}\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{base_url}}/usuarios",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"usuarios"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Cadastrar Usuário com senha nula",
+									"event": [
+										{
+											"listen": "prerequest",
+											"script": {
+												"exec": [
+													"pm.environment.set(\"password\", \"\");\r",
+													""
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										},
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"const jsonData = pm.response.json();\r",
+													"\r",
+													"pm.test(\"Status code é 400 (Bad Request)\", function () {\r",
+													"    pm.response.to.have.status(400);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Mensagem de campo vazio correta\", function() {\r",
+													"    pm.expect(jsonData.password).is.eql(\"password não pode ficar em branco\");\r",
+													"});\r",
+													"\r",
+													"pm.test(\"ID não existe\", function() {\r",
+													"    pm.expect(jsonData).to.not.have.property(\"_id\");\r",
+													"});\r",
+													""
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"nome\": \"{{nome}}\",\r\n  \"email\": \"{{email}}\",\r\n  \"password\": \"{{password}}\",\r\n  \"administrador\": \"{{administrador}}\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{base_url}}/usuarios",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"usuarios"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Cadastrar Usuário com nome nulo",
+									"event": [
+										{
+											"listen": "prerequest",
+											"script": {
+												"exec": [
+													"pm.environment.set(\"nome\", \"\");"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										},
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"const jsonData = pm.response.json();\r",
+													"\r",
+													"pm.test(\"Status code é 400 (Bad Request)\", function () {\r",
+													"    pm.response.to.have.status(400);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Mensagem de campo vazio correta\", function() {\r",
+													"    pm.expect(jsonData.nome).is.eql(\"nome não pode ficar em branco\");\r",
+													"});\r",
+													"\r",
+													"pm.test(\"ID não existe\", function() {\r",
+													"    pm.expect(jsonData).to.not.have.property(\"_id\");\r",
+													"});\r",
+													""
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"nome\": \"{{nome}}\",\r\n  \"email\": \"{{email}}\",\r\n  \"password\": \"{{password}}\",\r\n  \"administrador\": \"{{administrador}}\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{base_url}}/usuarios",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"usuarios"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Cadastrar Usuário com campo extra",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"const jsonData = pm.response.json();\r",
+													"\r",
+													"pm.test(\"Status code é 400 (Bad Request)\", function () {\r",
+													"    pm.response.to.have.status(400);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Mensagem cadastro realizado não aparecendo\", function() {\r",
+													"    pm.expect(jsonData.message).is.not.eql(\"Cadastro realizado com sucesso\");\r",
+													"});\r",
+													"\r",
+													"pm.test(\"ID não existe\", function() {\r",
+													"    pm.expect(jsonData).to.not.have.property(\"_id\");\r",
+													"});\r",
+													""
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										},
+										{
+											"listen": "prerequest",
+											"script": {
+												"exec": [],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"nome\": \"{{nome}}\",\r\n  \"email\": \"{{email}}\",\r\n  \"password\": \"{{password}}\",\r\n  \"administrador\": \"{{administrador}}\",\r\n  \"time\": \"Santos\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{base_url}}/usuarios",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"usuarios"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "PUT",
+							"item": [
+								{
+									"name": "Editar Usuário Válido",
+									"event": [
+										{
+											"listen": "prerequest",
+											"script": {
+												"exec": [
+													"const cadastrarUsuario = {\r",
+													"    url : pm.environment.get(\"base_url\") + \"/usuarios\",\r",
+													"    method: \"POST\",\r",
+													"    header: {\r",
+													"        \"content-type\": \"application/json\",\r",
+													"        \"accept\": \"application/json\"\r",
+													"    },\r",
+													"    body: {\r",
+													"        mode: \"raw\",\r",
+													"        raw: JSON.stringify(pm.environment.get(\"novoUsuario\"))\r",
+													"    }\r",
+													"};\r",
+													"\r",
+													"pm.sendRequest(cadastrarUsuario, function(err,res) {\r",
+													"    pm.expect(err).is.null;\r",
+													"    pm.environment.set(\"_id\", res.json()._id);\r",
+													"});\r",
+													"\r",
+													"pm.environment.set(\"nome\" , pm.variables.replaceIn('{{$randomFullName}}'));\r",
+													"\r",
+													"pm.environment.set(\"email\" , pm.variables.replaceIn('{{$randomEmail}}'));\r",
+													"\r",
+													"pm.environment.set(\"password\" , pm.variables.replaceIn('{{$randomPassword}}'));\r",
+													"\r",
+													"pm.environment.set(\"administrador\" , pm.variables.replaceIn('{{$randomBoolean}}'));\r",
+													"\r",
+													"const usuario = {\r",
+													"    \"nome\" : pm.environment.get(\"nome\"),\r",
+													"    \"email\" : pm.environment.get(\"email\"),\r",
+													"    \"password\" : pm.environment.get(\"password\"),\r",
+													"    \"administrador\" : pm.environment.get(\"administrador\")\r",
+													"}\r",
+													"\r",
+													"pm.environment.set(\"novoUsuario\" , usuario);\r",
+													""
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										},
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"const jsonData = pm.response.json();\r",
+													"\r",
+													"pm.test(\"Status code é 200 (OK)\", function () {\r",
+													"    pm.response.to.have.status(200);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Verifica mensagem de registro alterado com sucesso\" , function () {\r",
+													"    pm.expect(jsonData.message).to.eql(\"Registro alterado com sucesso\");\r",
+													"});\r",
+													"\r",
+													""
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"request": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"nome\": \"{{nome}}\",\r\n  \"email\": \"{{email}}\",\r\n  \"password\": \"{{password}}\",\r\n  \"administrador\": \"{{administrador}}\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{base_url}}/usuarios/{{_id}}",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"usuarios",
+												"{{_id}}"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Editar Usuário com campos extras",
+									"event": [
+										{
+											"listen": "prerequest",
+											"script": {
+												"exec": [
+													"const cadastrarUsuario = {\r",
+													"    url : pm.environment.get(\"base_url\") + \"/usuarios\",\r",
+													"    method: \"POST\",\r",
+													"    header: {\r",
+													"        \"content-type\": \"application/json\",\r",
+													"        \"accept\": \"application/json\"\r",
+													"    },\r",
+													"    body: {\r",
+													"        mode: \"raw\",\r",
+													"        raw: JSON.stringify(pm.environment.get(\"novoUsuario\"))\r",
+													"    }\r",
+													"};\r",
+													"\r",
+													"pm.sendRequest(cadastrarUsuario, function(err,res) {\r",
+													"    pm.expect(err).is.null;\r",
+													"    pm.environment.set(\"_id\", res.json()._id);\r",
+													"});\r",
+													"\r",
+													"pm.environment.set(\"nome\" , pm.variables.replaceIn('{{$randomFullName}}'));\r",
+													"\r",
+													"pm.environment.set(\"email\" , pm.variables.replaceIn('{{$randomEmail}}'));\r",
+													"\r",
+													"pm.environment.set(\"password\" , pm.variables.replaceIn('{{$randomPassword}}'));\r",
+													"\r",
+													"pm.environment.set(\"administrador\" , pm.variables.replaceIn('{{$randomBoolean}}'));\r",
+													"\r",
+													"const usuario = {\r",
+													"    \"nome\" : pm.environment.get(\"nome\"),\r",
+													"    \"email\" : pm.environment.get(\"email\"),\r",
+													"    \"password\" : pm.environment.get(\"password\"),\r",
+													"    \"administrador\" : pm.environment.get(\"administrador\")\r",
+													"}\r",
+													"\r",
+													"pm.environment.set(\"novoUsuario\" , usuario);\r",
+													""
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										},
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"const jsonData = pm.response.json();\r",
+													"\r",
+													"pm.test(\"Status code é 400 (Bad Request)\", function () {\r",
+													"    pm.response.to.have.status(400);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Mensagem cadastro realizado não aparecendo\", function() {\r",
+													"    pm.expect(jsonData.message).is.not.eql(\"Cadastro realizado com sucesso\");\r",
+													"});"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"request": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"nome\": \"{{nome}}\",\r\n  \"email\": \"{{email}}\",\r\n  \"password\": \"{{password}}\",\r\n  \"administrador\": \"{{administrador}}\",\r\n  \"time\": \"Santos\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{base_url}}/usuarios/{{_id}}",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"usuarios",
+												"{{_id}}"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Editar Usuário que não existe",
+									"event": [
+										{
+											"listen": "prerequest",
+											"script": {
+												"exec": [
+													"const cadastrarUsuario = {\r",
+													"    url : pm.environment.get(\"base_url\") + \"/usuarios\",\r",
+													"    method: \"POST\",\r",
+													"    header: {\r",
+													"        \"content-type\": \"application/json\",\r",
+													"        \"accept\": \"application/json\"\r",
+													"    },\r",
+													"    body: {\r",
+													"        mode: \"raw\",\r",
+													"        raw: JSON.stringify(pm.environment.get(\"novoUsuario\"))\r",
+													"    }\r",
+													"};\r",
+													"\r",
+													"pm.sendRequest(cadastrarUsuario, function(err,res) {\r",
+													"    pm.expect(err).is.null;\r",
+													"    pm.environment.set(\"_id\", \"idfalso\");\r",
+													"});\r",
+													"\r",
+													"pm.environment.set(\"nome\" , pm.variables.replaceIn('{{$randomFullName}}'));\r",
+													"\r",
+													"pm.environment.set(\"email\" , pm.variables.replaceIn('{{$randomEmail}}'));\r",
+													"\r",
+													"pm.environment.set(\"password\" , pm.variables.replaceIn('{{$randomPassword}}'));\r",
+													"\r",
+													"pm.environment.set(\"administrador\" , pm.variables.replaceIn('{{$randomBoolean}}'));\r",
+													"\r",
+													"\r",
+													"const usuario = {\r",
+													"    \"nome\" : pm.environment.get(\"nome\"),\r",
+													"    \"email\" : pm.environment.get(\"email\"),\r",
+													"    \"password\" : pm.environment.get(\"password\"),\r",
+													"    \"administrador\" : pm.environment.get(\"administrador\")\r",
+													"}\r",
+													"\r",
+													"pm.environment.set(\"novoUsuario\" , usuario);\r",
+													""
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										},
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"const jsonData = pm.response.json();\r",
+													"\r",
+													"pm.test(\"Status code é 201 (Created)\", function () {\r",
+													"    pm.response.to.have.status(201);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Cadastro realizado com sucesso\" , function () {\r",
+													"    pm.expect(jsonData.message).to.eql(\"Cadastro realizado com sucesso\");\r",
+													"});\r",
+													"\r",
+													"pm.test(\"ID do usuário não é nulo\", function() {\r",
+													"    pm.expect(jsonData._id).is.not.be.null;\r",
+													"});\r",
+													""
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"request": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"nome\": \"{{nome}}\",\r\n  \"email\": \"{{email}}\",\r\n  \"password\": \"{{password}}\",\r\n  \"administrador\": \"{{administrador}}\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{base_url}}/usuarios/{{_id}}",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"usuarios",
+												"{{_id}}"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "GET",
+							"item": [
+								{
+									"name": "Listar Usuários",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"const jsonData = pm.response.json();\r",
+													"\r",
+													"pm.test(\"Status code é 200 (Ok)\", function () {\r",
+													"    pm.response.to.have.status(200);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Usuários não é nulo\", function() {\r",
+													"    pm.expect(jsonData.usuarios).is.not.be.null;\r",
+													"});\r",
+													""
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										},
+										{
+											"listen": "prerequest",
+											"script": {
+												"packages": {},
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{base_url}}/usuarios",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"usuarios"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Listar Usuários por ID",
+									"event": [
+										{
+											"listen": "prerequest",
+											"script": {
+												"exec": [
+													"const cadastrarUsuario = {\r",
+													"    url : pm.environment.get(\"base_url\") + \"/usuarios\",\r",
+													"    method: \"POST\",\r",
+													"    header: {\r",
+													"        \"content-type\": \"application/json\",\r",
+													"        \"accept\": \"application/json\"\r",
+													"    },\r",
+													"    body: {\r",
+													"        mode: \"raw\",\r",
+													"        raw: JSON.stringify(pm.environment.get(\"novoUsuario\"))\r",
+													"    }\r",
+													"};\r",
+													"\r",
+													"pm.sendRequest(cadastrarUsuario, function(err,res) {\r",
+													"    pm.expect(err).is.null;\r",
+													"    pm.environment.set(\"_id\", res.json()._id);\r",
+													"});"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										},
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"const jsonData = pm.response.json();\r",
+													"\r",
+													"pm.test(\"Status code é 200 (Ok)\", function () {\r",
+													"    pm.response.to.have.status(200);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"ID não é nulo\", function() {\r",
+													"    pm.expect(jsonData.id).is.not.be.null;\r",
+													"});\r",
+													""
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{base_url}}/usuarios/{{_id}}",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"usuarios",
+												"{{_id}}"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Listar Usuários com ID inválido",
+									"event": [
+										{
+											"listen": "prerequest",
+											"script": {
+												"exec": [
+													"const cadastrarUsuario = {\r",
+													"    url : pm.environment.get(\"base_url\") + \"/usuarios\",\r",
+													"    method: \"POST\",\r",
+													"    header: {\r",
+													"        \"content-type\": \"application/json\",\r",
+													"        \"accept\": \"application/json\"\r",
+													"    },\r",
+													"    body: {\r",
+													"        mode: \"raw\",\r",
+													"        raw: JSON.stringify(pm.environment.get(\"novoUsuario\"))\r",
+													"    }\r",
+													"};\r",
+													"\r",
+													"pm.sendRequest(cadastrarUsuario, function(err,res) {\r",
+													"    pm.expect(err).is.null;\r",
+													"    pm.environment.set(\"_id\", \"123\");\r",
+													"});"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										},
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"const jsonData = pm.response.json();\r",
+													"\r",
+													"pm.test(\"Status code é 400 (Bad Request)\", function () {\r",
+													"    pm.response.to.have.status(400);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Mensagem de usuário não encontrado correta\", function() {\r",
+													"    pm.expect(jsonData.message).is.eql(\"Usuário não encontrado\");\r",
+													"});\r",
+													"\r",
+													"pm.test(\"ID não é nulo\", function() {\r",
+													"    pm.expect(jsonData.id).is.not.be.null;\r",
+													"});\r",
+													"\r",
+													"\r",
+													""
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{base_url}}/usuarios/{{_id}}",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"usuarios",
+												"{{_id}}"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Listar Usuários com ID nulo",
+									"event": [
+										{
+											"listen": "prerequest",
+											"script": {
+												"exec": [
+													"const cadastrarUsuario = {\r",
+													"    url : pm.environment.get(\"base_url\") + \"/usuarios\",\r",
+													"    method: \"POST\",\r",
+													"    header: {\r",
+													"        \"content-type\": \"application/json\",\r",
+													"        \"accept\": \"application/json\"\r",
+													"    },\r",
+													"    body: {\r",
+													"        mode: \"raw\",\r",
+													"        raw: JSON.stringify(pm.environment.get(\"novoUsuario\"))\r",
+													"    }\r",
+													"};\r",
+													"\r",
+													"pm.sendRequest(cadastrarUsuario, function(err,res) {\r",
+													"    pm.expect(err).is.null;\r",
+													"    pm.environment.set(\"_id\", \"\");\r",
+													"});"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										},
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"const jsonData = pm.response.json();\r",
+													"\r",
+													"pm.test(\"Status code é 200 (Ok)\", function () {\r",
+													"    pm.response.to.have.status(200);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Usuários não é nulo\", function() {\r",
+													"    pm.expect(jsonData.usuarios).is.not.be.null;\r",
+													"});\r",
+													"\r",
+													"\r",
+													""
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{base_url}}/usuarios/{{_id}}",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"usuarios",
+												"{{_id}}"
+											]
+										}
+									},
+									"response": []
+								}
+							],
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"type": "text/javascript",
+										"packages": {},
+										"exec": [
+											""
+										]
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"type": "text/javascript",
+										"packages": {},
+										"exec": [
+											""
+										]
+									}
+								}
+							]
+						},
+						{
+							"name": "DELETE",
+							"item": [
+								{
+									"name": "Deletar Usuário válido",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"const jsonData = pm.response.json();\r",
+													"\r",
+													"pm.test(\"Status code é 200 (OK)\", function () {\r",
+													"    pm.response.to.have.status(200);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Mensagem de registro excluido\", function () {\r",
+													"    pm.expect(jsonData.message).is.eql(\"Registro excluído com sucesso\");\r",
+													"});"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										},
+										{
+											"listen": "prerequest",
+											"script": {
+												"exec": [
+													""
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{base_url}}/usuarios/{{_id}}",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"usuarios",
+												"{{_id}}"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Deletar Usuário não existente",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.sendRequest({\r",
+													"    url: pm.environment.get(\"base_url\") + \"/usuarios/\" + pm.environment.get(\"idreal\"),\r",
+													"    method: \"DELETE\"\r",
+													"});\r",
+													"\r",
+													"const jsonData = pm.response.json();\r",
+													"\r",
+													"pm.test(\"Status code é 200 (OK)\", function () {\r",
+													"    pm.response.to.have.status(200);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Mensagem de registro excluido\", function () {\r",
+													"    pm.expect(jsonData.message).is.eql(\"Nenhum registro excluído\");\r",
+													"});"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										},
+										{
+											"listen": "prerequest",
+											"script": {
+												"exec": [
+													"pm.environment.set(\"idreal\", pm.environment.get(\"_id\"));\r",
+													"pm.environment.set(\"_id\" , \"1234\");"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{base_url}}/usuarios/{{_id}}",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"usuarios",
+												"{{_id}}"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Deletar Usuário com id nulo",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.sendRequest({\r",
+													"    url: pm.environment.get(\"base_url\") + \"/usuarios/\" + pm.environment.get(\"idreal\"),\r",
+													"    method: \"DELETE\"\r",
+													"});\r",
+													"\r",
+													"const jsonData = pm.response.json();\r",
+													"\r",
+													"pm.test(\"Status code é 405 (Method Not Allowed)\", function () {\r",
+													"    pm.response.to.have.status(405);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Mensagem de não foi possível deletar\", function () {\r",
+													"    pm.expect(jsonData.message).is.eql(\"Não é possível realizar DELETE em /usuarios/. Acesse http://localhost:3000 para ver as rotas disponíveis e como utilizá-las.\");\r",
+													"});"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										},
+										{
+											"listen": "prerequest",
+											"script": {
+												"exec": [
+													"pm.environment.set(\"idreal\", pm.environment.get(\"_id\"));\r",
+													"pm.environment.set(\"_id\" , \"\");"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{base_url}}/usuarios/{{_id}}",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"usuarios",
+												"{{_id}}"
+											]
+										}
+									},
+									"response": []
+								}
+							],
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"type": "text/javascript",
+										"packages": {},
+										"exec": [
+											"const cadastrarUsuario = {\r",
+											"    url : pm.environment.get(\"base_url\") + \"/usuarios\",\r",
+											"    method: \"POST\",\r",
+											"    header: {\r",
+											"        \"content-type\": \"application/json\",\r",
+											"        \"accept\": \"application/json\"\r",
+											"    },\r",
+											"    body: {\r",
+											"        mode: \"raw\",\r",
+											"        raw: JSON.stringify(pm.environment.get(\"novoUsuario\"))\r",
+											"    }\r",
+											"};\r",
+											"\r",
+											"pm.sendRequest(cadastrarUsuario, function(err,res) {\r",
+											"    pm.expect(err).is.null;\r",
+											"    pm.environment.set(\"_id\", res.json()._id);\r",
+											"});"
+										]
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"type": "text/javascript",
+										"packages": {},
+										"exec": [
+											""
+										]
+									}
+								}
+							]
+						}
+					]
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							"pm.environment.set(\"nome\" , pm.variables.replaceIn('{{$randomFullName}}'));\r",
+							"\r",
+							"pm.environment.set(\"email\" , pm.variables.replaceIn('{{$randomEmail}}'));\r",
+							"\r",
+							"pm.environment.set(\"password\" , pm.variables.replaceIn('{{$randomPassword}}'));\r",
+							"\r",
+							"pm.environment.set(\"administrador\" , pm.variables.replaceIn('{{$randomBoolean}}'));\r",
+							"\r",
+							"const usuario = {\r",
+							"    \"nome\" : pm.environment.get(\"nome\"),\r",
+							"    \"email\" : pm.environment.get(\"email\"),\r",
+							"    \"password\" : pm.environment.get(\"password\"),\r",
+							"    \"administrador\" : pm.environment.get(\"administrador\")\r",
+							"}\r",
+							"\r",
+							"pm.environment.set(\"novoUsuario\" , usuario);\r",
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							"pm.sendRequest({\r",
+							"    url: pm.environment.get(\"base_url\") + \"/usuarios/\" + pm.environment.get(\"_id\"),\r",
+							"    method: \"DELETE\"\r",
+							"});\r",
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Produtos",
+			"item": [
+				{
+					"name": "Testes",
+					"item": [
+						{
+							"name": "POST",
+							"item": [
+								{
+									"name": "Cadastrar Produto válido",
+									"event": [
+										{
+											"listen": "prerequest",
+											"script": {
+												"exec": [
+													""
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										},
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"const jsonData = pm.response.json();\r",
+													"\r",
+													"pm.test(\"Status code é 201 (Created)\", function () {\r",
+													"    pm.response.to.have.status(201);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Validar: Mensagem de cadastro correta\", function() {\r",
+													"    pm.expect(jsonData.message).is.eql(\"Cadastro realizado com sucesso\")\r",
+													"});\r",
+													"\r",
+													"\r",
+													"pm.test(\"Validar: ID do produto não é nulo\", function() {\r",
+													"    pm.expect(jsonData._id).is.not.be.null;\r",
+													"});"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"nome\": \"{{nomeProduto}}\",\r\n  \"preco\": {{preco}},\r\n  \"descricao\": \"{{descricao}}\",\r\n  \"quantidade\": {{quantidade}}\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{base_url}}/produtos",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"produtos"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Cadastrar Produto com nome já existente",
+									"event": [
+										{
+											"listen": "prerequest",
+											"script": {
+												"exec": [
+													"const buscarProdutos = {\r",
+													"    url: pm.environment.get(\"base_url\") + \"/produtos\",\r",
+													"    method: \"GET\"\r",
+													"};\r",
+													"\r",
+													"pm.sendRequest(buscarProdutos , function(err, res) {\r",
+													"    pm.expect(err).is.null;\r",
+													"    pm.environment.set(\"nomeProduto\", res.json().produtos[0].nome);\r",
+													"})\r",
+													"\r",
+													""
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										},
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"const jsonData = pm.response.json();\r",
+													"\r",
+													"pm.test(\"Status code é 400 (Bad Request)\", function () {\r",
+													"    pm.response.to.have.status(400);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Validar: Mensagem de erro (Produto existente) válida\", function() {\r",
+													"    pm.expect(jsonData.message).is.eql(\"Já existe produto com esse nome\")\r",
+													"});\r",
+													"\r",
+													"\r",
+													"pm.test(\"Validar: ID do produto não é nulo\", function() {\r",
+													"    pm.expect(jsonData).to.not.have.property(\"_id\");\r",
+													"});\r",
+													"\r",
+													""
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{accessToken}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"nome\": \"{{nomeProduto}}\",\r\n  \"preco\": {{preco}},\r\n  \"descricao\": \"{{descricao}}\",\r\n  \"quantidade\": {{quantidade}}\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{base_url}}/produtos",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"produtos"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Cadastrar Produto com preço nulo",
+									"event": [
+										{
+											"listen": "prerequest",
+											"script": {
+												"exec": [
+													"pm.environment.set(\"preco\", \"\");"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										},
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"const jsonData = pm.response.json();\r",
+													"\r",
+													"pm.test(\"Status code é 400 (Bad Request)\", function () {\r",
+													"    pm.response.to.have.status(400);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Validar: Mensagem de campo nulo correta\", function() {\r",
+													"    pm.expect(jsonData.message).is.eql(\"Adicione aspas em todos os valores. Para mais informações acesse a issue https://github.com/ServeRest/ServeRest/issues/225\");\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Validar: ID não existe\", function() {\r",
+													"    pm.expect(jsonData).to.not.have.property(\"_id\");\r",
+													"});\r",
+													""
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{accessToken}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"nome\": \"{{nomeProduto}}\",\r\n  \"preco\": {{preco}},\r\n  \"descricao\": \"{{descricao}}\",\r\n  \"quantidade\": {{quantidade}}\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{base_url}}/produtos",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"produtos"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Cadastrar Produto com preço c/ caracter",
+									"event": [
+										{
+											"listen": "prerequest",
+											"script": {
+												"exec": [
+													"pm.environment.set(\"preco\", \"abacaxi\");"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										},
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"const jsonData = pm.response.json();\r",
+													"\r",
+													"pm.test(\"Status code é 400 (Bad Request)\", function () {\r",
+													"    pm.response.to.have.status(400);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Validar: Mensagem de campo inválido correta\", function() {\r",
+													"    pm.expect(jsonData.preco).is.eql(\"preco deve ser um número\");\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Validar: ID não existe\", function() {\r",
+													"    pm.expect(jsonData).to.not.have.property(\"_id\");\r",
+													"});\r",
+													""
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{accessToken}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"nome\": \"{{nomeProduto}}\",\r\n  \"preco\": \"{{preco}}\",\r\n  \"descricao\": \"{{descricao}}\",\r\n  \"quantidade\": {{quantidade}}\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{base_url}}/produtos",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"produtos"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "PUT",
+							"item": [
+								{
+									"name": "Editar Produto válido",
+									"event": [
+										{
+											"listen": "prerequest",
+											"script": {
+												"exec": [
+													""
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										},
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"const jsonData = pm.response.json();\r",
+													"\r",
+													"pm.test(\"Status code é 200 (OK)\", function () {\r",
+													"    pm.response.to.have.status(200);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Validar: mensagem de registro alterado com sucesso\" , function () {\r",
+													"    pm.expect(jsonData.message).to.eql(\"Registro alterado com sucesso\");\r",
+													"});\r",
+													"\r",
+													""
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{accessToken}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "{{accessToken}}",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"nome\": \"{{nomeProduto}}\",\r\n  \"preco\": {{preco}},\r\n  \"descricao\": \"{{descricao}}\",\r\n  \"quantidade\": {{quantidade}}\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{base_url}}/produtos/{{_id}}",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"produtos",
+												"{{_id}}"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Editar Produto com nome já existente",
+									"event": [
+										{
+											"listen": "prerequest",
+											"script": {
+												"exec": [
+													"const buscarProdutos = {\r",
+													"    url: pm.environment.get(\"base_url\") + \"/produtos\",\r",
+													"    method: \"GET\"\r",
+													"};\r",
+													"\r",
+													"pm.sendRequest(buscarProdutos , function(err, res) {\r",
+													"    pm.expect(err).is.null;\r",
+													"    pm.environment.set(\"nomeProduto\", res.json().produtos[0].nome);\r",
+													"})\r",
+													"\r",
+													""
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										},
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"const jsonData = pm.response.json();\r",
+													"\r",
+													"pm.test(\"Status code é 400 (Bad Request)\", function () {\r",
+													"    pm.response.to.have.status(400);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Validar: mensagem de nome já existente\" , function () {\r",
+													"    pm.expect(jsonData.message).to.eql(\"Já existe produto com esse nome\");\r",
+													"});\r",
+													"\r",
+													""
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{accessToken}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"nome\": \"{{nomeProduto}}\",\r\n  \"preco\": {{preco}},\r\n  \"descricao\": \"{{descricao}}\",\r\n  \"quantidade\": {{quantidade}}\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{base_url}}/produtos/{{_id}}",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"produtos",
+												"{{_id}}"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Editar Produto com campo extra",
+									"event": [
+										{
+											"listen": "prerequest",
+											"script": {
+												"exec": [
+													""
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										},
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"const jsonData = pm.response.json();\r",
+													"\r",
+													"pm.test(\"Status code é 400 (Bad Request)\", function () {\r",
+													"    pm.response.to.have.status(400);\r",
+													"});\r",
+													"\r",
+													""
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{accessToken}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"nome\": \"{{nomeProduto}}\",\r\n  \"preco\": {{preco}},\r\n  \"descricao\": \"{{descricao}}\",\r\n  \"quantidade\": {{quantidade}},\r\n  \"time\": \"Santos\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{base_url}}/produtos/{{_id}}",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"produtos",
+												"{{_id}}"
+											]
+										}
+									},
+									"response": []
+								}
+							],
+							"auth": {
+								"type": "bearer",
+								"bearer": [
+									{
+										"key": "token",
+										"value": "{{accessToken}}",
+										"type": "string"
+									}
+								]
+							},
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"type": "text/javascript",
+										"packages": {},
+										"exec": [
+											"pm.environment.set(\"nomeProduto\" , pm.variables.replaceIn('{{$randomProduct}}' + ' ' + '{{$randomProduct}}'));\r",
+											"\r",
+											"pm.environment.set(\"preco\" , pm.variables.replaceIn('{{$randomInt}}'));\r",
+											"\r",
+											"pm.environment.set(\"descricao\" , pm.variables.replaceIn('{{$randomLoremSentence}}'));\r",
+											"\r",
+											"pm.environment.set(\"quantidade\" , pm.variables.replaceIn('{{$randomInt}}'));\r",
+											"\r",
+											"const produto = {\r",
+											"    \"nome\" : pm.environment.get(\"nomeProduto\"),\r",
+											"    \"preco\" : pm.environment.get(\"preco\"),\r",
+											"    \"descricao\" : pm.environment.get(\"descricao\"),\r",
+											"    \"quantidade\" : pm.environment.get(\"quantidade\")\r",
+											"}\r",
+											"\r",
+											"pm.environment.set(\"novoProduto\" , produto);\r",
+											"\r",
+											"\r",
+											"const cadastrarProduto = {\r",
+											"    url : pm.environment.get(\"base_url\") + \"/produtos\",\r",
+											"    method: \"POST\",\r",
+											"    header: {\r",
+											"        \"content-type\": \"application/json\",\r",
+											"        \"accept\": \"application/json\",\r",
+											"        \"Authorization\": pm.environment.get(\"accessTokenRaw\")\r",
+											"    },\r",
+											"    body: {\r",
+											"        mode: \"raw\",\r",
+											"        raw: JSON.stringify(pm.environment.get(\"novoProduto\"))\r",
+											"    }\r",
+											"};\r",
+											"\r",
+											"\r",
+											"pm.sendRequest(cadastrarProduto, function(err,res) {\r",
+											"    pm.expect(err).is.null;\r",
+											"    pm.environment.set(\"_id\", res.json()._id);\r",
+											"});\r",
+											"\r",
+											"pm.environment.set(\"nomeProduto\" , pm.variables.replaceIn('{{$randomProduct}}' + ' ' + '{{$randomProduct}}'));\r",
+											"\r",
+											"pm.environment.set(\"preco\" , pm.variables.replaceIn('{{$randomInt}}'));\r",
+											"\r",
+											"pm.environment.set(\"descricao\" , pm.variables.replaceIn('{{$randomLoremSentence}}'));\r",
+											"\r",
+											"pm.environment.set(\"quantidade\" , pm.variables.replaceIn('{{$randomInt}}'));"
+										]
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"type": "text/javascript",
+										"packages": {},
+										"exec": [
+											""
+										]
+									}
+								}
+							]
+						},
+						{
+							"name": "GET",
+							"item": [
+								{
+									"name": "Listar Produtos",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"const jsonData = pm.response.json();\r",
+													"\r",
+													"pm.test(\"Status code é 200 (Ok)\", function () {\r",
+													"    pm.response.to.have.status(200);\r",
+													"});\r",
+													"\r",
+													""
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										},
+										{
+											"listen": "prerequest",
+											"script": {
+												"exec": [],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{base_url}}/produtos",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"produtos"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Listar Produtos por ID",
+									"event": [
+										{
+											"listen": "prerequest",
+											"script": {
+												"exec": [
+													""
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										},
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"const jsonData = pm.response.json();\r",
+													"\r",
+													"pm.test(\"Status code é 200 (Ok)\", function () {\r",
+													"    pm.response.to.have.status(200);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Validar: ID não é nulo\", function() {\r",
+													"    pm.expect(jsonData.id).is.not.be.null;\r",
+													"});\r",
+													""
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{base_url}}/produtos/{{_id}}",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"produtos",
+												"{{_id}}"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Listar Produtos por ID nulo",
+									"event": [
+										{
+											"listen": "prerequest",
+											"script": {
+												"exec": [
+													"pm.environment.set(\"_id\", \"\")"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										},
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"const jsonData = pm.response.json();\r",
+													"\r",
+													"pm.test(\"Status code é 200 (Ok)\", function () {\r",
+													"    pm.response.to.have.status(200);\r",
+													"});\r",
+													"\r",
+													""
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{base_url}}/produtos/{{_id}}",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"produtos",
+												"{{_id}}"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Listar Produtos por ID não existente",
+									"event": [
+										{
+											"listen": "prerequest",
+											"script": {
+												"exec": [
+													"pm.environment.set(\"_id\", \"1234\")"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										},
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"const jsonData = pm.response.json();\r",
+													"\r",
+													"pm.test(\"Status code é 400 (Bad Request)\", function () {\r",
+													"    pm.response.to.have.status(400);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Validar: produto não encontrado\", function() {\r",
+													"    pm.expect(jsonData.message).is.eql(\"Produto não encontrado\");\r",
+													"});\r",
+													""
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{base_url}}/produtos/{{_id}}",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"produtos",
+												"{{_id}}"
+											]
+										}
+									},
+									"response": []
+								}
+							],
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"type": "text/javascript",
+										"packages": {},
+										"exec": [
+											"const cadastrarProduto = {\r",
+											"    url : pm.environment.get(\"base_url\") + \"/produtos\",\r",
+											"    method: \"POST\",\r",
+											"    header: {\r",
+											"        \"content-type\": \"application/json\",\r",
+											"        \"accept\": \"application/json\",\r",
+											"        \"Authorization\": pm.environment.get(\"accessTokenRaw\")\r",
+											"    },\r",
+											"    body: {\r",
+											"        mode: \"raw\",\r",
+											"        raw: JSON.stringify(pm.environment.get(\"novoProduto\"))\r",
+											"    }\r",
+											"};\r",
+											"\r",
+											"\r",
+											"pm.sendRequest(cadastrarProduto, function(err,res) {\r",
+											"    pm.expect(err).is.null;\r",
+											"    pm.environment.set(\"_id\", res.json()._id);\r",
+											"});"
+										]
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"type": "text/javascript",
+										"packages": {},
+										"exec": [
+											""
+										]
+									}
+								}
+							]
+						},
+						{
+							"name": "DELETE",
+							"item": [
+								{
+									"name": "Deletar Produto",
+									"event": [
+										{
+											"listen": "prerequest",
+											"script": {
+												"exec": [
+													""
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										},
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"const jsonData = pm.response.json();\r",
+													"\r",
+													"pm.test(\"Status code é 200 (OK)\", function () {\r",
+													"    pm.response.to.have.status(200);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Validar: Mensagem de registro excluido\", function () {\r",
+													"    pm.expect(jsonData.message).is.eql(\"Registro excluído com sucesso\");\r",
+													"});"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{base_url}}/produtos/{{_id}}",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"produtos",
+												"{{_id}}"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Deletar Produto com ID nulo",
+									"event": [
+										{
+											"listen": "prerequest",
+											"script": {
+												"exec": [
+													"pm.environment.set(\"_id\", \"\")"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										},
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"const jsonData = pm.response.json();\r",
+													"\r",
+													"pm.test(\"Status code é 405 (Method Not Allowed)\", function () {\r",
+													"    pm.response.to.have.status(405);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Validar: Mensagem de não foi possível deletar\", function () {\r",
+													"    pm.expect(jsonData.message).is.eql(\"Não é possível realizar DELETE em /produtos/. Acesse http://localhost:3000 para ver as rotas disponíveis e como utilizá-las.\");\r",
+													"});"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{base_url}}/produtos/{{_id}}",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"produtos",
+												"{{_id}}"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Deletar Produto com ID não existente",
+									"event": [
+										{
+											"listen": "prerequest",
+											"script": {
+												"exec": [
+													"pm.environment.set(\"_id\", \"1234\")"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										},
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"const jsonData = pm.response.json();\r",
+													"\r",
+													"pm.test(\"Status code é 200 (OK)\", function () {\r",
+													"    pm.response.to.have.status(200);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Validar: Mensagem de registro excluido\", function () {\r",
+													"    pm.expect(jsonData.message).is.eql(\"Nenhum registro excluído\");\r",
+													"});"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{base_url}}/produtos/{{_id}}",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"produtos",
+												"{{_id}}"
+											]
+										}
+									},
+									"response": []
+								}
+							],
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"type": "text/javascript",
+										"packages": {},
+										"exec": [
+											"const cadastrarProduto = {\r",
+											"    url : pm.environment.get(\"base_url\") + \"/produtos\",\r",
+											"    method: \"POST\",\r",
+											"    header: {\r",
+											"        \"content-type\": \"application/json\",\r",
+											"        \"accept\": \"application/json\",\r",
+											"        \"Authorization\": pm.environment.get(\"accessTokenRaw\")\r",
+											"    },\r",
+											"    body: {\r",
+											"        mode: \"raw\",\r",
+											"        raw: JSON.stringify(pm.environment.get(\"novoProduto\"))\r",
+											"    }\r",
+											"};\r",
+											"\r",
+											"\r",
+											"pm.sendRequest(cadastrarProduto, function(err,res) {\r",
+											"    pm.expect(err).is.null;\r",
+											"    pm.environment.set(\"_id\", res.json()._id);\r",
+											"});"
+										]
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"type": "text/javascript",
+										"packages": {},
+										"exec": [
+											""
+										]
+									}
+								}
+							]
+						}
+					],
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"packages": {},
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"packages": {},
+								"exec": [
+									""
+								]
+							}
+						}
+					]
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "{{accessToken}}",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							"pm.environment.set(\"nomeProduto\" , pm.variables.replaceIn('{{$randomProduct}}' + ' ' + '{{$randomProduct}}'));\r",
+							"\r",
+							"pm.environment.set(\"preco\" , pm.variables.replaceIn('{{$randomInt}}'));\r",
+							"\r",
+							"pm.environment.set(\"descricao\" , pm.variables.replaceIn('{{$randomLoremSentence}}'));\r",
+							"\r",
+							"pm.environment.set(\"quantidade\" , pm.variables.replaceIn('{{$randomInt}}'));\r",
+							"\r",
+							"const produto = {\r",
+							"    \"nome\" : pm.environment.get(\"nomeProduto\"),\r",
+							"    \"preco\" : pm.environment.get(\"preco\"),\r",
+							"    \"descricao\" : pm.environment.get(\"descricao\"),\r",
+							"    \"quantidade\" : pm.environment.get(\"quantidade\")\r",
+							"}\r",
+							"\r",
+							"pm.environment.set(\"novoProduto\" , produto);\r",
+							"\r",
+							"\r",
+							"const loginAdmin = {\r",
+							"    url : pm.environment.get(\"base_url\") + \"/login\",\r",
+							"    method: \"POST\",\r",
+							"    header: {\r",
+							"        \"content-type\": \"application/json\",\r",
+							"        \"accept\": \"application/json\"\r",
+							"    },\r",
+							"    body: {\r",
+							"        mode: \"raw\",\r",
+							"        raw: {\r",
+							"            \"email\": \"fulano@qa.com\",\r",
+							"            \"password\": \"teste\"  \r",
+							"        }\r",
+							"\r",
+							"    }\r",
+							"};\r",
+							"\r",
+							"\r",
+							"pm.sendRequest(loginAdmin, function(err,res) {\r",
+							"    pm.expect(err).is.null;\r",
+							"    pm.environment.set(\"accessToken\", res.json().authorization.slice(7));\r",
+							"    pm.environment.set(\"accessTokenRaw\", res.json().authorization);\r",
+							"});"
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							"pm.sendRequest({\r",
+							"    url: pm.environment.get(\"base_url\") + \"/produtos/\" + pm.environment.get(\"_id\"),\r",
+							"    method: \"DELETE\"\r",
+							"});\r",
+							""
+						]
+					}
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
