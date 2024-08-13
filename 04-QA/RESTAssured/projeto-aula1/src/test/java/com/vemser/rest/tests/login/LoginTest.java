@@ -1,4 +1,4 @@
-package com.vemser.rest.tests.users;
+package com.vemser.rest.tests.login;
 
 import com.vemser.rest.pojo.LoginPOJO;
 import org.junit.jupiter.api.BeforeEach;

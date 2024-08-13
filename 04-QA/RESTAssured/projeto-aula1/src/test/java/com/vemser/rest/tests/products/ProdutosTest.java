@@ -1,4 +1,4 @@
-package com.vemser.rest.tests.users;
+package com.vemser.rest.tests.products;
 
 import com.vemser.rest.pojo.LoginPOJO;
 import com.vemser.rest.pojo.ProdutosPOJO;
