@@ -27,7 +27,7 @@ public class AtualizarUsuarioTest {
     public void testAtualizarUsuarioComSucesso() {
 
         UsuarioModel usuario = UsuariosDataFactory.usuarioValido();
-        String id = "1WNpri9OrycpUkUQ";
+        String id = UsuariosDataFactory.getPrimeiroUsuarioReponse().get_id();
 
         usuarioClient.atualizarUsuario(usuario, id)
         .then()
@@ -40,17 +40,19 @@ public class AtualizarUsuarioTest {
     @DisplayName("[Negativo] - Atualizar usuário com email já cadastrado")
     public void testAtualizarUsuarioComFracasso() {
 
+        UsuarioModel novoUsuario = UsuariosDataFactory.usuarioValido();
         UsuarioModel usuario = UsuariosDataFactory.usuarioComEmailCadastrado();
-        String id = "1WNpri9OrycpUkUQ";
 
-        given()
-                .contentType("application/json")
-                .body(usuario)
-                .pathParam("id", id)
-                .log().all()
-        .when()
-                .put("/usuarios/{id}")
-        .then()
+        String id =
+        usuarioClient.cadastrarUsuario(novoUsuario)
+                    .then()
+                        .extract()
+                        .path("_id")
+                    ;
+
+
+        usuarioClient.atualizarUsuario(usuario, id)
+            .then()
                 .statusCode(400)
                 .body("message", equalTo("Este email já está sendo usado"))
         ;

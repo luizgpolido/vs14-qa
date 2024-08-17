@@ -28,7 +28,7 @@ public class UsuarioClient extends BaseClient {
                         .pathParam("_id", id)
                         .body(usuario)
                 .when()
-                    .put(USUARIOS)
+                    .put(USUARIOS+"/{_id}")
                 ;
     }
 

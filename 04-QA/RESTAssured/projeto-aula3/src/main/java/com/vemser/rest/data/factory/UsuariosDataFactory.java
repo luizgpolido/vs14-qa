@@ -57,23 +57,25 @@ public class UsuariosDataFactory {
 
     public static UsuarioModel usuarioComEmailCadastrado(){
         UsuarioModel usuario = novoUsuario();
-        usuario.setEmail(getUsuarioExistente().getEmail());
+        usuario.setEmail(getUsuarioResponseToRequest().getEmail());
         return usuario;
     }
 
-    private static UsuarioModel getUsuarioExistente(){
+    public static UsuarioResponse getPrimeiroUsuarioReponse(){
 
-        UsuarioResponse usuarioResponse =
+        return
         usuarioClient.buscarUsuarios()
                 .then()
                 .extract()
                 .jsonPath()
                 .getObject("usuarios[0]", UsuarioResponse.class);
 
-        return converterResponseParaModel(usuarioResponse);
     }
 
-    private static UsuarioModel converterResponseParaModel(UsuarioResponse usuarioResponse){
+
+
+    private static UsuarioModel getUsuarioResponseToRequest(){
+        UsuarioResponse usuarioResponse = getPrimeiroUsuarioReponse();
         UsuarioModel usuario = new UsuarioModel();
 
         usuario.setNome(usuarioResponse.getNome());
