@@ -3,7 +3,6 @@ package com.vemser.rest.data.factory;
 import com.vemser.rest.client.ProdutoClient;
 import com.vemser.rest.model.ProdutoResponse;
 import com.vemser.rest.model.ProdutosModel;
-import com.vemser.rest.model.UsuarioResponse;
 import lombok.Data;
 import net.datafaker.Faker;
 
@@ -73,5 +72,16 @@ public class ProdutoDataFactory {
         return produtosModel;
     }
 
+    public static ProdutosModel produtoComDescricaoNula(){
+        ProdutosModel produtosModel = produtoValido();
+        produtosModel.setDescricao("");
+        return produtosModel;
+    }
 
+
+    public static ProdutosModel produtoComQuantidadeNegativa() {
+        ProdutosModel produtosModel = produtoValido();
+        produtosModel.setQuantidade(-1);
+        return produtosModel;
+    }
 }
