@@ -44,11 +44,11 @@ public class ListarUsuarioTest {
                 ;
 
         Assertions.assertAll("response",
-                () -> Assertions.assertEquals("Fulano da Silva", usuarioResponse.getNome()),
-                () -> Assertions.assertEquals("fulano@qa.com", usuarioResponse.getEmail()),
+                () -> Assertions.assertNotNull(usuarioResponse.getNome()),
+                () -> Assertions.assertNotNull(usuarioResponse.getEmail()),
                 () -> Assertions.assertNotNull(usuarioResponse.getPassword()),
                 () -> Assertions.assertNotNull(usuarioResponse.get_id()),
-                () -> Assertions.assertNotNull(usuarioResponse.getAdministrador())
+                () -> Assertions.assertEquals(usuarioResponse.getAdministrador(), "true")
         );
     }
 

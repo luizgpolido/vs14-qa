@@ -26,7 +26,7 @@ public class AtualizarUsuarioTest {
     @DisplayName("[Positivo] - Atualizar usuário com dados válidos")
     public void testAtualizarUsuarioComSucesso() {
 
-        UsuarioModel usuario = UsuariosDataFactory.usuarioValido();
+        UsuarioModel usuario = UsuariosDataFactory.usuarioValidoAdm();
         String id = UsuariosDataFactory.getPrimeiroUsuarioReponse().get_id();
 
         usuarioClient.atualizarUsuario(usuario, id)

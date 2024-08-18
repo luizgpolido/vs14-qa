@@ -1,6 +1,9 @@
 package com.vemser.rest.data.factory;
 
+import com.vemser.rest.client.ProdutoClient;
+import com.vemser.rest.model.ProdutoResponse;
 import com.vemser.rest.model.ProdutosModel;
+import com.vemser.rest.model.UsuarioResponse;
 import lombok.Data;
 import net.datafaker.Faker;
 
@@ -10,8 +13,9 @@ import java.util.Random;
 @Data
 public class ProdutoDataFactory {
 
-    private  static Faker faker = new Faker(new Locale("pt", "BR"));
-    private  static Random rand = new Random();
+    private static ProdutoClient produtoClient = new ProdutoClient();
+    private static Faker faker = new Faker(new Locale("pt", "BR"));
+    private static Random rand = new Random();
 
 
     private static ProdutosModel novoProduto(){
@@ -24,8 +28,49 @@ public class ProdutoDataFactory {
         return produto;
     }
 
-    public static ProdutosModel usuarioValido(){
+    public static ProdutosModel produtoValido(){
         return novoProduto();
+    }
+
+    public static ProdutoResponse getPrimeiroProduto(){
+        return
+                produtoClient.listarProdutos()
+                        .then()
+                        .extract()
+                        .jsonPath()
+                        .getObject("produtos[0]", ProdutoResponse.class);
+    }
+
+    public static ProdutoResponse getProdutoValido(){
+
+            String id =
+                    produtoClient.cadastrarProduto(produtoValido())
+                            .then()
+                            .extract()
+                            .path("_id")
+                    ;
+
+            ProdutoResponse response =
+                    produtoClient.listarProdutosPorId(id)
+                            .then()
+                            .extract()
+                            .as(ProdutoResponse.class)
+                    ;
+
+            response.set_id(id);
+            return response;
+    }
+
+    public static ProdutosModel produtoComNomeJaExistente(){
+        ProdutosModel produtosModel = produtoValido();
+        produtosModel.setNome(getPrimeiroProduto().getNome());
+        return produtosModel;
+    }
+
+    public static ProdutosModel produtoComPrecoNegativo(){
+        ProdutosModel produtosModel = produtoValido();
+        produtosModel.setPreco(-1);
+        return produtosModel;
     }
 
 

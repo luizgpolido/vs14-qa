@@ -25,6 +25,27 @@ public class UsuariosDataFactory {
         return usuario;
     }
 
+    private static UsuarioModel novoUsuarioAdm(){
+        UsuarioModel usuario = new UsuarioModel();
+        usuario.setNome(faker.name().fullName());
+        usuario.setEmail(faker.internet().emailAddress());
+        usuario.setPassword(faker.internet().password());
+        usuario.setAdministrador("true");
+
+        return usuario;
+    }
+
+    private static UsuarioModel novoUsuarioComum(){
+        UsuarioModel usuario = new UsuarioModel();
+        usuario.setNome(faker.name().fullName());
+        usuario.setEmail(faker.internet().emailAddress());
+        usuario.setPassword(faker.internet().password());
+        usuario.setAdministrador("false");
+
+        return usuario;
+    }
+
+
     public static UsuarioModel usuarioComEmailEmBranco() {
         UsuarioModel usuario = novoUsuario();
         usuario.setEmail("");
@@ -33,6 +54,10 @@ public class UsuariosDataFactory {
 
     public static UsuarioModel usuarioValido(){
         return novoUsuario();
+    }
+
+    public static UsuarioModel usuarioValidoAdm(){
+        return novoUsuarioAdm();
     }
 
 
@@ -72,6 +97,45 @@ public class UsuariosDataFactory {
 
     }
 
+    public static UsuarioResponse getUsuarioAdmin(){
+
+        String id =
+                usuarioClient.cadastrarUsuario(usuarioValidoAdm())
+                        .then()
+                        .extract()
+                        .path("_id")
+                        ;
+
+        UsuarioResponse response =
+                usuarioClient.buscarUsuarioPorId(id)
+                        .then()
+                        .extract()
+                        .as(UsuarioResponse.class)
+                        ;
+
+        response.set_id(id);
+        return response;
+    }
+
+    public static UsuarioResponse getUsuarioComum(){
+
+        String id =
+                usuarioClient.cadastrarUsuario(novoUsuarioComum())
+                        .then()
+                        .extract()
+                        .path("_id")
+                ;
+
+        UsuarioResponse response =
+                usuarioClient.buscarUsuarioPorId(id)
+                        .then()
+                        .extract()
+                        .as(UsuarioResponse.class)
+                ;
+
+        response.set_id(id);
+        return response;
+    }
 
 
     private static UsuarioModel getUsuarioResponseToRequest(){
