@@ -7,29 +7,13 @@ import io.restassured.response.Response;
 
 import static io.restassured.RestAssured.*;
 
-public class ProdutoClient extends BaseClient{
+public class ProdutoMockClient extends BaseClient{
 
     private final String PRODUTO = "/produtos";
-    private String bearerToken;
-
-    public void login(){
-
-        LoginModel login = LoginDataFactory.loginAdminValido();
-        LoginClient loginClient = new LoginClient();
-
-        bearerToken =
-                loginClient.realizarLogin(login)
-                .then()
-                        .statusCode(200)
-                        .log().all()
-                        .extract()
-                        .path("authorization")
-        ;
-    }
+    private String bearerToken = "USUHAUDUA312WDWA";
 
     public Response cadastrarProduto(ProdutosModel produto){
 
-        login();
 
         return
                 given()
@@ -37,14 +21,12 @@ public class ProdutoClient extends BaseClient{
                         .spec(super.set())
                         .contentType("application/json")
                         .body(produto)
-                .when()
-                    .post(PRODUTO)
+                        .when()
+                        .post(PRODUTO)
                 ;
     }
 
     public Response atualizarProduto(ProdutosModel produto, String id){
-
-        login();
 
         return
                 given()
@@ -53,14 +35,12 @@ public class ProdutoClient extends BaseClient{
                         .pathParam("_id", id)
                         .contentType("application/json")
                         .body(produto)
-                .when()
-                    .put(PRODUTO + "/{_id}")
+                        .when()
+                        .put(PRODUTO + "/{_id}")
                 ;
     }
 
     public Response removerProduto(String id){
-
-        login();
 
         return
                 given()
@@ -68,14 +48,12 @@ public class ProdutoClient extends BaseClient{
                         .header("Authorization" , bearerToken)
                         .contentType("json/aplication")
                         .pathParam("_id" , id)
-                .when()
-                    .delete(PRODUTO + "/{_id}")
+                        .when()
+                        .delete(PRODUTO + "/{_id}")
                 ;
     }
 
     public Response removerProdutoSemToken(String id){
-
-        login();
 
         return
                 given()
@@ -89,43 +67,27 @@ public class ProdutoClient extends BaseClient{
 
     public Response listarProdutosPorId(String id){
 
-        login();
-
         return
                 given()
                         .spec(super.set())
                         .header("Authorization" , bearerToken)
                         .contentType("json/aplication")
                         .pathParam("_id" , id)
-                .when()
-                    .get(PRODUTO + "/{_id}")
+                        .when()
+                        .get(PRODUTO + "/{_id}")
                 ;
     }
 
     public Response listarProdutos(){
-
-        login();
 
         return
                 given()
                         .spec(super.set())
                         .header("Authorization" , bearerToken)
                         .contentType("json/aplication")
-                .when()
-                   .get(PRODUTO)
-                ;
-    }
-
-    public Response cadastrarProdutoWireMock(ProdutosModel produto){
-
-        return
-                given()
-                        .header("Authorization" , "IWDIOQUIURIUI1I")
-                        .spec(super.set())
-                        .contentType("application/json")
-                        .body(produto)
                         .when()
-                        .post(PRODUTO)
+                        .get(PRODUTO)
                 ;
     }
+
 }
