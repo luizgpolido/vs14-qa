@@ -1,0 +1,15 @@
+{
+  "request": {
+    "method": "DELETE",
+    "url": "/produtos/105"
+  },
+  "response": {
+    "status": 200,
+    "jsonBody": {
+      "message": "Registro excluído com sucesso"
+    },
+    "headers": {
+      "Content-Type": "application/json"
+    }
+  }
+}

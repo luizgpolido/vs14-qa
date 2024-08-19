@@ -1,0 +1,26 @@
+{
+  "request": {
+    "method": "POST",
+    "url": "/produtos",
+    "bodyPatterns": [
+      {
+      "equalToJson": {
+        "nome": "Mouse Legal",
+        "preco": 100,
+        "descricao": "Gamer",
+        "quantidade": 5
+      }
+      }
+    ]
+  },
+  "response": {
+    "status": 201,
+    "jsonBody":{
+      "message": "Cadastro realizado com sucesso",
+      "_id": "jogfODIlXsqxNFS2"
+    },
+    "headers": {
+      "Content-Type": "application/json"
+    }
+  }
+}

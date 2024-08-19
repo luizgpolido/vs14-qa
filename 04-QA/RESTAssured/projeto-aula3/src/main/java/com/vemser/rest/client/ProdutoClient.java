@@ -11,11 +11,11 @@ public class ProdutoClient extends BaseClient{
 
     private final String PRODUTO = "/produtos";
     private String bearerToken;
-    private LoginModel login = LoginDataFactory.loginAdminValido();
-    private LoginClient loginClient = new LoginClient();
-
 
     public void login(){
+
+        LoginModel login = LoginDataFactory.loginAdminValido();
+        LoginClient loginClient = new LoginClient();
 
         bearerToken =
                 loginClient.realizarLogin(login)

@@ -1,0 +1,25 @@
+{
+  "request": {
+    "method": "POST",
+    "url": "/produtos",
+    "bodyPatterns": [
+      {
+        "equalToJson": {
+          "nome": "",
+          "preco": 100,
+          "descricao": "Gamer",
+          "quantidade": 5
+        }
+      }
+    ]
+  },
+  "response": {
+    "status": 400,
+    "jsonBody":{
+      "nome": "nome não pode ficar em branco"
+    },
+    "headers": {
+      "Content-Type": "application/json"
+    }
+  }
+}

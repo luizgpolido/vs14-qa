@@ -60,6 +60,7 @@ public class CadastrarProdutoTest {
 
     @ParameterizedTest
     @MethodSource("com.vemser.rest.data.provider.ProdutosDataProvider#produtoDataProvider")
+    @DisplayName("[Negativo] - Testar cadastrar produtos com dados inválidos com data provider")
     public void testCadastrarProdutosComDataProvider(ProdutosModel produtos, String key, String value){
 
         produtoClient.cadastrarProduto(produtos)

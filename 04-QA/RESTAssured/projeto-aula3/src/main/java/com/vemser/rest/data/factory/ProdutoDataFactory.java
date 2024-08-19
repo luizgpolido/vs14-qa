@@ -12,7 +12,6 @@ import java.util.Random;
 @Data
 public class ProdutoDataFactory {
 
-    private static ProdutoClient produtoClient = new ProdutoClient();
     private static Faker faker = new Faker(new Locale("pt", "BR"));
     private static Random rand = new Random();
 
@@ -32,6 +31,9 @@ public class ProdutoDataFactory {
     }
 
     public static ProdutoResponse getPrimeiroProduto(){
+        ProdutoClient produtoClient = new ProdutoClient();
+
+
         return
                 produtoClient.listarProdutos()
                         .then()
@@ -41,6 +43,8 @@ public class ProdutoDataFactory {
     }
 
     public static ProdutoResponse getProdutoValido(){
+        ProdutoClient produtoClient = new ProdutoClient();
+
 
             String id =
                     produtoClient.cadastrarProduto(produtoValido())
@@ -83,5 +87,20 @@ public class ProdutoDataFactory {
         ProdutosModel produtosModel = produtoValido();
         produtosModel.setQuantidade(-1);
         return produtosModel;
+    }
+
+    public static ProdutosModel produtoComNomeEmBranco() {
+        ProdutosModel produtosModel = produtoValido();
+        produtosModel.setNome("");
+        return produtosModel;
+    }
+
+    public static ProdutosModel produtoWireMockValido(){
+        ProdutosModel produtosMode = new ProdutosModel();
+        produtosMode.setNome("Mouse Legal");
+        produtosMode.setPreco(100);
+        produtosMode.setDescricao("Gamer");
+        produtosMode.setQuantidade(5);
+        return produtosMode;
     }
 }

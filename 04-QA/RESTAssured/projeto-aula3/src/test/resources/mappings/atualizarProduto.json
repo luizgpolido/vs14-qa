@@ -1,0 +1,25 @@
+{
+  "request": {
+    "method": "PUT",
+    "url": "/produtos/200",
+    "bodyPatterns": [
+      {
+        "equalToJson": {
+          "nome": "Mouse Nada Legal",
+          "preco": 100,
+          "descricao": "Gamer",
+          "quantidade": 5
+        }
+      }
+    ]
+  },
+  "response": {
+    "status": 200,
+    "jsonBody":{
+      "message": "Registro alterado com sucesso"
+    },
+    "headers": {
+      "Content-Type": "application/json"
+    }
+  }
+}
