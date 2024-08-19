@@ -25,9 +25,9 @@ public class DeletarUsuarioTest {
 
         given()
                 .pathParam("id", id)
-                .when()
+        .when()
                 .delete("/usuarios/{id}")
-                .then()
+        .then()
                 .statusCode(200)
                 .body("message", equalTo("Registro excluído com sucesso"))
         ;
@@ -42,9 +42,9 @@ public class DeletarUsuarioTest {
 
         given()
                 .pathParam("id", id)
-                .when()
+        .when()
                 .delete("/usuarios/{id}")
-                .then()
+        .then()
                 .statusCode(405)
                 .body("message", notNullValue())
         ;
@@ -58,9 +58,9 @@ public class DeletarUsuarioTest {
 
         given()
                 .pathParam("id", id)
-                .when()
+        .when()
                 .delete("/usuarios/{id}")
-                .then()
+        .then()
                 .statusCode(400)
                 .body("message", equalTo("Não é permitido excluir usuário com carrinho cadastrado"))
                 .body("idCarrinho", notNullValue())
