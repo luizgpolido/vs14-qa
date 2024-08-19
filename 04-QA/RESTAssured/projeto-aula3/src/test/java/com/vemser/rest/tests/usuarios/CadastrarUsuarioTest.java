@@ -47,8 +47,7 @@ public class CadastrarUsuarioTest {
     @DisplayName("[Negativo] - Cadastrar usuário com email já cadastrado")
     public void testCadastrarUsuarioComEmailJaCadastrado() {
 
-        UsuarioModel usuario = UsuariosDataFactory.usuarioValido();
-
+        UsuarioModel usuario = UsuariosDataFactory.usuarioComEmailCadastrado();
 
         usuarioClient.cadastrarUsuario(usuario)
             .then()
