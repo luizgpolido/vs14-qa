@@ -15,6 +15,7 @@ import java.time.Duration;
 
 public class LoginTest {
 
+    // 2, 3 ,4
     public static WebDriver driver;
     public static WebDriverWait wait;
 
