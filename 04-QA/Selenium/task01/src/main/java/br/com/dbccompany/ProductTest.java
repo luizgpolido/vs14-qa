@@ -1,7 +1,10 @@
 package br.com.dbccompany;
 
 import br.com.dbccompany.Utils.GenericMethods;
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterTest;
@@ -15,12 +18,15 @@ public class ProductTest {
 
     public static WebDriver driver;
     public static WebDriverWait wait;
+    private static JavascriptExecutor js;
 
     @BeforeTest
     public void abrirNavegador(){
 
         driver = new ChromeDriver();
         wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+
+        js = (JavascriptExecutor) driver;
 
         driver.get("https://www.automationexercise.com");
 
@@ -39,6 +45,8 @@ public class ProductTest {
         GenericMethods.esperarElemento(wait, produtosList);
 
         String viewProduct = "div:nth-child(3) > div > div.choose > ul > li > a";
+        WebElement element = driver.findElement(By.cssSelector(viewProduct));
+        js.executeScript("arguments[0].scrollIntoView();", element);
         GenericMethods.clicarElemento(driver, viewProduct);
 
         String name = "body > section > div > div > div.col-sm-9.padding-right > div.product-details > div.col-sm-7 > div > h2";

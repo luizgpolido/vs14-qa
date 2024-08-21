@@ -157,9 +157,12 @@ public class CartTest {
         GenericMethods.esperarElemento(wait, "#header > div > div > div > div.col-sm-8 > div > ul > li:nth-child(5) > a");
         GenericMethods.clicarElemento(driver, "#header > div > div > div > div.col-sm-8 > div > ul > li:nth-child(5) > a");//btn delete account
 
+        GenericMethods.esperarElemento(wait, "#form > div > div > div > div > a");
+
         Assert.assertEquals(
                 GenericMethods.pegarTexto(driver, "#form > div > div > div > h2 > b")
                 ,"ACCOUNT DELETED!");
+        GenericMethods.clicarElemento(driver, "#form > div > div > div > div > a");
     }
 
     @AfterTest
