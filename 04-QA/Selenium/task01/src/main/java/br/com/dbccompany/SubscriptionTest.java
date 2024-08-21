@@ -13,7 +13,7 @@ import org.testng.annotations.Test;
 import java.time.Duration;
 
 public class SubscriptionTest {
-// 11, 10
+
     public static WebDriver driver;
     public static WebDriverWait wait;
     static Faker faker = new Faker();
@@ -27,6 +27,11 @@ public class SubscriptionTest {
         driver.get("https://www.automationexercise.com");
 
         driver.manage().window().maximize();
+    }
+
+    @AfterTest
+    public void finalizarNavegador(){
+        driver.quit();
     }
 
     @Test
@@ -105,8 +110,5 @@ public class SubscriptionTest {
 
     }
 
-    @AfterTest
-    public void finalizarNavegador(){
-        driver.quit();
-    }
+
 }

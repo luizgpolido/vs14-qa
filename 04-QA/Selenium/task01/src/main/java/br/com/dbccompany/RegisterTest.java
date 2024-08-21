@@ -18,7 +18,7 @@ import java.util.List;
 import java.util.Random;
 
 public class RegisterTest {
-    //    1, 5
+
     public static WebDriver driver;
     public static WebDriverWait wait;
     static Faker faker = new Faker();
