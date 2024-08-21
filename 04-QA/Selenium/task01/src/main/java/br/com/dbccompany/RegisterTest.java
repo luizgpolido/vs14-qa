@@ -21,8 +21,8 @@ public class RegisterTest {
 
     public static WebDriver driver;
     public static WebDriverWait wait;
-    public static Faker faker = new Faker();
-    public static Random rand = new Random();
+    static Faker faker = new Faker();
+    static Random rand = new Random();
 
     @BeforeTest
     public void abrirNavegador(){
