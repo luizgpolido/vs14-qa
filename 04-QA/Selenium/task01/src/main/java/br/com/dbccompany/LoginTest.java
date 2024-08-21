@@ -56,7 +56,7 @@ public class LoginTest {
     }
 
     @Test
-    public void tentativaDeLoginEmailESenhaIncorretos(){
+    public void tesTLoginUserWithIncorretEmailAndPassword(){
         //Test Case 3: Login User with incorrect email and password
 
         GenericMethods.validarSeElementoEstaVisivel(wait, "div.features_items");

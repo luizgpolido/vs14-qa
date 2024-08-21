@@ -13,7 +13,6 @@ import java.time.Duration;
 import java.util.Locale;
 
 public class ContactTest {
-// 6
     public static WebDriver driver;
     public static WebDriverWait wait;
     String btnContact = "#header > div > div > div > div.col-sm-8 > div > ul > li:nth-child(8) > a";
@@ -34,8 +33,8 @@ public class ContactTest {
     }
 
     @Test
-    public void formulárioDeContato(){
-//Test Case 6: Contact Us Form
+    public void tesTContactUsForm(){
+    //Test Case 6: Contact Us Form
         GenericMethods.validarSeElementoEstaVisivel(wait, "div.features_items");
         GenericMethods.clicarElemento(driver, btnContact);
         GenericMethods.validarSeElementoEstaVisivel(wait, "#contact-page > div.row > div.col-sm-8 > div > h2");

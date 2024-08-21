@@ -17,7 +17,6 @@ import org.testng.annotations.Test;
 import java.time.Duration;
 
 public class CartTest {
-//    15, 14, 13, 12
 
     public static WebDriver driver;
     public static WebDriverWait wait;
@@ -39,8 +38,8 @@ public class CartTest {
     }
 
     @Test
-    public void addProductsInCart(){
-//Test Case 12: Add Products in Cart
+    public void tesTAddProductsInCart(){
+    //Test Case 12: Add Products in Cart
 
         GenericMethods.validarSeElementoEstaVisivel(wait, "div.features_items");
 
@@ -79,6 +78,9 @@ public class CartTest {
 
         System.out.println("A quantidade de ambos os produtos é 1.");
     }
+
+
+
 
 
 
