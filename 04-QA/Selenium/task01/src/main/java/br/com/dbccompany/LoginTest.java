@@ -33,6 +33,9 @@ public class LoginTest {
 
     @Test
     public void deveFazerLoginComSucesso(){
+        String linkLogin = "#header > div > div > div > div.col-sm-8 > div > ul > li:nth-child(4) > a";
+        GenericMethods.esperarElemento(wait, linkLogin);
+        GenericMethods.clicarElemento(driver, linkLogin);
 
         String btnLogin = "#form  div div div.col-sm-4.col-sm-offset-1 div  form > button";
 
@@ -75,7 +78,7 @@ public class LoginTest {
         GenericMethods.esperarElemento(wait, loggedAs);
         String loggedAsText = GenericMethods.pegarTexto(driver, loggedAs);
 
-        Assert.assertEquals(loggedAsText, "Logged in as vemser");
+        Assert.assertEquals(loggedAsText, "Logged in as dbc");
 
         GenericMethods.esperarElemento(wait, btnLogout);
         GenericMethods.clicarElemento(driver, btnLogout);
