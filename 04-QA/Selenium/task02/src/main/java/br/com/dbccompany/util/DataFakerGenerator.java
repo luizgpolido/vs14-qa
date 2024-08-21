@@ -1,2 +1,4 @@
-package br.com.dbccompany.util;public class DataFakerGenerator {
+package br.com.dbccompany.util;
+
+public class DataFakerGenerator {
 }

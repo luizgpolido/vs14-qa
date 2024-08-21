@@ -1,2 +1,4 @@
-package br.com.dbccompany.test;public class BaseTest {
+package br.com.dbccompany.test;
+
+public class BaseTest {
 }

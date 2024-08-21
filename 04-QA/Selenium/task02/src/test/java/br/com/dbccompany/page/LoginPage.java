@@ -1,2 +1,4 @@
-package br.com.dbccompany.page;public class LoginPage {
+package br.com.dbccompany.page;
+
+public class LoginPage {
 }

@@ -1,2 +1,4 @@
-package br.com.dbccompany.factory.selenium;public class Interactions {
+package br.com.dbccompany.factory.selenium;
+
+public class Interactions {
 }

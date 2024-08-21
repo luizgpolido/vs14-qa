@@ -1,2 +1,4 @@
-package storys;public class UserStory {
+package storys;
+
+public class UserStory {
 }

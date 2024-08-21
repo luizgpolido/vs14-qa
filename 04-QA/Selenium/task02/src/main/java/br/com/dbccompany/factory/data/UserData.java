@@ -1,2 +1,4 @@
-package br.com.dbccompany.factory.data;public class UserData {
+package br.com.dbccompany.factory.data;
+
+public class UserData {
 }
