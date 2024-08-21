@@ -3,6 +3,7 @@ package br.com.dbccompany.Utils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -26,4 +27,15 @@ public class GenericMethods {
     public static String pegarTexto(WebDriver driver, String path) {
         return driver.findElement(By.cssSelector(path)).getText();
     }
+
+    public static WebElement pegarElemento(WebDriver driver, String path) {
+        WebElement element = driver.findElement(By.cssSelector(path));
+        return element;
+    }
+
+    public static boolean verificaSePaginaCarregou(WebDriver driver){
+        WebElement main = driver.findElement(By.cssSelector("body"));
+        return main.isDisplayed();
+    }
+
 }
