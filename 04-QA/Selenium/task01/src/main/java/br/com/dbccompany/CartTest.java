@@ -38,6 +38,58 @@ public class CartTest {
         driver.quit();
     }
 
+    @Test
+    public void addProductsInCart(){
+//Test Case 12: Add Products in Cart
+
+        GenericMethods.validarSeElementoEstaVisivel(wait, "div.features_items");
+
+        String btnProduct = "#header > div > div > div > div.col-sm-8 > div > ul > li:nth-child(2) > a";
+        String btnContinue = "#cartModal > div > div > div.modal-footer > button";
+        String btnCard = "#cartModal > div > div > div.modal-body > p:nth-child(2) > a > u";
+
+        GenericMethods.esperarElemento(wait,"body > ins.adsbygoogle.adsbygoogle-noablate[data-anchor-status=\"displayed\"]");
+        js.executeScript("document.querySelector('body > ins.adsbygoogle.adsbygoogle-noablate[data-anchor-status=\"displayed\"]').remove();");
+
+        GenericMethods.clicarElemento(driver, btnProduct);
+
+        GenericMethods.esperarElemento(wait,"body > ins.adsbygoogle.adsbygoogle-noablate[data-anchor-status=\"displayed\"]");
+        js.executeScript("document.querySelector('body > ins.adsbygoogle.adsbygoogle-noablate[data-anchor-status=\"displayed\"]').remove();");
+
+        WebElement botaoAdicionar = driver.findElement(By.cssSelector("body > section:nth-child(3) > div > div > div.col-sm-9.padding-right > div > div:nth-child(3) > div > div.single-products > div.productinfo.text-center > a"));
+        WebElement botapAdicionar2 = driver.findElement(By.cssSelector("body > section:nth-child(3) > div > div > div.col-sm-9.padding-right > div > div:nth-child(4) > div > div.single-products > div.product-overlay > div > a"));
+
+        Actions actions = new Actions(driver);
+        actions.moveToElement(botaoAdicionar).click().perform();
+        GenericMethods.esperarElemento(wait,"body > ins.adsbygoogle.adsbygoogle-noablate[data-anchor-status=\"displayed\"]");
+        js.executeScript("document.querySelector('body > ins.adsbygoogle.adsbygoogle-noablate[data-anchor-status=\"displayed\"]').remove();");
+
+        GenericMethods.esperarElemento(wait, btnContinue);
+
+        actions.moveToElement(botapAdicionar2).click().perform();
+        GenericMethods.esperarElemento(wait,"body > ins.adsbygoogle.adsbygoogle-noablate[data-anchor-status=\"displayed\"]");
+        js.executeScript("document.querySelector('body > ins.adsbygoogle.adsbygoogle-noablate[data-anchor-status=\"displayed\"]').remove();");
+
+        GenericMethods.esperarElemento(wait, btnProduct);
+        GenericMethods.clicarElemento(driver, btnCard);
+
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("product-1")));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("product-2")));
+
+        WebElement buttonElement1 = driver.findElement(By.cssSelector("#product-1 > td.cart_quantity > button"));
+        String quantityText1 = buttonElement1.getText();
+
+        WebElement buttonElement2 = driver.findElement(By.cssSelector("#product-2 > td.cart_quantity > button"));
+        String quantityText2 = buttonElement2.getText();
+
+
+        Assert.assertEquals("1", quantityText1, "A quantidade do produto 1 não é 1.");
+        Assert.assertEquals("1", quantityText2, "A quantidade do produto 2 não é 1.");
+
+
+        System.out.println("A quantidade de ambos os produtos é 1.");
+    }
+
 
 
 }
