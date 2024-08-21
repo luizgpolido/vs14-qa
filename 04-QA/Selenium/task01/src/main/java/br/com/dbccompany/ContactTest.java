@@ -30,6 +30,37 @@ public class ContactTest {
         driver.quit();
     }
 
+    @Test
+    public void formulárioDeContato(){
+//Test Case 6: Contact Us Form
+        GenericMethods.validarSeElementoEstaVisivel(wait, "div.features_items");
+        GenericMethods.clicarElemento(driver, btnContact);
+        GenericMethods.validarSeElementoEstaVisivel(wait, "#contact-page > div.row > div.col-sm-8 > div > h2");
+
+        GenericMethods.preencherElemento(driver, "input[data-qa=\"name\"]","Teste");
+
+        GenericMethods.esperarElemento(wait, "input[data-qa=\"email\"]");
+        GenericMethods.preencherElemento(driver, "input[data-qa=\"email\"]", "testedasilva@test.com");
+
+        GenericMethods.esperarElemento(wait, "input[data-qa=\"subject\"]");
+        GenericMethods.preencherElemento(driver, "input[data-qa=\"subject\"]", "Quero testar");
+
+        GenericMethods.esperarElemento(wait, "textarea[data-qa=\"message\"]");
+        GenericMethods.preencherElemento(driver, "textarea[data-qa=\"message\"]", "MMensagemm");
+
+        String filePath = "C:/Users/ricks/OneDrive/Área de Trabalho/git-l/vs14-qa/04-QA/Selenium/task01/src/main/java/br/com/dbccompany/resources/Teste.pdf";
+        driver.findElement(By.cssSelector("#contact-us-form > div:nth-child(6) > input")).sendKeys(filePath);
+
+        WebElement btnSubmit = driver.findElement(By.cssSelector("#contact-us-form > div:nth-child(7) > input"));
+        ((JavascriptExecutor) driver).executeScript("arguments[0].click();", btnSubmit);
+
+        Alert alert = driver.switchTo().alert();
+        alert.accept();
+
+        GenericMethods.esperarElemento(wait,"#contact-page > div.row > div.col-sm-8 > div > div.status.alert.alert-success");
+
+    }
+
 
 
 
