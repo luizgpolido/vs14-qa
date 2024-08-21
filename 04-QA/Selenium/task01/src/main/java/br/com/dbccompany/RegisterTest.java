@@ -38,8 +38,6 @@ public class RegisterTest {
         String newSignUp = "#form > div > div > div:nth-child(3) > div > h2";
         GenericMethods.esperarElemento(wait, newSignUp);
 
-
-
         String newUserInputName = "#form > div > div > div:nth-child(3) > div > form > input[type=text]:nth-child(2)";
         GenericMethods.esperarElemento(wait,newUserInputName);
         GenericMethods.preencherElemento(driver, newUserInputName, "vs13");
