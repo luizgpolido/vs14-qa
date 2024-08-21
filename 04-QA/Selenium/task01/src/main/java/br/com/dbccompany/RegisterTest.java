@@ -1,19 +1,8 @@
 package br.com.dbccompany;
 
 import br.com.dbccompany.Utils.GenericMethods;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.devtools.v127.storage.model.InterestGroupAuctionNetworkRequestCreated;
-import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.Assert;
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeTest;
-import org.testng.annotations.Test;
-
-import java.time.Duration;
-
-import br.com.dbccompany.Utils.GenericMethods;
 import com.github.javafaker.Faker;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -32,12 +21,17 @@ public class RegisterTest {
     //    1, 5
     public static WebDriver driver;
     public static WebDriverWait wait;
+    static Faker faker = new Faker();
+    static Random rand = new Random();
+    private static JavascriptExecutor js;
+
 
     @BeforeTest
     public void abrirNavegador(){
 
         driver = new ChromeDriver();
         wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        js = (JavascriptExecutor) driver;
 
         driver.get("https://www.automationexercise.com");
 
@@ -68,29 +62,6 @@ public class RegisterTest {
         String errorMessage = "#form > div > div > div:nth-child(3) > div > form > p";
         String realText = GenericMethods.pegarTexto(driver, errorMessage);
         Assert.assertEquals( realText,"Email Address already exist!");
-    }
-
-
-    @AfterTest
-    public void finalizarNavegador(){
-        driver.quit();
-    }
-//    1, 5
-
-    public static WebDriver driver;
-    public static WebDriverWait wait;
-    static Faker faker = new Faker();
-    static Random rand = new Random();
-
-    @BeforeTest
-    public void abrirNavegador(){
-
-        driver = new ChromeDriver();
-        wait = new WebDriverWait(driver, Duration.ofSeconds(15));
-
-        driver.get("https://www.automationexercise.com");
-
-        driver.manage().window().maximize();
     }
 
     @Test
@@ -184,6 +155,8 @@ public class RegisterTest {
         element = GenericMethods.pegarElemento(driver, yearBirthInput);
         selecionarSelectAleatorio(element);
 
+        GenericMethods.esperarElemento(wait, "body > ins.adsbygoogle.adsbygoogle-noablate[data-anchor-status=\"displayed\"]");
+        js.executeScript("document.querySelector('body > ins.adsbygoogle.adsbygoogle-noablate[data-anchor-status=\"displayed\"]').remove();");
         GenericMethods.esperarElemento(wait, btnNewsletter);
         GenericMethods.clicarElemento(driver, btnNewsletter);
         GenericMethods.esperarElemento(wait, btnOffers);
@@ -246,7 +219,7 @@ public class RegisterTest {
 
     @AfterTest
     public void finalizarNavegador(){
-        //driver.quit();
+        driver.quit();
     }
 
 }

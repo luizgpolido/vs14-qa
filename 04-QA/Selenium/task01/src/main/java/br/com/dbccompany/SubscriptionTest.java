@@ -1,10 +1,8 @@
 package br.com.dbccompany;
 
 import br.com.dbccompany.Utils.GenericMethods;
-import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import com.github.javafaker.Faker;
+import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
@@ -14,23 +12,11 @@ import org.testng.annotations.Test;
 
 import java.time.Duration;
 
-import br.com.dbccompany.Utils.GenericMethods;
-import com.github.javafaker.Faker;
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.Assert;
-import org.testng.annotations.BeforeTest;
-import org.testng.annotations.Test;
-
-import java.time.Duration;
-
 public class SubscriptionTest {
 // 11, 10
     public static WebDriver driver;
     public static WebDriverWait wait;
+    static Faker faker = new Faker();
 
     @BeforeTest
     public void abrirNavegador(){
@@ -65,27 +51,6 @@ public class SubscriptionTest {
 
         text = GenericMethods.pegarTexto(driver, "#success-subscribe > div");
         Assert.assertEquals(text, "You have been successfully subscribed!");
-    }
-
-    @AfterTest
-    public void finalizarNavegador(){
-        driver.quit();
-    }
-// 11, 10, 7
-
-    public static WebDriver driver;
-    public static WebDriverWait wait;
-    static Faker faker = new Faker();
-
-    @BeforeTest
-    public void abrirNavegador(){
-
-        driver = new ChromeDriver();
-        wait = new WebDriverWait(driver, Duration.ofSeconds(15));
-
-        driver.get("https://www.automationexercise.com");
-
-        driver.manage().window().maximize();
     }
 
     @Test
@@ -138,5 +103,10 @@ public class SubscriptionTest {
         //Verifico se elemento está visível
         Assert.assertTrue(driver.findElement(By.cssSelector(successSubscriptionMessage)).isDisplayed());
 
+    }
+
+    @AfterTest
+    public void finalizarNavegador(){
+        driver.quit();
     }
 }
