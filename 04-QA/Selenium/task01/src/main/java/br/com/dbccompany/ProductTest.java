@@ -33,6 +33,25 @@ public class ProductTest {
         driver.quit();
     }
 
+    @Test
+    public void searchProduct(){
+        //Test Case 9: Search Product
+        String btnProduct = "#header > div > div > div > div.col-sm-8 > div > ul > li:nth-child(2) > a";
+        String alProducts = "body > section:nth-child(3) > div > div > div.col-sm-9.padding-right > div";
+
+        GenericMethods.validarSeElementoEstaVisivel(wait, "div.features_items");
+
+        GenericMethods.clicarElemento(driver, btnProduct);
+
+        GenericMethods.validarSeElementoEstaVisivel(wait, alProducts);
+
+        GenericMethods.preencherElemento(driver, "#search_product", "Blue Top");
+
+        GenericMethods.clicarElemento(driver, "#submit_search");
+
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//p[contains(text(), 'Blue Top')]")));
+
+    }
 
 
 }
