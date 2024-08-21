@@ -1,6 +1,7 @@
 package br.com.dbccompany;
 
 import br.com.dbccompany.Utils.GenericMethods;
+import com.github.javafaker.Faker;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -9,12 +10,14 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import java.time.Duration;
+import java.util.Locale;
 
 public class ContactTest {
 // 6
     public static WebDriver driver;
     public static WebDriverWait wait;
     String btnContact = "#header > div > div > div > div.col-sm-8 > div > ul > li:nth-child(8) > a";
+    Faker faker = new Faker(new Locale("pt", "BR"));
 
     @BeforeTest
     public void abrirNavegador(){
@@ -37,16 +40,20 @@ public class ContactTest {
         GenericMethods.clicarElemento(driver, btnContact);
         GenericMethods.validarSeElementoEstaVisivel(wait, "#contact-page > div.row > div.col-sm-8 > div > h2");
 
-        GenericMethods.preencherElemento(driver, "input[data-qa=\"name\"]","Teste");
+        String nome = faker.name().firstName();
+        GenericMethods.preencherElemento(driver, "input[data-qa=\"name\"]",nome);
 
+        String email = faker.internet().emailAddress();
         GenericMethods.esperarElemento(wait, "input[data-qa=\"email\"]");
-        GenericMethods.preencherElemento(driver, "input[data-qa=\"email\"]", "testedasilva@test.com");
+        GenericMethods.preencherElemento(driver, "input[data-qa=\"email\"]", email);
 
+        String frase = faker.lorem().sentence();
         GenericMethods.esperarElemento(wait, "input[data-qa=\"subject\"]");
-        GenericMethods.preencherElemento(driver, "input[data-qa=\"subject\"]", "Quero testar");
+        GenericMethods.preencherElemento(driver, "input[data-qa=\"subject\"]", frase);
 
+        String novaFrase = faker.lorem().sentence();
         GenericMethods.esperarElemento(wait, "textarea[data-qa=\"message\"]");
-        GenericMethods.preencherElemento(driver, "textarea[data-qa=\"message\"]", "MMensagemm");
+        GenericMethods.preencherElemento(driver, "textarea[data-qa=\"message\"]", novaFrase);
 
         String filePath = "C:/Users/ricks/OneDrive/Área de Trabalho/git-l/vs14-qa/04-QA/Selenium/task01/src/main/java/br/com/dbccompany/resources/Teste.pdf";
         driver.findElement(By.cssSelector("#contact-us-form > div:nth-child(6) > input")).sendKeys(filePath);

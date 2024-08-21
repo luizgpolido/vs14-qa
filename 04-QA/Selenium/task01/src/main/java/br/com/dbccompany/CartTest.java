@@ -48,27 +48,17 @@ public class CartTest {
         String btnContinue = "#cartModal > div > div > div.modal-footer > button";
         String btnCard = "#cartModal > div > div > div.modal-body > p:nth-child(2) > a > u";
 
-        GenericMethods.esperarElemento(wait,"body > ins.adsbygoogle.adsbygoogle-noablate[data-anchor-status=\"displayed\"]");
-        js.executeScript("document.querySelector('body > ins.adsbygoogle.adsbygoogle-noablate[data-anchor-status=\"displayed\"]').remove();");
-
         GenericMethods.clicarElemento(driver, btnProduct);
-
-        GenericMethods.esperarElemento(wait,"body > ins.adsbygoogle.adsbygoogle-noablate[data-anchor-status=\"displayed\"]");
-        js.executeScript("document.querySelector('body > ins.adsbygoogle.adsbygoogle-noablate[data-anchor-status=\"displayed\"]').remove();");
 
         WebElement botaoAdicionar = driver.findElement(By.cssSelector("body > section:nth-child(3) > div > div > div.col-sm-9.padding-right > div > div:nth-child(3) > div > div.single-products > div.productinfo.text-center > a"));
         WebElement botapAdicionar2 = driver.findElement(By.cssSelector("body > section:nth-child(3) > div > div > div.col-sm-9.padding-right > div > div:nth-child(4) > div > div.single-products > div.product-overlay > div > a"));
 
         Actions actions = new Actions(driver);
         actions.moveToElement(botaoAdicionar).click().perform();
-        GenericMethods.esperarElemento(wait,"body > ins.adsbygoogle.adsbygoogle-noablate[data-anchor-status=\"displayed\"]");
-        js.executeScript("document.querySelector('body > ins.adsbygoogle.adsbygoogle-noablate[data-anchor-status=\"displayed\"]').remove();");
 
         GenericMethods.esperarElemento(wait, btnContinue);
 
         actions.moveToElement(botapAdicionar2).click().perform();
-        GenericMethods.esperarElemento(wait,"body > ins.adsbygoogle.adsbygoogle-noablate[data-anchor-status=\"displayed\"]");
-        js.executeScript("document.querySelector('body > ins.adsbygoogle.adsbygoogle-noablate[data-anchor-status=\"displayed\"]').remove();");
 
         GenericMethods.esperarElemento(wait, btnProduct);
         GenericMethods.clicarElemento(driver, btnCard);
