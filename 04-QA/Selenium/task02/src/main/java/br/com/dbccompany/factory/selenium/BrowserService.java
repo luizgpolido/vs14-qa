@@ -16,7 +16,7 @@ public class BrowserService {
     public void initChromeDriver(String url){
 
         driver = new ChromeDriver();
-        wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+        wait = new WebDriverWait(driver, Duration.ofSeconds(15));
         driver.get(url);
         driver.manage().window().maximize();
 
