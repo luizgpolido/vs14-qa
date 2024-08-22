@@ -32,7 +32,7 @@ public class ContactTest extends BaseTest{
     }
 
     @Test
-    @Description(CT001_CONTATO)
+    @Description(CT002_CONTATO)
     public void testValidarContatoComDadosValiDosWebMaster(){
         ContactDto contactDto = ContacData.contatoDadosValidos();
         contactUsPage.irParaPaginaContato();
