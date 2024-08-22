@@ -31,5 +31,15 @@ public class ContactTest extends BaseTest{
 
     }
 
+    @Test
+    @Description(CT002_CONTATO)
+    public void testValidarContatoComDadosValiDosWebMaster(){
+        ContactDto contactDto = ContacData.contatoDadosValidos();
+        contactUsPage.irParaPaginaContato();
+        contactUsPage.selecionarWebmaster();
+        String mensagem = contactUsPage.preencherContatoValido(contactDto.getEmail(), contactDto.getOrderReference(), contactDto.getMessage());
+        validation.validateText(mensagem, "Your message has been successfully sent to our team.");
+    }
+
 
 }
