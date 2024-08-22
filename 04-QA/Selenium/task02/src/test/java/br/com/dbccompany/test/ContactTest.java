@@ -25,10 +25,11 @@ public class ContactTest extends BaseTest{
     public void testValidarContatoComDadosValiDosCustumerService(){
         ContactDto contactDto = ContacData.contatoDadosValidos();
         contactUsPage.irParaPaginaContato();
-        contactUsPage.selecionarWebmaster();
+        contactUsPage.selecionarCustomerService();
         String mensagem = contactUsPage.preencherContatoValido(contactDto.getEmail(), contactDto.getOrderReference(), contactDto.getMessage());
         validation.validateText(mensagem, "Your message has been successfully sent to our team.");
 
     }
+
 
 }
