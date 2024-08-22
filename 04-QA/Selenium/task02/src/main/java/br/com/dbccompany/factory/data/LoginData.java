@@ -2,16 +2,15 @@ package br.com.dbccompany.factory.data;
 
 
 import br.com.dbccompany.dto.LoginDto;
-import br.com.dbccompany.util.DataFakerGeneretor;
+import br.com.dbccompany.util.DataFakerGenerator;
 
 public class LoginData {
 
 
-    DataFakerGeneretor dataFakerGeneretor = new DataFakerGeneretor();
+    DataFakerGenerator dataFakerGeneretor = new DataFakerGenerator();
 
 
-
-    public LoginDto loginDadosValidos(){
+    public LoginDto loginDadosValidos() {
 
         LoginDto loginDto = new LoginDto();
         loginDto.setEmail("vs@gmail.com");
@@ -21,12 +20,12 @@ public class LoginData {
     }
 
 
-
-    public LoginDto LoginDadoDinamicos(){
+    public LoginDto LoginDadoDinamicos() {
         LoginDto loginDto = new LoginDto();
         loginDto.setEmail(dataFakerGeneretor.emailFaker());
         loginDto.setSenha(dataFakerGeneretor.senhaFaker());
 
         return loginDto;
     }
+}
 

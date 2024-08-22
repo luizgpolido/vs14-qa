@@ -2,8 +2,8 @@ package br.com.dbccompany.util;
 
 import com.github.javafaker.Faker;
 
-public class DataFakerGeneretor {
-    
+public class DataFakerGenerator {
+
     private static final Faker faker = new Faker();
 
     public String emailFaker(){
