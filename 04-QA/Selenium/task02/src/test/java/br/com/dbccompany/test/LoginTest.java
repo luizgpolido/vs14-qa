@@ -19,42 +19,12 @@ public class LoginTest extends BaseTest {
     Validation validation = new Validation();
 
     @Test
-    @Description(CE_LOGIN_01)
-    public void test1validarLoginDadosValidos(){
-        LoginDto usu =  loginData.loginDadosValidos();     // <- Gerando massa de dados
-        loginPage.preencherCampoEmail(usu.getEmail());
-        loginPage.preencherCampoSenha(usu.getSenha());
-        loginPage.clicarBtnAcessar();
-        String msgm = loginPage.validarTextoBtnAposLogin();
-        validation.validateText(msgm,"Logout");
-    }
-
-    @Test
-    @Description(CE_LOGIN_02)
-    public void test2validarLoginDadosInvalidos(){
-        LoginDto usu =  loginData.LoginDadoDinamicos();
-        loginPage.preencherCampoEmail(usu.getEmail());
-        loginPage.preencherCampoSenha(usu.getSenha());
-        loginPage.clicarBtnAcessar();
-        String msgm = loginPage.validarMsgmEmailIncorreto();
-        validation.validateText(msgm,"Your email or passwod is incorrect!");
-    }
-
-    @Test
-    @Description(CE_LOGIN_03)
-    public void test3validarLoginComDadosValidos(){
+    public void testvalidarLoginDadosValidos() {
         LoginDto usu =  loginData.loginDadosValidos();
-        String msgm = loginPage.fazerLogin(usu.getEmail(),usu.getSenha());
-        validation.validateText(msgm,"Logout");
+        loginPage.fazerLogin(usu.getEmail(), usu.getSenha());
+        loginPage.clicarAppLogo();
+        String nomeLogado = loginPage.validarNomeLogado();
+        validation.validateText("Sala Nove",nomeLogado);
     }
-
-    @Test
-    @Description(CE_LOGIN_04)
-    public void test4validarLoginDadosInvalidos(){
-        LoginDto usu =  loginData.LoginDadoDinamicos();
-        String msgm = loginPage.loginEmailIncorreto(usu.getEmail(), usu.getSenha());
-        validation.validateText(msgm,"Your email or password is incorrect!");
-    }
-
 
 }

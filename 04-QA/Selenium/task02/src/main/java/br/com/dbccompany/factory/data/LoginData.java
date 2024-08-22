@@ -7,13 +7,13 @@ import br.com.dbccompany.util.DataFakerGenerator;
 public class LoginData {
 
 
-    DataFakerGenerator dataFakerGeneretor = new DataFakerGenerator();
+    DataFakerGenerator dataFakerGenerator = new DataFakerGenerator();
 
 
     public LoginDto loginDadosValidos() {
 
         LoginDto loginDto = new LoginDto();
-        loginDto.setEmail("vs@gmail.com");
+        loginDto.setEmail("sala9@gmail.com");
         loginDto.setSenha("123456");
 
         return loginDto;
@@ -22,10 +22,11 @@ public class LoginData {
 
     public LoginDto LoginDadoDinamicos() {
         LoginDto loginDto = new LoginDto();
-        loginDto.setEmail(dataFakerGeneretor.emailFaker());
-        loginDto.setSenha(dataFakerGeneretor.senhaFaker());
+        loginDto.setEmail(dataFakerGenerator.emailFaker());
+        loginDto.setSenha(dataFakerGenerator.senhaFaker());
 
         return loginDto;
     }
+
 }
 
