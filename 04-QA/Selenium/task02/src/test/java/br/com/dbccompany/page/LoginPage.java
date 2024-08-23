@@ -78,5 +78,4 @@ public class LoginPage extends Interactions {
         clicarBtnIrParaCadastro();
         return lerTexto(btnCadastrar);
     }
-
 }
