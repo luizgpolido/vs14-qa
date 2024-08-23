@@ -43,7 +43,7 @@ public class ContactTest extends BaseTest{
 
     @Test
     @Description(CT003_CONTATO)
-    public void testTentativaContatoComDadosValiDosSemServico(){
+    public void testTentativaContatoComDadosValiDosSemSujeito(){
         ContactDto contactDto = ContacData.contatoDadosValidos();
         contactUsPage.irParaPaginaContato();
         String mensagem = contactUsPage.preencherContatoSemServico(contactDto.getEmail(), contactDto.getOrderReference(), contactDto.getEmail());
