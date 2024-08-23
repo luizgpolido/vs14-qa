@@ -35,6 +35,10 @@ public class Interactions extends Elements{
         Random rand = new Random();
         Select select = new Select(element);
         List<WebElement> optionList = select.getOptions();
-        select.selectByIndex(rand.nextInt(optionList.size()));
+        int i = rand.nextInt(optionList.size());
+        if (i==0) {
+            i = i+1;
+        }
+        select.selectByIndex(i);
     }
 }

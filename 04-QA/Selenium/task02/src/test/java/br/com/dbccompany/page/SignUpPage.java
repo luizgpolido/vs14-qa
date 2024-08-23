@@ -22,8 +22,10 @@ public class SignUpPage extends Interactions {
     private static final String idMonths = "#months";
     private static final String idYears = "#years";
     private static final By msgContaJaCadastrada = By.cssSelector("ol li");
+    private static final By btnCadastro = By.cssSelector("#submitAccount");
 
 
+    public void clicarBtnCadastro() {click(btnCadastro);}
     public void clicarBtnLogin() {
         click(btnLogin);
     }
@@ -33,11 +35,11 @@ public class SignUpPage extends Interactions {
     public void preencherCampoEmail(String email) {
         sendKeys(campoEmail, email);
     }
-    public void preencherCampoConfirmarEmail(String campoConfirmEmail) {
-        sendKeys(campoEmail, campoConfirmEmail);
+    public void preencherCampoConfirmarEmail(String email) {
+        sendKeys(campoConfirmEmail, email);
     }
-    public void preencherCampoGender(String Gender) {
-        sendKeys(campoGender, Gender);
+    public void clicarGenderMr() {
+        click(campoGender);
     }
     public void preencherCampoFirstName(String FirstName) {
         sendKeys(campoFirstName, FirstName);
@@ -61,6 +63,9 @@ public class SignUpPage extends Interactions {
     public String validaMsgCreated() {
             return lerTexto(msgCreated);
     }
+    public String validaMsgEmailEmUso() {
+        return lerTexto(msgContaJaCadastrada);
+    }
 
     public void criarContaComEmailJaCadastrado() {
         clicarBtnLogin();
@@ -68,8 +73,22 @@ public class SignUpPage extends Interactions {
         clicarBtnIrParaCadastro();
     }
 
+    public void cadastrarConta(AccountDto accountDto) {
+        clicarBtnLogin();
+        preencherCampoEmail(accountDto.getEmail());
+        clicarBtnIrParaCadastro();
+        preencherCampoFirstName(accountDto.getFirstName());
+        preencherCampoLastName(accountDto.getLastName());
 
-    public String validaMsgEmailEmUso() {
-    return lerTexto(msgContaJaCadastrada);
+        clicarGenderMr();
+        preencherCampoDays(idDays);
+        preencherCampoMonths(idMonths);
+        preencherCampoYears(idYears);
+        preencherCampoPasswd(accountDto.getPassword());
+        clicarBtnCadastro();
+
     }
+
+
+
 }
