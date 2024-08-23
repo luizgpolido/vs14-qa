@@ -90,5 +90,16 @@ public class ContactTest extends BaseTest{
         validation.validateText(mensagem, "Invalid email address.");
     }
 
+    @Test
+    @Description(CT008_CONTATO)
+    public void testTentativaContatoComEmialInvaliDosSujeitoCustumerService(){
+        ContactDto contactDto = ContacData.contatoEmailInvalido();
+        contactUsPage.irParaPaginaContato();
+        contactUsPage.selecionarCustomerService();
+        String mensagem = contactUsPage.preencherContatoEmailInvalido(contactDto.getEmail(), contactDto.getOrderReference(), contactDto.getEmail());
+        validation.validateText(mensagem, "Invalid email address.");
+
+    }
+
 
 }
