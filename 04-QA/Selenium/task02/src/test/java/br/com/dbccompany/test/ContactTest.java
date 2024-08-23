@@ -70,5 +70,15 @@ public class ContactTest extends BaseTest{
         validation.validateText(mensagem, "Your message has been successfully sent to our team.");
     }
 
+    @Test
+    @Description(CT006_CONTATO)
+    public void testValidarEnvioDeContatoSemUploadSujeitoCustumerService(){
+        ContactDto contactDto = ContacData.contatoDadosValidos();
+        contactUsPage.irParaPaginaContato();
+        contactUsPage.selecionarCustomerService();
+        String mensagem = contactUsPage.preencherContatoValidoSemUpload(contactDto.getEmail(), contactDto.getOrderReference(), contactDto.getEmail());
+        validation.validateText(mensagem, "Your message has been successfully sent to our team.");
+    }
+
 
 }
