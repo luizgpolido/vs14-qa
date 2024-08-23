@@ -25,4 +25,12 @@ public class ContacData {
         return contactDto;
     }
 
+    public static ContactDto contatoEmailInvalido(){
+        ContactDto contactDto = new ContactDto();
+        contactDto.setEmail(dataFakerGenerator.mensagemFaker());
+        contactDto.setMessage(dataFakerGenerator.mensagemFaker());
+        contactDto.setOrderReference(dataFakerGenerator.orderFaker());
+        return contactDto;
+    }
+
 }

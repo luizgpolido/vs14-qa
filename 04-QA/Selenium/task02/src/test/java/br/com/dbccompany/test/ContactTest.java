@@ -80,5 +80,15 @@ public class ContactTest extends BaseTest{
         validation.validateText(mensagem, "Your message has been successfully sent to our team.");
     }
 
+    @Test
+    @Description(CT007_CONTATO)
+    public void testTentativaContatoComEmialInvaliDosSujeitoWebmaster(){
+        ContactDto contactDto = ContacData.contatoEmailInvalido();
+        contactUsPage.irParaPaginaContato();
+        contactUsPage.selecionarWebmaster();
+        String mensagem = contactUsPage.preencherContatoEmailInvalido(contactDto.getEmail(), contactDto.getOrderReference(), contactDto.getEmail());
+        validation.validateText(mensagem, "Invalid email address.");
+    }
+
 
 }
