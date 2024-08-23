@@ -10,5 +10,9 @@ public class Waits extends BrowserService {
         wait.until(ExpectedConditions.presenceOfElementLocated(by));
     }
 
+    public static void aguardarElementoFicarVisivel(By by){
+        wait.until(ExpectedConditions.visibilityOfElementLocated(by));
+    }
+
 
 }
