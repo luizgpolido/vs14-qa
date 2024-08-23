@@ -82,7 +82,7 @@ public class ContactTest extends BaseTest{
 
     @Test
     @Description(CT007_CONTATO)
-    public void testTentativaContatoComEmialInvaliDosSujeitoWebmaster(){
+    public void testTentativaContatoComEmailInvaliDosSujeitoWebmaster(){
         ContactDto contactDto = ContacData.contatoEmailInvalido();
         contactUsPage.irParaPaginaContato();
         contactUsPage.selecionarWebmaster();
@@ -92,7 +92,7 @@ public class ContactTest extends BaseTest{
 
     @Test
     @Description(CT008_CONTATO)
-    public void testTentativaContatoComEmialInvaliDosSujeitoCustumerService(){
+    public void testTentativaContatoComEmailInvaliDosSujeitoCostumerService(){
         ContactDto contactDto = ContacData.contatoEmailInvalido();
         contactUsPage.irParaPaginaContato();
         contactUsPage.selecionarCustomerService();
@@ -107,6 +107,16 @@ public class ContactTest extends BaseTest{
         ContactDto contactDto = ContacData.contatoDadosCampoMensagemVazio();
         contactUsPage.irParaPaginaContato();
         contactUsPage.selecionarWebmaster();
+        String mensagem = contactUsPage.preencherContatoMensagemInvalid(contactDto.getEmail(), contactDto.getOrderReference(), contactDto.getMessage());
+        validation.validateText(mensagem, "The message cannot be blank.");
+    }
+
+    @Test
+    @Description(CT010_CONTATO)
+    public void testValidarEnvioDeContatoComCampoMensagemVazioSujeitoCostumerService(){
+        ContactDto contactDto = ContacData.contatoDadosCampoMensagemVazio();
+        contactUsPage.irParaPaginaContato();
+        contactUsPage.selecionarCustomerService();
         String mensagem = contactUsPage.preencherContatoMensagemInvalid(contactDto.getEmail(), contactDto.getOrderReference(), contactDto.getMessage());
         validation.validateText(mensagem, "The message cannot be blank.");
     }
