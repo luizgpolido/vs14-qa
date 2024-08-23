@@ -71,6 +71,14 @@ public class CartTest extends BaseTest {
         cartPage.comprarProdutoComPagamentoPayCheck();
     }
 
+    @Test
+    @Description(CT017_CARRINHO)
+    public  void testTentativaDeFinalizarCarrinhoComPagamentoPayBybankWire(){
+        CartDto login = CartData.loginValido();
+        cartPage.realizarLogin(login);
+        cartPage.comprarProdutoComPagamentoPayBybankWire();
+    }
+
 
 
 }

@@ -186,6 +186,35 @@ public class CartPage  extends Interactions {
 
     }
 
+    public void comprarProdutoComPagamentoPayBybankWire(){
+        click(paginaCompras);
+        rolarTela();
+        validarPaginaProdutos();
+        WebElement elementToHover = driver.findElement(By.cssSelector("#center_column > " +
+                "ul > li:nth-child(2) > div > div.left-block > div > a.product_img_link > img"));
+        Actions action = new Actions(driver);
+        action.moveToElement(elementToHover).perform();
+        click(maisInformacoes);
+        waitElement(validarProd1);
+        click(campoTamanho);
+        click(tamanhoL);
+        waitElement(produtoDisponivel);
+        click(adicionarAoCarrinho);
+        waitElementVisibily(msgConfimacaoAddProduto1);
+        click(btnIrParaCheckout);
+        waitElementVisibily(btnProceedCheckout);
+        click(btnProceedCheckout);
+        waitElementVisibily(paginaConfirmacaoEndereco);
+        click(btnProceedCheckout2);
+        click(aceiteServicos);
+        click(BtnProceedCheckout3);
+        waitElementVisibily(telaPagamento);
+        click(tipoDePagamentoPayBayBank);
+        click(btnConfirmarCompra);
+        waitElementVisibily(mensagemConfirmacaoCompra);
+
+
+    }
 
 
 
