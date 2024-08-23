@@ -3,6 +3,8 @@ package br.com.dbccompany.factory.selenium;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
 
 import java.util.List;
 import java.util.Random;
@@ -28,6 +30,11 @@ public class Interactions extends Elements{
     protected static void sendTab(By by){
         waitElement(by);
         element(by).sendKeys("\t");
+    }
+
+    public static void selecionarComboBox(WebElement element, String texto){
+        Select select = new Select(element);
+        select.selectByVisibleText(texto);
     }
 
     protected static void selecionarSelectAleatorio(String path) {
