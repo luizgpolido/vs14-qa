@@ -2,6 +2,8 @@ package br.com.dbccompany.page;
 
 import br.com.dbccompany.factory.selenium.Interactions;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
 
 public class LoginPage extends Interactions {
 
@@ -78,5 +80,8 @@ public class LoginPage extends Interactions {
         clicarBtnIrParaCadastro();
         return lerTexto(btnCadastrar);
     }
+
+
+
 
 }

@@ -18,6 +18,7 @@ public class ContactUsPage extends Interactions {
     private static final By mensagemInvalidEmail =  By.xpath("//li[text()='Invalid email address.']");
     private static final By mensagemInvalidMenssageCamp =  By.xpath("//li[text()='The message cannot be blank.']");
     private static final By mensagemmSuccessfully = By.xpath("//p[text()='Your message has been successfully sent to our team.']");
+    private static final By mensagemInvalidSubject = By.xpath("//li[text()='Please select a subject from the list provided. ']");
     private String filePah = "D://Teste_front//vs14-qa//04-QA//Selenium//task02//src//main//resources//pagina.png";
 
     public void irParaPaginaContato(){ click(campoContactUs); }
@@ -43,6 +44,7 @@ public class ContactUsPage extends Interactions {
     public String validarMensagemmSuccessfully(){
         return lerTexto(mensagemmSuccessfully);
     }
+    public String validarMensagemInvalidService(){ return lerTexto(mensagemInvalidSubject); }
 
     public String preencherContatoValido(String email, String order, String mensage){
         sendKeys(campoEmail, email);
@@ -51,6 +53,16 @@ public class ContactUsPage extends Interactions {
         clicarParaFazerUpload();
         clicarParaEnviar();
         return lerTexto(mensagemmSuccessfully);
+    }
+
+    public String preencherContatoSemServico(String order, String mensagem, String email){
+        sendKeys(campoEmail, email);
+        sendKeys(campoOrderReference, order);
+        sendKeys(campoMessage, mensagem);
+        sendKeys(campoMessage, mensagem);
+        clicarParaFazerUpload();
+        clicarParaEnviar();
+        return lerTexto(mensagemInvalidSubject);
     }
 
     public String preencherContatoEmailInvalido(String order, String mensage){

@@ -41,5 +41,14 @@ public class ContactTest extends BaseTest{
         validation.validateText(mensagem, "Your message has been successfully sent to our team.");
     }
 
+    @Test
+    @Description(CT003_CONTATO)
+    public void testTentativaContatoComDadosValiDosSemServico(){
+        ContactDto contactDto = ContacData.contatoDadosValidos();
+        contactUsPage.irParaPaginaContato();
+        String mensagem = contactUsPage.preencherContatoSemServico(contactDto.getEmail(), contactDto.getOrderReference(), contactDto.getEmail());
+        validation.validateText(mensagem, "Please select a subject from the list provided.");
+    }
+
 
 }
