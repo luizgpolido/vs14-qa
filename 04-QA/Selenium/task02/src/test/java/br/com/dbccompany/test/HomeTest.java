@@ -58,4 +58,13 @@ public class HomeTest extends BaseTest{
         validation.validateText("No results were found for your search \"a\"",msg);
     }
 
+    @Test
+    public void testValidaPesquisaDeItemExistente() {
+        home.clicarBestSeller();
+        String item = home.validaBlouseProduct();
+        home.pesquisar(item);
+        String msg = home.validaBlouseProduct();
+        validation.validateText("Blouse",msg);
+    }
+
 }
