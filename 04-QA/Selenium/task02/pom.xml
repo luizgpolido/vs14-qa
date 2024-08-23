@@ -89,12 +89,6 @@
             <artifactId>allure-junit5</artifactId>
             <version>${allure-junit5.version}</version>
         </dependency>
-        <dependency>
-            <groupId>org.seleniumhq.selenium</groupId>
-            <artifactId>selenium-devtools-v127</artifactId>
-            <version>4.23.0</version>
-        </dependency>
-
     </dependencies>
 
     <build>

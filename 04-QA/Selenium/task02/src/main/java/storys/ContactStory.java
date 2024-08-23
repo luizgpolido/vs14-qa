@@ -8,6 +8,6 @@ public class ContactStory {
 
     public static final String CT001_CONTATO = "CT001 - Validar contato com dados validos como assunto Customer Service";
     public static final String CT002_CONTATO = "CT002 - Validar contato com dados validos como assunto Webmaster";
-    public static final String CT003_CONTATO = "CT003 - Tentativa de finalizar contato sem selecionar o serviço";
+    public static final String CT003_CONTATO = "CT003 - Tentativa de finalizar contato sem selecionar o servico";
 
 }
