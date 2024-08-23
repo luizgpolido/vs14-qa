@@ -15,4 +15,12 @@ public class HomeTest extends BaseTest{
         String msg = home.validaPopularMsg();
         validation.validateText( "No featured products at this time.",msg);
     }
+
+    @Test
+    public void testValidaProdutoMaisVendido(){
+        home.clicarBestSeller();
+        String msg = home.validaBlouseProduct();
+        validation.validateText( "Blouse",msg);
+    }
+
 }
