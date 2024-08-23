@@ -43,4 +43,16 @@ public class DataFakerGenerator {
         return faker.lorem().paragraph(1);
     }
 
+    public String mensagemFaker(){ return  faker.lorem().sentence();}
+
+    public String orderFaker(){
+        String letras = faker.letterify("???").toUpperCase();
+        String numeros = faker.numerify("###");
+
+        return letras + numeros;
+    }
+
+
+
+
 }
