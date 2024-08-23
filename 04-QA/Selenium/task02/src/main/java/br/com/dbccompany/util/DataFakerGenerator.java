@@ -25,7 +25,7 @@ public class DataFakerGenerator {
         return faker.phoneNumber().cellPhone();
     }
     public String postalCodeFaker() {
-        return faker.address().zipCode();
+        return faker.number().digits(5);
     }
     public String cityFaker() {
         return faker.address().city();
@@ -53,6 +53,7 @@ public class DataFakerGenerator {
     }
 
 
-
-
+    public String titleFaker() {
+        return faker.address().streetName();
+    }
 }

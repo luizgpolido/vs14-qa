@@ -2,6 +2,7 @@ package br.com.dbccompany.factory.selenium;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
@@ -48,4 +49,10 @@ public class Interactions extends Elements{
         }
         select.selectByIndex(i);
     }
+
+    protected static void limparCampo(String path){
+        WebElement element = wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector(path)));
+        element.clear();
+    }
+
 }
