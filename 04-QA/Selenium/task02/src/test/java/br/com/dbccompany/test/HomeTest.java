@@ -36,4 +36,12 @@ public class HomeTest extends BaseTest{
         validation.validateText( "Newsletter : You have successfully subscribed to this newsletter.",msg);
     }
 
+    @Test
+    public void testIncreverNoNewsLetterComEmailCadastrado() {
+        LoginDto login = loginData.loginDadosValidos();
+        home.assinarNewsLetter(login.getEmail());
+        String msg = home.validaNewsLetterMsg();
+        validation.validateText( "Newsletter : This email address is already registered.",msg);
+    }
+
 }
