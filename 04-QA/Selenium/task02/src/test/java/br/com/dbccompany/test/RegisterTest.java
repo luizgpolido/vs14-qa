@@ -3,7 +3,7 @@ package br.com.dbccompany.test;
 import br.com.dbccompany.factory.data.SignUpData;
 import br.com.dbccompany.factory.selenium.Validation;
 import br.com.dbccompany.page.SignUpPage;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 public class RegisterTest extends BaseTest {
 
