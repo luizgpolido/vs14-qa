@@ -130,6 +130,27 @@ public class CartPage  extends Interactions {
 
     }
 
+    public void adicionarAoCarrinhoEContinuarComprando(){
+        click(paginaCompras);
+        rolarTela();
+        validarPaginaProdutos();
+        WebElement elementToHover = driver.findElement(By.cssSelector("#center_column > " +
+                "ul > li:nth-child(2) > div > div.left-block > div > a.product_img_link > img"));
+        Actions action = new Actions(driver);
+        action.moveToElement(elementToHover).perform();
+        click(maisInformacoes);
+        waitElement(validarProd1);
+        click(campoTamanho);
+        click(tamanhoL);
+        waitElement(produtoDisponivel);
+        click(adicionarAoCarrinho);
+        waitElementVisibily(msgConfimacaoAddProduto1);
+        click(btnContiarComprando);
+        waitElement(produtoDisponivel);
+
+
+    }
+
     public void comprarProduto1SemAceitarOsTermos(){
         click(paginaCompras);
         rolarTela();
