@@ -55,6 +55,14 @@ public class ContactUsPage extends Interactions {
         return lerTexto(mensagemmSuccessfully);
     }
 
+    public String preencherContatoValidoSemUpload(String email, String order, String mensage){
+        sendKeys(campoEmail, email);
+        sendKeys(campoOrderReference, order);
+        sendKeys(campoMessage, mensage);
+        clicarParaEnviar();
+        return lerTexto(mensagemmSuccessfully);
+    }
+
     public String preencherContatoSemServico(String order, String mensagem, String email){
         sendKeys(campoEmail, email);
         sendKeys(campoOrderReference, order);
