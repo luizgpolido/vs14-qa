@@ -51,4 +51,11 @@ public class HomeTest extends BaseTest{
         validation.validateText("INFORMATION",msg);
     }
 
+    @Test
+    public void testValidaPesquisaDeItemInexistente() {
+        home.pesquisar("a");
+        String msg = home.validaWarning();
+        validation.validateText("No results were found for your search \"a\"",msg);
+    }
+
 }
