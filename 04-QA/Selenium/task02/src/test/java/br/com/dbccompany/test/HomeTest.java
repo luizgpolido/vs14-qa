@@ -44,4 +44,11 @@ public class HomeTest extends BaseTest{
         validation.validateText( "Newsletter : This email address is already registered.",msg);
     }
 
+    @Test
+    public void testIncreverNoNewsLetterComEmailInvalido() {
+        home.assinarNewsLetter("");
+        String msg = home.validaNewsLetterMsg();
+        validation.validateText( "Newsletter : Invalid email address.",msg);
+    }
+
 }
