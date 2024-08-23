@@ -29,6 +29,15 @@ public class CartTest extends BaseTest {
 
     }
 
+    @Test
+    @Description(CT012_CARRINHO)
+    public void testValidarAcessoAoCarrinhoLogado(){
+        CartDto login = CartData.loginValido();
+        cartPage.realizarLogin(login);
+        cartPage.paginaCarrinho();
+        cartPage.validarPaginaCarrinho();
+
+    }
 
 
 }
