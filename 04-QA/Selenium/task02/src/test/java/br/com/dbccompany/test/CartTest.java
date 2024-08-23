@@ -39,5 +39,13 @@ public class CartTest extends BaseTest {
 
     }
 
+    @Test
+    @Description(CT013_CARRINHO)
+    public void testValidarInclusaoDeProdutoNoCarrinho(){
+        CartDto login = CartData.loginValido();
+        cartPage.realizarLogin(login);
+        cartPage.incluirProduto1();
+    }
+
 
 }

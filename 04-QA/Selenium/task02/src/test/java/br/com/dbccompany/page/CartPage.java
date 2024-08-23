@@ -1,10 +1,15 @@
 package br.com.dbccompany.page;
 
 import static br.com.dbccompany.factory.selenium.Waits.waitElement;
+import static br.com.dbccompany.factory.selenium.Waits.waitElementVisibily;
 
 import br.com.dbccompany.dto.CartDto;
 import br.com.dbccompany.factory.selenium.Interactions;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 
 public class CartPage  extends Interactions {
 
@@ -15,6 +20,19 @@ public class CartPage  extends Interactions {
     private static final By imgConfirmLogin = By.cssSelector("#center_column > h1");
     private static final By irParaCarrinho = By.cssSelector("#header > div:nth-child(3) > div > div > div:nth-child(3) > div > a > span.ajax_cart_no_product");
     private static final By confirmarAcessoCarrinho = By.cssSelector("#cart_title");
+    private static final By paginaCompras = By.cssSelector("#block_top_menu > ul > li:nth-child(1) > a");
+    private static final By validarProd1 = By.cssSelector("#center_column > div > div > div.pb-center-column.col-xs-12.col-sm-4 > h1");
+    private static final By produtoDisponivel = By.cssSelector("#availability_value");
+    private static final By adicionarAoCarrinho = By.cssSelector("#add_to_cart > button > span");
+    private static final By btnIrParaCheckout = By.cssSelector("#layer_cart > div.clearfix > div.layer_cart_cart.col-xs-12.col-md-6 > div.button-container > a > span");
+    private static final By btnContiarComprando = By.cssSelector("#layer_cart > div.clearfix > div.layer_cart_cart.col-xs-12.col-md-6 > div.button-container > span > span");
+    private static final By msgConfimacaoAddProduto1 = By.cssSelector("#layer_cart > div.clearfix > div.layer_cart_product.col-xs-12.col-md-6 > h2");
+    private static final By campoTamanho = By.cssSelector("#group_1");
+    private static final By tamanhoL = By.cssSelector("#group_1 > option:nth-child(3)");
+    private static final By maisInformacoes = By.cssSelector("li[class='ajax_block_product col-xs-12 col-sm-6 col-md-4 last-item-of-tablet-line hovered'] a[title='View'] span");
+
+
+
 
 
     public void paginaLogin(){
@@ -33,6 +51,18 @@ public class CartPage  extends Interactions {
         waitElement(confirmarAcessoCarrinho);
     }
 
+    public void validarPaginaProdutos(){
+        waitElement(paginaCompras);
+    }
+    public void validarProdutoDisponivel(){
+        waitElement(produtoDisponivel);
+    }
+    public void rolarTela(){
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        long viewportHeight = (Long) js.executeScript("return window.innerHeight;");
+        js.executeScript("window.scrollBy(0, arguments[0]);", viewportHeight / 2);
+    }
+
 
     public void realizarLogin(CartDto login){
         paginaLogin();
@@ -40,6 +70,24 @@ public class CartPage  extends Interactions {
         sendKeys(campoPassword, login.getSenha());
         click(btnFazerLogin);
         confirmLogin();
+    }
+
+    public void incluirProduto1(){
+        click(paginaCompras);
+        rolarTela();
+        validarPaginaProdutos();
+        WebElement elementToHover = driver.findElement(By.cssSelector("#center_column > " +
+                "ul > li:nth-child(2) > div > div.left-block > div > a.product_img_link > img"));
+        Actions action = new Actions(driver);
+        action.moveToElement(elementToHover).perform();
+        click(maisInformacoes);
+        waitElement(validarProd1);
+        click(campoTamanho);
+        click(tamanhoL);
+        waitElement(produtoDisponivel);
+        click(adicionarAoCarrinho);
+        waitElementVisibily(msgConfimacaoAddProduto1);
+
     }
 
 
