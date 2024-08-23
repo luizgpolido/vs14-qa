@@ -90,9 +90,10 @@ public class ContactUsPage extends Interactions {
         return lerTexto(mensagemInvalidEmail);
     }
 
-    public String preencherContatoMensagemInvalid(String email, String order){
+    public String preencherContatoMensagemInvalid(String email, String order, String mensage){
         sendKeys(campoEmail, email);
         sendKeys(campoOrderReference, order);
+        sendKeys(campoMessage, mensage);
         clicarParaFazerUpload();
         clicarParaEnviar();
         return lerTexto(mensagemInvalidMenssageCamp);
