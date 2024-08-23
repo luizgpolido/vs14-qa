@@ -63,6 +63,14 @@ public class CartTest extends BaseTest {
         cartPage.comprarProduto1SemAceitarOsTermos();
     }
 
+    @Test
+    @Description(CT016_CARRINHO)
+    public  void testTentativaDeFinalizarCarrinhoComPagamentoPayByCheck(){
+        CartDto login = CartData.loginValido();
+        cartPage.realizarLogin(login);
+        cartPage.comprarProdutoComPagamentoPayCheck();
+    }
+
 
 
 }
