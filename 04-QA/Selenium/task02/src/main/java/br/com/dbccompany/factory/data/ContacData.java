@@ -33,4 +33,12 @@ public class ContacData {
         return contactDto;
     }
 
+    public static ContactDto contatoDadosCampoMensagemVazio(){
+        ContactDto contactDto = new ContactDto();
+        contactDto.setEmail(dataFakerGenerator.emailFaker());
+        contactDto.setMessage(StringUtils.EMPTY);
+        contactDto.setOrderReference(dataFakerGenerator.orderFaker());
+        return contactDto;
+    }
+
 }

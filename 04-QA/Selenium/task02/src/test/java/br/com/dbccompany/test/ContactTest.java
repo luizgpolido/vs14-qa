@@ -86,7 +86,7 @@ public class ContactTest extends BaseTest{
         ContactDto contactDto = ContacData.contatoEmailInvalido();
         contactUsPage.irParaPaginaContato();
         contactUsPage.selecionarWebmaster();
-        String mensagem = contactUsPage.preencherContatoEmailInvalido(contactDto.getEmail(), contactDto.getOrderReference(), contactDto.getEmail());
+        String mensagem = contactUsPage.preencherContatoEmailInvalido(contactDto.getEmail(), contactDto.getOrderReference(), contactDto.getMessage());
         validation.validateText(mensagem, "Invalid email address.");
     }
 
@@ -96,9 +96,19 @@ public class ContactTest extends BaseTest{
         ContactDto contactDto = ContacData.contatoEmailInvalido();
         contactUsPage.irParaPaginaContato();
         contactUsPage.selecionarCustomerService();
-        String mensagem = contactUsPage.preencherContatoEmailInvalido(contactDto.getEmail(), contactDto.getOrderReference(), contactDto.getEmail());
+        String mensagem = contactUsPage.preencherContatoEmailInvalido(contactDto.getEmail(), contactDto.getOrderReference(), contactDto.getMessage());
         validation.validateText(mensagem, "Invalid email address.");
 
+    }
+
+    @Test
+    @Description(CT009_CONTATO)
+    public void testValidarEnvioDeContatoComCampoMensagemVazioSujeitoWebmaster(){
+        ContactDto contactDto = ContacData.contatoDadosCampoMensagemVazio();
+        contactUsPage.irParaPaginaContato();
+        contactUsPage.selecionarWebmaster();
+        String mensagem = contactUsPage.preencherContatoMensagemInvalid(contactDto.getEmail(), contactDto.getOrderReference(), contactDto.getMessage());
+        validation.validateText(mensagem, "The message cannot be blank.");
     }
 
 
