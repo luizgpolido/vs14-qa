@@ -13,6 +13,7 @@ public class ContactStory {
     public static final String CT005_CONTATO = "CT005 - Validar contato com dados validos sem anexar arquivo para o Webmaster";
     public static final String CT006_CONTATO = "CT006 - Validar contato com dados validos sem anexar arquivo para o Customer Service";
     public static final String CT007_CONTATO = "CT007 - Tentativa de finalizar contato informando email invalido para o Webmaster";
+    public static final String CT008_CONTATO = "CT008 - Tentativa de finalizar contato informando email invalido para o Customer Service";
 
 
 }
