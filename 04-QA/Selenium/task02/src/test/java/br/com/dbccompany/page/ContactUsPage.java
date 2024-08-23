@@ -81,7 +81,8 @@ public class ContactUsPage extends Interactions {
         return lerTexto(mensagemInvalidEmail);
     }
 
-    public String preencherContatoEmailInvalido(String order, String mensage){
+    public String preencherContatoEmailInvalido(String order, String mensage,String email){
+        sendKeys(campoEmail, email);
         sendKeys(campoOrderReference, order);
         sendKeys(campoMessage, mensage);
         clicarParaFazerUpload();
