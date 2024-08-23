@@ -30,7 +30,17 @@ public class CartPage  extends Interactions {
     private static final By campoTamanho = By.cssSelector("#group_1");
     private static final By tamanhoL = By.cssSelector("#group_1 > option:nth-child(3)");
     private static final By maisInformacoes = By.cssSelector("li[class='ajax_block_product col-xs-12 col-sm-6 col-md-4 last-item-of-tablet-line hovered'] a[title='View'] span");
-
+    private static final By btnProceedCheckout = By.cssSelector("#center_column > p.cart_navigation.clearfix > a.button.btn.btn-default.standard-checkout.button-medium > span");
+    private static final By paginaConfirmacaoEndereco = By.cssSelector("#center_column > h1");
+    private static final By btnProceedCheckout2 = By.cssSelector("#center_column > form > p > button > span");
+    private static final By aceiteServicos = By.cssSelector("#cgv");
+    private static final By mensagemDeAceiteObrigatorio = By.cssSelector("#order > div.fancybox-overlay.fancybox-overlay-fixed > div > div > div > div > p");
+    private static final By BtnProceedCheckout3 = By.cssSelector("#form > p > button > span");
+    private static final By telaPagamento = By.cssSelector("#center_column > h1");
+    private static final By tipoDePagamentoPayBayBank = By.cssSelector("#HOOK_PAYMENT > div:nth-child(1) > div > p > a");
+    private static final By tipoDePagamentoPayByCheck = By.cssSelector("#HOOK_PAYMENT > div:nth-child(2) > div > p > a");
+    private static final By btnConfirmarCompra = By.cssSelector("#cart_navigation > button > span");
+    private static final By mensagemConfirmacaoCompra = By.cssSelector("#center_column > p.alert.alert-success");
 
 
 
@@ -87,6 +97,62 @@ public class CartPage  extends Interactions {
         waitElement(produtoDisponivel);
         click(adicionarAoCarrinho);
         waitElementVisibily(msgConfimacaoAddProduto1);
+
+    }
+
+    public void comprarProduto1(){
+        click(paginaCompras);
+        rolarTela();
+        validarPaginaProdutos();
+        WebElement elementToHover = driver.findElement(By.cssSelector("#center_column > " +
+                "ul > li:nth-child(2) > div > div.left-block > div > a.product_img_link > img"));
+        Actions action = new Actions(driver);
+        action.moveToElement(elementToHover).perform();
+        click(maisInformacoes);
+        waitElement(validarProd1);
+        click(campoTamanho);
+        click(tamanhoL);
+        waitElement(produtoDisponivel);
+        click(adicionarAoCarrinho);
+        waitElementVisibily(msgConfimacaoAddProduto1);
+        click(btnIrParaCheckout);
+        waitElementVisibily(btnProceedCheckout);
+        click(btnProceedCheckout);
+        waitElementVisibily(paginaConfirmacaoEndereco);
+        click(btnProceedCheckout2);
+        click(aceiteServicos);
+        click(BtnProceedCheckout3);
+        waitElementVisibily(telaPagamento);
+        click(tipoDePagamentoPayBayBank);
+        click(btnConfirmarCompra);
+        waitElementVisibily(mensagemConfirmacaoCompra);
+
+
+    }
+
+    public void comprarProduto1SemAceitarOsTermos(){
+        click(paginaCompras);
+        rolarTela();
+        validarPaginaProdutos();
+        WebElement elementToHover = driver.findElement(By.cssSelector("#center_column > " +
+                "ul > li:nth-child(2) > div > div.left-block > div > a.product_img_link > img"));
+        Actions action = new Actions(driver);
+        action.moveToElement(elementToHover).perform();
+        click(maisInformacoes);
+        waitElement(validarProd1);
+        click(campoTamanho);
+        click(tamanhoL);
+        waitElement(produtoDisponivel);
+        click(adicionarAoCarrinho);
+        waitElementVisibily(msgConfimacaoAddProduto1);
+        click(btnIrParaCheckout);
+        waitElementVisibily(btnProceedCheckout);
+        click(btnProceedCheckout);
+        waitElementVisibily(paginaConfirmacaoEndereco);
+        click(btnProceedCheckout2);
+        click(BtnProceedCheckout3);
+        waitElementVisibily(mensagemDeAceiteObrigatorio);
+
 
     }
 
