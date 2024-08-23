@@ -50,5 +50,15 @@ public class ContactTest extends BaseTest{
         validation.validateText(mensagem, "Please select a subject from the list provided.");
     }
 
+    @Test
+    @Description(CT004_CONTATO)
+    public void testTentativaContatoCamposVazios(){
+        ContactDto contactDto = ContacData.contatoComposVazios();
+        contactUsPage.irParaPaginaContato();
+        String mensagem = contactUsPage.preencherCamposVazios(contactDto.getEmail(), contactDto.getOrderReference(), contactDto.getEmail());
+        validation.validateText(mensagem, "Invalid email address.");
+
+    }
+
 
 }

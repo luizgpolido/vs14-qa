@@ -65,6 +65,14 @@ public class ContactUsPage extends Interactions {
         return lerTexto(mensagemInvalidSubject);
     }
 
+    public String preencherCamposVazios(String email, String order, String mensage){
+        sendKeys(campoEmail, email);
+        sendKeys(campoOrderReference, order);
+        sendKeys(campoMessage, mensage);
+        clicarParaEnviar();
+        return lerTexto(mensagemInvalidEmail);
+    }
+
     public String preencherContatoEmailInvalido(String order, String mensage){
         sendKeys(campoOrderReference, order);
         sendKeys(campoMessage, mensage);
