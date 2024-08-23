@@ -15,6 +15,7 @@ public class ContactStory {
     public static final String CT007_CONTATO = "CT007 - Tentativa de finalizar contato informando email invalido para o Webmaster";
     public static final String CT008_CONTATO = "CT008 - Tentativa de finalizar contato informando email invalido para o Customer Service";
     public static final String CT009_CONTATO = "CT009 - Tentativa de finalizar contato com campo mensagem vazio para o Webmaster";
+    public static final String CT010_CONTATO = "CT010 - Tentativa de finalizar contato com campo mensagem vazio para o Customer Service";
 
 
 }
