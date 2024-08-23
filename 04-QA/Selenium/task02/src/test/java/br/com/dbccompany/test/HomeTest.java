@@ -44,4 +44,11 @@ public class HomeTest extends BaseTest{
         validation.validateText( "Newsletter : This email address is already registered.",msg);
     }
 
+    @Test
+    public void testValidaBtnPesquisa() {
+        home.pesquisar("blouse");
+        String msg = home.validaSearchPage();
+        validation.validateText("INFORMATION",msg);
+    }
+
 }
