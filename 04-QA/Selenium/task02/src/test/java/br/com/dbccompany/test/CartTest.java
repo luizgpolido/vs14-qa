@@ -55,6 +55,13 @@ public class CartTest extends BaseTest {
         cartPage.comprarProduto1();
     }
 
+    @Test
+    @Description(CT015_CARRINHO)
+    public  void testTentativaDeFinalizarCarrinhoSemAceitarTermos(){
+        CartDto login = CartData.loginValido();
+        cartPage.realizarLogin(login);
+        cartPage.comprarProduto1SemAceitarOsTermos();
+    }
 
 
 
