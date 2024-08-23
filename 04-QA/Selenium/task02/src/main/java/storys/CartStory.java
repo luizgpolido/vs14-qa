@@ -7,4 +7,6 @@ public class CartStory {
             "para finalizar a compra dos produtos";
 
     public static final String CT011_CARRINHO = "CT011 - Validar acesso ao carrinho de compras";
+    public static final String CT012_CARRINHO = "CT011 - Validar acesso ao carrinho de compras com usuario logado";
+
 }
