@@ -48,4 +48,10 @@ public class AddressData {
         dto.setFirstName(dataFakerGenerator.longTextFaker());
         return dto;
     }
+
+    public AddressDto enderecoAddressLongo() {
+        AddressDto dto = novoEndereco();
+        dto.setAddress1(dataFakerGenerator.longTextFaker());
+        return dto;
+    }
 }
