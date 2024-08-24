@@ -60,4 +60,10 @@ public class AddressData {
         dto.setPostCode(dataFakerGenerator.longTextFaker());
         return dto;
     }
+
+    public AddressDto enderecoOtherLongo() {
+        AddressDto dto = novoEndereco();
+        dto.setAdditionalInfo(dataFakerGenerator.longTextFaker());
+        return dto;
+    }
 }
