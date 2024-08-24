@@ -54,4 +54,10 @@ public class AddressData {
         dto.setAddress1(dataFakerGenerator.longTextFaker());
         return dto;
     }
+
+    public AddressDto enderecoPostCodeLongo() {
+        AddressDto dto = novoEndereco();
+        dto.setPostCode(dataFakerGenerator.longTextFaker());
+        return dto;
+    }
 }
