@@ -30,4 +30,10 @@ public class AddressData {
         dto.setAddressTitle(dataFakerGenerator.longTextFaker());
         return dto;
     }
+
+    public AddressDto enderecoCompanyLongo() {
+        AddressDto dto = novoEndereco();
+        dto.setCompany(dataFakerGenerator.longTextFaker());
+        return dto;
+    }
 }

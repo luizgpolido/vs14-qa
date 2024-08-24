@@ -50,5 +50,13 @@ public class RegisterTest extends BaseTest {
         validation.validateText("alias is too long. Maximum length: 32", msg);
     }
 
+    @Test
+    public void testAdicionarEnderecoComCompanyMuitoLongo() {
+        cadastro.cadastrarConta();
+        accountPage.adicionarNovoEndereço(addressData.enderecoCompanyLongo());
+        String msg = accountPage.validaMsgErro();
+        validation.validateText("company is too long. Maximum length: 64", msg);
+    }
+
 
 }
