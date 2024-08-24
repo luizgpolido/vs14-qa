@@ -42,6 +42,7 @@ public class AccountPage extends Interactions {
     private static final By campoPhoneMobile = By.cssSelector("#phone_mobile");
     private static final By campoAdditionalInfo = By.cssSelector("#other");
     private static final By campoAddressTitle = By.cssSelector("#alias");
+    private static final By errorText = By.cssSelector("#center_column > div > div > ol > li");
 
     public void preencherFirstName(String valor) {sendKeys(campoFirstName,valor);}
     public void preencherLastName(String valor) {sendKeys(campoLastName,valor);}
@@ -86,5 +87,7 @@ public class AccountPage extends Interactions {
     }
 
 
-
+    public String validaMsgErro() {
+        return lerTexto(errorText);
+    }
 }

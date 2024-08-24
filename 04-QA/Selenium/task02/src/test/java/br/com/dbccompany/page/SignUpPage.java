@@ -1,6 +1,7 @@
 package br.com.dbccompany.page;
 
 import br.com.dbccompany.dto.AccountDto;
+import br.com.dbccompany.factory.data.SignUpData;
 import br.com.dbccompany.factory.selenium.Interactions;
 import org.openqa.selenium.By;
 
@@ -73,7 +74,11 @@ public class SignUpPage extends Interactions {
         clicarBtnIrParaCadastro();
     }
 
-    public void cadastrarConta(AccountDto accountDto) {
+    public void cadastrarConta() {
+        SignUpData cadastroData = new SignUpData();
+        AccountDto accountDto = cadastroData.cadastroValido();
+
+
         clicarBtnLogin();
         preencherCampoEmail(accountDto.getEmail());
         clicarBtnIrParaCadastro();

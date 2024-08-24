@@ -56,4 +56,9 @@ public class DataFakerGenerator {
     public String titleFaker() {
         return faker.address().streetName();
     }
+
+    public String longTextFaker() {
+
+        return faker.lorem().sentence(200);
+    }
 }
