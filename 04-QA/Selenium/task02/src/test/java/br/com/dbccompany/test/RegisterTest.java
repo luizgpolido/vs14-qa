@@ -14,11 +14,8 @@ import org.junit.jupiter.api.Test;
 
 public class RegisterTest extends BaseTest {
 
-    SignUpData cadastroData = new SignUpData();
     SignUpPage cadastro = new SignUpPage();
     Validation validation = new Validation();
-    LoginPage loginPage = new LoginPage();
-    LoginData loginData = new LoginData();
     AccountPage accountPage = new AccountPage();
     AddressData addressData =  new AddressData();
 
@@ -31,24 +28,26 @@ public class RegisterTest extends BaseTest {
 
     @Test
     public void testCadastrarContaComSucesso() {
-        AccountDto accountDto = cadastroData.cadastroValido();
-        cadastro.cadastrarConta(accountDto);
+        cadastro.cadastrarConta();
         String msg = cadastro.validaMsgCreated();
         validation.validateText("Your account has been created.",msg);
-
     }
 
     @Test
     public void testAdicionarEnderecoNaConta() {
-        AccountDto accountDto = cadastroData.cadastroValido();
-        cadastro.cadastrarConta(accountDto);
-
-//        loginPage.fazerLogin(accountDto.getEmail(), accountDto.getPassword());
-
+        cadastro.cadastrarConta();
         AddressDto addressDto = addressData.novoEndereco();
         accountPage.adicionarNovoEndereço(addressDto);
         String msg = accountPage.validaNovoEndereco();
         validation.validateText(addressDto.getAddressTitle().toUpperCase(),msg);
+    }
+
+    @Test
+    public void testAdicionarEnderecoComAliasMuitoLongo() {
+        cadastro.cadastrarConta();
+        accountPage.adicionarNovoEndereço(addressData.enderecoAliasLongo());
+        String msg = accountPage.validaMsgErro();
+        validation.validateText("alias is too long. Maximum length: 32", msg);
     }
 
 

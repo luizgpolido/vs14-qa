@@ -25,4 +25,9 @@ public class AddressData {
         return dto;
     }
 
+    public AddressDto enderecoAliasLongo() {
+        AddressDto dto = novoEndereco();
+        dto.setAddressTitle(dataFakerGenerator.longTextFaker());
+        return dto;
+    }
 }
