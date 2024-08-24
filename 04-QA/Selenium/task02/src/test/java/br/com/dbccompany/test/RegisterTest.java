@@ -58,5 +58,13 @@ public class RegisterTest extends BaseTest {
         validation.validateText("company is too long. Maximum length: 64", msg);
     }
 
+    @Test
+    public void testAdicionarEnderecoComLastNameMuitoLongo() {
+        cadastro.cadastrarConta();
+        accountPage.adicionarNovoEndereço(addressData.enderecoLastNameLongo());
+        String msg = accountPage.validaMsgErro();
+        validation.validateText("lastname is too long. Maximum length: 32", msg);
+    }
+
 
 }
