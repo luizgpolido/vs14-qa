@@ -90,5 +90,13 @@ public class RegisterTest extends BaseTest {
         validation.validateText("postcode is too long. Maximum length: 12", msg);
     }
 
+    @Test
+    public void testAdicionarEnderecoComOtherMuitoLongo() {
+        cadastro.cadastrarConta();
+        accountPage.adicionarNovoEndereço(addressData.enderecoOtherLongo());
+        String msg = accountPage.validaMsgErro();
+        validation.validateText("other is too long. Maximum length: 300", msg);
+    }
+
 
 }
