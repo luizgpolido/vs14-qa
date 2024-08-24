@@ -42,4 +42,10 @@ public class AddressData {
         dto.setLastName(dataFakerGenerator.longTextFaker());
         return dto;
     }
+
+    public AddressDto enderecoFirstNameLongo() {
+        AddressDto dto = novoEndereco();
+        dto.setFirstName(dataFakerGenerator.longTextFaker());
+        return dto;
+    }
 }
