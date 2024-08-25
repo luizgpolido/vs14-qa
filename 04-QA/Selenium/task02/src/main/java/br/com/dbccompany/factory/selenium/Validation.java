@@ -18,5 +18,9 @@ public class Validation {
         Waits.waitElement(element);
     }
 
+    public void validarCor(String corEsperada, String corRecebida){
+        Assertions.assertEquals(corEsperada, corRecebida);
+    }
+
 
 }

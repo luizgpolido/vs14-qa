@@ -74,4 +74,8 @@ public class WomenPage extends Interactions {
     public void clicarBtnCorPreta(){
         click(btnCorPreta);
     }
+
+    public String pegarCorAvaliability(){
+        return pegarCor(textoAvaliabilidade);
+    }
 }

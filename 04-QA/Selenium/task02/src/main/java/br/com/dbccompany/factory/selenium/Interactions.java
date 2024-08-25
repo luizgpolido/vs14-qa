@@ -45,5 +45,10 @@ public class Interactions extends Elements{
         select.selectByIndex(option);
     }
 
+    protected static String pegarCor(By by){
+        waitElement(by);
+        return element(by).getCssValue("background-color");
+    }
+
 
 }

@@ -23,5 +23,7 @@ public class ShoppingTest extends BaseTest {
         validation.validarNaoEstaNulo(womenPage.pegarSKU());
         validation.validarNaoEstaNulo(womenPage.pegarShoppingCartSummaryTexto());
         validation.validarNaoEstaNulo(womenPage.pegarTextoAvaliabilidade());
+        validation.validarCor( "rgba(85, 198, 94, 1)" , womenPage.pegarCorAvaliability());
+
     }
 }
