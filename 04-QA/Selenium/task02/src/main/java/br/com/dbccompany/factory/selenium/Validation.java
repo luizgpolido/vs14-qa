@@ -22,5 +22,9 @@ public class Validation {
         Assertions.assertEquals(corEsperada, corRecebida);
     }
 
+    public void validateURL(String URLEsperada, String URLRecebida){
+        Assertions.assertEquals(URLEsperada, URLRecebida);
+    }
+
 
 }

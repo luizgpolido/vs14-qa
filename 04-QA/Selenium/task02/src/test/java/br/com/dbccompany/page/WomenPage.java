@@ -31,9 +31,17 @@ public class WomenPage extends Interactions {
             = By.cssSelector("#color_11");
     private static final By textoValorTotal
             = By.cssSelector("#total_product_price_2_11_0");
+    private static final By btnDresses
+            = By.cssSelector("#ul_layered_category_0 > li:nth-child(2) > label > a");
+    private static final By categoriesDresses
+            = By.cssSelector("#center_column > h1 > span.cat-name");
 
     public void clicarBtnWomen(){
         click(btnWomen);
+    }
+
+    public void clicarBtnDresses(){
+        click(btnDresses);
     }
 
     public void clicarBtnBlouse(){
@@ -75,6 +83,10 @@ public class WomenPage extends Interactions {
 
     public String pegarTextoValorTotal(){
         return lerTexto(textoValorTotal);
+    }
+
+    public String pegarTextoCategoriesDresses(){
+        return lerTexto(categoriesDresses);
     }
 
     public void clicarBtnCorPreta(){
