@@ -29,6 +29,8 @@ public class WomenPage extends Interactions {
             = By.cssSelector("#product_2_11_0_0 > td.cart_avail > span");
     private static final By btnCorPreta
             = By.cssSelector("#color_11");
+    private static final By textoValorTotal
+            = By.cssSelector("#total_product_price_2_11_0");
 
     public void clicarBtnWomen(){
         click(btnWomen);
@@ -69,6 +71,10 @@ public class WomenPage extends Interactions {
 
     public String pegarTextoAvaliabilidade(){
         return lerTexto(textoAvaliabilidade);
+    }
+
+    public String pegarTextoValorTotal(){
+        return lerTexto(textoValorTotal);
     }
 
     public void clicarBtnCorPreta(){
