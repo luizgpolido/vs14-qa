@@ -21,5 +21,7 @@ public class ShoppingTest extends BaseTest {
         womenPage.clicarIrParaCheckout();
         validation.validateText("3",womenPage.pegarQuantidadeCarrinho());
         validation.validarNaoEstaNulo(womenPage.pegarSKU());
+        validation.validarNaoEstaNulo(womenPage.pegarShoppingCartSummaryTexto());
+        validation.validarNaoEstaNulo(womenPage.pegarTextoAvaliabilidade());
     }
 }
