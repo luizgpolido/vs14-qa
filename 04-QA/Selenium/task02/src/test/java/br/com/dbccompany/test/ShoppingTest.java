@@ -55,4 +55,16 @@ public class ShoppingTest extends BaseTest {
         validation.validateURL(driver.getCurrentUrl(), "http://www.automationpractice.pl/index.php?id_category=3&controller=category#/categories-dresses");
 
     }
+
+    @Test
+    public void testValidarFiltroDePesquisPorTamanho() throws InterruptedException {
+        womenPage.clicarBtnWomen();
+        womenPage.clicarBtnTamS();
+        validation.validateText("WOMEN " , womenPage.pegarTextoCategoriesDresses());
+        Thread.sleep(700);
+        validation.validateURL(driver.getCurrentUrl(), "http://www.automationpractice.pl/index.php?id_category=3&controller=category#/size-s");
+
+    }
+
+
 }

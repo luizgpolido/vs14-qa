@@ -35,6 +35,8 @@ public class WomenPage extends Interactions {
             = By.cssSelector("#ul_layered_category_0 > li:nth-child(2) > label > a");
     private static final By categoriesDresses
             = By.cssSelector("#center_column > h1 > span.cat-name");
+    private static final By btnTamS
+            = By.cssSelector("#ul_layered_id_attribute_group_1 > li:nth-child(1) > label > a");
 
     public void clicarBtnWomen(){
         click(btnWomen);
@@ -46,6 +48,10 @@ public class WomenPage extends Interactions {
 
     public void clicarBtnBlouse(){
         click(btnQuickView);
+    }
+
+    public void clicarBtnTamS(){
+        click(btnTamS);
     }
 
     public void preencherTamanho(){
