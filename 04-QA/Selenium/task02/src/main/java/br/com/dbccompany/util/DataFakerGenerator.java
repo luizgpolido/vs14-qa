@@ -9,6 +9,7 @@ public class DataFakerGenerator {
     public String emailFaker(){
         return faker.internet().emailAddress();
     }
+
     public String senhaFaker(){
         return faker.internet().password();
     }

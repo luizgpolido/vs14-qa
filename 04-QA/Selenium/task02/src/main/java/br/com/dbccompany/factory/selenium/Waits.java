@@ -14,5 +14,4 @@ public class Waits extends BrowserService {
         wait.until(ExpectedConditions.visibilityOfElementLocated(by));
     }
 
-
 }

@@ -9,8 +9,11 @@ import org.openqa.selenium.support.ui.Select;
 
 import java.util.List;
 import java.util.Random;
+import org.openqa.selenium.support.ui.Select;
 
-import static br.com.dbccompany.factory.selenium.Waits.waitElement;
+import java.util.List;
+
+import static br.com.dbccompany.factory.selenium.Waits.*;
 
 public class Interactions extends Elements{
     protected static void sendKeys(By by, String text) {
@@ -19,13 +22,23 @@ public class Interactions extends Elements{
     }
 
     protected static void click(By by) {
-        waitElement(by);
+        waitElementVisibily(by);
         element(by).click();
+    }
+
+    protected static void clear(By by) {
+        waitElementVisibily(by);
+        element(by).clear();
     }
 
     protected static String lerTexto(By by) {
         waitElement(by);
         return element(by).getText();
+    }
+
+    protected static String lerValor(By by) {
+        waitElement(by);
+        return element(by).getAttribute("value");
     }
 
     protected static void sendTab(By by){
@@ -54,5 +67,18 @@ public class Interactions extends Elements{
         WebElement element = wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector(path)));
         element.clear();
     }
+
+
+    protected static void pegarInputSelect(By by, int option){
+        waitElement(by);
+        Select select = new Select(element(by));
+        select.selectByIndex(option);
+    }
+
+    protected static String pegarCor(By by){
+        waitElement(by);
+        return element(by).getCssValue("background-color");
+    }
+
 
 }
