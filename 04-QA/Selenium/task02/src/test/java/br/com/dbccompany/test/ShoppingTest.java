@@ -156,4 +156,19 @@ public class ShoppingTest extends BaseTest {
         womenPage.clicarBtnOk();
     }
 
+    @Test
+    public void testEnviarParaAmigoInvalido() throws InterruptedException {
+        womenPage.clicarBtnWomen();
+        womenPage.clicarBtnBlouse();
+        Thread.sleep(200);
+        womenPage.clicarBtnEnviarAmigo();
+        womenPage.preencherNomeAmigo();
+        womenPage.preencherEmailAmigoInvalido();
+        womenPage.clicarBtnEnviar();
+        Thread.sleep(200);
+        validation.validarElementoEstaVisivel(womenPage.pegarCardEnviadoParaAmigo());
+        validation.validarNaoEstaNulo(womenPage.pegarTextoEnviadoParaAmigo());
+        womenPage.clicarBtnOk();
+    }
+
 }
