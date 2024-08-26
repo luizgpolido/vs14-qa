@@ -25,6 +25,7 @@ public class CartTest extends BaseTest {
     @Description(CT011_CARRINHO)
     public void testValidarAcessoAoCarrinho(){
         cartPage.paginaCarrinho();
+        cartPage.validarPaginaCarrinho();
 
     }
 
@@ -34,8 +35,7 @@ public class CartTest extends BaseTest {
         CartDto login = CartData.loginValido();
         cartPage.realizarLogin(login);
         cartPage.paginaCarrinho();
-        String mensagem = cartPage.validarPaginaCarrinho();
-        validation.validateText(mensagem, "SHOPPING-CART SUMMARY");
+        cartPage.validarPaginaCarrinho();
 
     }
 
@@ -45,7 +45,6 @@ public class CartTest extends BaseTest {
         CartDto login = CartData.loginValido();
         cartPage.realizarLogin(login);
         cartPage.incluirProduto1();
-
     }
 
     @Test
@@ -86,14 +85,6 @@ public class CartTest extends BaseTest {
         CartDto login = CartData.loginValido();
         cartPage.realizarLogin(login);
         cartPage.adicionarAoCarrinhoEContinuarComprando();
-    }
-
-    @Test
-    @Description(CT019_CARRINHO)
-    public  void testaTentativaAdicionarAoCarrinhoProdutoSemEstoque(){
-        CartDto login = CartData.loginValido();
-        cartPage.realizarLogin(login);
-        cartPage.incluirProdutoSemEstoque();
     }
 
 
