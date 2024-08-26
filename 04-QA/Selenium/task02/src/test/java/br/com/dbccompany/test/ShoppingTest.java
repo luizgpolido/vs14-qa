@@ -106,4 +106,17 @@ public class ShoppingTest extends BaseTest {
         validation.validateText("-3",womenPage.pegarQuantidadeCarrinho());
     }
 
+    @Test
+    public void testValidarQuantidadeDeRoupasComValorMaiorQueEmEstoque() throws InterruptedException {
+        womenPage.clicarBtnWomen();
+        womenPage.clicarBtnBlouse();
+        womenPage.preencherTamanho();
+        womenPage.clicarBtnCorPreta();
+        womenPage.clicarBtnCorPreta();
+        womenPage.preencherQuantidadeAcimaEstoque();
+        womenPage.clicarEmAddToCart();
+        Thread.sleep(200);
+        validation.validateText("There isn't enough product in stock." , womenPage.pegarTextoEstoqueInsuficiente());
+    }
+
 }
