@@ -257,6 +257,10 @@ public class WomenPage extends Interactions {
         sendKeys(inputEmailAmigo, faker.emailFaker());
     }
 
+    public void preencherEmailAmigoInvalido(){
+        sendKeys(inputEmailAmigo, "abc");
+    }
+
     public void clicarBtnEnviar(){
         click(btnEnviar);
     }
