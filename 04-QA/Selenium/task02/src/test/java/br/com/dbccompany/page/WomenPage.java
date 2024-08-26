@@ -65,6 +65,12 @@ public class WomenPage extends Interactions {
             = By.cssSelector("#product > div.fancybox-overlay.fancybox-overlay-fixed > div > div > div > div > p");
     private static final By qtdEstoque
             = By.cssSelector("#quantityAvailable");
+    private static final By btnList
+            = By.cssSelector("#list > a");
+    private static final By textDescricaoPrimeiroProduto
+            = By.cssSelector("#center_column > ul > li:nth-child(1) > div > div > div.center-block.col-xs-4.col-xs-7.col-md-4 > p");
+    private static final By imgPrimeiroProduto
+            = By.cssSelector("#center_column > ul > li:nth-child(1) > div > div > div.left-block.col-xs-4.col-xs-5.col-md-4 > div");
 
 
     public void clicarBtnWomen(){
@@ -172,6 +178,10 @@ public class WomenPage extends Interactions {
         rolarAteElemento(primeiraRoupa);
     }
 
+    public void rolarAteRoupasEmList(){
+        rolarAteElemento(imgPrimeiroProduto);
+    }
+
     public String pegarNomePrimeiraRoupa(){
         return  lerTexto(nomePrimeiraRoupa);
     }
@@ -200,5 +210,16 @@ public class WomenPage extends Interactions {
         return lerTexto(qtdEstoque);
     }
 
+    public void clicarBtnList() {
+        click(btnList);
+    }
+
+    public String pegarDescricaoPrimeiroProduto(){
+        return lerTexto(textDescricaoPrimeiroProduto);
+    }
+
+    public By pegarPrimeiraFoto(){
+        return (imgPrimeiroProduto);
+    }
 
 }
