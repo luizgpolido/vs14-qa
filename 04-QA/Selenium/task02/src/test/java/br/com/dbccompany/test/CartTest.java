@@ -34,8 +34,7 @@ public class CartTest extends BaseTest {
         CartDto login = CartData.loginValido();
         cartPage.realizarLogin(login);
         cartPage.paginaCarrinho();
-        String mensagem = cartPage.validarPaginaCarrinho();
-        validation.validateText(mensagem, "SHOPPING-CART SUMMARY");
+        cartPage.validarPaginaCarrinho();
 
     }
 
@@ -45,7 +44,6 @@ public class CartTest extends BaseTest {
         CartDto login = CartData.loginValido();
         cartPage.realizarLogin(login);
         cartPage.incluirProduto1();
-
     }
 
     @Test

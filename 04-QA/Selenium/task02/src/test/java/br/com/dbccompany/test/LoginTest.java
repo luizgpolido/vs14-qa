@@ -19,6 +19,7 @@ public class LoginTest extends BaseTest {
     Validation validation = new Validation();
 
     @Test
+    @Description(CT210_LOGIN)
     public void testvalidarLoginDadosValidos() {
         LoginDto usu =  loginData.loginDadosValidos();
         loginPage.fazerLogin(usu.getEmail(), usu.getSenha());
@@ -26,6 +27,16 @@ public class LoginTest extends BaseTest {
         String nomeLogado = loginPage.validarNomeLogado();
         validation.validateText("Sala Nove",nomeLogado);
     }
+
+    @Test
+    @Description(CT229_LOGIN)
+    public void testvalidarLoginDadosInvalidos() {
+        LoginDto usu =  loginData.LoginDadoDinamicos();
+        loginPage.fazerLogin(usu.getEmail(), usu.getSenha());
+        String msg = loginPage.validarWarning();
+        validation.validateText("Authentication failed.",msg);
+    }
+
 
 }
 

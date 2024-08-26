@@ -1,15 +1,21 @@
 package br.com.dbccompany.factory.selenium;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 
 import java.util.List;
 import java.util.Random;
+import org.openqa.selenium.support.ui.Select;
 
-import static br.com.dbccompany.factory.selenium.Waits.waitElement;
+import java.util.List;
+
+import static br.com.dbccompany.factory.selenium.Waits.*;
 
 public class Interactions extends Elements{
     protected static void sendKeys(By by, String text) {
@@ -18,13 +24,24 @@ public class Interactions extends Elements{
     }
 
     protected static void click(By by) {
-        waitElement(by);
+        waitElementVisibily(by);
         element(by).click();
+    }
+
+    protected static void clear(By by) {
+        waitElementVisibily(by);
+        element(by).clear();
     }
 
     protected static String lerTexto(By by) {
         waitElement(by);
         return element(by).getText();
+    }
+
+
+    protected static String lerValor(By by) {
+        waitElement(by);
+        return element(by).getAttribute("value");
     }
 
     protected static void sendTab(By by){
@@ -47,5 +64,32 @@ public class Interactions extends Elements{
             i = i+1;
         }
         select.selectByIndex(i);
+    }
+
+    protected static void limparCampo(String path){
+        WebElement element = wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector(path)));
+        element.clear();
+    }
+
+
+    protected static void pegarInputSelect(By by, int option){
+        waitElement(by);
+        Select select = new Select(element(by));
+        select.selectByIndex(option);
+    }
+
+    protected static String pegarCor(By by){
+        waitElement(by);
+        return element(by).getCssValue("background-color");
+    }
+
+    protected static void moverMouseParaElemento(By by){
+        Actions actions = new Actions(driver);
+        actions.moveToElement(element(by)).perform();
+    }
+
+    protected static void rolarAteElemento(By by){
+        WebElement element = driver.findElement(by);
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
     }
 }
