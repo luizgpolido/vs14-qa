@@ -26,6 +26,10 @@ public class Validation {
         Assertions.assertEquals(URLEsperada, URLRecebida);
     }
 
+    public void validarBooleanFalso(boolean condicao){
+        Assertions.assertFalse(condicao);
+    }
+
     public void validarPrecoDoMaisBaratoParaMaisCaro(String maisCaro, String maisBarato){
         Assertions.assertTrue(Integer.parseInt(maisBarato.substring(1)) < Integer.parseInt(maisCaro.substring(1)) );
     }
