@@ -14,5 +14,6 @@ public class CartStory {
     public static final String CT016_CARRINHO = "CT016 - Validar compra de um produto no carrinho de compras pelo meio de pagamento Pay by Check";
     public static final String CT017_CARRINHO = "CT017 - Validar compra de um produto no carrinho de compras pelo meio de pagamento Pay by bank wire";
     public static final String CT018_CARRINHO = "CT018 - Validar incluisão de produto ao carrinho de compras e continuar comprando";
+    public static final String CT019_CARRINHO = "CT019 - Tentativa de incluisão de produto ao carrinho semm estoque";
 
 }
