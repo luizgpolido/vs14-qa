@@ -1,7 +1,9 @@
 package br.com.dbccompany.factory.selenium;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.WebElement;
@@ -35,6 +37,7 @@ public class Interactions extends Elements{
         waitElement(by);
         return element(by).getText();
     }
+
 
     protected static String lerValor(By by) {
         waitElement(by);
@@ -80,5 +83,13 @@ public class Interactions extends Elements{
         return element(by).getCssValue("background-color");
     }
 
+    protected static void moverMouseParaElemento(By by){
+        Actions actions = new Actions(driver);
+        actions.moveToElement(element(by)).perform();
+    }
 
+    protected static void rolarAteElemento(By by){
+        WebElement element = driver.findElement(by);
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
+    }
 }

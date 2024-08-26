@@ -43,6 +43,24 @@ public class WomenPage extends Interactions {
             = By.cssSelector("#center_column > ul > li:nth-child(1) > div > div.right-block > div.content_price > span.price.product-price");
     private static final By roupaMaisCara
             = By.cssSelector("#center_column > ul > li.ajax_block_product.col-xs-12.col-sm-6.col-md-4.first-in-line.last-line.first-item-of-tablet-line.first-item-of-mobile-line.last-mobile-line > div > div.right-block > div.content_price > span");
+    private static  final By primeiraRoupa
+            = By.cssSelector("#center_column > ul > li:nth-child(1) > div > div.left-block > div");
+    private static  final By segundaRoupa
+            = By.cssSelector("#center_column > ul > li:nth-child(2) > div > div.left-block > div");
+    private static  final By btnprimeiraRoupa
+            = By.cssSelector("#center_column > ul > li:nth-child(1) > div > div.functional-buttons.clearfix > div > a");
+    private static  final By btnsegundaRoupa
+            = By.cssSelector("#center_column > ul > li:nth-child(2) > div > div.functional-buttons.clearfix > div > a");
+    private static final By nomePrimeiraRoupaCompare
+            = By.cssSelector("#product_comparison > tbody > tr:nth-child(1) > td.ajax_block_product.comparison_infos.product-block.product-1 > h5 > a");
+    private static final By nomeSegundaRoupaCompare
+            = By.cssSelector("#product_comparison > tbody > tr:nth-child(1) > td.ajax_block_product.comparison_infos.product-block.product-2 > h5 > a");
+    private static final By btnCompare
+            = By.cssSelector("#center_column > div.content_sortPagiBar.clearfix > div.top-pagination-content.clearfix > form > button");
+    private static final By nomePrimeiraRoupa
+            = By.cssSelector("#center_column > ul > li:nth-child(1) > div > div.right-block > h5 > a");
+    private static final By nomeSegundaRoupa
+            = By.cssSelector("#center_column > ul > li:nth-child(2) > div > div.right-block > h5 > a");
 
     public void clicarBtnWomen(){
         click(btnWomen);
@@ -118,4 +136,48 @@ public class WomenPage extends Interactions {
     public String pegarRoupaMaisBarata() {
         return  lerTexto(roupaMaisBarata);
     }
+
+    public void moverMouseRoupa1() {
+        moverMouseParaElemento(primeiraRoupa);
+    }
+
+    public void moverMouseRoupa2() {
+        moverMouseParaElemento(segundaRoupa);
+    }
+
+    public void clicarBtnAdicionarCompare1() {
+        click(btnprimeiraRoupa);
+    }
+
+    public void clicarBtnAdicionarCompare2() {
+        click(btnsegundaRoupa);
+    }
+
+    public void rolarAteRoupas(){
+        rolarAteElemento(primeiraRoupa);
+    }
+
+    public String pegarNomePrimeiraRoupa(){
+        return  lerTexto(nomePrimeiraRoupa);
+    }
+
+    public String pegarNomeSegundaRoupa(){
+        return  lerTexto(nomeSegundaRoupa);
+    }
+
+    public String pegarNomePrimeiraRoupaCompare(){
+        return  lerTexto(nomePrimeiraRoupaCompare);
+    }
+
+    public String pegarNomeSegundaRoupaCompare(){
+        return  lerTexto(nomeSegundaRoupaCompare);
+    }
+
+    public void clicarBtnCompare(){
+        click(btnCompare);
+    }
+
+
+
+
 }

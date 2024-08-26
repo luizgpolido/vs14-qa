@@ -77,5 +77,21 @@ public class ShoppingTest extends BaseTest {
 
     }
 
+    @Test
+    public void testValidarComparacaoDeRoupas() throws InterruptedException {
+        womenPage.clicarBtnWomen();
+        womenPage.rolarAteRoupas();
+        womenPage.moverMouseRoupa1();
+        womenPage.clicarBtnAdicionarCompare1();
+        String nomePrimeiraRoupa = womenPage.pegarNomePrimeiraRoupa();
+        String nomeSegundaRoupa = womenPage.pegarNomeSegundaRoupa();
+        Thread.sleep(200);
+        womenPage.moverMouseRoupa2();
+        womenPage.clicarBtnAdicionarCompare2();
+        womenPage.clicarBtnCompare();
+        validation.validateText(nomePrimeiraRoupa , womenPage.pegarNomePrimeiraRoupaCompare());
+        validation.validateText(nomeSegundaRoupa, womenPage.pegarNomeSegundaRoupaCompare() );
+    }
 
 }
+
