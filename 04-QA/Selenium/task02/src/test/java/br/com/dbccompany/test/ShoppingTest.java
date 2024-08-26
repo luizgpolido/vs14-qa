@@ -66,5 +66,16 @@ public class ShoppingTest extends BaseTest {
 
     }
 
+    @Test
+    public void testValidarFiltroDePesquisPorPrecoMaiorParaMenor() throws InterruptedException {
+        womenPage.clicarBtnWomen();
+        womenPage.setInputPrice();
+        validation.validateText("WOMEN " , womenPage.pegarTextoCategoriesDresses());
+        Thread.sleep(700);
+        validation.validateURL(driver.getCurrentUrl(), "http://www.automationpractice.pl/index.php?id_category=3&controller=category&orderby=price&orderway=asc&orderway=asc");
+        validation.validarPrecoDoMaisBaratoParaMaisCaro(womenPage.pegarRoupaMaisCara(), womenPage.pegarRoupaMaisBarata());
+
+    }
+
 
 }

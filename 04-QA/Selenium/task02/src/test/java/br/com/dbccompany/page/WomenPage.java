@@ -37,6 +37,12 @@ public class WomenPage extends Interactions {
             = By.cssSelector("#center_column > h1 > span.cat-name");
     private static final By btnTamS
             = By.cssSelector("#ul_layered_id_attribute_group_1 > li:nth-child(1) > label > a");
+    private static final By inputPrice
+            = By.cssSelector("#selectProductSort");
+    private static final By roupaMaisBarata
+            = By.cssSelector("#center_column > ul > li:nth-child(1) > div > div.right-block > div.content_price > span.price.product-price");
+    private static final By roupaMaisCara
+            = By.cssSelector("#center_column > ul > li.ajax_block_product.col-xs-12.col-sm-6.col-md-4.first-in-line.last-line.first-item-of-tablet-line.first-item-of-mobile-line.last-mobile-line > div > div.right-block > div.content_price > span");
 
     public void clicarBtnWomen(){
         click(btnWomen);
@@ -101,5 +107,15 @@ public class WomenPage extends Interactions {
 
     public String pegarCorAvaliability(){
         return pegarCor(textoAvaliabilidade);
+    }
+
+    public void setInputPrice(){ pegarInputSelect(inputPrice , 1);}
+
+    public String pegarRoupaMaisCara() {
+        return  lerTexto(roupaMaisCara);
+    }
+
+    public String pegarRoupaMaisBarata() {
+        return  lerTexto(roupaMaisBarata);
     }
 }
