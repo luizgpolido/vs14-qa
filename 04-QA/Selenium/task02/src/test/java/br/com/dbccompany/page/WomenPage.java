@@ -1,11 +1,14 @@
 package br.com.dbccompany.page;
 
 import br.com.dbccompany.factory.selenium.Interactions;
+import br.com.dbccompany.util.DataFakerGenerator;
 import org.openqa.selenium.By;
 
 import static br.com.dbccompany.factory.selenium.Waits.waitElement;
 
 public class WomenPage extends Interactions {
+
+    private DataFakerGenerator faker = new DataFakerGenerator();
 
     private static final By btnWomen
             =  By.cssSelector("#block_top_menu > ul > li:nth-child(1) > a");
@@ -29,6 +32,10 @@ public class WomenPage extends Interactions {
             = By.cssSelector("#product_2_11_0_0 > td.cart_avail > span");
     private static final By btnCorPreta
             = By.cssSelector("#color_11");
+    private static final By inputEmailAmigo
+            = By.cssSelector("#friend_email");
+    private static final By inputNomeAmigo
+            = By.cssSelector("#friend_name");
     private static final By textoValorTotal
             = By.cssSelector("#total_product_price_2_11_0");
     private static final By btnDresses
@@ -61,6 +68,28 @@ public class WomenPage extends Interactions {
             = By.cssSelector("#center_column > ul > li:nth-child(1) > div > div.right-block > h5 > a");
     private static final By nomeSegundaRoupa
             = By.cssSelector("#center_column > ul > li:nth-child(2) > div > div.right-block > h5 > a");
+    private static final By textoEstoqueInsuficiente
+            = By.cssSelector("#product > div.fancybox-overlay.fancybox-overlay-fixed > div > div > div > div > p");
+    private static final By qtdEstoque
+            = By.cssSelector("#quantityAvailable");
+    private static final By btnList
+            = By.cssSelector("#list > a");
+    private static final By textDescricaoPrimeiroProduto
+            = By.cssSelector("#center_column > ul > li:nth-child(1) > div > div > div.center-block.col-xs-4.col-xs-7.col-md-4 > p");
+    private static final By imgPrimeiroProduto
+            = By.cssSelector("#center_column > ul > li:nth-child(1) > div > div > div.left-block.col-xs-4.col-xs-5.col-md-4 > div");
+    private static final By btnAddToCartDisabled
+            = By.cssSelector("#product_comparison > tbody > tr:nth-child(1) > td.ajax_block_product.comparison_infos.product-block.product-1 > div.comparison_product_infos > div > div > span");
+    private static final By btnEnviarParaAmigo
+            = By.cssSelector("#send_friend_button");
+    private static final By btnEnviar
+            = By.cssSelector("#sendEmail");
+    private static final By cardEnviado
+            = By.cssSelector("#product > div.fancybox-wrap.fancybox-desktop.fancybox-type-html.fancybox-opened > div");
+    private static final By cardEnviadoText
+            = By.cssSelector("#product > div.fancybox-wrap.fancybox-desktop.fancybox-type-html.fancybox-opened > div > div > div > p:nth-child(2)");
+    private static final By btnOk
+            = By.cssSelector("#product > div.fancybox-wrap.fancybox-desktop.fancybox-type-html.fancybox-opened > div > div > div > p.submit > input");
 
     public void clicarBtnWomen(){
         click(btnWomen);
@@ -90,6 +119,11 @@ public class WomenPage extends Interactions {
     public void preencherQuantidadeNegativa(){
         clear(quantidadeInput);
         sendKeys(quantidadeInput, "-3");
+    }
+
+    public void preencherQuantidadeAcimaEstoque(){
+        clear(quantidadeInput);
+        sendKeys(quantidadeInput, String.valueOf(Integer.parseInt( pegarEstoque() + 1)));
     }
 
     public void clicarEmAddToCart(){
@@ -162,6 +196,10 @@ public class WomenPage extends Interactions {
         rolarAteElemento(primeiraRoupa);
     }
 
+    public void rolarAteRoupasEmList(){
+        rolarAteElemento(imgPrimeiroProduto);
+    }
+
     public String pegarNomePrimeiraRoupa(){
         return  lerTexto(nomePrimeiraRoupa);
     }
@@ -182,7 +220,60 @@ public class WomenPage extends Interactions {
         click(btnCompare);
     }
 
+    public String pegarTextoEstoqueInsuficiente(){
+        return lerTexto(textoEstoqueInsuficiente);
+    }
 
+    public String pegarEstoque(){
+        return lerTexto(qtdEstoque);
+    }
 
+    public void clicarBtnList() {
+        click(btnList);
+    }
 
+    public String pegarDescricaoPrimeiroProduto(){
+        return lerTexto(textDescricaoPrimeiroProduto);
+    }
+
+    public By pegarPrimeiraFoto(){
+        return (imgPrimeiroProduto);
+    }
+
+    public boolean pegarBtnDesabilitado(){
+       String element = element(btnAddToCartDisabled).getAttribute("class");
+       return element.contains("bnt") && element.contains("disabled");
+    }
+
+    public void clicarBtnEnviarAmigo(){
+        click(btnEnviarParaAmigo);
+    }
+
+    public void preencherNomeAmigo(){
+        sendKeys(inputNomeAmigo, faker.firstNameFaker());
+    }
+
+    public void preencherEmailAmigo(){
+        sendKeys(inputEmailAmigo, faker.emailFaker());
+    }
+
+    public void preencherEmailAmigoInvalido(){
+        sendKeys(inputEmailAmigo, "abc");
+    }
+
+    public void clicarBtnEnviar(){
+        click(btnEnviar);
+    }
+
+    public void clicarBtnOk(){
+        click(btnOk);
+    }
+
+    public String pegarTextoEnviadoParaAmigo(){
+        return lerTexto(cardEnviadoText);
+    }
+
+    public By pegarCardEnviadoParaAmigo(){
+        return cardEnviado;
+    }
 }

@@ -24,6 +24,8 @@ public class LoginPage extends Interactions {
             By.cssSelector("#header > div > div > div > div.col-sm-8 > div > ul > li:nth-child(4) > a");
     private static final By msgmEmailIncorreto =
             By.cssSelector("#form > div > div > div.col-sm-4.col-sm-offset-1 > div > form > p");
+    private static final By warningMsg =
+    By.cssSelector("#center_column > div.alert.alert-danger > ol > li");
 
     public void clicarAppLogo() {click(appLogo);}
 
@@ -79,4 +81,7 @@ public class LoginPage extends Interactions {
         return lerTexto(btnCadastrar);
     }
 
+    public String validarWarning() {
+        return  lerTexto(warningMsg);
+    }
 }

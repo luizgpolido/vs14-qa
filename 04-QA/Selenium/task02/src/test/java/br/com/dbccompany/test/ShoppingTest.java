@@ -120,4 +120,69 @@ public class ShoppingTest extends BaseTest {
         validation.validateText("-3",womenPage.pegarQuantidadeCarrinho());
     }
 
+    @Test
+    public void testValidarQuantidadeDeRoupasComValorMaiorQueEmEstoque() throws InterruptedException {
+        womenPage.clicarBtnWomen();
+        womenPage.clicarBtnBlouse();
+        womenPage.preencherTamanho();
+        womenPage.clicarBtnCorPreta();
+        womenPage.clicarBtnCorPreta();
+        womenPage.preencherQuantidadeAcimaEstoque();
+        womenPage.clicarEmAddToCart();
+        Thread.sleep(200);
+        validation.validateText("There isn't enough product in stock." , womenPage.pegarTextoEstoqueInsuficiente());
+    }
+
+    @Test
+    public void testValidarTrocaDeGridParaLista(){
+        womenPage.clicarBtnWomen();
+        womenPage.clicarBtnList();
+        womenPage.rolarAteRoupasEmList();
+        validation.validarNaoEstaNulo(womenPage.pegarDescricaoPrimeiroProduto());
+        validation.validarElementoEstaVisivel(womenPage.pegarPrimeiraFoto());
+    }
+
+    @Test
+    public void testTentarAdicionarProdutoSemEstoqueDuranteComparacao() throws InterruptedException {
+        womenPage.clicarBtnWomen();
+        womenPage.rolarAteRoupas();
+        womenPage.moverMouseRoupa1();
+        womenPage.clicarBtnAdicionarCompare1();
+        Thread.sleep(200);
+        womenPage.moverMouseRoupa2();
+        womenPage.clicarBtnAdicionarCompare2();
+        womenPage.clicarBtnCompare();
+        validation.validarBooleanFalso(womenPage.pegarBtnDesabilitado());
+    }
+
+    @Test
+    public void testEnviarParaAmigoValido() throws InterruptedException {
+        womenPage.clicarBtnWomen();
+        womenPage.clicarBtnBlouse();
+        Thread.sleep(200);
+        womenPage.clicarBtnEnviarAmigo();
+        womenPage.preencherNomeAmigo();
+        womenPage.preencherEmailAmigo();
+        womenPage.clicarBtnEnviar();
+        Thread.sleep(200);
+        validation.validarElementoEstaVisivel(womenPage.pegarCardEnviadoParaAmigo());
+        validation.validarNaoEstaNulo(womenPage.pegarTextoEnviadoParaAmigo());
+        womenPage.clicarBtnOk();
+    }
+
+    @Test
+    public void testEnviarParaAmigoInvalido() throws InterruptedException {
+        womenPage.clicarBtnWomen();
+        womenPage.clicarBtnBlouse();
+        Thread.sleep(200);
+        womenPage.clicarBtnEnviarAmigo();
+        womenPage.preencherNomeAmigo();
+        womenPage.preencherEmailAmigoInvalido();
+        womenPage.clicarBtnEnviar();
+        Thread.sleep(200);
+        validation.validarElementoEstaVisivel(womenPage.pegarCardEnviadoParaAmigo());
+        validation.validarNaoEstaNulo(womenPage.pegarTextoEnviadoParaAmigo());
+        womenPage.clicarBtnOk();
+    }
+
 }
