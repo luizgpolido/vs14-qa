@@ -40,7 +40,6 @@ public class CartPage  extends Interactions {
     private static final By tipoDePagamentoPayByCheck = By.cssSelector("#HOOK_PAYMENT > div:nth-child(2) > div > p > a");
     private static final By btnConfirmarCompra = By.cssSelector("#cart_navigation > button > span");
     private static final By mensagemConfirmacaoCompra = By.cssSelector("#center_column > p.alert.alert-success");
-    private static final By mensaemValidarCarrinho = By.cssSelector("//h1[contains(text(), 'Shopping-cart summary')]");
     private static final By produtoSemEstoque = By.cssSelector("#availability_value");
 
 

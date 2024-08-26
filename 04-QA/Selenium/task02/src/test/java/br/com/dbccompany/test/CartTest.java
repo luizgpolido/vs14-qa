@@ -94,8 +94,8 @@ public class CartTest extends BaseTest {
         CartDto login = CartData.loginValido();
         cartPage.realizarLogin(login);
         cartPage.incluirProdutoSemEstoque();
-    }
 
+    }
 
 
 }
