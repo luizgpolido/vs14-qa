@@ -27,6 +27,16 @@ public class LoginTest extends BaseTest {
         validation.validateText("Sala Nove",nomeLogado);
     }
 
+    @Test
+    @Description(CT229_LOGIN)
+    public void testvalidarLoginDadosInvalidos() {
+        LoginDto usu =  loginData.LoginDadoDinamicos();
+        loginPage.fazerLogin(usu.getEmail(), usu.getSenha());
+        String msg = loginPage.validarWarning();
+        validation.validateText("Authentication failed.",msg);
+    }
+
+
 }
 
 
