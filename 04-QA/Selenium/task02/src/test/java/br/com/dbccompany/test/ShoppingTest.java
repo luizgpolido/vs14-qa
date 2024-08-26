@@ -119,4 +119,13 @@ public class ShoppingTest extends BaseTest {
         validation.validateText("There isn't enough product in stock." , womenPage.pegarTextoEstoqueInsuficiente());
     }
 
+    @Test
+    public void testValidarTrocaDeGridParaLista(){
+        womenPage.clicarBtnWomen();
+        womenPage.clicarBtnList();
+        womenPage.rolarAteRoupasEmList();
+        validation.validarNaoEstaNulo(womenPage.pegarDescricaoPrimeiroProduto());
+        validation.validarElementoEstaVisivel(womenPage.pegarPrimeiraFoto());
+    }
+
 }
