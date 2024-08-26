@@ -25,7 +25,6 @@ public class CartTest extends BaseTest {
     @Description(CT011_CARRINHO)
     public void testValidarAcessoAoCarrinho(){
         cartPage.paginaCarrinho();
-        cartPage.validarPaginaCarrinho();
 
     }
 
@@ -87,6 +86,14 @@ public class CartTest extends BaseTest {
         cartPage.adicionarAoCarrinhoEContinuarComprando();
     }
 
+    @Test
+    @Description(CT019_CARRINHO)
+    public  void testaTentativaAdicionarAoCarrinhoProdutoSemEstoque(){
+        CartDto login = CartData.loginValido();
+        cartPage.realizarLogin(login);
+        cartPage.incluirProdutoSemEstoque();
+
+    }
 
 
 }

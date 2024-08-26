@@ -7,7 +7,6 @@ import br.com.dbccompany.dto.CartDto;
 import br.com.dbccompany.factory.selenium.Interactions;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 
@@ -41,6 +40,7 @@ public class CartPage  extends Interactions {
     private static final By tipoDePagamentoPayByCheck = By.cssSelector("#HOOK_PAYMENT > div:nth-child(2) > div > p > a");
     private static final By btnConfirmarCompra = By.cssSelector("#cart_navigation > button > span");
     private static final By mensagemConfirmacaoCompra = By.cssSelector("#center_column > p.alert.alert-success");
+    private static final By produtoSemEstoque = By.cssSelector("#availability_value");
 
 
 
@@ -97,6 +97,19 @@ public class CartPage  extends Interactions {
         waitElement(produtoDisponivel);
         click(adicionarAoCarrinho);
         waitElementVisibily(msgConfimacaoAddProduto1);
+
+    }
+
+    public void incluirProdutoSemEstoque(){
+        click(paginaCompras);
+        rolarTela();
+        validarPaginaProdutos();
+        WebElement elementToHover = driver.findElement(By.cssSelector("#center_column > " +
+                "ul > li:nth-child(2) > div > div.left-block > div > a.product_img_link > img"));
+        Actions action = new Actions(driver);
+        action.moveToElement(elementToHover).perform();
+        click(maisInformacoes);
+        waitElement(produtoSemEstoque);
 
     }
 
