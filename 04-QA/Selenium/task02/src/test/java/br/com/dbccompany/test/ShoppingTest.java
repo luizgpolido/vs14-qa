@@ -128,4 +128,17 @@ public class ShoppingTest extends BaseTest {
         validation.validarElementoEstaVisivel(womenPage.pegarPrimeiraFoto());
     }
 
+    @Test
+    public void testTentarAdicionarProdutoSemEstoqueDuranteComparacao() throws InterruptedException {
+        womenPage.clicarBtnWomen();
+        womenPage.rolarAteRoupas();
+        womenPage.moverMouseRoupa1();
+        womenPage.clicarBtnAdicionarCompare1();
+        Thread.sleep(200);
+        womenPage.moverMouseRoupa2();
+        womenPage.clicarBtnAdicionarCompare2();
+        womenPage.clicarBtnCompare();
+        validation.validarBooleanFalso(womenPage.pegarBtnDesabilitado());
+    }
+
 }

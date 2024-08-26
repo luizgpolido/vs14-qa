@@ -71,6 +71,8 @@ public class WomenPage extends Interactions {
             = By.cssSelector("#center_column > ul > li:nth-child(1) > div > div > div.center-block.col-xs-4.col-xs-7.col-md-4 > p");
     private static final By imgPrimeiroProduto
             = By.cssSelector("#center_column > ul > li:nth-child(1) > div > div > div.left-block.col-xs-4.col-xs-5.col-md-4 > div");
+    private static final By btnAddToCartDisabled
+            = By.cssSelector("#product_comparison > tbody > tr:nth-child(1) > td.ajax_block_product.comparison_infos.product-block.product-1 > div.comparison_product_infos > div > div > span");
 
 
     public void clicarBtnWomen(){
@@ -220,6 +222,11 @@ public class WomenPage extends Interactions {
 
     public By pegarPrimeiraFoto(){
         return (imgPrimeiroProduto);
+    }
+
+    public boolean pegarBtnDesabilitado(){
+       String element = element(btnAddToCartDisabled).getAttribute("class");
+       return element.contains("bnt") && element.contains("disabled");
     }
 
 }
