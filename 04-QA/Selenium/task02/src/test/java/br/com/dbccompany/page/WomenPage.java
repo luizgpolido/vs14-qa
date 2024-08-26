@@ -87,6 +87,11 @@ public class WomenPage extends Interactions {
         sendKeys(quantidadeInput, "3");
     }
 
+    public void preencherQuantidadeNegativa(){
+        clear(quantidadeInput);
+        sendKeys(quantidadeInput, "-3");
+    }
+
     public void clicarEmAddToCart(){
         click(btnAddToCart);
     }

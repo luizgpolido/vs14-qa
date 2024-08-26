@@ -93,5 +93,17 @@ public class ShoppingTest extends BaseTest {
         validation.validateText(nomeSegundaRoupa, womenPage.pegarNomeSegundaRoupaCompare() );
     }
 
-}
+    @Test
+    public void testValidarQuantidadeDeRoupasNegativoComCarrinho(){
+        womenPage.clicarBtnWomen();
+        womenPage.clicarBtnBlouse();
+        womenPage.preencherTamanho();
+        womenPage.clicarBtnCorPreta();
+        womenPage.clicarBtnCorPreta();
+        womenPage.preencherQuantidadeNegativa();
+        womenPage.clicarEmAddToCart();
+        womenPage.clicarIrParaCheckout();
+        validation.validateText("-3",womenPage.pegarQuantidadeCarrinho());
+    }
 
+}
