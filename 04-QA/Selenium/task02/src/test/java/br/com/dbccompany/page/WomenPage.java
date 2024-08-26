@@ -61,6 +61,11 @@ public class WomenPage extends Interactions {
             = By.cssSelector("#center_column > ul > li:nth-child(1) > div > div.right-block > h5 > a");
     private static final By nomeSegundaRoupa
             = By.cssSelector("#center_column > ul > li:nth-child(2) > div > div.right-block > h5 > a");
+    private static final By textoEstoqueInsuficiente
+            = By.cssSelector("#product > div.fancybox-overlay.fancybox-overlay-fixed > div > div > div > div > p");
+    private static final By qtdEstoque
+            = By.cssSelector("#quantityAvailable");
+
 
     public void clicarBtnWomen(){
         click(btnWomen);
@@ -90,6 +95,11 @@ public class WomenPage extends Interactions {
     public void preencherQuantidadeNegativa(){
         clear(quantidadeInput);
         sendKeys(quantidadeInput, "-3");
+    }
+
+    public void preencherQuantidadeAcimaEstoque(){
+        clear(quantidadeInput);
+        sendKeys(quantidadeInput, String.valueOf(Integer.parseInt( pegarEstoque() + 1)));
     }
 
     public void clicarEmAddToCart(){
@@ -182,7 +192,13 @@ public class WomenPage extends Interactions {
         click(btnCompare);
     }
 
+    public String pegarTextoEstoqueInsuficiente(){
+        return lerTexto(textoEstoqueInsuficiente);
+    }
 
+    public String pegarEstoque(){
+        return lerTexto(qtdEstoque);
+    }
 
 
 }
