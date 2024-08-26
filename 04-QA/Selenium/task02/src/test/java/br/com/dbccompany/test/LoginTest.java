@@ -19,6 +19,7 @@ public class LoginTest extends BaseTest {
     Validation validation = new Validation();
 
     @Test
+    @Description(CT210_LOGIN)
     public void testvalidarLoginDadosValidos() {
         LoginDto usu =  loginData.loginDadosValidos();
         loginPage.fazerLogin(usu.getEmail(), usu.getSenha());
