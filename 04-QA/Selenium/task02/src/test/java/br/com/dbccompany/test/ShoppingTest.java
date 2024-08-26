@@ -121,6 +121,7 @@ public class ShoppingTest extends BaseTest {
     }
 
     @Test
+    @Description(CT107_SHOPPING)
     public void testValidarQuantidadeDeRoupasComValorMaiorQueEmEstoque() throws InterruptedException {
         womenPage.clicarBtnWomen();
         womenPage.clicarBtnBlouse();
@@ -134,6 +135,7 @@ public class ShoppingTest extends BaseTest {
     }
 
     @Test
+    @Description(CT108_SHOPPING)
     public void testValidarTrocaDeGridParaLista(){
         womenPage.clicarBtnWomen();
         womenPage.clicarBtnList();
@@ -143,6 +145,7 @@ public class ShoppingTest extends BaseTest {
     }
 
     @Test
+    @Description(CT109_SHOPPING)
     public void testTentarAdicionarProdutoSemEstoqueDuranteComparacao() throws InterruptedException {
         womenPage.clicarBtnWomen();
         womenPage.rolarAteRoupas();
@@ -156,6 +159,7 @@ public class ShoppingTest extends BaseTest {
     }
 
     @Test
+    @Description(CT110_SHOPPING)
     public void testEnviarParaAmigoValido() throws InterruptedException {
         womenPage.clicarBtnWomen();
         womenPage.clicarBtnBlouse();
@@ -171,6 +175,7 @@ public class ShoppingTest extends BaseTest {
     }
 
     @Test
+    @Description(CT111_SHOPPING)
     public void testEnviarParaAmigoInvalido() throws InterruptedException {
         womenPage.clicarBtnWomen();
         womenPage.clicarBtnBlouse();
