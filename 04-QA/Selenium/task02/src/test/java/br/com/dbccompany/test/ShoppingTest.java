@@ -2,14 +2,22 @@ package br.com.dbccompany.test;
 
 import br.com.dbccompany.factory.selenium.Validation;
 import br.com.dbccompany.page.WomenPage;
+import io.qameta.allure.Description;
+import io.qameta.allure.Epic;
+import io.qameta.allure.Story;
 import org.junit.jupiter.api.Test;
 
+import static storys.ShoppingStory.*;
+
+@Epic(EPIC)
+@Story(USER_STORY_SHOPPING)
 public class ShoppingTest extends BaseTest {
 
     WomenPage womenPage = new WomenPage();
     Validation validation = new Validation();
 
     @Test
+    @Description(CT101_SHOPPING)
     public void testValidarQuantidadeDeRoupasComCarrinho(){
         womenPage.clicarBtnWomen();
         womenPage.clicarBtnBlouse();
@@ -28,6 +36,7 @@ public class ShoppingTest extends BaseTest {
     }
 
     @Test
+    @Description(CT102_SHOPPING)
     public void testValidarQuantidadeValorDoCarrinho(){
         womenPage.clicarBtnWomen();
         womenPage.clicarBtnBlouse();
@@ -47,6 +56,7 @@ public class ShoppingTest extends BaseTest {
     }
 
     @Test
+    @Description(CT103_SHOPPING)
     public void testValidarFiltroDePesquisPorDresses() throws InterruptedException {
         womenPage.clicarBtnWomen();
         womenPage.clicarBtnDresses();
@@ -57,6 +67,7 @@ public class ShoppingTest extends BaseTest {
     }
 
     @Test
+    @Description(CT104_SHOPPING)
     public void testValidarFiltroDePesquisPorTamanho() throws InterruptedException {
         womenPage.clicarBtnWomen();
         womenPage.clicarBtnTamS();
@@ -67,6 +78,7 @@ public class ShoppingTest extends BaseTest {
     }
 
     @Test
+    @Description(CT105_SHOPPING)
     public void testValidarFiltroDePesquisPorPrecoMaiorParaMenor() throws InterruptedException {
         womenPage.clicarBtnWomen();
         womenPage.setInputPrice();
@@ -78,6 +90,7 @@ public class ShoppingTest extends BaseTest {
     }
 
     @Test
+    @Description(CT106_SHOPPING)
     public void testValidarComparacaoDeRoupas() throws InterruptedException {
         womenPage.clicarBtnWomen();
         womenPage.rolarAteRoupas();
@@ -94,6 +107,7 @@ public class ShoppingTest extends BaseTest {
     }
 
     @Test
+    @Description(CT113_SHOPPING)
     public void testValidarQuantidadeDeRoupasNegativoComCarrinho(){
         womenPage.clicarBtnWomen();
         womenPage.clicarBtnBlouse();
