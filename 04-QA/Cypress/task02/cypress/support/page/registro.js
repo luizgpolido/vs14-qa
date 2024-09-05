@@ -36,19 +36,19 @@ Cypress.Commands.add('registroComEmailInvalido', (usuario) => {
         cy.clicar(cadastrarBtn)
         cy.validarTexto(formatoInvalidoEmail, "Formato inválido")
     })
-})
-
-Cypress.Commands.add('registroComNomeVazio', (usuario) => {
-    cy.gerarUsuario(usuario)
-    cy.fixture('/loginData').then((usuario) => {
-        cy.clicar(btnRegister)
-        cy.preencherCampo(campoEmail, usuario.email)
-        cy.preencherCampo(campoNome, usuario.nome)
-        cy.preencherCampo(campoSenha, usuario.senha)
-        cy.preencherCampo(confirmacaoSenha, usuario.senha)
-        cy.clicar(comSaldoBtn)
-        cy.clicar(cadastrarBtn)
-        cy.validarTexto(modalText, "Nome")
     })
-})
+
+    Cypress.Commands.add('registroComNomeVazio', (usuario) => {
+        cy.gerarUsuario(usuario)
+        cy.fixture('/loginData').then((usuario) => {
+            cy.clicar(btnRegister)
+            cy.preencherCampo(campoEmail, usuario.email)
+            cy.preencherCampo(campoNome, usuario.nome)
+            cy.preencherCampo(campoSenha, usuario.senha)
+            cy.preencherCampo(confirmacaoSenha, usuario.senha)
+            cy.clicar(comSaldoBtn)
+            cy.clicar(cadastrarBtn)
+            cy.validarTexto(modalText, "Nome")
+        })
+    })
 

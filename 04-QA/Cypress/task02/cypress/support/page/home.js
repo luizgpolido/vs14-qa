@@ -21,4 +21,18 @@ export default class HomePage{
         })
     }
 
+    pegarNumeroContaFixture() {
+        return cy.get(this.numeroConta).invoke('text').then((id) => {
+            const accountNumber = id.split('-');
+            const numeroConta = accountNumber[0];
+            const digitoConta = accountNumber[1];
+
+            cy.writeFile("cypress/fixtures/dadosTransferencia.json", {
+                "numero": numeroConta,
+                "digito": digitoConta
+            });
+        });
+    }
+
+
 }
