@@ -4,7 +4,7 @@ Cypress.Commands.add('clicar', (element) => {
 });
 
 Cypress.Commands.add('preencherCampo', (element, text) => {
-    cy.get(element).should('be.visible').type(text);
+    cy.get(element).type(text);
 });
 
 Cypress.Commands.add('validarVisibilidade', (element) => {

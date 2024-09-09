@@ -18,6 +18,8 @@ import './commands'
 import './pages/base'
 import './pages/login'
 import './pages/register'
+import './pages/billpay'
+import './pages/recoverypassword'
 // Alternatively you can use CommonJS syntax:
 // require('./commands')
 
@@ -26,4 +28,17 @@ beforeEach(() => {
          overwrite: true,
          disableTimersAndAnimations: true,
      })
+})
+
+before(()=>{
+    cy.visit('https://parabank.parasoft.com/parabank/about.htm')
+    cy.clicar('.leftmenu > :nth-child(6) > a')
+    cy.clicar('input[value="jdbc"]')
+    cy.clicar('input[value="Submit"]')
+})
+
+afterEach(()=>{
+    cy.visit('https://parabank.parasoft.com/parabank/about.htm')
+    cy.clicar('.leftmenu > :nth-child(6) > a')
+    cy.clicar('button[value="CLEAN"]')
 })

@@ -14,7 +14,7 @@ export default class UserDataFactory {
             zipCode: faker.location.zipCode(),
             phone: faker.phone.number(),
             ssn: faker.helpers.replaceSymbols('###-##-####'),
-            username: faker.internet.userName(),
+            username: faker.internet.userName() + faker.internet.userName(),
             password: faker.internet.password()
         }
     }
