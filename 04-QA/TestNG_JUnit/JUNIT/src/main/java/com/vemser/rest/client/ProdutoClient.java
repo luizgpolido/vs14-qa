@@ -82,7 +82,6 @@ public class ProdutoClient extends BaseClient{
         return
                 given()
                         .spec(super.set())
-                        .header("Authorization" , bearerToken)
                         .contentType("json/aplication")
                 .when()
                    .get(PRODUTO)
